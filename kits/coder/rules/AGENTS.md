@@ -2,7 +2,7 @@
 trigger: manual
 ---
 
-# CODEX.md - AGT-Kit
+# AGENTS.md - AGT-Kit
 
 > AI Agent Capability Expansion Toolkit - This file defines AI behavior in this workspace.
 
@@ -26,7 +26,7 @@ AGT-Kit is a portable, modular AI agent system consisting of:
 
 Agent activated → Check frontmatter `skills:` → Read SKILL.md → Apply.
 
-- **Priority:** P0 (GEMINI.md) > P1 (Agent.md) > P2 (SKILL.md). All binding.
+- **Priority:** P0 (AGENTS.md) > P1 (Agent.md) > P2 (SKILL.md). All binding.
 - **Enforcement:** Never skip reading. "Read → Understand → Apply" mandatory.
 
 ---

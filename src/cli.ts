@@ -173,9 +173,12 @@ async function main() {
 
   // Calculate final installation path
   const finalInstallPath = getInstallPath(aiTool, scope, workspacePath);
+  // Rules file location (2025 standard: all tools use rulesInsideKit=true)
+  // Both global and workspace installs keep rules inside kit directory
+  // Examples: ~/.claude/CLAUDE.md, ./.gemini/GEMINI.md, ./.cursor/rules/rules.md
   const rulesFilePath =
-    scope === "global"
-      ? path.join(os.homedir(), aiTool.rulesFile)
+    scope === "global" || aiTool.rulesInsideKit
+      ? path.join(finalInstallPath, aiTool.rulesFile)
       : path.join(workspacePath, aiTool.rulesFile);
 
   // Step 4: Check if already installed
@@ -285,10 +288,7 @@ async function main() {
       scope,
     });
 
-    const isGlobal = scope === "global";
-    const rulesFile = isGlobal
-      ? path.join(os.homedir(), aiTool.rulesFile)
-      : path.join(workspacePath, aiTool.rulesFile);
+    // Use the rulesFilePath already calculated above
 
     s.stop("Installation complete! 🎉");
 
@@ -304,7 +304,7 @@ async function main() {
           `${pc.green("✔")} Agents Deployed`,
           "",
           pc.bold("👉 NEXT STEPS:"),
-          `1. Open ${pc.cyan(getDisplayPath(rulesFile))}`,
+          `1. Open ${pc.cyan(getDisplayPath(rulesFilePath))}`,
           `2. Read the instructions`,
           `3. Type ${pc.magenta("/plan")} or ${pc.magenta("/create")} to start`,
         ].join("\n"),

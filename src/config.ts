@@ -9,6 +9,7 @@ export interface AITool {
   globalPathPattern: string; // Global path pattern (uses ~ for display, resolved at runtime)
   rulesFile: string;
   kitRulesFile: string; // Source file in kit's rules/ folder
+  rulesInsideKit?: boolean; // If true, rules file goes inside kit folder even for workspace install
 }
 
 export interface Kit {
@@ -60,6 +61,7 @@ export const AI_TOOLS: AITool[] = [
     globalPathPattern: "~/.claude", // Resolved to home dir at runtime
     rulesFile: "CLAUDE.md",
     kitRulesFile: "CLAUDE.md",
+    rulesInsideKit: true, // Claude reads from .claude/CLAUDE.md (2025 standard)
   },
   {
     id: "gemini",
@@ -69,6 +71,7 @@ export const AI_TOOLS: AITool[] = [
     globalPathPattern: "~/.gemini",
     rulesFile: "GEMINI.md",
     kitRulesFile: "GEMINI.md",
+    rulesInsideKit: true, // Gemini reads from .gemini/GEMINI.md
   },
   {
     id: "codex",
@@ -76,8 +79,9 @@ export const AI_TOOLS: AITool[] = [
     icon: "🟢",
     path: ".codex",
     globalPathPattern: "~/.codex",
-    rulesFile: "CODEX.md",
-    kitRulesFile: "CODEX.md",
+    rulesFile: "AGENTS.md",
+    kitRulesFile: "AGENTS.md",
+    rulesInsideKit: true, // Codex reads from .codex/AGENTS.md
   },
   {
     id: "antigravity",
@@ -87,15 +91,17 @@ export const AI_TOOLS: AITool[] = [
     globalPathPattern: "~/.agent",
     rulesFile: "GEMINI.md",
     kitRulesFile: "GEMINI.md",
+    rulesInsideKit: true, // Antigravity reads GEMINI.md from inside .agent/
   },
   {
     id: "cursor",
     name: "Cursor",
     icon: "⚪",
-    path: ".cursor",
-    globalPathPattern: "~/.cursor",
-    rulesFile: ".cursorrules",
-    kitRulesFile: ".cursorrules",
+    path: ".cursor/rules", // Modern path: .cursor/rules/ (2025 standard)
+    globalPathPattern: "~/.cursor/rules",
+    rulesFile: "rules.md", // Modern: .cursor/rules/rules.md instead of .cursorrules
+    kitRulesFile: "CURSOR.md", // Source file in kit
+    rulesInsideKit: true,
   },
   {
     id: "custom",

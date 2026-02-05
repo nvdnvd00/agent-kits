@@ -44,10 +44,15 @@ export async function installKit(
     // Copy kit contents (excluding rules folder - we handle that separately)
     await copyDirectory(kitSourcePath, kitTargetPath, ["rules"]);
 
-    // Create rules file at root level (read from kit's rules/ folder)
-    // Use the specific rules file for this AI tool
+    // Create rules file (2025 standard: all tools use rulesInsideKit=true)
+    // - Global: inside kit directory (e.g., ~/.gemini/GEMINI.md, ~/.cursor/rules/rules.md)
+    // - Workspace: inside kit directory (e.g., ./.claude/CLAUDE.md, ./.cursor/rules/rules.md)
+    // This keeps project root clean and follows each tool's modern conventions
     const rulesSource = path.join(kitSourcePath, "rules", aiTool.kitRulesFile);
-    const rulesTarget = path.join(targetPath, aiTool.rulesFile);
+    const rulesTarget =
+      options.scope === "global" || aiTool.rulesInsideKit
+        ? path.join(kitTargetPath, aiTool.rulesFile) // Inside kit: ~/.gemini/GEMINI.md or ./.agent/GEMINI.md
+        : path.join(targetPath, aiTool.rulesFile); // Project root: ./GEMINI.md
 
     try {
       let rulesContent = await fs.readFile(rulesSource, "utf-8");
