@@ -1,6 +1,6 @@
 # Common Skills Layer
 
-> Universal skills shared across ALL kits in @neos/agent-kits
+> Universal skills shared across ALL kits in @neyugn/agent-kits
 
 ---
 
@@ -42,7 +42,7 @@ common/
 
 ### Installation
 
-Khi user chạy `npx @neos/agent-kits`:
+Khi user chạy `npx @neyugn/agent-kits`:
 
 1. User chọn kit (e.g., `coder`)
 2. Installer copy kit vào workspace

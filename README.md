@@ -10,9 +10,9 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@neos/agent-kits"><img src="https://img.shields.io/npm/v/@neos/agent-kits?style=flat-square&color=00ADD8" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/@neos/agent-kits"><img src="https://img.shields.io/npm/dm/@neos/agent-kits?style=flat-square&color=00ADD8" alt="npm downloads" /></a>
-  <a href="https://github.com/neos/agent-kits/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="license" /></a>
+  <a href="https://www.npmjs.com/package/@neyugn/agent-kits"><img src="https://img.shields.io/npm/v/@neyugn/agent-kits?style=flat-square&color=00ADD8" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/@neyugn/agent-kits"><img src="https://img.shields.io/npm/dm/@neyugn/agent-kits?style=flat-square&color=00ADD8" alt="npm downloads" /></a>
+  <a href="https://github.com/nvdnvd00/agent-kits/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="license" /></a>
 </p>
 
 <p align="center">
@@ -47,7 +47,7 @@ Works with **any AI tool** — Claude, Gemini, Codex, Cursor, and more.
 ## 🚀 Quick Start
 
 ```bash
-npx @neos/agent-kits
+npx @neyugn/agent-kits
 ```
 
 That's it! The interactive installer will guide you through:
@@ -64,7 +64,7 @@ That's it! The interactive installer will guide you through:
 ### 🎯 One Command, Any Tool
 
 ```bash
-npx @neos/agent-kits
+npx @neyugn/agent-kits
 ```
 
 ```
@@ -218,7 +218,7 @@ These skills are always enabled regardless of techstack:
 
 ### 💻 Coder Kit
 
-Complete toolkit for software development with **22 specialist agents**, **39 skills**, and **8 workflows**.
+Complete toolkit for software development with **22 specialist agents**, **40 skills**, and **7 workflows**.
 
 <details>
 <summary><b>🤖 Agents (22)</b></summary>
@@ -273,7 +273,7 @@ Complete toolkit for software development with **22 specialist agents**, **39 sk
 </details>
 
 <details>
-<summary><b>🧩 Skills (39)</b></summary>
+<summary><b>🧩 Skills (40)</b></summary>
 
 **Core Skills:**
 | Skill | Description |
@@ -292,12 +292,12 @@ Complete toolkit for software development with **22 specialist agents**, **39 sk
 | `plan-writing` | Task breakdown, WBS |
 | `systematic-debugging` | 4-phase debugging |
 
-**Domain Skills (30+):** `react-patterns`, `typescript-patterns`, `docker-patterns`, `kubernetes-patterns`, `terraform-patterns`, `auth-patterns`, `graphql-patterns`, `redis-patterns`, `realtime-patterns`, `queue-patterns`, `multi-tenancy`, `ai-rag-patterns`, `prompt-engineering`, `monitoring-observability`, `frontend-design`, `mobile-design`, `tailwind-patterns`, `e2e-testing`, `github-actions`, `gitlab-ci-patterns`, `flutter-patterns`, `react-native-patterns`, `seo-patterns`, `accessibility-patterns`, `mermaid-diagrams`, `i18n-localization`, `postgres-patterns`, `nodejs-best-practices`, `documentation-templates`, `ui-ux-pro-max`
+**Domain Skills (31):** `react-patterns`, `typescript-patterns`, `docker-patterns`, `kubernetes-patterns`, `terraform-patterns`, `auth-patterns`, `graphql-patterns`, `redis-patterns`, `realtime-patterns`, `queue-patterns`, `multi-tenancy`, `ai-rag-patterns`, `prompt-engineering`, `monitoring-observability`, `frontend-design`, `mobile-design`, `tailwind-patterns`, `e2e-testing`, `github-actions`, `gitlab-ci-patterns`, `flutter-patterns`, `react-native-patterns`, `seo-patterns`, `accessibility-patterns`, `mermaid-diagrams`, `i18n-localization`, `postgres-patterns`, `nodejs-best-practices`, `documentation-templates`, `ui-ux-pro-max`, `aws-patterns`
 
 </details>
 
 <details>
-<summary><b>📜 Workflows (8)</b></summary>
+<summary><b>📜 Workflows (7)</b></summary>
 
 | Command          | Description                   |
 | ---------------- | ----------------------------- |
@@ -308,7 +308,8 @@ Complete toolkit for software development with **22 specialist agents**, **39 sk
 | `/deploy`        | Production deployment         |
 | `/orchestrate`   | Multi-agent coordination      |
 | `/ui-ux-pro-max` | UI/UX design intelligence     |
-| `/filter`        | Workspace skill filtering     |
+
+> **Note:** The `/filter` command is part of **Common Skills Layer** (see below) and available in all kits.
 
 </details>
 
@@ -504,7 +505,7 @@ python3 kits/coder/skills/skill-creator/scripts/init_skill.py my-skill
 
 ## 📄 License
 
-MIT © [Neos](https://github.com/neos)
+MIT © [Neos](https://github.com/nvdnvd00)
 
 ---
 

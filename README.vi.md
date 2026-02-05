@@ -10,9 +10,9 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@neos/agent-kits"><img src="https://img.shields.io/npm/v/@neos/agent-kits?style=flat-square&color=00ADD8" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/@neos/agent-kits"><img src="https://img.shields.io/npm/dm/@neos/agent-kits?style=flat-square&color=00ADD8" alt="npm downloads" /></a>
-  <a href="https://github.com/neos/agent-kits/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="license" /></a>
+  <a href="https://www.npmjs.com/package/@neyugn/agent-kits"><img src="https://img.shields.io/npm/v/@neyugn/agent-kits?style=flat-square&color=00ADD8" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/@neyugn/agent-kits"><img src="https://img.shields.io/npm/dm/@neyugn/agent-kits?style=flat-square&color=00ADD8" alt="npm downloads" /></a>
+  <a href="https://github.com/nvdnvd00/agent-kits/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="license" /></a>
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@ Hoạt động với **mọi công cụ AI** — Claude, Gemini, Codex, Cursor, 
 ## 🚀 Bắt đầu nhanh
 
 ```bash
-npx @neos/agent-kits
+npx @neyugn/agent-kits
 ```
 
 Đó là tất cả! Installer tương tác sẽ hướng dẫn bạn:
@@ -56,7 +56,7 @@ npx @neos/agent-kits
 ### 🎯 Một lệnh, mọi công cụ
 
 ```bash
-npx @neos/agent-kits
+npx @neyugn/agent-kits
 ```
 
 ```
@@ -210,7 +210,7 @@ Các skills này luôn được bật bất kể techstack:
 
 ### 💻 Coder Kit
 
-Bộ công cụ hoàn chỉnh cho phát triển phần mềm với **22 agent chuyên gia**, **39 skills**, và **8 workflows**.
+Bộ công cụ hoàn chỉnh cho phát triển phần mềm với **22 agent chuyên gia**, **40 skills**, và **7 workflows**.
 
 <details>
 <summary><b>🤖 Agents (22)</b></summary>
@@ -265,7 +265,7 @@ Bộ công cụ hoàn chỉnh cho phát triển phần mềm với **22 agent ch
 </details>
 
 <details>
-<summary><b>🧩 Skills (39)</b></summary>
+<summary><b>🧩 Skills (40)</b></summary>
 
 **Core Skills:**
 | Skill | Mô tả |
@@ -284,12 +284,12 @@ Bộ công cụ hoàn chỉnh cho phát triển phần mềm với **22 agent ch
 | `plan-writing` | Phân chia task, WBS |
 | `systematic-debugging` | Debug 4 phase |
 
-**Domain Skills (30+):** `react-patterns`, `typescript-patterns`, `docker-patterns`, `kubernetes-patterns`, `terraform-patterns`, `auth-patterns`, `graphql-patterns`, `redis-patterns`, `realtime-patterns`, `queue-patterns`, `multi-tenancy`, `ai-rag-patterns`, `prompt-engineering`, `monitoring-observability`, `frontend-design`, `mobile-design`, `tailwind-patterns`, `e2e-testing`, `github-actions`, `gitlab-ci-patterns`, `flutter-patterns`, `react-native-patterns`, `seo-patterns`, `accessibility-patterns`, `mermaid-diagrams`, `i18n-localization`, `postgres-patterns`, `nodejs-best-practices`, `documentation-templates`, `ui-ux-pro-max`
+**Domain Skills (31):** `react-patterns`, `typescript-patterns`, `docker-patterns`, `kubernetes-patterns`, `terraform-patterns`, `auth-patterns`, `graphql-patterns`, `redis-patterns`, `realtime-patterns`, `queue-patterns`, `multi-tenancy`, `ai-rag-patterns`, `prompt-engineering`, `monitoring-observability`, `frontend-design`, `mobile-design`, `tailwind-patterns`, `e2e-testing`, `github-actions`, `gitlab-ci-patterns`, `flutter-patterns`, `react-native-patterns`, `seo-patterns`, `accessibility-patterns`, `mermaid-diagrams`, `i18n-localization`, `postgres-patterns`, `nodejs-best-practices`, `documentation-templates`, `ui-ux-pro-max`, `aws-patterns`
 
 </details>
 
 <details>
-<summary><b>📜 Workflows (8)</b></summary>
+<summary><b>📜 Workflows (7)</b></summary>
 
 | Lệnh             | Mô tả                           |
 | ---------------- | ------------------------------- |
@@ -300,7 +300,8 @@ Bộ công cụ hoàn chỉnh cho phát triển phần mềm với **22 agent ch
 | `/deploy`        | Deployment production           |
 | `/orchestrate`   | Điều phối đa agent              |
 | `/ui-ux-pro-max` | Thiết kế UI/UX thông minh       |
-| `/filter`        | Lọc skills theo workspace       |
+
+> **Lưu ý:** Lệnh `/filter` nằm trong **Common Skills Layer** (xem bên dưới) và có sẵn trong tất cả kits.
 
 </details>
 
@@ -400,7 +401,7 @@ node dist/cli.js
 
 ## 📄 Giấy phép
 
-MIT © [Neos](https://github.com/neos)
+MIT © [Neos](https://github.com/nvdnvd00)
 
 ---
 

@@ -27,7 +27,7 @@ Thank you for your interest in contributing to Agent Kits! 🎉
 
 ```bash
 # Clone the repository
-git clone https://github.com/neos/agent-kits.git
+git clone https://github.com/nvdnvd00/agent-kits.git
 cd agent-kits
 
 # Install dependencies

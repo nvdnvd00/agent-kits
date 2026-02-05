@@ -1,5 +1,5 @@
 {
-  "name": "@neos/agent-kits",
+  "name": "@neyugn/agent-kits",
   "version": "0.1.0",
   "description": "Universal AI Agent Toolkit - Skills, Agents, and Workflows for any AI coding assistant",
   "type": "module",
@@ -32,7 +32,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/neos/agent-kits"
+    "url": "https://github.com/nvdnvd00/agent-kits"
   },
   "engines": {
     "node": ">=18"

@@ -10,9 +10,9 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@neos/agent-kits"><img src="https://img.shields.io/npm/v/@neos/agent-kits?style=flat-square&color=00ADD8" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/@neos/agent-kits"><img src="https://img.shields.io/npm/dm/@neos/agent-kits?style=flat-square&color=00ADD8" alt="npm downloads" /></a>
-  <a href="https://github.com/neos/agent-kits/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="license" /></a>
+  <a href="https://www.npmjs.com/package/@neyugn/agent-kits"><img src="https://img.shields.io/npm/v/@neyugn/agent-kits?style=flat-square&color=00ADD8" alt="npm version" /></a>
+  <a href="https://www.npmjs.com/package/@neyugn/agent-kits"><img src="https://img.shields.io/npm/dm/@neyugn/agent-kits?style=flat-square&color=00ADD8" alt="npm downloads" /></a>
+  <a href="https://github.com/nvdnvd00/agent-kits/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="license" /></a>
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@
 ## 🚀 快速开始
 
 ```bash
-npx @neos/agent-kits
+npx @neyugn/agent-kits
 ```
 
 就这样！交互式安装程序将引导您：
@@ -56,7 +56,7 @@ npx @neos/agent-kits
 ### 🎯 一条命令，任何工具
 
 ```bash
-npx @neos/agent-kits
+npx @neyugn/agent-kits
 ```
 
 ```
@@ -210,7 +210,7 @@ npx @neos/agent-kits
 
 ### 💻 Coder Kit（编程工具包）
 
-完整的软件开发工具包，包含 **22 个专家代理**、**39 个技能** 和 **8 个工作流**。
+完整的软件开发工具包，包含 **22 个专家代理**、**40 个技能** 和 **7 个工作流**。
 
 <details>
 <summary><b>🤖 代理 (22)</b></summary>
@@ -265,7 +265,7 @@ npx @neos/agent-kits
 </details>
 
 <details>
-<summary><b>🧩 技能 (39)</b></summary>
+<summary><b>🧩 技能 (40)</b></summary>
 
 **核心技能：**
 | 技能 | 描述 |
@@ -284,12 +284,12 @@ npx @neos/agent-kits
 | `plan-writing` | 任务分解、WBS |
 | `systematic-debugging` | 4阶段调试 |
 
-**领域技能 (30+):** `react-patterns`、`typescript-patterns`、`docker-patterns`、`kubernetes-patterns`、`terraform-patterns`、`auth-patterns`、`graphql-patterns`、`redis-patterns`、`realtime-patterns`、`queue-patterns`、`multi-tenancy`、`ai-rag-patterns`、`prompt-engineering`、`monitoring-observability`、`frontend-design`、`mobile-design`、`tailwind-patterns`、`e2e-testing`、`github-actions`、`gitlab-ci-patterns`、`flutter-patterns`、`react-native-patterns`、`seo-patterns`、`accessibility-patterns`、`mermaid-diagrams`、`i18n-localization`、`postgres-patterns`、`nodejs-best-practices`、`documentation-templates`、`ui-ux-pro-max`
+**领域技能 (31):** `react-patterns`、`typescript-patterns`、`docker-patterns`、`kubernetes-patterns`、`terraform-patterns`、`auth-patterns`、`graphql-patterns`、`redis-patterns`、`realtime-patterns`、`queue-patterns`、`multi-tenancy`、`ai-rag-patterns`、`prompt-engineering`、`monitoring-observability`、`frontend-design`、`mobile-design`、`tailwind-patterns`、`e2e-testing`、`github-actions`、`gitlab-ci-patterns`、`flutter-patterns`、`react-native-patterns`、`seo-patterns`、`accessibility-patterns`、`mermaid-diagrams`、`i18n-localization`、`postgres-patterns`、`nodejs-best-practices`、`documentation-templates`、`ui-ux-pro-max`、`aws-patterns`
 
 </details>
 
 <details>
-<summary><b>📜 工作流 (8)</b></summary>
+<summary><b>📜 工作流 (7)</b></summary>
 
 | 命令             | 描述                   |
 | ---------------- | ---------------------- |
@@ -300,7 +300,8 @@ npx @neos/agent-kits
 | `/deploy`        | 生产部署               |
 | `/orchestrate`   | 多代理协调             |
 | `/ui-ux-pro-max` | UI/UX 设计智能         |
-| `/filter`        | 工作区技能过滤         |
+
+> **注意：** `/filter` 命令属于 **Common Skills Layer**（见下文），在所有工具包中可用。
 
 </details>
 
@@ -400,7 +401,7 @@ node dist/cli.js
 
 ## 📄 许可证
 
-MIT © [Neos](https://github.com/neos)
+MIT © [Neos](https://github.com/nvdnvd00)
 
 ---
 
