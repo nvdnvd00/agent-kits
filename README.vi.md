@@ -362,47 +362,11 @@ Sau khi cài đặt, tìm tài liệu trong dự án của bạn:
 
 ## 🤝 Đóng góp
 
-Chúng tôi hoan nghênh đóng góp! Xem [Hướng dẫn đóng góp](CONTRIBUTING.md).
+Chúng tôi hoan nghênh đóng góp! Xem [Hướng dẫn đóng góp](CONTRIBUTING.md) để biết chi tiết về:
 
-### Tạo Kit mới
-
-#### Bước 1: Tạo cấu trúc thư mục
-
-```bash
-mkdir -p kits/my-kit/{agents,skills,workflows}
-```
-
-```
-kits/my-kit/
-├── ARCHITECTURE.md          # Tài liệu kit (bắt buộc)
-├── GEMINI.md                # File quy tắc AI (bắt buộc)
-├── agents/                  # Agent personas
-│   └── orchestrator.md
-├── skills/                  # Domain skills
-│   └── core-skill/
-│       └── SKILL.md
-└── workflows/               # Slash commands
-    └── main.md
-```
-
-#### Bước 2: Tạo ARCHITECTURE.md
-
-Mô tả kiến trúc kit bao gồm: Purpose, Agents, Skills, Workflows.
-
-#### Bước 3: Tạo GEMINI.md
-
-File quy tắc cho AI với các trigger, agent routing, và skill loading protocol.
-
-#### Bước 4: Đăng ký trong CLI
-
-Thêm kit vào `src/config.ts`.
-
-#### Bước 5: Test và Submit PR
-
-```bash
-pnpm build
-node dist/cli.js
-```
+- Tạo kits mới
+- Thêm agents và skills
+- Gửi pull requests
 
 <br/>
 

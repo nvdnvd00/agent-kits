@@ -21,7 +21,6 @@ Thank you for your interest in contributing to Agent Kits! 🎉
 
 - Node.js 18+
 - pnpm (recommended) or npm
-- Python 3.8+ (for skill/agent creation scripts)
 
 ### Setup
 
@@ -363,21 +362,13 @@ node dist/cli.js
 
 ## 🤖 Adding Agents & Skills
 
-### Inside an Existing Kit
+### Creating New Agents
 
-Use the creator scripts if available:
+Follow the template in [Step 4](#step-4-create-agent-files) above to create new agent files.
 
-```bash
-# Add new agent
-python3 kits/coder/skills/agent-creator/scripts/init_agent.py my-agent
+### Creating New Skills
 
-# Add new skill
-python3 kits/coder/skills/skill-creator/scripts/init_skill.py my-skill
-```
-
-### Manual Creation
-
-Follow the templates in [Step 4](#step-4-create-agent-files) and [Step 5](#step-5-create-skill-files) above.
+Follow the template in [Step 5](#step-5-create-skill-files) above to create new skill files.
 
 ### Skill Quality Guidelines
 

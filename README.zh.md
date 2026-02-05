@@ -362,47 +362,11 @@ npx @neyugn/agent-kits
 
 ## 🤝 贡献
 
-欢迎贡献！请查看我们的[贡献指南](CONTRIBUTING.md)。
+欢迎贡献！请查看我们的[贡献指南](CONTRIBUTING.md)，了解详细说明：
 
-### 创建新工具包
-
-#### 步骤 1：创建目录结构
-
-```bash
-mkdir -p kits/my-kit/{agents,skills,workflows}
-```
-
-```
-kits/my-kit/
-├── ARCHITECTURE.md          # 工具包文档（必需）
-├── GEMINI.md                # AI 规则文件（必需）
-├── agents/                  # 代理角色
-│   └── orchestrator.md
-├── skills/                  # 领域技能
-│   └── core-skill/
-│       └── SKILL.md
-└── workflows/               # 斜杠命令
-    └── main.md
-```
-
-#### 步骤 2：创建 ARCHITECTURE.md
-
-描述工具包架构，包括：目的、代理、技能、工作流。
-
-#### 步骤 3：创建 GEMINI.md
-
-AI 规则文件，包含触发器、代理路由和技能加载协议。
-
-#### 步骤 4：在 CLI 中注册
-
-将工具包添加到 `src/config.ts`。
-
-#### 步骤 5：测试并提交 PR
-
-```bash
-pnpm build
-node dist/cli.js
-```
+- 创建新工具包
+- 添加代理和技能
+- 提交 pull requests
 
 <br/>
 
