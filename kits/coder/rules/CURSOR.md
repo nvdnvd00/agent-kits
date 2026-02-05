@@ -1,5 +1,6 @@
 ---
-trigger: manual
+description: AGT-Kit - AI Agent system rules with 22 agents, 39 skills, 7 workflows
+alwaysApply: true
 ---
 
 # GEMINI.md - AGT-Kit

@@ -1,7 +1,3 @@
----
-trigger: manual
----
-
 # AGENTS.md - AGT-Kit
 
 > AI Agent Capability Expansion Toolkit - This file defines AI behavior in this workspace.
