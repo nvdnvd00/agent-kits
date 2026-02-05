@@ -128,11 +128,11 @@ npx @neyugn/agent-kits
 
 支持 **Windows**、**macOS** 和 **Linux**，路径自动适配：
 
-| 平台    | Global 路径示例            |
-| ------- | -------------------------- |
-| Windows | `C:\Users\darien\.claude\` |
-| macOS   | `/Users/darien/.claude/`   |
-| Linux   | `/home/darien/.claude/`    |
+| 平台    | Global 路径示例              |
+| ------- | ---------------------------- |
+| Windows | `C:\Users\username\.claude\` |
+| macOS   | `/Users/username/.claude/`   |
+| Linux   | `/home/username/.claude/`    |
 
 <br/>
 

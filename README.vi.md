@@ -128,11 +128,11 @@ Nếu installer phát hiện cài đặt đã tồn tại, bạn sẽ được h
 
 Hoạt động trên **Windows**, **macOS**, và **Linux** với đường dẫn được tự động điều chỉnh:
 
-| Nền tảng | Đường dẫn Global ví dụ     |
-| -------- | -------------------------- |
-| Windows  | `C:\Users\darien\.claude\` |
-| macOS    | `/Users/darien/.claude/`   |
-| Linux    | `/home/darien/.claude/`    |
+| Nền tảng | Đường dẫn Global ví dụ       |
+| -------- | ---------------------------- |
+| Windows  | `C:\Users\username\.claude\` |
+| macOS    | `/Users/username/.claude/`   |
+| Linux    | `/home/username/.claude/`    |
 
 <br/>
 

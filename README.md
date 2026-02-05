@@ -136,11 +136,11 @@ If the installer detects an existing installation, you'll be prompted:
 
 Works on **Windows**, **macOS**, and **Linux** with automatic path adaptation:
 
-| Platform | Example Global Path        |
-| -------- | -------------------------- |
-| Windows  | `C:\Users\darien\.claude\` |
-| macOS    | `/Users/darien/.claude/`   |
-| Linux    | `/home/darien/.claude/`    |
+| Platform | Example Global Path          |
+| -------- | ---------------------------- |
+| Windows  | `C:\Users\username\.claude\` |
+| macOS    | `/Users/username/.claude/`   |
+| Linux    | `/home/username/.claude/`    |
 
 <br/>
 

@@ -5,8 +5,9 @@ import type { AITool, InstallScope } from "../config.js";
 import { KITS } from "../config.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const KITS_DIR = path.resolve(__dirname, "../../kits");
-const COMMON_DIR = path.resolve(__dirname, "../../common");
+// After tsup bundles to dist/cli.js, paths need to be relative from dist/
+const KITS_DIR = path.resolve(__dirname, "../kits");
+const COMMON_DIR = path.resolve(__dirname, "../common");
 
 interface InstallOptions {
   aiTool: AITool;

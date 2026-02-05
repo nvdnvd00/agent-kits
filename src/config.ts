@@ -30,9 +30,9 @@ export type InstallScope = "global" | "workspace";
  * Works correctly on Windows, macOS, and Linux
  *
  * @example
- * getGlobalPath(claudeTool) // Windows: "C:\\Users\\darien\\.claude"
- * getGlobalPath(claudeTool) // macOS: "/Users/darien/.claude"
- * getGlobalPath(claudeTool) // Linux: "/home/darien/.claude"
+ * getGlobalPath(claudeTool) // Windows: "C:\\Users\\username\\.claude"
+ * getGlobalPath(claudeTool) // macOS: "/Users/username/.claude"
+ * getGlobalPath(claudeTool) // Linux: "/home/username/.claude"
  */
 export function getGlobalPath(tool: AITool): string {
   // Extract the folder name from pattern (e.g., "~/.claude" -> ".claude")
