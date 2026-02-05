@@ -1,6 +1,6 @@
 {
   "name": "@neyugn/agent-kits",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Universal AI Agent Toolkit - Skills, Agents, and Workflows for any AI coding assistant",
   "type": "module",
   "bin": {
@@ -8,7 +8,8 @@
   },
   "files": [
     "dist",
-    "kits"
+    "kits",
+    "common"
   ],
   "scripts": {
     "build": "tsup src/cli.ts --format esm --dts --clean",
