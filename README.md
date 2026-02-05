@@ -123,14 +123,16 @@ If the installer detects an existing installation, you'll be prompted:
 
 ### 🔌 Universal Compatibility
 
-| Tool        | Workspace Path    | Global Path  | Status       |
-| ----------- | ----------------- | ------------ | ------------ |
-| Claude Code | `.claude/skills/` | `~/.claude/` | ✅ Supported |
-| Gemini CLI  | `.gemini/skills/` | `~/.gemini/` | ✅ Supported |
-| Codex CLI   | `.codex/skills/`  | `~/.codex/`  | ✅ Supported |
-| Antigravity | `.agent/skills/`  | `~/.agent/`  | ✅ Supported |
-| Cursor      | `.cursor/skills/` | `~/.cursor/` | ✅ Supported |
-| Custom      | Configurable      | `~/.ai/`     | ✅ Supported |
+| Tool        | Workspace Path    | Global Path  | Status          |
+| ----------- | ----------------- | ------------ | --------------- |
+| Cursor      | `.cursor/skills/` | `~/.cursor/` | ✅ Verified     |
+| Antigravity | `.agent/skills/`  | `~/.agent/`  | ✅ Verified     |
+| Claude Code | `.claude/skills/` | `~/.claude/` | 🧪 Experimental |
+| Gemini CLI  | `.gemini/skills/` | `~/.gemini/` | 🧪 Experimental |
+| Codex CLI   | `.codex/skills/`  | `~/.codex/`  | 🧪 Experimental |
+| Custom      | Configurable      | `~/.ai/`     | 🧪 Experimental |
+
+> **Note:** Tools marked as 🧪 Experimental have not been fully tested and may require additional user configuration. Contributions and feedback are welcome!
 
 ### 💻 Cross-Platform Support
 

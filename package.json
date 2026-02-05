@@ -1,6 +1,6 @@
 {
   "name": "@neyugn/agent-kits",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Universal AI Agent Toolkit - Skills, Agents, and Workflows for any AI coding assistant",
   "type": "module",
   "bin": {

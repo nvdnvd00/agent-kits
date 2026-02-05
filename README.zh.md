@@ -117,12 +117,14 @@ npx @neyugn/agent-kits
 
 | 工具        | Workspace 路径    | Global 路径  | 状态      |
 | ----------- | ----------------- | ------------ | --------- |
-| Claude Code | `.claude/skills/` | `~/.claude/` | ✅ 已支持 |
-| Gemini CLI  | `.gemini/skills/` | `~/.gemini/` | ✅ 已支持 |
-| Codex CLI   | `.codex/skills/`  | `~/.codex/`  | ✅ 已支持 |
-| Antigravity | `.agent/skills/`  | `~/.agent/`  | ✅ 已支持 |
-| Cursor      | `.cursor/skills/` | `~/.cursor/` | ✅ 已支持 |
-| 自定义      | 可配置            | `~/.ai/`     | ✅ 已支持 |
+| Cursor      | `.cursor/skills/` | `~/.cursor/` | ✅ 已验证 |
+| Antigravity | `.agent/skills/`  | `~/.agent/`  | ✅ 已验证 |
+| Claude Code | `.claude/skills/` | `~/.claude/` | 🧪 实验性 |
+| Gemini CLI  | `.gemini/skills/` | `~/.gemini/` | 🧪 实验性 |
+| Codex CLI   | `.codex/skills/`  | `~/.codex/`  | 🧪 实验性 |
+| 自定义      | 可配置            | `~/.ai/`     | 🧪 实验性 |
+
+> **注意：** 标记为 🧪 实验性的工具尚未完全测试，可能需要用户进行额外配置。欢迎贡献和反馈！
 
 ### 💻 跨平台支持
 

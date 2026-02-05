@@ -113,16 +113,18 @@ Nếu installer phát hiện cài đặt đã tồn tại, bạn sẽ được h
 - **⏭️ Bỏ qua**: Giữ nguyên, không cài đặt
 - **❌ Hủy**: Thoát installer
 
-### �🔌 Tương thích phổ quát
+### 🔌 Tương thích phổ quát
 
-| Công cụ     | Đường dẫn Workspace | Đường dẫn Global | Trạng thái |
-| ----------- | ------------------- | ---------------- | ---------- |
-| Claude Code | `.claude/skills/`   | `~/.claude/`     | ✅ Hỗ trợ  |
-| Gemini CLI  | `.gemini/skills/`   | `~/.gemini/`     | ✅ Hỗ trợ  |
-| Codex CLI   | `.codex/skills/`    | `~/.codex/`      | ✅ Hỗ trợ  |
-| Antigravity | `.agent/skills/`    | `~/.agent/`      | ✅ Hỗ trợ  |
-| Cursor      | `.cursor/skills/`   | `~/.cursor/`     | ✅ Hỗ trợ  |
-| Tùy chỉnh   | Có thể cấu hình     | `~/.ai/`         | ✅ Hỗ trợ  |
+| Công cụ     | Đường dẫn Workspace | Đường dẫn Global | Trạng thái     |
+| ----------- | ------------------- | ---------------- | -------------- |
+| Cursor      | `.cursor/skills/`   | `~/.cursor/`     | ✅ Đã xác nhận |
+| Antigravity | `.agent/skills/`    | `~/.agent/`      | ✅ Đã xác nhận |
+| Claude Code | `.claude/skills/`   | `~/.claude/`     | 🧪 Thực nghiệm |
+| Gemini CLI  | `.gemini/skills/`   | `~/.gemini/`     | 🧪 Thực nghiệm |
+| Codex CLI   | `.codex/skills/`    | `~/.codex/`      | 🧪 Thực nghiệm |
+| Tùy chỉnh   | Có thể cấu hình     | `~/.ai/`         | 🧪 Thực nghiệm |
+
+> **Lưu ý:** Các công cụ đánh dấu 🧪 Thực nghiệm chưa được kiểm tra đầy đủ và có thể cần người dùng tùy chỉnh thêm. Đóng góp và phản hồi luôn được hoan nghênh!
 
 ### 💻 Hỗ trợ đa nền tảng
 
