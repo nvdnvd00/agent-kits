@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
 import * as p from "@clack/prompts";
+import boxen from "boxen";
+import figlet from "figlet";
 import fs from "fs";
+import gradient from "gradient-string";
 import os from "os";
 import path from "path";
 import pc from "picocolors";
@@ -64,40 +67,57 @@ function getDisplayPath(absolutePath: string): string {
   return absolutePath;
 }
 
-async function main() {
+/**
+ * Display the beautiful banner
+ */
+function displayBanner() {
   console.clear();
 
-  // ASCII Art Banner
+  // Create ASCII Art
+  const text = figlet.textSync("AGENT KITS", {
+    font: "Standard",
+    horizontalLayout: "fitted",
+  });
+
+  // Apply gradient
+  const title = gradient.passion(text);
+
+  // Box it
   console.log(
-    pc.cyan(`
-╔═══════════════════════════════════════════════════════════════╗
-║                                                               ║
-║     █████╗  ██████╗ ███████╗███╗   ██╗████████╗               ║
-║    ██╔══██╗██╔════╝ ██╔════╝████╗  ██║╚══██╔══╝               ║
-║    ███████║██║  ███╗█████╗  ██╔██╗ ██║   ██║                  ║
-║    ██╔══██║██║   ██║██╔══╝  ██║╚██╗██║   ██║                  ║
-║    ██║  ██║╚██████╔╝███████╗██║ ╚████║   ██║                  ║
-║    ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝                  ║
-║                    ${pc.bold("K I T S")}                                   ║
-║                                                               ║
-╚═══════════════════════════════════════════════════════════════╝
-`),
+    boxen(title, {
+      padding: 1,
+      margin: 1,
+      borderStyle: "round",
+      borderColor: "cyan",
+      float: "center",
+    }),
   );
 
-  p.intro(pc.bgCyan(pc.black(" Universal AI Agent Toolkit ")));
+  console.log(
+    gradient.morning.multiline(
+      "       ⚡  The Universal AI Agent Toolkit  ⚡       ",
+    ),
+  );
+  console.log("");
+}
+
+async function main() {
+  displayBanner();
+
+  p.intro(pc.bgCyan(pc.black(" SETUP WIZARD ")));
 
   // Step 1: Select AI Tool
   const aiToolResult = await p.select({
-    message: "Which AI tool are you using?",
+    message: "🤖 Which AI assistant are you using?",
     options: AI_TOOLS.map((tool) => ({
       value: tool.id,
-      label: `${tool.icon} ${tool.name}`,
-      hint: `workspace: ${tool.path} | global: ${getGlobalPathDisplay(tool)}`,
+      label: `${tool.name}`,
+      hint: `${getGlobalPathDisplay(tool)}`,
     })),
   });
 
   if (p.isCancel(aiToolResult)) {
-    p.cancel("Installation cancelled.");
+    p.cancel("Operation cancelled.");
     process.exit(0);
   }
 
@@ -105,23 +125,23 @@ async function main() {
 
   // Step 2: Select Installation Scope (Global vs Workspace)
   const scopeResult = await p.select({
-    message: "Where do you want to install?",
+    message: "📂 Where should we install?",
     options: [
       {
         value: "workspace" as InstallScope,
-        label: "📁 Workspace (Current Project)",
-        hint: `Install to ${path.join(process.cwd(), aiTool.path)}`,
+        label: "Workspace (Project)",
+        hint: `Best for sharing with team (${path.join(process.cwd(), aiTool.path)})`,
       },
       {
         value: "global" as InstallScope,
-        label: "🌍 Global (All Projects)",
-        hint: `Install to ${getGlobalPathDisplay(aiTool)}`,
+        label: "Global (System)",
+        hint: `Best for personal use across projects (${getGlobalPathDisplay(aiTool)})`,
       },
     ],
   });
 
   if (p.isCancel(scopeResult)) {
-    p.cancel("Installation cancelled.");
+    p.cancel("Operation cancelled.");
     process.exit(0);
   }
 
@@ -131,7 +151,7 @@ async function main() {
   let workspacePath = process.cwd();
   if (scope === "workspace") {
     const pathResult = await p.text({
-      message: "Workspace path:",
+      message: "📍 Confirm workspace path:",
       placeholder: process.cwd(),
       defaultValue: process.cwd(),
       validate: (value) => {
@@ -144,7 +164,7 @@ async function main() {
     });
 
     if (p.isCancel(pathResult)) {
-      p.cancel("Installation cancelled.");
+      p.cancel("Operation cancelled.");
       process.exit(0);
     }
 
@@ -161,56 +181,57 @@ async function main() {
   // Step 4: Check if already installed
   if (directoryExists(finalInstallPath)) {
     p.log.warn(
-      `${pc.yellow("⚠")} Existing installation detected at: ${pc.cyan(getDisplayPath(finalInstallPath))}`,
+      `${pc.yellow("⚠")} Existing toolkit found at: ${pc.cyan(getDisplayPath(finalInstallPath))}`,
     );
 
     const replaceResult = await p.select({
-      message: "What would you like to do?",
+      message: "How should we proceed?",
       options: [
         {
           value: "replace",
-          label: "🔄 Replace",
-          hint: "Remove existing and install fresh",
+          label: "🚀 Replace",
+          hint: "Fresh install (Recommended)",
         },
         {
           value: "merge",
-          label: "🔀 Merge",
-          hint: "Keep config files, update skills only",
+          label: "🔄 Merge",
+          hint: "Update skills, keep configs",
         },
         {
           value: "skip",
           label: "⏭️ Skip",
-          hint: "Keep existing, don't install",
+          hint: "Don't install files",
         },
         {
           value: "cancel",
           label: "❌ Cancel",
-          hint: "Exit installer",
+          hint: "Exit setup",
         },
       ],
     });
 
     if (p.isCancel(replaceResult) || replaceResult === "cancel") {
-      p.cancel("Installation cancelled.");
+      p.cancel("Operation cancelled.");
       process.exit(0);
     }
 
     if (replaceResult === "skip") {
-      p.log.info("Skipping installation. Existing files preserved.");
+      p.log.info("Skipping installation. Have a nice day! 👋");
       process.exit(0);
     }
 
-    // Handle replace or merge
+    // Handle replace
     if (replaceResult === "replace") {
-      p.log.step(`Removing existing installation...`);
+      const s_rm = p.spinner();
+      s_rm.start("Cleaning up old files...");
       fs.rmSync(finalInstallPath, { recursive: true, force: true });
+      s_rm.stop("Cleanup complete.");
     }
-    // For merge, we'll let the installer handle it (it will overwrite files)
   }
 
   // Step 5: Select kits
   const selectedKits = await p.multiselect({
-    message: "Select kits to install:",
+    message: "📦 Select kits to include:",
     options: KITS.filter((kit) => kit.available).map((kit) => ({
       value: kit.id,
       label: `${kit.icon} ${kit.name}`,
@@ -220,36 +241,41 @@ async function main() {
   });
 
   if (p.isCancel(selectedKits)) {
-    p.cancel("Installation cancelled.");
+    p.cancel("Operation cancelled.");
     process.exit(0);
   }
 
-  // Step 6: Show summary and confirm
+  // Step 6: Confirmation
   const displayInstallPath = getDisplayPath(finalInstallPath);
-  const displayRulesPath = getDisplayPath(rulesFilePath);
 
-  const summaryLines = [
-    `${pc.bold("AI Tool:")} ${aiTool.icon} ${aiTool.name}`,
-    `${pc.bold("Scope:")} ${scope === "global" ? "🌍 Global" : "📁 Workspace"}`,
-    `${pc.bold("Install Path:")} ${pc.cyan(displayInstallPath)}`,
-    `${pc.bold("Rules File:")} ${pc.cyan(displayRulesPath)}`,
-    `${pc.bold("Kits:")} ${(selectedKits as string[]).join(", ")}`,
-  ];
-
-  p.note(summaryLines.join("\n"), "Installation Summary");
+  console.log("");
+  console.log(
+    boxen(
+      [
+        `${pc.cyan(pc.bold("TARGET SUMMARY"))}`,
+        "",
+        `${pc.dim("Tool:")}    ${aiTool.name}`,
+        `${pc.dim("Scope:")}   ${scope === "global" ? "Global" : "Workspace"}`,
+        `${pc.dim("Path:")}    ${displayInstallPath}`,
+        `${pc.dim("Kits:")}    ${(selectedKits as string[]).join(", ")}`,
+      ].join("\n"),
+      { padding: 1, borderStyle: "single", borderColor: "dim" },
+    ),
+  );
+  console.log("");
 
   const confirmed = await p.confirm({
-    message: `Proceed with installation?`,
+    message: `Ready to install?`,
   });
 
   if (p.isCancel(confirmed) || !confirmed) {
-    p.cancel("Installation cancelled.");
+    p.cancel("Operation cancelled.");
     process.exit(0);
   }
 
   // Step 7: Installation
   const s = p.spinner();
-  s.start(`Installing to ${pc.cyan(displayInstallPath)}...`);
+  s.start(`Installing ✨ magic...`);
 
   try {
     const results = await installKit({
@@ -259,38 +285,41 @@ async function main() {
       scope,
     });
 
-    s.stop("Installation complete!");
+    const isGlobal = scope === "global";
+    const rulesFile = isGlobal
+      ? path.join(os.homedir(), aiTool.rulesFile)
+      : path.join(workspacePath, aiTool.rulesFile);
 
-    // Summary
-    p.note(
-      [
-        `${pc.bold("📍 Location:")} ${displayInstallPath}`,
-        `${pc.bold("📜 Rules:")} ${displayRulesPath}`,
-        "",
-        ...results.map(
-          (r) =>
-            `${pc.green("✓")} ${r.kit}: ${r.agents} agents, ${r.skills} skills, ${r.workflows} workflows`,
-        ),
-      ].join("\n"),
-      "Installed Successfully",
+    s.stop("Installation complete! 🎉");
+
+    // Success Summary
+    console.log("");
+    console.log(
+      boxen(
+        [
+          gradient.morning("Successfully Installed Agent Kits!"),
+          "",
+          `${pc.green("✔")} Core System Ready`,
+          `${pc.green("✔")} ${results.reduce((acc, r) => acc + r.skills, 0)} Skills Active`,
+          `${pc.green("✔")} Agents Deployed`,
+          "",
+          pc.bold("👉 NEXT STEPS:"),
+          `1. Open ${pc.cyan(getDisplayPath(rulesFile))}`,
+          `2. Read the instructions`,
+          `3. Type ${pc.magenta("/plan")} or ${pc.magenta("/create")} to start`,
+        ].join("\n"),
+        {
+          padding: 1,
+          margin: 1,
+          borderStyle: "round",
+          borderColor: "green",
+        },
+      ),
     );
 
-    // Next steps based on scope
-    const archPath =
-      scope === "global"
-        ? `${getGlobalPathDisplay(aiTool)}/ARCHITECTURE.md`
-        : `${aiTool.path}/ARCHITECTURE.md`;
-
-    p.outro(
-      pc.green("Success! ") +
-        pc.dim("Next steps:\n") +
-        `  ${pc.cyan("•")} Use ${pc.bold("/filter")} to optimize skills for your project\n` +
-        `  ${pc.cyan("•")} Use ${pc.bold("/plan")} to create project plans\n` +
-        `  ${pc.cyan("•")} Use ${pc.bold("@backend-specialist")} for APIs\n` +
-        `  ${pc.cyan("•")} Read ${pc.bold(archPath)}`,
-    );
+    p.outro(`Thank you for using Agent Kits. Happy coding! 🚀`);
   } catch (error) {
-    s.stop("Installation failed!");
+    s.stop("Installation failed.");
     p.log.error(error instanceof Error ? error.message : "Unknown error");
     process.exit(1);
   }
