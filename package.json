@@ -1,0 +1,50 @@
+{
+  "name": "@neos/agent-kits",
+  "version": "0.1.0",
+  "description": "Universal AI Agent Toolkit - Skills, Agents, and Workflows for any AI coding assistant",
+  "type": "module",
+  "bin": {
+    "agent-kits": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "kits"
+  ],
+  "scripts": {
+    "build": "tsup src/cli.ts --format esm --dts --clean",
+    "dev": "tsx src/cli.ts",
+    "prepublishOnly": "pnpm build"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "skills",
+    "claude",
+    "gemini",
+    "codex",
+    "cursor",
+    "copilot",
+    "workflow",
+    "prompt",
+    "toolkit"
+  ],
+  "author": "Neos",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neos/agent-kits"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.10.0",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

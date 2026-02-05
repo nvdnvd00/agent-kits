@@ -1,0 +1,20 @@
+# Workflows Directory
+
+Place workflow files here (e.g., brainstorm.md, create.md, debug.md)
+
+Workflow format:
+```markdown
+---
+description: Short description of what this workflow does
+---
+
+# Workflow Name
+
+## Steps
+
+1. Step 1
+2. Step 2
+...
+```
+
+Users invoke workflows with slash commands: /workflow-name
