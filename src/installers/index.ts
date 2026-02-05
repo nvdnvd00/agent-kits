@@ -42,7 +42,8 @@ export async function installKit(
     await fs.mkdir(kitTargetPath, { recursive: true });
 
     // Copy kit contents (excluding rules folder - we handle that separately)
-    await copyDirectory(kitSourcePath, kitTargetPath, ["rules"]);
+    // Pass aiTool.path to replace .agent/ references with correct tool path
+    await copyDirectory(kitSourcePath, kitTargetPath, ["rules"], aiTool.path);
 
     // Create rules file (2025 standard: all tools use rulesInsideKit=true)
     // - Global: inside kit directory (e.g., ~/.gemini/GEMINI.md, ~/.cursor/rules/rules.md)
@@ -86,19 +87,29 @@ export async function installKit(
       const commonWorkflowsPath = path.join(COMMON_DIR, "workflows");
       const commonDocPath = path.join(COMMON_DIR, "COMMON.md");
 
-      // Copy common skills into kit's skills folder
+      // Copy common skills into kit's skills folder (with path replacement)
       const targetSkillsPath = path.join(kitTargetPath, "skills");
       await fs.mkdir(targetSkillsPath, { recursive: true });
-      await copyDirectory(commonSkillsPath, targetSkillsPath);
+      await copyDirectory(commonSkillsPath, targetSkillsPath, [], aiTool.path);
 
-      // Copy common workflows into kit's workflows folder
+      // Copy common workflows into kit's workflows folder (with path replacement)
       const targetWorkflowsPath = path.join(kitTargetPath, "workflows");
       await fs.mkdir(targetWorkflowsPath, { recursive: true });
-      await copyDirectory(commonWorkflowsPath, targetWorkflowsPath);
+      await copyDirectory(
+        commonWorkflowsPath,
+        targetWorkflowsPath,
+        [],
+        aiTool.path,
+      );
 
-      // Copy COMMON.md to kit root for reference
+      // Copy COMMON.md to kit root for reference (with path replacement)
       const targetCommonDoc = path.join(kitTargetPath, "COMMON.md");
-      await fs.copyFile(commonDocPath, targetCommonDoc);
+      const commonContent = await fs.readFile(commonDocPath, "utf-8");
+      const updatedCommonContent = commonContent.replace(
+        /\.(agent|claude|gemini|cursor|codex)\//g,
+        `${aiTool.path}/`,
+      );
+      await fs.writeFile(targetCommonDoc, updatedCommonContent);
     } catch {
       // Common skills dir might not exist, that's OK
     }
@@ -119,10 +130,31 @@ export async function installKit(
   return results;
 }
 
+/**
+ * Replace AI tool path references in file content
+ * Converts .agent/, .claude/, .gemini/, .cursor/, .codex/ to target tool path
+ */
+function replaceToolPaths(content: string, targetPath: string): string {
+  return content.replace(
+    /\.(agent|claude|gemini|cursor|codex)\//g,
+    `${targetPath}/`,
+  );
+}
+
+/**
+ * Check if file should have path replacement applied
+ * Only applies to text files that may contain path references
+ */
+function shouldReplacePaths(filename: string): boolean {
+  const ext = path.extname(filename).toLowerCase();
+  return [".md", ".py", ".sh", ".txt", ".json"].includes(ext);
+}
+
 async function copyDirectory(
   src: string,
   dest: string,
   exclude: string[] = [],
+  toolPath?: string, // If provided, replace .agent/ paths with this
 ): Promise<void> {
   await fs.mkdir(dest, { recursive: true });
 
@@ -138,7 +170,12 @@ async function copyDirectory(
     const destPath = path.join(dest, entry.name);
 
     if (entry.isDirectory()) {
-      await copyDirectory(srcPath, destPath, exclude);
+      await copyDirectory(srcPath, destPath, exclude, toolPath);
+    } else if (toolPath && shouldReplacePaths(entry.name)) {
+      // Read, replace paths, and write
+      const content = await fs.readFile(srcPath, "utf-8");
+      const updatedContent = replaceToolPaths(content, toolPath);
+      await fs.writeFile(destPath, updatedContent);
     } else {
       await fs.copyFile(srcPath, destPath);
     }
