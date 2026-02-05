@@ -1,9 +1,10 @@
 ---
-description: AGT-Kit - AI Agent system rules with 22 agents, 39 skills, 7 workflows
+trigger: always_on
+description: AGT-Kit - AI Agent system rules with 22 agents, 39 skills, 7 commands
 alwaysApply: true
 ---
 
-# GEMINI.md - AGT-Kit
+# CURSOR Rules - AGT-Kit
 
 > AI Agent Capability Expansion Toolkit - This file defines AI behavior in this workspace.
 
@@ -15,7 +16,7 @@ AGT-Kit is a portable, modular AI agent system consisting of:
 
 - **22 Specialist Agents** - Role-based AI personas
 - **39 Skills** - Domain-specific knowledge modules
-- **7 Workflows** - Slash command procedures
+- **7 Commands** - Slash command procedures
 
 ---
 
@@ -118,7 +119,9 @@ Agent activated → Check frontmatter `skills:` → Read SKILL.md → Apply.
 
 ---
 
-## 📜 WORKFLOWS (Slash Commands)
+## 📜 COMMANDS (Slash Commands)
+
+> **Note:** In Cursor, workflows are called "commands" and stored in `.cursor/commands/`
 
 | Command        | Description                          | Agent           |
 | -------------- | ------------------------------------ | --------------- |
@@ -139,10 +142,10 @@ User Request → Check Profile → Skill Description Match → Load SKILL.md →
 
 ### Profile-Aware Loading
 
-> **CRITICAL:** Before loading any skill or selecting any agent, check `.agent/profile.json`
+> **CRITICAL:** Before loading any skill or selecting any agent, check `.cursor/profile.json`
 
 ```
-1. Check if `.agent/profile.json` exists
+1. Check if `.cursor/profile.json` exists
 2. If EXISTS:
    - Read skills.enabled[] → Only load these skills
    - Read skills.disabled[] → Skip these skills
@@ -190,7 +193,7 @@ Key skills: `api-patterns`, `database-design`, `react-patterns`, `typescript-pat
 
 > 🔴 Read `ARCHITECTURE.md` at session start.
 
-**Paths:** Agents `.agent/agents/`, Skills `.agent/skills/`, Workflows `.agent/workflows/`
+**Paths:** Agents `.cursor/agents/`, Skills `.cursor/skills/`, Commands `.cursor/commands/`
 
 ### 🧠 Read → Understand → Apply
 
@@ -297,12 +300,12 @@ python3 .agent/scripts/skills_manager.py search <query>
 
 ## 📊 Kit Statistics
 
-| Metric    | Count |
-| --------- | ----- |
-| Agents    | 22    |
-| Skills    | 39    |
-| Workflows | 7     |
-| Scripts   | 19    |
+| Metric   | Count |
+| -------- | ----- |
+| Agents   | 22    |
+| Skills   | 39    |
+| Commands | 7     |
+| Scripts  | 19    |
 
 ---
 

@@ -68,7 +68,7 @@ npx @neyugn/agent-kits
 ```
 
 ```
-  ╭──────────────────────────────────────────────────────────────────────────╮
+  ╭──────────────────────────────────────────────────────────────────────────────╮
   │                                                                          │
   │        _     ____  _____  _   _  _____   _  __ ___  _____  ____          │
   │       / \   / ___|| ____|| \ | ||_   _| | |/ /|_ _||_   _|/ ___|         │
@@ -78,15 +78,13 @@ npx @neyugn/agent-kits
   │                                                                          │
   │           ⚡  The Universal AI Agent Toolkit  ⚡                         │
   │                                                                          │
-  ╰──────────────────────────────────────────────────────────────────────────╯
+  ╰──────────────────────────────────────────────────────────────────────────────╯
 
   SETUP WIZARD
 
 ◆  🤖 Which AI assistant are you using?
-│  ○ Claude Code (.claude/)
-│  ● Gemini CLI (.gemini/)
+│  ● Antigravity (.agent/)
 │  ○ Cursor (.cursor/)
-│  ○ Custom...
 
 ◆  📂 Where should we install?
 │  ● Workspace (Project)
@@ -123,16 +121,16 @@ If the installer detects an existing installation, you'll be prompted:
 
 ### 🔌 Universal Compatibility
 
-| Tool        | Workspace Path    | Global Path  | Status          |
-| ----------- | ----------------- | ------------ | --------------- |
-| Cursor      | `.cursor/skills/` | `~/.cursor/` | ✅ Verified     |
-| Antigravity | `.agent/skills/`  | `~/.agent/`  | ✅ Verified     |
-| Claude Code | `.claude/skills/` | `~/.claude/` | 🧪 Experimental |
-| Gemini CLI  | `.gemini/skills/` | `~/.gemini/` | 🧪 Experimental |
-| Codex CLI   | `.codex/skills/`  | `~/.codex/`  | 🧪 Experimental |
-| Custom      | Configurable      | `~/.ai/`     | 🧪 Experimental |
+| Tool        | Workspace Path    | Global Path  | Status             |
+| ----------- | ----------------- | ------------ | ------------------ |
+| Antigravity | `.agent/skills/`  | `~/.agent/`  | ✅ Fully Supported |
+| Cursor      | `.cursor/skills/` | `~/.cursor/` | ✅ Fully Supported |
+| Claude Code | `.claude/skills/` | `~/.claude/` | 🔜 Coming Soon     |
+| Gemini CLI  | `.gemini/skills/` | `~/.gemini/` | 🔜 Coming Soon     |
+| Codex CLI   | `.codex/skills/`  | `~/.codex/`  | 🔜 Coming Soon     |
+| Custom      | Configurable      | `~/.ai/`     | 🔜 Coming Soon     |
 
-> **Note:** Tools marked as 🧪 Experimental have not been fully tested and may require additional user configuration. Contributions and feedback are welcome!
+> **Note:** Tools marked as 🔜 Coming Soon are planned for future releases. The infrastructure is ready, but these tools require additional testing and configuration.
 
 ### 💻 Cross-Platform Support
 

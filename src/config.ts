@@ -10,6 +10,8 @@ export interface AITool {
   rulesFile: string;
   kitRulesFile: string; // Source file in kit's rules/ folder
   rulesInsideKit?: boolean; // If true, rules file goes inside kit folder even for workspace install
+  workflowsAs?: string; // Target folder name for workflows (default: "workflows", Cursor uses "commands")
+  available: boolean; // If false, tool is "coming soon" and hidden from CLI
 }
 
 export interface Kit {
@@ -62,6 +64,7 @@ export const AI_TOOLS: AITool[] = [
     rulesFile: "CLAUDE.md",
     kitRulesFile: "CLAUDE.md",
     rulesInsideKit: true, // Claude reads from .claude/CLAUDE.md (2025 standard)
+    available: false, // Coming soon
   },
   {
     id: "gemini",
@@ -72,6 +75,7 @@ export const AI_TOOLS: AITool[] = [
     rulesFile: "GEMINI.md",
     kitRulesFile: "GEMINI.md",
     rulesInsideKit: true, // Gemini reads from .gemini/GEMINI.md
+    available: false, // Coming soon
   },
   {
     id: "codex",
@@ -82,6 +86,7 @@ export const AI_TOOLS: AITool[] = [
     rulesFile: "AGENTS.md",
     kitRulesFile: "AGENTS.md",
     rulesInsideKit: true, // Codex reads from .codex/AGENTS.md
+    available: false, // Coming soon
   },
   {
     id: "antigravity",
@@ -92,16 +97,19 @@ export const AI_TOOLS: AITool[] = [
     rulesFile: "GEMINI.md",
     kitRulesFile: "GEMINI.md",
     rulesInsideKit: true, // Antigravity reads GEMINI.md from inside .agent/
+    available: true,
   },
   {
     id: "cursor",
     name: "Cursor",
     icon: "⚪",
-    path: ".cursor/rules", // Modern path: .cursor/rules/ (2025 standard)
-    globalPathPattern: "~/.cursor/rules",
-    rulesFile: "rules.md", // Modern: .cursor/rules/rules.md instead of .cursorrules
+    path: ".cursor", // Base path for Cursor (contains rules/ and commands/)
+    globalPathPattern: "~/.cursor",
+    rulesFile: "rules/rules.md", // Modern: .cursor/rules/rules.md instead of .cursorrules
     kitRulesFile: "CURSOR.md", // Source file in kit
     rulesInsideKit: true,
+    workflowsAs: "commands", // Cursor calls workflows "commands" in .cursor/commands/
+    available: true,
   },
   {
     id: "custom",
@@ -111,6 +119,7 @@ export const AI_TOOLS: AITool[] = [
     globalPathPattern: "~/.ai",
     rulesFile: "RULES.md",
     kitRulesFile: "GEMINI.md", // Use GEMINI.md as base for custom
+    available: false, // Coming soon
   },
 ];
 

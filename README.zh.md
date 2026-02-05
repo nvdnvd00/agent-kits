@@ -60,7 +60,7 @@ npx @neyugn/agent-kits
 ```
 
 ```
-  ╭──────────────────────────────────────────────────────────────────────────╮
+  ╭──────────────────────────────────────────────────────────────────────────────╮
   │                                                                          │
   │        _     ____  _____  _   _  _____   _  __ ___  _____  ____          │
   │       / \   / ___|| ____|| \ | ||_   _| | |/ /|_ _||_   _|/ ___|         │
@@ -70,15 +70,13 @@ npx @neyugn/agent-kits
   │                                                                          │
   │           ⚡  The Universal AI Agent Toolkit  ⚡                         │
   │                                                                          │
-  ╰──────────────────────────────────────────────────────────────────────────╯
+  ╯──────────────────────────────────────────────────────────────────────────────╯
 
   SETUP WIZARD
 
 ◆  🤖 您正在使用哪个 AI 工具？
-│  ○ Claude Code (.claude/)
-│  ● Gemini CLI (.gemini/)
+│  ● Antigravity (.agent/)
 │  ○ Cursor (.cursor/)
-│  ○ 自定义...
 
 ◆  📂 您想安装在哪里？
 │  ● Workspace（当前项目）
@@ -115,16 +113,16 @@ npx @neyugn/agent-kits
 
 ### 🔌 通用兼容性
 
-| 工具        | Workspace 路径    | Global 路径  | 状态      |
-| ----------- | ----------------- | ------------ | --------- |
-| Cursor      | `.cursor/skills/` | `~/.cursor/` | ✅ 已验证 |
-| Antigravity | `.agent/skills/`  | `~/.agent/`  | ✅ 已验证 |
-| Claude Code | `.claude/skills/` | `~/.claude/` | 🧪 实验性 |
-| Gemini CLI  | `.gemini/skills/` | `~/.gemini/` | 🧪 实验性 |
-| Codex CLI   | `.codex/skills/`  | `~/.codex/`  | 🧪 实验性 |
-| 自定义      | 可配置            | `~/.ai/`     | 🧪 实验性 |
+| 工具        | Workspace 路径    | Global 路径  | 状态        |
+| ----------- | ----------------- | ------------ | ----------- |
+| Antigravity | `.agent/skills/`  | `~/.agent/`  | ✅ 完全支持 |
+| Cursor      | `.cursor/skills/` | `~/.cursor/` | ✅ 完全支持 |
+| Claude Code | `.claude/skills/` | `~/.claude/` | 🔜 即将推出 |
+| Gemini CLI  | `.gemini/skills/` | `~/.gemini/` | 🔜 即将推出 |
+| Codex CLI   | `.codex/skills/`  | `~/.codex/`  | 🔜 即将推出 |
+| 自定义      | 可配置            | `~/.ai/`     | 🔜 即将推出 |
 
-> **注意：** 标记为 🧪 实验性的工具尚未完全测试，可能需要用户进行额外配置。欢迎贡献和反馈！
+> **注意：** 标记为 🔜 即将推出的工具已纳入未来版本计划。基础架构已就绪，但这些工具需要额外的测试和配置。
 
 ### 💻 跨平台支持
 

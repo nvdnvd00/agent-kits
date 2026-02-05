@@ -109,7 +109,7 @@ async function main() {
   // Step 1: Select AI Tool
   const aiToolResult = await p.select({
     message: "🤖 Which AI assistant are you using?",
-    options: AI_TOOLS.map((tool) => ({
+    options: AI_TOOLS.filter((tool) => tool.available).map((tool) => ({
       value: tool.id,
       label: `${tool.name}`,
       hint: `${getGlobalPathDisplay(tool)}`,
