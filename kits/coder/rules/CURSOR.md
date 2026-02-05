@@ -134,18 +134,39 @@ Agent activated → Check frontmatter `skills:` → Read SKILL.md → Apply.
 ## 🛠️ SKILL LOADING PROTOCOL
 
 ```
-User Request → Skill Description Match → Load SKILL.md → Apply
+User Request → Check Profile → Skill Description Match → Load SKILL.md → Apply
+```
+
+### Profile-Aware Loading
+
+> **CRITICAL:** Before loading any skill or selecting any agent, check `.agent/profile.json`
+
+```
+1. Check if `.agent/profile.json` exists
+2. If EXISTS:
+   - Read skills.enabled[] → Only load these skills
+   - Read skills.disabled[] → Skip these skills
+   - Read agents.disabled[] → Skip these agents
+   - Respect userOverrides.force-enabled/force-disabled
+3. If NOT EXISTS:
+   - All skills/agents are ENABLED by default
+   - Behave as if no filtering is applied
 ```
 
 ### Core Skills (Always Available)
 
+These skills are NEVER disabled regardless of profile:
+
 - `clean-code` - Pragmatic coding standards (used by ALL agents)
 - `testing-patterns` - Testing pyramid, AAA pattern
 - `security-fundamentals` - OWASP 2025
+- `brainstorming` - Socratic questioning protocol
+- `plan-writing` - Task breakdown and WBS
+- `systematic-debugging` - 4-phase debugging
 
 ### Domain Skills (39 total - see ARCHITECTURE.md)
 
-Key skills: `api-patterns`, `database-design`, `react-patterns`, `typescript-patterns`, `docker-patterns`, `kubernetes-patterns`, `terraform-patterns`, `auth-patterns`, `graphql-patterns`, `redis-patterns`, `realtime-patterns`, `queue-patterns`, `multi-tenancy`, `ai-rag-patterns`, `prompt-engineering`, `monitoring-observability`, `frontend-design`, `mobile-design`, `tailwind-patterns`, `e2e-testing`, `performance-profiling`, `plan-writing`, `systematic-debugging`, `brainstorming`, `github-actions`, `gitlab-ci-patterns`
+Key skills: `api-patterns`, `database-design`, `react-patterns`, `typescript-patterns`, `docker-patterns`, `kubernetes-patterns`, `terraform-patterns`, `auth-patterns`, `graphql-patterns`, `redis-patterns`, `realtime-patterns`, `queue-patterns`, `multi-tenancy`, `ai-rag-patterns`, `prompt-engineering`, `monitoring-observability`, `frontend-design`, `mobile-design`, `tailwind-patterns`, `e2e-testing`, `performance-profiling`, `github-actions`, `gitlab-ci-patterns`
 
 > 🔴 Full skill list: See `ARCHITECTURE.md` → Skills section
 

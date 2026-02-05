@@ -163,7 +163,7 @@ The **Filter Skill** solves the "skill overload" problem by automatically detect
 | **1. Detection**      | Scans for config files (`package.json`, `pubspec.yaml`, `Dockerfile`, etc.) |
 | **2. Recommendation** | Maps detected techstack to required skills                                  |
 | **3. Confirmation**   | Presents changes and asks about future techstack plans                      |
-| **4. Persistence**    | Saves profile to `.agent/workspace-profile.json`                            |
+| **4. Persistence**    | Saves profile to `.agent/profile.json`                                      |
 
 ### Example
 

@@ -1,6 +1,6 @@
 ---
 name: filter-skill
-description: Automatically analyze workspace and enable/disable skills/agents based on detected techstack. Reduces noise from irrelevant skills.
+description: Recommend enabling/disabling skills based on detected techstack. Reduces noise from irrelevant skills in the workspace.
 category: common
 trigger: manual
 workflow: /filter
@@ -8,165 +8,134 @@ workflow: /filter
 
 # Filter Skill
 
-> Workspace-aware skill/agent filtering for optimal AI performance.
+> Workspace-aware skill filtering for optimal AI performance.
 
 ---
 
 ## 🎯 Purpose
 
-Filter Skill solves the **skill overload** problem - when too many skills are loaded but aren't relevant to the current project. This skill:
+Filter Skill analyzes the **techstack profile** (from scan-techstack) and recommends which skills to **enable/disable** based on project needs. This:
 
-1. **Analyzes techstack** of the workspace
-2. **Recommends enable/disable** for skills/agents
-3. **Asks user confirmation** before applying changes
-4. **Persists profile** for use in subsequent sessions
-
----
-
-## 🔍 Detection Criteria
-
-### Package Managers & Config Files
-
-| File/Pattern       | Detected Techstack                      |
-| ------------------ | --------------------------------------- |
-| `package.json`     | Node.js, check dependencies for details |
-| `pubspec.yaml`     | Flutter/Dart                            |
-| `pyproject.toml`   | Python (Poetry/PDM)                     |
-| `requirements.txt` | Python (pip)                            |
-| `Cargo.toml`       | Rust                                    |
-| `go.mod`           | Go                                      |
-| `build.gradle`     | Android (Java/Kotlin)                   |
-| `Podfile`          | iOS                                     |
-| `composer.json`    | PHP                                     |
-| `Gemfile`          | Ruby                                    |
-
-### Framework Markers
-
-| File/Pattern           | Framework        | Enable Skills                                 |
-| ---------------------- | ---------------- | --------------------------------------------- |
-| `next.config.*`        | Next.js          | react-patterns, frontend-design, seo-patterns |
-| `vite.config.*`        | Vite             | react-patterns, frontend-design               |
-| `angular.json`         | Angular          | typescript-patterns, frontend-design          |
-| `nuxt.config.*`        | Nuxt.js          | frontend-design, seo-patterns                 |
-| `tailwind.config.*`    | Tailwind CSS     | tailwind-patterns                             |
-| `prisma/schema.prisma` | Prisma           | database-design, postgres-patterns            |
-| `drizzle.config.*`     | Drizzle          | database-design                               |
-| `docker-compose.*`     | Docker           | docker-patterns                               |
-| `Dockerfile`           | Docker           | docker-patterns                               |
-| `k8s/`, `kubernetes/`  | Kubernetes       | kubernetes-patterns                           |
-| `.github/workflows/`   | GitHub Actions   | github-actions                                |
-| `.gitlab-ci.yml`       | GitLab CI        | gitlab-ci-patterns                            |
-| `terraform/`, `*.tf`   | Terraform        | terraform-patterns                            |
-| `socket.io`, `ws`      | WebSocket (deps) | realtime-patterns                             |
-| `bullmq`, `bee-queue`  | Queue (deps)     | queue-patterns                                |
-
-### Dependency Analysis (package.json)
-
-| Dependency Pattern      | Enable Skills                       |
-| ----------------------- | ----------------------------------- |
-| `react`, `react-dom`    | react-patterns                      |
-| `next`                  | react-patterns, seo-patterns        |
-| `@tanstack/react-query` | react-patterns                      |
-| `graphql`, `@apollo`    | graphql-patterns                    |
-| `redis`, `ioredis`      | redis-patterns                      |
-| `pg`, `postgres`        | postgres-patterns                   |
-| `socket.io*`            | realtime-patterns                   |
-| `bullmq`, `bee-queue`   | queue-patterns                      |
-| `passport`, `@auth`     | auth-patterns                       |
-| `openai`, `langchain`   | ai-rag-patterns, prompt-engineering |
-| `playwright`            | e2e-testing                         |
-| `cypress`               | e2e-testing                         |
-| `jest`, `vitest`        | testing-patterns                    |
-| `eslint`, `prettier`    | clean-code                          |
+1. **Reduces noise** - Only relevant skills are loaded
+2. **Improves context** - AI focuses on applicable patterns
+3. **Optimizes performance** - Less skill content to process
 
 ---
 
-## 📋 Workflow Steps
+## 🔗 Dependency
 
-### Phase 1: Analysis
+This skill requires **scan-techstack** to run first:
 
-```plaintext
-1. Scan workspace root for config files
-2. Parse package managers (package.json, pubspec.yaml, etc.)
-3. Detect framework markers
-4. Analyze dependencies
-5. Build techstack profile
 ```
-
-### Phase 2: Recommendation
-
-```plaintext
-1. Map techstack → required skills/agents
-2. Identify unused skills (candidates for disable)
-3. Identify missing skills (candidates for enable)
-4. Generate recommendation table
-```
-
-### Phase 3: User Confirmation
-
-AI will ask the user:
-
-```markdown
-## 🔍 Workspace Analysis Complete
-
-**Detected Techstack:**
-
-- Next.js 14 (App Router)
-- TypeScript
-- Tailwind CSS
-- Prisma + PostgreSQL
-- Redis
-
-**Recommended Skills (Enable):**
-| Skill | Reason |
-|-------|--------|
-| react-patterns | Next.js detected |
-| tailwind-patterns | tailwind.config.js found |
-| postgres-patterns | Prisma with PostgreSQL |
-| redis-patterns | ioredis in dependencies |
-
-**Recommended to Disable:**
-| Skill | Reason |
-|-------|--------|
-| flutter-patterns | No pubspec.yaml |
-| react-native-patterns | No mobile setup |
-| queue-patterns | No queue dependencies |
-
-**Questions:**
-
-1. Do you want to apply these changes?
-2. Are there any techstacks you plan to add in the future? (e.g., mobile, CI/CD)
-3. Are there any skills you want to force enable/disable?
-```
-
-### Phase 4: Apply & Persist
-
-```plaintext
-1. Update .agent/workspace-profile.json
-2. (Optional) Update ARCHITECTURE.md skills section
-3. Confirm changes to user
+/filter workflow:
+  1. scan-techstack → detect techstack
+  2. filter-skill → recommend skills (this skill)
+  3. filter-agent → recommend agents
 ```
 
 ---
 
-## 📄 Workspace Profile Format
+## 📋 Skill Categories
+
+### Core Skills (NEVER DISABLE)
+
+These skills are ALWAYS enabled regardless of techstack:
+
+| Skill                   | Reason                        |
+| ----------------------- | ----------------------------- |
+| `clean-code`            | Universal coding standards    |
+| `brainstorming`         | Socratic questioning protocol |
+| `plan-writing`          | Task breakdown and WBS        |
+| `systematic-debugging`  | 4-phase debugging methodology |
+| `testing-patterns`      | Testing pyramid, AAA pattern  |
+| `security-fundamentals` | OWASP 2025 security basics    |
+
+### Frontend Skills
+
+| Skill                    | Enable When                     |
+| ------------------------ | ------------------------------- |
+| `react-patterns`         | React/Next.js detected          |
+| `typescript-patterns`    | TypeScript detected             |
+| `tailwind-patterns`      | Tailwind CSS detected           |
+| `frontend-design`        | Any frontend framework          |
+| `seo-patterns`           | Next.js, Nuxt.js (SSR) detected |
+| `accessibility-patterns` | Frontend detected               |
+
+### Backend Skills
+
+| Skill                   | Enable When                |
+| ----------------------- | -------------------------- |
+| `api-patterns`          | Backend framework detected |
+| `auth-patterns`         | Auth dependencies detected |
+| `graphql-patterns`      | GraphQL detected           |
+| `nodejs-best-practices` | Node.js detected           |
+
+### Database Skills
+
+| Skill               | Enable When           |
+| ------------------- | --------------------- |
+| `database-design`   | Any database detected |
+| `postgres-patterns` | PostgreSQL detected   |
+| `redis-patterns`    | Redis detected        |
+
+### Mobile Skills
+
+| Skill                   | Enable When           |
+| ----------------------- | --------------------- |
+| `flutter-patterns`      | Flutter/Dart detected |
+| `react-native-patterns` | React Native detected |
+| `mobile-design`         | Any mobile platform   |
+
+### DevOps Skills
+
+| Skill                      | Enable When                |
+| -------------------------- | -------------------------- |
+| `docker-patterns`          | Docker detected            |
+| `kubernetes-patterns`      | Kubernetes detected        |
+| `terraform-patterns`       | Terraform detected         |
+| `github-actions`           | GitHub Actions detected    |
+| `gitlab-ci-patterns`       | GitLab CI detected         |
+| `monitoring-observability` | DevOps/Production detected |
+
+### AI Skills
+
+| Skill                | Enable When                  |
+| -------------------- | ---------------------------- |
+| `ai-rag-patterns`    | AI/LLM dependencies detected |
+| `prompt-engineering` | AI/LLM dependencies detected |
+
+### Realtime & Queue Skills
+
+| Skill               | Enable When                    |
+| ------------------- | ------------------------------ |
+| `realtime-patterns` | Socket.IO/WebSocket detected   |
+| `queue-patterns`    | BullMQ/RabbitMQ detected       |
+| `multi-tenancy`     | Multi-tenant patterns detected |
+
+### Support Skills
+
+| Skill                     | Enable When                |
+| ------------------------- | -------------------------- |
+| `i18n-localization`       | i18n dependencies detected |
+| `documentation-templates` | Always available           |
+| `mermaid-diagrams`        | Always available           |
+
+---
+
+## 📊 Recommendation Output
 
 ```json
 {
-  "version": "1.0",
-  "generatedAt": "2026-02-05T12:00:00Z",
-  "techstack": {
-    "languages": ["typescript", "python"],
-    "frameworks": ["nextjs", "tailwindcss"],
-    "databases": ["postgresql"],
-    "tools": ["docker", "github-actions"]
-  },
   "skills": {
     "enabled": [
       "clean-code",
+      "testing-patterns",
+      "security-fundamentals",
       "react-patterns",
       "typescript-patterns",
       "tailwind-patterns",
+      "frontend-design",
+      "api-patterns",
       "database-design",
       "postgres-patterns",
       "docker-patterns",
@@ -177,71 +146,80 @@ AI will ask the user:
       "react-native-patterns",
       "mobile-design",
       "queue-patterns",
-      "gitlab-ci-patterns"
+      "realtime-patterns",
+      "ai-rag-patterns",
+      "kubernetes-patterns"
     ],
-    "userOverrides": {
-      "force-enabled": ["ai-rag-patterns"],
-      "force-disabled": []
-    }
-  },
-  "agents": {
-    "disabled": ["mobile-developer", "queue-specialist"]
-  },
-  "futureTechstack": ["react-native", "kubernetes"]
+    "coreSkills": [
+      "clean-code",
+      "brainstorming",
+      "plan-writing",
+      "systematic-debugging",
+      "testing-patterns",
+      "security-fundamentals"
+    ]
+  }
 }
 ```
 
 ---
 
-## 🚫 Never Disable (Core Skills)
+## 🔧 Mapping Rules
 
-These skills are ALWAYS enabled regardless of techstack:
+### Category → Skill Mapping
 
-- `clean-code`
-- `brainstorming`
-- `plan-writing`
-- `systematic-debugging`
-- `testing-patterns`
-- `security-fundamentals`
+| Detected Category | Skills to ENABLE                                                                                              |
+| ----------------- | ------------------------------------------------------------------------------------------------------------- |
+| `frontend`        | react-patterns, typescript-patterns, frontend-design, tailwind-patterns, seo-patterns, accessibility-patterns |
+| `backend`         | api-patterns, nodejs-best-practices, auth-patterns                                                            |
+| `mobile`          | flutter-patterns OR react-native-patterns, mobile-design                                                      |
+| `database`        | database-design, postgres-patterns OR redis-patterns                                                          |
+| `devops`          | docker-patterns, kubernetes-patterns, github-actions, monitoring-observability                                |
+| `ai`              | ai-rag-patterns, prompt-engineering                                                                           |
+| `realtime`        | realtime-patterns                                                                                             |
+| `queue`           | queue-patterns                                                                                                |
+| `graphql`         | graphql-patterns                                                                                              |
+
+### Framework → Additional Skills
+
+| Framework     | Additional Skills                  |
+| ------------- | ---------------------------------- |
+| `nextjs`      | seo-patterns, react-patterns       |
+| `tailwindcss` | tailwind-patterns                  |
+| `prisma`      | database-design, postgres-patterns |
+| `socketio`    | realtime-patterns                  |
+| `gitlab-ci`   | gitlab-ci-patterns                 |
+| `terraform`   | terraform-patterns                 |
 
 ---
 
-## 🔧 Manual Override
+## ⚠️ Important Notes
 
-User can override any recommendation:
+1. **Core skills always ON** - Never disable core skills
+2. **Conservative approach** - When in doubt, keep skill enabled
+3. **User override** - User can force enable/disable any skill
+4. **Future planning** - Check user's future techstack plans before disabling
 
-```markdown
-/filter --force-enable ai-rag-patterns
-/filter --force-disable mobile-design
-/filter --reset # Reset to default (enable all)
+---
+
+## 📄 Persistence
+
+Results are saved to `.agent/profile.json`:
+
+```json
+{
+  "version": "1.0",
+  "generatedAt": "2026-02-05T12:00:00Z",
+  "analyzedBy": "filter-skill v1.0",
+  "skills": {
+    "enabled": [...],
+    "disabled": [...],
+    "userOverrides": {
+      "force-enabled": [],
+      "force-disabled": []
+    }
+  }
+}
 ```
-
----
-
-## 📊 Integration Points
-
-### With GEMINI.md / CLAUDE.md
-
-Rule files should check `workspace-profile.json` when loading skills:
-
-```markdown
-## Skill Loading Protocol
-
-1. Check if `.agent/workspace-profile.json` exists
-2. If exists, respect enabled/disabled lists
-3. Core skills always loaded regardless of profile
-```
-
-### With Orchestrator
-
-Orchestrator agent should respect skill filtering when routing tasks.
-
----
-
-## ⚠️ Limitations
-
-1. **Static analysis only** - Does not execute code to detect
-2. **Config-based** - Relies on config files, may miss dynamic setups
-3. **Monorepo** - Needs improvement to handle multiple packages
 
 ---

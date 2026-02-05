@@ -155,7 +155,7 @@ npx @neyugn/agent-kits
 | **1. 检测**   | 扫描配置文件（`package.json`、`pubspec.yaml`、`Dockerfile` 等） |
 | **2. 推荐**   | 将检测到的技术栈映射到所需技能                                  |
 | **3. 确认**   | 显示更改并询问未来的技术栈计划                                  |
-| **4. 持久化** | 将配置保存到 `.agent/workspace-profile.json`                    |
+| **4. 持久化** | 将配置保存到 `.agent/profile.json`                              |
 
 ### 示例
 

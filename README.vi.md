@@ -155,7 +155,7 @@ Hoạt động trên **Windows**, **macOS**, và **Linux** với đường dẫn
 | **1. Phát hiện** | Quét các file config (`package.json`, `pubspec.yaml`, `Dockerfile`, etc.) |
 | **2. Đề xuất**   | Map techstack đã phát hiện với các skills cần thiết                       |
 | **3. Xác nhận**  | Hiển thị thay đổi và hỏi về kế hoạch techstack tương lai                  |
-| **4. Lưu trữ**   | Lưu profile vào `.agent/workspace-profile.json`                           |
+| **4. Lưu trữ**   | Lưu profile vào `.agent/profile.json`                                     |
 
 ### Ví dụ
 
