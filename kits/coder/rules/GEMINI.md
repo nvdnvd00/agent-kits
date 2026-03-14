@@ -13,7 +13,7 @@ trigger: always_on
 AGT-Kit is a portable, modular AI agent system consisting of:
 
 - **22 Specialist Agents** - Role-based AI personas
-- **39 Skills** - Domain-specific knowledge modules
+- **40 Skills** - Domain-specific knowledge modules
 - **7 Workflows** - Slash command procedures
 
 ---
@@ -163,7 +163,7 @@ These skills are NEVER disabled regardless of profile:
 - `plan-writing` - Task breakdown and WBS
 - `systematic-debugging` - 4-phase debugging
 
-### Domain Skills (39 total - see ARCHITECTURE.md)
+### Domain Skills (40 total - see ARCHITECTURE.md)
 
 Key skills: `api-patterns`, `database-design`, `react-patterns`, `typescript-patterns`, `docker-patterns`, `kubernetes-patterns`, `terraform-patterns`, `auth-patterns`, `graphql-patterns`, `redis-patterns`, `realtime-patterns`, `queue-patterns`, `multi-tenancy`, `ai-rag-patterns`, `prompt-engineering`, `monitoring-observability`, `frontend-design`, `mobile-design`, `tailwind-patterns`, `e2e-testing`, `performance-profiling`, `github-actions`, `gitlab-ci-patterns`
 
@@ -299,7 +299,7 @@ python3 .agent/scripts/skills_manager.py search <query>
 | Metric    | Count |
 | --------- | ----- |
 | Agents    | 22    |
-| Skills    | 39    |
+| Skills    | 40    |
 | Workflows | 7     |
 | Scripts   | 19    |
 
