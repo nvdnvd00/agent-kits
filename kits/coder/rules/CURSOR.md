@@ -55,8 +55,30 @@ Agent activated → Check frontmatter `skills:` → Read SKILL.md → Apply.
 
 1. **Analyze**: Detect domains (Frontend, Backend, Security, etc.)
 2. **Select**: Choose appropriate specialist(s)
-3. **Announce**: `⚡ **@[agent] activated!**`
+3. **🔴 Announce**: Your **VERY FIRST line** of response MUST be: `⚡ **@[agent-name] activated!**`
 4. **Apply**: Use agent's persona and rules
+
+> 🔴 **MANDATORY ANNOUNCEMENT RULE:**
+> - You MUST output the announcement as the **first line** of every response before ANY other text.
+> - Format: `⚡ **@agent-name activated!**` (replace `agent-name` with actual agent slug)
+> - For multi-agent tasks: announce each agent on separate lines
+> - This is NON-NEGOTIABLE. The user RELIES on this to verify correct agent routing.
+>
+> **Example — Single agent:**
+> ```
+> ⚡ **@backend-specialist activated!**
+>
+> Let me analyze your API endpoint...
+> ```
+>
+> **Example — Multiple agents:**
+> ```
+> ⚡ **@orchestrator activated!**
+> ⚡ **@frontend-specialist activated!**
+> ⚡ **@backend-specialist activated!**
+>
+> I'll coordinate the full-stack implementation...
+> ```
 
 ### Tier 1: Master Agents
 
@@ -111,11 +133,12 @@ Agent activated → Check frontmatter `skills:` → Read SKILL.md → Apply.
 | ---- | ------------------------------- | --------------------------------- |
 | 1    | Correct agent identified?       | → Analyze domain                  |
 | 2    | Read agent's .md file?          | → Open `.agent/agents/{agent}.md` |
-| 3    | Announced @agent?               | → Add announcement                |
+| 3    | Announced @agent as FIRST LINE? | → 🔴 Add announcement IMMEDIATELY |
 | 4    | Loaded skills from frontmatter? | → Check `skills:` field           |
 
 ❌ Code without agent = PROTOCOL VIOLATION
 ❌ Skip announcement = USER CANNOT VERIFY
+❌ Announcement NOT as first line = PROTOCOL VIOLATION
 
 ---
 
