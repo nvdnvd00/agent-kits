@@ -40,7 +40,7 @@
 - 📜 **Workflows** — Slash commands for common tasks
 - 🔍 **Smart Filtering** — Auto-detect techstack and optimize loaded skills
 
-Works with **any AI tool** — Claude, Gemini, Codex, Cursor, and more.
+Works with **any AI tool** — Claude, Gemini, Codex, Cursor, OpenCode, and more.
 
 <br/>
 
@@ -106,6 +106,7 @@ npx @neyugn/agent-kits
 | Gemini CLI  | `~/.gemini/` | `.gemini/`     |
 | Codex CLI   | `~/.codex/`  | `.codex/`      |
 | Antigravity | `~/.agent/`  | `.agent/`      |
+| OpenCode    | `~/.config/opencode/` | `.opencode/` |
 | Cursor      | `~/.cursor/` | `.cursor/`     |
 
 > **Note:** On Windows, `~` is replaced with `C:\Users\<username>\`
@@ -124,6 +125,7 @@ If the installer detects an existing installation, you'll be prompted:
 | Tool        | Workspace Path    | Global Path  | Status             |
 | ----------- | ----------------- | ------------ | ------------------ |
 | Antigravity | `.agent/skills/`  | `~/.agent/`  | ✅ Fully Supported |
+| OpenCode    | `.opencode/`      | `~/.config/opencode/` | ✅ Fully Supported |
 | Cursor      | `.cursor/skills/` | `~/.cursor/` | ✅ Fully Supported |
 | Claude Code | `.claude/skills/` | `~/.claude/` | 🔜 Coming Soon     |
 | Gemini CLI  | `.gemini/skills/` | `~/.gemini/` | 🔜 Coming Soon     |

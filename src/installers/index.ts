@@ -6,6 +6,7 @@
 import { AntigravityInstaller } from "./antigravity.js";
 import type { AIToolInstaller, InstallOptions, InstallResult } from "./base.js";
 import { CursorInstaller } from "./cursor.js";
+import { OpenCodeInstaller } from "./opencode.js";
 
 // Re-export types for external use
 export type { InstallOptions, InstallResult } from "./base.js";
@@ -28,6 +29,9 @@ const installerRegistry: Record<string, AIToolInstaller> = {
 
   // Cursor has special handling (workflows -> commands)
   cursor: new CursorInstaller(),
+
+  // OpenCode has special handling (workflows -> commands, AGENTS.md at root)
+  opencode: new OpenCodeInstaller(),
 };
 
 /**

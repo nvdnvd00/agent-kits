@@ -27,3 +27,10 @@ export type {
   CursorCommandFrontmatter,
   WorkflowFrontmatter,
 } from "./cursor-workflow.js";
+
+export {
+  createOpenCodeWorkflowTransformer,
+  OpenCodeWorkflowTransformer,
+} from "./opencode-workflow.js";
+
+export type { OpenCodeCommandFrontmatter } from "./opencode-workflow.js";

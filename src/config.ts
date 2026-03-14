@@ -112,6 +112,18 @@ export const AI_TOOLS: AITool[] = [
     available: true,
   },
   {
+    id: "opencode",
+    name: "OpenCode",
+    icon: "⌬",
+    path: ".opencode",
+    globalPathPattern: "~/.config/opencode",
+    rulesFile: "AGENTS.md",
+    kitRulesFile: "AGENTS.md",
+    rulesInsideKit: false, // OpenCode reads AGENTS.md from project root
+    workflowsAs: "commands", // OpenCode calls workflows "commands" in .opencode/commands/
+    available: true,
+  },
+  {
     id: "custom",
     name: "Custom",
     icon: "⚙️",

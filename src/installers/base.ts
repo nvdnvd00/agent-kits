@@ -51,7 +51,7 @@ export function getKitSource(kitId: string): {
  */
 export function replaceToolPaths(content: string, targetPath: string): string {
   return content.replace(
-    /\.(agent|claude|gemini|cursor|codex)\//g,
+    /\.(agent|claude|gemini|cursor|codex|opencode)\//g,
     `${targetPath}/`,
   );
 }
