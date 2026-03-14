@@ -20,7 +20,7 @@ AGT-Kit is a portable, modular AI agent system consisting of:
 
 ### Modular Skill Loading
 
-Agent activated → Check frontmatter `skills:` → Read SKILL.md → Apply.
+Agent activated → Check ARCHITECTURE.md for assigned skills → Use `skill` tool to load each → Apply.
 
 - **Priority:** P0 (AGENTS.md) > P1 (Agent.md) > P2 (SKILL.md). All binding.
 - **Enforcement:** Never skip reading. "Read → Understand → Apply" mandatory.
@@ -101,12 +101,12 @@ Agent activated → Check frontmatter `skills:` → Read SKILL.md → Apply.
 
 ### Routing Checklist
 
-| Step | Check                           | If Unchecked                      |
-| ---- | ------------------------------- | --------------------------------- |
-| 1    | Correct agent identified?       | → Analyze domain                  |
-| 2    | Read agent's .md file?          | → Open `.agent/agents/{agent}.md` |
-| 3    | Announced @agent?               | → Add announcement                |
-| 4    | Loaded skills from frontmatter? | → Check `skills:` field           |
+| Step | Check                             | If Unchecked                                |
+| ---- | --------------------------------- | ------------------------------------------- |
+| 1    | Correct agent identified?         | → Analyze domain                            |
+| 2    | Read agent's .md file?            | → Open `.agent/agents/{agent}.md`           |
+| 3    | Announced @agent?                 | → Add announcement                          |
+| 4    | Loaded skills from ARCHITECTURE?  | → Check ARCHITECTURE.md agent-skills table  |
 
 ❌ Code without agent = PROTOCOL VIOLATION
 ❌ Skip announcement = USER CANNOT VERIFY
@@ -129,7 +129,24 @@ Agent activated → Check frontmatter `skills:` → Read SKILL.md → Apply.
 ## 🛠️ SKILL LOADING PROTOCOL
 
 ```
-User Request → Check Profile → Skill Description Match → Load SKILL.md → Apply
+Agent activated → Check ARCHITECTURE.md for assigned skills → Use `skill` tool → Apply SKILL.md content
+```
+
+### How Skills Work in OpenCode
+
+OpenCode has a **native `skill` tool** that automatically discovers all available skills.
+
+1. **Discovery**: OpenCode scans `.agent/skills/*/SKILL.md` and lists them in the `skill` tool description
+2. **Selection**: Check ARCHITECTURE.md → find your agent → note the "Skills Used" column
+3. **Loading**: Call `skill({ name: "skill-name" })` to load each assigned skill
+4. **Apply**: Follow the loaded SKILL.md instructions
+
+```
+# Example: frontend-specialist activated
+1. Read ARCHITECTURE.md → Skills: clean-code, react-patterns, typescript-patterns, ...
+2. Call skill({ name: "clean-code" }) → Read content
+3. Call skill({ name: "react-patterns" }) → Read content
+4. Apply all loaded skill rules to the task
 ```
 
 ### Profile-Aware Loading
@@ -146,6 +163,31 @@ User Request → Check Profile → Skill Description Match → Load SKILL.md →
 3. If NOT EXISTS:
    - All skills/agents are ENABLED by default
    - Behave as if no filtering is applied
+```
+
+### Skill Permissions (OpenCode)
+
+Control skill access in `opencode.json`:
+
+```json
+{
+  "permission": {
+    "skill": {
+      "*": "allow",
+      "internal-*": "deny"
+    }
+  }
+}
+```
+
+Or per-agent in agent frontmatter:
+
+```yaml
+---
+permission:
+  skill:
+    "documents-*": "allow"
+---
 ```
 
 ### Core Skills (Always Available)

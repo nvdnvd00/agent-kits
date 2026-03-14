@@ -90,6 +90,46 @@ def parse_frontmatter(file_path: Path) -> Dict[str, Any]:
     return {}
 
 
+def parse_skills_from_architecture(agent_dir: Path) -> Dict[str, List[str]]:
+    """Parse agent-skill mappings from ARCHITECTURE.md tables.
+    
+    Falls back to this when agents don't have skills in frontmatter
+    (e.g., OpenCode strips the skills field during transformation).
+    """
+    arch_file = agent_dir / "ARCHITECTURE.md"
+    if not arch_file.exists():
+        return {}
+    
+    mapping = {}
+    try:
+        content = arch_file.read_text()
+        # Match table rows: | `agent-name` | description | skills-list |
+        # Pattern: | `name` | ... | skill1, skill2, ... |
+        for line in content.split('\n'):
+            if not line.startswith('|'):
+                continue
+            cells = [c.strip() for c in line.split('|')]
+            # Filter out empty cells from leading/trailing pipes
+            cells = [c for c in cells if c]
+            if len(cells) >= 3:
+                # First cell might be agent name wrapped in backticks
+                agent_name = cells[0].strip('`').strip()
+                # Last cell contains skills
+                skills_str = cells[-1]
+                # Skip header/separator rows
+                if agent_name.startswith('-') or agent_name == 'Agent':
+                    continue
+                # Parse comma-separated skills
+                skills = [s.strip().strip('`') for s in skills_str.split(',') if s.strip()]
+                # Only add if skills look valid (not header text)
+                if skills and not any(s in ['Skills Used', '---', 'Skills'] for s in skills):
+                    mapping[agent_name] = skills
+    except Exception:
+        pass
+    
+    return mapping
+
+
 def get_agents(agent_dir: Path) -> List[Dict[str, Any]]:
     """Get list of agents with their metadata."""
     agents = []
@@ -98,10 +138,12 @@ def get_agents(agent_dir: Path) -> List[Dict[str, Any]]:
     if not agents_path.exists():
         return agents
     
+    # Parse agent-skill mappings from ARCHITECTURE.md (single source of truth)
+    arch_skills = parse_skills_from_architecture(agent_dir)
+    
     for agent_file in agents_path.glob("*.md"):
         frontmatter = parse_frontmatter(agent_file)
-        skills = frontmatter.get("skills", "").replace("[", "").replace("]", "").split(",")
-        skills = [s.strip() for s in skills if s.strip()]
+        skills = arch_skills.get(agent_file.stem, [])
         
         agents.append({
             "name": agent_file.stem,
@@ -146,22 +188,33 @@ def get_skills(agent_dir: Path) -> List[Dict[str, Any]]:
 
 
 def get_workflows(agent_dir: Path) -> List[Dict[str, Any]]:
-    """Get list of workflows."""
+    """Get list of workflows/commands.
+    
+    Checks both 'workflows/' (Cursor, Gemini) and 'commands/' (OpenCode)
+    directories since different AI tools use different naming.
+    """
     workflows = []
-    workflows_path = agent_dir / "workflows"
     
-    if not workflows_path.exists():
-        return workflows
-    
-    for workflow_file in workflows_path.glob("*.md"):
-        frontmatter = parse_frontmatter(workflow_file)
+    # Check both possible directories
+    for dir_name in ["workflows", "commands"]:
+        workflows_path = agent_dir / dir_name
         
-        workflows.append({
-            "name": workflow_file.stem,
-            "command": f"/{workflow_file.stem}",
-            "file": str(workflow_file.relative_to(agent_dir)),
-            "description": frontmatter.get("description", ""),
-        })
+        if not workflows_path.exists():
+            continue
+        
+        for workflow_file in workflows_path.glob("*.md"):
+            frontmatter = parse_frontmatter(workflow_file)
+            
+            workflows.append({
+                "name": workflow_file.stem,
+                "command": f"/{workflow_file.stem}",
+                "file": str(workflow_file.relative_to(agent_dir)),
+                "description": frontmatter.get("description", ""),
+            })
+        
+        # Only use the first directory found (don't double-count)
+        if workflows:
+            break
     
     return sorted(workflows, key=lambda x: x["name"])
 

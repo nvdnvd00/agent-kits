@@ -159,11 +159,11 @@ These skills are NEVER disabled regardless of profile:
 - `plan-writing` - Task breakdown and WBS
 - `systematic-debugging` - 4-phase debugging
 
-### Domain Skills (40 total - see ARCHITECTURE.md)
+### Domain Skills (40 total - see .opencode/ARCHITECTURE.md)
 
 Key skills: `api-patterns`, `database-design`, `react-patterns`, `typescript-patterns`, `docker-patterns`, `kubernetes-patterns`, `terraform-patterns`, `auth-patterns`, `graphql-patterns`, `redis-patterns`, `realtime-patterns`, `queue-patterns`, `multi-tenancy`, `ai-rag-patterns`, `prompt-engineering`, `monitoring-observability`, `frontend-design`, `mobile-design`, `tailwind-patterns`, `e2e-testing`, `performance-profiling`, `github-actions`, `gitlab-ci-patterns`
 
-> 🔴 Full skill list: See `ARCHITECTURE.md` → Skills section
+> 🔴 Full skill list: See `.opencode/ARCHITECTURE.md` → Skills section
 
 ---
 
@@ -183,7 +183,7 @@ Key skills: `api-patterns`, `database-design`, `react-patterns`, `typescript-pat
 
 ### 🗺️ System Map
 
-> 🔴 Read `ARCHITECTURE.md` at session start.
+> 🔴 Read `.opencode/ARCHITECTURE.md` at session start.
 
 **Paths:** Agents `.opencode/agents/`, Skills `.opencode/skills/`, Workflows `.opencode/commands/`
 
@@ -286,7 +286,7 @@ python3 .opencode/scripts/skills_manager.py search <query>
 4. **UI changes** → Run `a11y_checker.py`
 5. **Before suggesting deploy** → Run `verify_all.py`
 
-> 🔴 Full script documentation: See `ARCHITECTURE.md` → Scripts section
+> 🔴 Full script documentation: See `.opencode/ARCHITECTURE.md` → Scripts section
 
 ---
 
