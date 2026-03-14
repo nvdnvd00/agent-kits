@@ -5,13 +5,14 @@
  * - Workflows are called "commands" in OpenCode
  * - Commands are stored in .opencode/commands/ instead of .opencode/workflows/
  * - Rules file (AGENTS.md) goes to project root (rulesInsideKit = false)
- * - No agent transformation needed (OpenCode doesn't have subagent concept)
+ * - Agent `tools` field is transformed from string to record format
  */
 
 import fs from "fs/promises";
 import path from "path";
 import type { TransformContext } from "../transformers/index.js";
 import {
+  createOpenCodeAgentTransformer,
   createOpenCodeWorkflowTransformer,
 } from "../transformers/index.js";
 import type { AIToolInstaller, InstallOptions, InstallResult } from "./base.js";
@@ -21,13 +22,15 @@ import {
   copyRulesFile,
   countItems,
   getKitSource,
+  replaceToolPaths,
 } from "./base.js";
 
 export class OpenCodeInstaller implements AIToolInstaller {
   // OpenCode uses "commands" instead of "workflows"
   private readonly COMMANDS_FOLDER = "commands";
 
-  // Transformer for OpenCode command format
+  // Transformers for OpenCode-specific formats
+  private readonly agentTransformer = createOpenCodeAgentTransformer();
   private readonly workflowTransformer = createOpenCodeWorkflowTransformer();
 
   async install(options: InstallOptions): Promise<InstallResult[]> {
@@ -41,11 +44,18 @@ export class OpenCodeInstaller implements AIToolInstaller {
       // Ensure target directory exists
       await fs.mkdir(kitTargetPath, { recursive: true });
 
-      // Copy kit contents (excluding rules and workflows - we handle them separately)
+      // Copy kit contents (excluding rules, workflows, and agents - we handle them separately)
       await copyDirectory(
         kitSourcePath,
         kitTargetPath,
-        ["rules", "workflows"],
+        ["rules", "workflows", "agents"],
+        aiTool.path,
+      );
+
+      // Transform and copy agents to OpenCode format (tools string → record)
+      await this.copyAgentsWithTransform(
+        kitSourcePath,
+        kitTargetPath,
         aiTool.path,
       );
 
@@ -89,6 +99,68 @@ export class OpenCodeInstaller implements AIToolInstaller {
     }
 
     return results;
+  }
+
+  /**
+   * Copy agents with transformation to OpenCode format
+   *
+   * This method:
+   * 1. Reads each agent file from the kit
+   * 2. Replaces tool path references (.agent/ → .opencode/)
+   * 3. Transforms the frontmatter `tools` field from string to record
+   * 4. Removes unnecessary fields (name, skills, tier)
+   * 5. Writes the transformed agent to the target directory
+   */
+  private async copyAgentsWithTransform(
+    kitSourcePath: string,
+    kitTargetPath: string,
+    toolPath: string,
+  ): Promise<void> {
+    const agentsSource = path.join(kitSourcePath, "agents");
+    const agentsTarget = path.join(kitTargetPath, "agents");
+
+    try {
+      await fs.access(agentsSource);
+    } catch {
+      // No agents directory
+      return;
+    }
+
+    // Create target agents directory
+    await fs.mkdir(agentsTarget, { recursive: true });
+
+    // Read all agent files
+    const entries = await fs.readdir(agentsSource, { withFileTypes: true });
+
+    for (const entry of entries) {
+      if (!entry.isFile() || !entry.name.endsWith(".md")) {
+        continue;
+      }
+
+      const sourcePath = path.join(agentsSource, entry.name);
+      const targetPath = path.join(agentsTarget, entry.name);
+
+      // Read original agent content
+      let content = await fs.readFile(sourcePath, "utf-8");
+
+      // Replace tool paths first (.agent/ → .opencode/)
+      content = replaceToolPaths(content, toolPath);
+
+      // Transform to OpenCode agent format
+      const context: TransformContext = {
+        aiTool: { path: toolPath } as TransformContext["aiTool"],
+        sourcePath,
+        targetPath,
+      };
+
+      const transformedContent = this.agentTransformer.transform(
+        content,
+        context,
+      );
+
+      // Write transformed agent
+      await fs.writeFile(targetPath, transformedContent);
+    }
   }
 
   /**

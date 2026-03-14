@@ -39,7 +39,7 @@ Hoạt động với **mọi công cụ AI** — Claude, Gemini, Codex, Cursor, 
 ## 🚀 Bắt đầu nhanh
 
 ```bash
-npx @neyugn/agent-kits
+npx @neyugn/agent-kits@latest
 ```
 
 Đó là tất cả! Installer tương tác sẽ hướng dẫn bạn:
@@ -56,7 +56,7 @@ npx @neyugn/agent-kits
 ### 🎯 Một lệnh, mọi công cụ
 
 ```bash
-npx @neyugn/agent-kits
+npx @neyugn/agent-kits@latest
 ```
 
 ```

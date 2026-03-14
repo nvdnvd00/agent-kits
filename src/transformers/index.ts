@@ -29,6 +29,13 @@ export type {
 } from "./cursor-workflow.js";
 
 export {
+  createOpenCodeAgentTransformer,
+  OpenCodeAgentTransformer,
+} from "./opencode-agent.js";
+
+export type { OpenCodeAgentFrontmatter } from "./opencode-agent.js";
+
+export {
   createOpenCodeWorkflowTransformer,
   OpenCodeWorkflowTransformer,
 } from "./opencode-workflow.js";

@@ -47,7 +47,7 @@ Works with **any AI tool** — Claude, Gemini, Codex, Cursor, OpenCode, and more
 ## 🚀 Quick Start
 
 ```bash
-npx @neyugn/agent-kits
+npx @neyugn/agent-kits@latest
 ```
 
 That's it! The interactive installer will guide you through:
@@ -64,7 +64,7 @@ That's it! The interactive installer will guide you through:
 ### 🎯 One Command, Any Tool
 
 ```bash
-npx @neyugn/agent-kits
+npx @neyugn/agent-kits@latest
 ```
 
 ```
@@ -100,14 +100,14 @@ npx @neyugn/agent-kits
 
 **Global Paths by Tool:**
 
-| Tool        | Global Path  | Workspace Path |
-| ----------- | ------------ | -------------- |
-| Claude Code | `~/.claude/` | `.claude/`     |
-| Gemini CLI  | `~/.gemini/` | `.gemini/`     |
-| Codex CLI   | `~/.codex/`  | `.codex/`      |
-| Antigravity | `~/.agent/`  | `.agent/`      |
-| OpenCode    | `~/.config/opencode/` | `.opencode/` |
-| Cursor      | `~/.cursor/` | `.cursor/`     |
+| Tool        | Global Path           | Workspace Path |
+| ----------- | --------------------- | -------------- |
+| Claude Code | `~/.claude/`          | `.claude/`     |
+| Gemini CLI  | `~/.gemini/`          | `.gemini/`     |
+| Codex CLI   | `~/.codex/`           | `.codex/`      |
+| Antigravity | `~/.agent/`           | `.agent/`      |
+| OpenCode    | `~/.config/opencode/` | `.opencode/`   |
+| Cursor      | `~/.cursor/`          | `.cursor/`     |
 
 > **Note:** On Windows, `~` is replaced with `C:\Users\<username>\`
 
@@ -122,15 +122,15 @@ If the installer detects an existing installation, you'll be prompted:
 
 ### 🔌 Universal Compatibility
 
-| Tool        | Workspace Path    | Global Path  | Status             |
-| ----------- | ----------------- | ------------ | ------------------ |
-| Antigravity | `.agent/skills/`  | `~/.agent/`  | ✅ Fully Supported |
+| Tool        | Workspace Path    | Global Path           | Status             |
+| ----------- | ----------------- | --------------------- | ------------------ |
+| Antigravity | `.agent/skills/`  | `~/.agent/`           | ✅ Fully Supported |
 | OpenCode    | `.opencode/`      | `~/.config/opencode/` | ✅ Fully Supported |
-| Cursor      | `.cursor/skills/` | `~/.cursor/` | ✅ Fully Supported |
-| Claude Code | `.claude/skills/` | `~/.claude/` | 🔜 Coming Soon     |
-| Gemini CLI  | `.gemini/skills/` | `~/.gemini/` | 🔜 Coming Soon     |
-| Codex CLI   | `.codex/skills/`  | `~/.codex/`  | 🔜 Coming Soon     |
-| Custom      | Configurable      | `~/.ai/`     | 🔜 Coming Soon     |
+| Cursor      | `.cursor/skills/` | `~/.cursor/`          | ✅ Fully Supported |
+| Claude Code | `.claude/skills/` | `~/.claude/`          | 🔜 Coming Soon     |
+| Gemini CLI  | `.gemini/skills/` | `~/.gemini/`          | 🔜 Coming Soon     |
+| Codex CLI   | `.codex/skills/`  | `~/.codex/`           | 🔜 Coming Soon     |
+| Custom      | Configurable      | `~/.ai/`              | 🔜 Coming Soon     |
 
 > **Note:** Tools marked as 🔜 Coming Soon are planned for future releases. The infrastructure is ready, but these tools require additional testing and configuration.
 

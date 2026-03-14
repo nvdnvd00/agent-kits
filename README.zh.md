@@ -39,7 +39,7 @@
 ## 🚀 快速开始
 
 ```bash
-npx @neyugn/agent-kits
+npx @neyugn/agent-kits@latest
 ```
 
 就这样！交互式安装程序将引导您：
@@ -56,7 +56,7 @@ npx @neyugn/agent-kits
 ### 🎯 一条命令，任何工具
 
 ```bash
-npx @neyugn/agent-kits
+npx @neyugn/agent-kits@latest
 ```
 
 ```
