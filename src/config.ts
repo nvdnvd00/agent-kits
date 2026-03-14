@@ -118,7 +118,7 @@ export const AI_TOOLS: AITool[] = [
     path: ".opencode",
     globalPathPattern: "~/.config/opencode",
     rulesFile: "AGENTS.md",
-    kitRulesFile: "AGENTS.md",
+    kitRulesFile: "OPENCODE.md",
     rulesInsideKit: false, // OpenCode reads AGENTS.md from project root
     workflowsAs: "commands", // OpenCode calls workflows "commands" in .opencode/commands/
     available: true,
