@@ -60,10 +60,17 @@ export class OpenCodeAgentTransformer implements AgentTransformer {
     // Convert tools string to record
     const toolsRecord = this.parseToolsToRecord(originalData.tools);
 
+    // Resolve model: "inherit" is Cursor-specific (means "inherit from parent config")
+    // OpenCode doesn't support it — omit so OpenCode uses its default model
+    const resolvedModel =
+      originalData.model && originalData.model.toLowerCase() !== "inherit"
+        ? originalData.model
+        : undefined;
+
     // Create new OpenCode agent frontmatter
     const opencodeFrontmatter: OpenCodeAgentFrontmatter = {
       description: originalData.description,
-      ...(originalData.model && { model: originalData.model }),
+      ...(resolvedModel && { model: resolvedModel }),
       ...(Object.keys(toolsRecord).length > 0 && { tools: toolsRecord }),
     };
 
