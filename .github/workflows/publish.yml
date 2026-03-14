@@ -1,6 +1,7 @@
 name: Build & Publish to npm
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - "v*" # Trigger on version tags like v0.1.0, v1.0.0
