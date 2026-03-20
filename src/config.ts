@@ -94,9 +94,9 @@ export const AI_TOOLS: AITool[] = [
     icon: "🟣",
     path: ".agent",
     globalPathPattern: "~/.agent",
-    rulesFile: "GEMINI.md",
+    rulesFile: "rules/GEMINI.md",
     kitRulesFile: "GEMINI.md",
-    rulesInsideKit: true, // Antigravity reads GEMINI.md from inside .agent/
+    rulesInsideKit: true, // Antigravity reads GEMINI.md from .agent/rules/
     available: true,
   },
   {

@@ -51,6 +51,27 @@ npx @neyugn/agent-kits@latest
 
 <br/>
 
+## 📌 Lưu ý quan trọng
+
+### Slash commands không hiện trong dropdown của IDE
+
+Nếu `.agent/` (hoặc `.cursor/`, `.opencode/`, v.v.) bị thêm vào `.gitignore`, một số IDE sẽ bỏ qua việc index các file bên trong — bao gồm cả thư mục `workflows/` là nơi cung cấp các slash commands như `/plan`, `/debug`, `/create`.
+
+**Cách khắc phục:** Thêm rule phủ định vào `.gitignore` để buộc index thư mục workflows:
+
+```gitignore
+# Bỏ qua thư mục kit (tùy chọn)
+.agent/
+
+# Nhưng luôn index workflows để slash commands hoạt động trong IDE
+!.agent/workflows/
+!.agent/workflows/**
+```
+
+> **Khuyến nghị:** Xóa thư mục kit khỏi `.gitignore` và commit nó vào repo. Đây là cách tiếp cận được khuyến nghị cho cài đặt workspace.
+
+<br/>
+
 ## ✨ Tính năng
 
 ### 🎯 Một lệnh, mọi công cụ
@@ -68,7 +89,7 @@ npx @neyugn/agent-kits@latest
   │     / ___ \| |_| || |___ | |\  |  | |   | . \  | |   | |   ___) |        │
   │    /_/   \_\\____||_____||_| \_|  |_|   |_|\_\|___|  |_|  |____/         │
   │                                                                          │
-  │           ⚡  The Universal AI Agent Toolkit  ⚡                         │
+  │           ⚡  The Universal AI Agent Toolkit  ⚡                           │
   │                                                                          │
   ╯──────────────────────────────────────────────────────────────────────────────╯
 

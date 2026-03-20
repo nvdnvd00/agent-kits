@@ -51,6 +51,27 @@ npx @neyugn/agent-kits@latest
 
 <br/>
 
+## 📌 重要说明
+
+### IDE 下拉菜单中不显示斜杠命令
+
+如果 `.agent/`（或 `.cursor/`、`.opencode/` 等）被添加到 `.gitignore` 中，某些 IDE 将跳过对其中文件的索引 — 包括为 `/plan`、`/debug`、`/create` 等斜杠命令提供支持的 `workflows/` 文件夹。
+
+**解决方法：** 在 `.gitignore` 中添加否定规则来强制索引 workflows 文件夹：
+
+```gitignore
+# 忽略 kit 文件夹（可选）
+.agent/
+
+# 但始终索引 workflows，以便 IDE 中的斜杠命令正常工作
+!.agent/workflows/
+!.agent/workflows/**
+```
+
+> **推荐：** 将 kit 文件夹从 `.gitignore` 中完全移除并提交它。这是工作区安装的推荐做法。
+
+<br/>
+
 ## ✨ 功能特性
 
 ### 🎯 一条命令，任何工具
@@ -68,7 +89,7 @@ npx @neyugn/agent-kits@latest
   │     / ___ \| |_| || |___ | |\  |  | |   | . \  | |   | |   ___) |        │
   │    /_/   \_\\____||_____||_| \_|  |_|   |_|\_\|___|  |_|  |____/         │
   │                                                                          │
-  │           ⚡  The Universal AI Agent Toolkit  ⚡                         │
+  │           ⚡  The Universal AI Agent Toolkit  ⚡                           │
   │                                                                          │
   ╯──────────────────────────────────────────────────────────────────────────────╯
 

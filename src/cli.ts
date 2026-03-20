@@ -175,7 +175,7 @@ async function main() {
   const finalInstallPath = getInstallPath(aiTool, scope, workspacePath);
   // Rules file location (2025 standard: all tools use rulesInsideKit=true)
   // Both global and workspace installs keep rules inside kit directory
-  // Examples: ~/.claude/CLAUDE.md, ./.gemini/GEMINI.md, ./.cursor/rules/rules.md
+  // Examples: ~/.claude/CLAUDE.md, ./.gemini/GEMINI.md, ./.agent/rules/GEMINI.md, ./.cursor/rules/rules.md
   const rulesFilePath =
     scope === "global" || aiTool.rulesInsideKit
       ? path.join(finalInstallPath, aiTool.rulesFile)

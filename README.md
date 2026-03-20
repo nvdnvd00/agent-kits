@@ -17,6 +17,7 @@
 
 <p align="center">
   <a href="#-quick-start">Quick Start</a> •
+  <a href="#-important-notes">Important Notes</a> •
   <a href="#-features">Features</a> •
   <a href="#-kits">Kits</a> •
   <a href="#-filter-skill">Filter Skill</a> •
@@ -59,7 +60,26 @@ That's it! The interactive installer will guide you through:
 
 <br/>
 
-## ✨ Features
+## 📌 Important Notes
+
+### Slash commands not appearing in IDE dropdown
+
+If `.agent/` (or `.cursor/`, `.opencode/`, etc.) is listed in `.gitignore`, some IDEs will skip indexing files inside it — including the `workflows/` folder that powers slash commands like `/plan`, `/debug`, `/create`.
+
+**Fix:** Add a negation rule to force-include the workflows folder:
+
+```gitignore
+# Ignore the kit folder (optional)
+.agent/
+
+# But always index workflows so slash commands work in the IDE
+!.agent/workflows/
+!.agent/workflows/**
+```
+
+> **Recommended:** Remove the kit folder from `.gitignore` entirely and commit it. This is the preferred approach for workspace installations.
+
+<br/>
 
 ### 🎯 One Command, Any Tool
 
@@ -76,7 +96,7 @@ npx @neyugn/agent-kits@latest
   │     / ___ \| |_| || |___ | |\  |  | |   | . \  | |   | |   ___) |        │
   │    /_/   \_\\____||_____||_| \_|  |_|   |_|\_\|___|  |_|  |____/         │
   │                                                                          │
-  │           ⚡  The Universal AI Agent Toolkit  ⚡                         │
+  │           ⚡  The Universal AI Agent Toolkit  ⚡                           │
   │                                                                          │
   ╰──────────────────────────────────────────────────────────────────────────────╯
 
