@@ -182,11 +182,9 @@ These skills are NEVER disabled regardless of profile:
 - `plan-writing` - Task breakdown and WBS
 - `systematic-debugging` - 4-phase debugging
 
-### Domain Skills (40 total - see ARCHITECTURE.md)
+### Domain Skills (40 total)
 
-Key skills: `api-patterns`, `database-design`, `react-patterns`, `typescript-patterns`, `docker-patterns`, `kubernetes-patterns`, `terraform-patterns`, `auth-patterns`, `graphql-patterns`, `redis-patterns`, `realtime-patterns`, `queue-patterns`, `multi-tenancy`, `ai-rag-patterns`, `prompt-engineering`, `monitoring-observability`, `frontend-design`, `mobile-design`, `tailwind-patterns`, `e2e-testing`, `performance-profiling`, `github-actions`, `gitlab-ci-patterns`
-
-> 🔴 Full skill list: See `ARCHITECTURE.md` → Skills section
+> Full skill list with descriptions: See `ARCHITECTURE.md` → Skills section
 
 ---
 
@@ -206,7 +204,7 @@ Key skills: `api-patterns`, `database-design`, `react-patterns`, `typescript-pat
 
 ### 🗺️ System Map
 
-> 🔴 Read `ARCHITECTURE.md` at session start.
+> Read `ARCHITECTURE.md` only when you need full agent/skill details.
 
 **Paths:** Agents `.agent/agents/`, Skills `.agent/skills/`, Workflows `.agent/workflows/`
 

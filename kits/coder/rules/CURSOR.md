@@ -28,7 +28,7 @@ AGT-Kit is a portable, modular AI agent system consisting of:
 
 Agent activated → Check frontmatter `skills:` → Read SKILL.md → Apply.
 
-- **Priority:** P0 (GEMINI.md) > P1 (Agent.md) > P2 (SKILL.md). All binding.
+- **Priority:** P0 (CURSOR.md) > P1 (Agent.md) > P2 (SKILL.md). All binding.
 - **Enforcement:** Never skip reading. "Read → Understand → Apply" mandatory.
 
 ---
@@ -190,11 +190,9 @@ These skills are NEVER disabled regardless of profile:
 - `plan-writing` - Task breakdown and WBS
 - `systematic-debugging` - 4-phase debugging
 
-### Domain Skills (40 total - see ARCHITECTURE.md)
+### Domain Skills (40 total)
 
-Key skills: `api-patterns`, `database-design`, `react-patterns`, `typescript-patterns`, `docker-patterns`, `kubernetes-patterns`, `terraform-patterns`, `auth-patterns`, `graphql-patterns`, `redis-patterns`, `realtime-patterns`, `queue-patterns`, `multi-tenancy`, `ai-rag-patterns`, `prompt-engineering`, `monitoring-observability`, `frontend-design`, `mobile-design`, `tailwind-patterns`, `e2e-testing`, `performance-profiling`, `github-actions`, `gitlab-ci-patterns`
-
-> 🔴 Full skill list: See `ARCHITECTURE.md` → Skills section
+> Full skill list with descriptions: See `ARCHITECTURE.md` → Skills section
 
 ---
 
@@ -214,7 +212,7 @@ Key skills: `api-patterns`, `database-design`, `react-patterns`, `typescript-pat
 
 ### 🗺️ System Map
 
-> 🔴 Read `ARCHITECTURE.md` at session start.
+> Read `ARCHITECTURE.md` only when you need full agent/skill details.
 
 **Paths:** Agents `.cursor/agents/`, Skills `.cursor/skills/`, Commands `.cursor/commands/`
 
