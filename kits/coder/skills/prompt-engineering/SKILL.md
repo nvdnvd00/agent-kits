@@ -8,7 +8,17 @@ priority: CRITICAL
 
 # Prompt Engineering - AI Communication Excellence
 
-> **Philosophy:** Prompts are code. They should be **specific, structured, and testable**. Vague prompts produce vague results.
+## ⚡ Quick Reference
+
+- **Structure**: Role → Task → Format → Constraints → Examples → Output format
+- **Be specific**: Vague prompt = vague output · specify length, format, tone, audience
+- **Chain of Thought**: "Think step by step" for complex reasoning · "First, list..." for structured output
+- **Few-shot**: 2-5 examples beats 1000-word description · Show don't tell
+- **Iteration**: Start simple → add constraints → refine · Save effective prompts as templates
+- **System prompt**: Set persona + rules + format once · User message = task only
+
+---
+
 
 ---
 

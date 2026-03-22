@@ -6,6 +6,18 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 # E2E Testing Patterns
 
+## ⚡ Quick Reference
+
+- **Tool selection**: Playwright (recommended) for modern · Cypress for existing projects · Avoid Selenium
+- **Code critical paths only**: Login · Checkout · Core flows · Not every UI state
+- **Selectors**: `data-testid` attributes · `getByRole` · Never CSS/XPath class selectors (brittle)
+- **Reliability**: `await expect(locator).toBeVisible()` not `sleep()` · Retry-aware assertions · Isolated test data
+- **CI**: Parallel sharding · Retry flaky tests once · Store traces/screenshots on failure
+- **Page Objects**: Group locators and actions per page · Reusable · Separate from test logic
+
+---
+
+
 > **Philosophy:** E2E tests should give confidence to ship, not slow you down. Test critical paths, make them reliable, run them fast.
 
 ---

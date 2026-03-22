@@ -8,7 +8,17 @@ priority: MEDIUM
 
 # SEO Patterns - Sustainable Search Visibility
 
-> **Philosophy:** Technical SEO enables ranking; content quality earns it. There are no permanent shortcuts.
+## ⚡ Quick Reference
+
+- **Core Web Vitals**: LCP < 2.5s · INP < 200ms · CLS < 0.1 · Monitor with Search Console
+- **HTML structure**: 1 `<h1>` per page · logical `<h2>→<h6>` · semantic tags (`<article>`, `<nav>`, `<main>`)
+- **Meta tags**: Unique `<title>` (50-60 chars) · `<meta description>` (150-160 chars) · `<canonical>`
+- **Images**: `alt` on all images · Next-gen format (WebP/AVIF) · `width` + `height` to prevent CLS  
+- **Structured data**: JSON-LD format · `Organization`, `Product`, `Article` schemas per content type
+- **Tech SEO**: `robots.txt` · `sitemap.xml` · HTTPS · Mobile-first · No render-blocking resources
+
+---
+
 
 ---
 

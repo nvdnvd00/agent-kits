@@ -7,7 +7,17 @@ version: 2.0
 
 # Monitoring & Observability - SRE Patterns
 
-> **Philosophy:** Observability is not about collecting metrics—it's about understanding system behavior.
+## ⚡ Quick Reference
+
+- **3 pillars**: Metrics (trends) · Logs (events) · Traces (distributed request flow)
+- **Alert tiers**: Critical (< 5min) · High (< 15min) · Medium (< 1hr) · Low (next day)
+- **SLOs**: Define before shipping · P99 latency · Error rate · Availability goals
+- **Logs**: Structured JSON always · Include request ID + tenant ID · No PII in logs
+- **Health checks**: /health (liveness) + /ready (readiness) · Check DB/Redis/deps
+- **Avoid**: Alert fatigue (too many low-value alerts) · Log PII · Monitor without alerting
+
+---
+
 
 ---
 

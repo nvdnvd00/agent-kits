@@ -7,7 +7,16 @@ version: 2.0
 
 # Testing Patterns - Principles & Best Practices
 
-> **Philosophy:** Tests are documentation. Write tests that explain behavior, not implementation.
+## ⚡ Quick Reference
+
+- **Pyramid**: Unit (fast/many) > Integration (medium) > E2E (slow/few) · 70/20/10 ratio
+- **AAA pattern**: Arrange (setup) → Act (execute) → Assert (verify) · 1 assertion per concern
+- **Naming**: `describe('UserService')` / `it('should throw when email invalid')` · behavior not implementation
+- **Mocking**: Mock external deps (DB/API/time) · Don't mock internals · Use MSW for HTTP
+- **Coverage**: 80%+ meaningful coverage · 100% for critical paths · Coverage ≠ quality
+- **Avoid**: `expect(true).toBe(true)` · Tests that test mocks · Snapshot tests for logic
+
+---
 
 ---
 

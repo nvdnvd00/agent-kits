@@ -7,7 +7,17 @@ version: 2.0
 
 # GraphQL Patterns - API Design & Performance
 
-> **Philosophy:** GraphQL is a contract, not just an API. The schema IS documentation. Design it carefully.
+## ⚡ Quick Reference
+
+- **Schema first**: Define schema before implementation · Schema = contract for all clients
+- **N+1 problem**: Always use DataLoader for nested resolvers · Batch + deduplicate DB calls
+- **Pagination**: Cursor-based (edges/nodes) not offset · `first/after` convention
+- **Mutations**: Return the modified type · Use input types · Clear error messages
+- **Security**: Depth limiting · Complexity limits · Rate limit by complexity score · Disable introspection in prod
+- **Performance**: Persisted queries · Apollo Client cache normalization · `@defer` for slow fields
+
+---
+
 
 ---
 

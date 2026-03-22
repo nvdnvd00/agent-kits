@@ -6,7 +6,17 @@ allowed-tools: Read, Edit, Glob, Grep, Bash
 
 # Performance Profiling - Measure First, Optimize Second
 
-> **Philosophy:** Never optimize without data. Gut feelings about performance are usually wrong.
+## ⚡ Quick Reference
+
+- **Measure first**: Profile before optimizing · No gut feelings · `console.time()` / Chrome DevTools / clinic.js
+- **Core Web Vitals**: LCP < 2.5s · FID/INP < 200ms · CLS < 0.1 · Check with Lighthouse
+- **Frontend**: Lazy load images/routes · Eliminate render-blocking resources · Bundle splitting · `preconnect` for external
+- **Backend**: EXPLAIN ANALYZE for slow queries · Connection pooling · Response caching (Redis) · Pagination
+- **Node.js**: Event loop not blocked · Avoid sync fs in hot paths · `--prof` for CPU profiling
+- **Priority**: Fix worst P99 first · Cache before compute · Network before CPU
+
+---
+
 
 ---
 

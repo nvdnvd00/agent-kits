@@ -6,6 +6,18 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 # i18n & Localization Patterns
 
+## ⚡ Quick Reference
+
+- **Keys**: `component.element.state` format · `user.profile.title` not `profileTitle` · never translate keys
+- **Interpolation**: `t('greeting', { name })` not string concat · ICU format for plurals
+- **RTL**: CSS logical properties (`margin-inline-start` not `margin-left`) · `dir="rtl"` on root
+- **Dates/Numbers**: Always use `Intl.DateTimeFormat` and `Intl.NumberFormat` · Never hardcode locale
+- **Currency**: Store in minor units (cents) · Format with `Intl.NumberFormat(locale, { style: 'currency' })`
+- **Missing keys**: Fallback to default locale · Never show key ID to user · Log missing keys
+
+---
+
+
 > Make software work beautifully in every language and culture.
 
 ---

@@ -7,7 +7,16 @@ version: 2.0
 
 # Database Design - Principles & Decision Making
 
-> **Philosophy:** Choose the right database and design for the context. Learn to THINK, not copy SQL patterns.
+## ⚡ Quick Reference
+
+- **DB selection**: Prototype → SQLite · Standard → PostgreSQL · Serverless → Neon · AI/embeddings → PG+pgvector
+- **ORM**: TS+DX → Prisma · TS+Edge/perf → Drizzle · Python → SQLAlchemy 2.0
+- **Schema**: 3NF normalization · UUIDs for distributed/exposed · CUID2/ULID for sortable · soft deletes with `deleted_at`
+- **Indexes**: Every FK · every WHERE column · composite = leftmost rule · use `EXPLAIN ANALYZE`
+- **Migrations**: Reversible · test on staging first · backup before prod · `ADD NULLABLE` before `NOT NULL`
+- **N+1**: Use `include`/joins · batch requests · avoid row-per-row loops
+
+---
 
 ---
 

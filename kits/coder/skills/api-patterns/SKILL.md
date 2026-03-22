@@ -7,7 +7,16 @@ version: 2.0
 
 # API Patterns - Design Principles & Decision Making
 
-> **Philosophy:** Choose the right API style for the context. Learn to THINK, not copy fixed patterns.
+## ⚡ Quick Reference
+
+- **Style selection**: Public API → REST · Complex UI → GraphQL · TS monorepo internal → tRPC
+- **REST naming**: nouns not verbs · `GET /users` not `GET /getUsers` · HTTP method = action
+- **Status codes**: 200 OK · 201 Created · 204 Delete · 400 Bad · 401 Unauth · 403 Forbidden · 404 NotFound · 422 Validation · 429 RateLimit
+- **Pagination**: `< 1000 rows` → offset · `> 10000 rows / infinite scroll` → cursor
+- **Auth**: JWT (15min access + 7d refresh in httpOnly cookie) · Versioning: URI path `/v1/`
+- **Response envelope**: `{ data: {}, meta: { requestId, timestamp } }` · errors: `{ error: { code, message } }`
+
+---
 
 ---
 

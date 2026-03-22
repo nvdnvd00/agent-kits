@@ -8,7 +8,17 @@ priority: MEDIUM
 
 # React Native Patterns - Mobile Excellence with Expo
 
-> **Philosophy:** Use Expo unless you have a very specific reason not to. OTA updates, managed native code, and faster development are worth the trade-offs.
+## ⚡ Quick Reference
+
+- **Framework**: Expo managed → EAS Build → Bare (native modules only)
+- **Lists**: `FlatList`/`FlashList` not `ScrollView` for long lists · `keyExtractor` required
+- **State**: Local → useState · Global → Zustand/Jotai · Server → React Query
+- **Navigation**: expo-router (file-based) or @react-navigation · Always wrap in `NavigationContainer`
+- **Performance**: Reanimated for 60fps animations · `memo` + `useCallback` · `InteractionManager` for heavy ops
+- **Native**: MMKV for fast storage · expo-secure-store for secrets · Test on physical device always
+
+---
+
 
 ---
 

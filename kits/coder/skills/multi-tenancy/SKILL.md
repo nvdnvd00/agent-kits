@@ -7,7 +7,17 @@ tags: [architecture, saas, isolation, tenancy, compliance]
 
 # Multi-Tenancy - SaaS Architecture Skill
 
-> **Purpose:** Enable AI agents to design and implement robust multi-tenant systems with proper isolation, context propagation, and scalability.
+## ⚡ Quick Reference
+
+- **Isolation levels**: Shared DB + RLS (startup) · Schema-per-tenant (1000+) · DB-per-tenant (enterprise/HIPAA)
+- **Tenant resolution**: Early in middleware · validate → cache (Redis with TTL) → attach to request context
+- **Data access**: EVERY query filters by `tenant_id` · RLS as second layer · Never trust client-provided tenant ID
+- **Context propagation**: HTTP → Service → Queue → Worker → DB · AsyncLocalStorage (Node.js)
+- **Cache isolation**: All keys prefixed `tenant:{id}:` · Separate Redis DB index for critical isolation
+- **Audit**: Log all cross-tenant boundary access · Rate limit per tenant · No global unfiltered queries
+
+---
+
 
 ---
 

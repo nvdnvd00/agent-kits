@@ -6,7 +6,17 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 # React Patterns
 
-> **Philosophy:** Measure first, optimize second. React is about composition - build small, combine thoughtfully.
+## ⚡ Quick Reference
+
+- **State**: Local → useState · Shared → Context/Zustand · Server → React Query · avoid Redux for new projects
+- **Performance**: `memo` for expensive renders · `useMemo` for costly computations · `useCallback` for stable refs
+- **Hooks rules**: Top-level only · No conditionals · Custom hooks extract logic not UI
+- **Keys**: Stable unique IDs not array index · Missing keys = bugs in list reorder
+- **Async**: React Query for server state · `useEffect` with cleanup for subscriptions · no fire-and-forget
+- **Avoid**: Prop drilling > 2 levels (use context) · useEffect for derived state (useMemo) · `any` in TypeScript
+
+---
+
 
 ---
 

@@ -8,7 +8,17 @@ priority: HIGH
 
 # Terraform Patterns - Infrastructure as Code Excellence
 
-> **Philosophy:** Infrastructure is code. Treat it with the same rigor as application code: version control, testing, code review, and automation.
+## ⚡ Quick Reference
+
+- **Workflow**: `terraform init` → `plan` (review!) → `apply` · Never apply without reviewing plan
+- **State**: Remote backend (S3+DynamoDB lock) · Never commit `.tfstate` to git
+- **Structure**: `main.tf` · `variables.tf` · `outputs.tf` · `versions.tf` · modules for reuse
+- **Variables**: Always typed with descriptions · sensitive = `sensitive = true` · no hardcoded values
+- **Modules**: Separate resources into modules · `source = "./modules/vpc"` · version-pinned remote modules
+- **Naming**: `resource "aws_instance" "web_server"` kebab-case · consistent tagging all resources
+
+---
+
 
 ---
 

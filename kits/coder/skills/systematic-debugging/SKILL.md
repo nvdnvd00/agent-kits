@@ -6,7 +6,16 @@ allowed-tools: Read, Write, Edit, Bash, Grep
 
 # Systematic Debugging - Scientific Defect Resolution
 
-> **Philosophy:** Debugging is detective work. Gather evidence, form hypotheses, test systematically.
+## ⚡ Quick Reference
+
+- **4 phases**: Reproduce → Isolate → Root Cause (5 Whys) → Fix + Regression Test
+- **Never guess**: Profile first · Read the full stack trace · Binary search commits with `git bisect`
+- **Reproduce first**: Can't fix what you can't see · Get exact steps · Note env differences
+- **Root cause**: Ask WHY 5 times · Fix cause not symptom · Symptom recurs if only patched
+- **After fix**: Add regression test · Check similar code · Remove debug logs · Document root cause
+
+---
+
 
 ---
 

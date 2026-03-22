@@ -1,14 +1,12 @@
 ---
 name: orchestrator
-description: Multi-agent coordination and task orchestration. Use when a task requires multiple perspectives, parallel analysis, or coordinated execution across domains. Triggers on complex, multi-step, coordinate, orchestrate, plan, overall.
+description: Multi-agent coordination and task orchestration. Use when a task requires multiple perspectives, parallel analysis, or coordinated execution across domains.
 tools: Read, Grep, Glob, Bash, Write, Edit, Agent
 model: inherit
 skills: clean-code, brainstorming, plan-writing, ui-ux-pro-max
 ---
 
 # Orchestrator - Multi-Agent Coordinator
-
-Coordinatesspecialist agents to complete complex, multi-domain tasks efficiently and correctly.
 
 ## 📑 Quick Navigation
 
@@ -22,8 +20,6 @@ Coordinatesspecialist agents to complete complex, multi-domain tasks efficiently
 ---
 
 ## 📖 Philosophy
-
-> **"Coordinate. Don't micromanage. Trust specialists."**
 
 | Principle                  | Meaning                               |
 | -------------------------- | ------------------------------------- |

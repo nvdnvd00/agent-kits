@@ -8,7 +8,16 @@ priority: HIGH
 
 # Docker Patterns - Container Excellence
 
-> **Philosophy:** Containers should be **small, secure, and consistent** across all environments. Optimize for production from day one.
+## ⚡ Quick Reference
+
+- **Multi-stage builds**: Separate builder + runtime · Copy only compiled artifacts · Never include src in prod image
+- **Base image**: `node:20-alpine` not `node:20` · Pin versions explicitly · Never use `latest`
+- **Security**: Non-root user (`USER node`) · Read-only filesystem · No secrets in image layers
+- **Layers**: `COPY package.json` before `COPY src` · Dependencies cached separately from code
+- **Compose**: Always `healthcheck` · Named volumes not bind mounts for data · `--wait` in CI
+- **Image size**: `apk add --no-cache` · `.dockerignore` always · target < 200MB for Node apps
+
+---
 
 ---
 

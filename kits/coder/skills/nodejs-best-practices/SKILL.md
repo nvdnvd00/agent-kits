@@ -6,9 +6,18 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 # Node.js Best Practices
 
-> JavaScript on the server, done right.
+## ⚡ Quick Reference
+
+- **Async**: Always `async/await` · Never blocking I/O in hot paths · `Promise.all()` for parallel
+- **Error handling**: `try/catch` in all async · Unhandled rejection → exit process · Typed custom errors
+- **Event loop**: No sync fs/crypto/heavy compute · Offload to worker threads or background jobs
+- **Config**: `dotenv` for local · env vars always · validate with `zod` on startup · never commit `.env`
+- **Logging**: `pino` (fast, structured JSON) · Correlation IDs · No console.log in production
+- **Security**: `helmet` always · `express-rate-limit` · Validate all inputs (zod) · CORS configured strictly
 
 ---
+
+
 
 ## Core Principles
 

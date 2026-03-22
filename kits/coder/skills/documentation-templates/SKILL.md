@@ -6,6 +6,18 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 # Documentation Templates
 
+## ⚡ Quick Reference
+
+- **README must-haves**: Title+tagline · Quick Start (< 5min) · Installation · Features · License
+- **Docs-as-Code**: In same repo as code · PR-reviewed · Auto-deployed · Versioned with releases
+- **API docs**: Every endpoint: method+path+params+request+response+errors+examples
+- **ADR format**: Title · Status · Context · Decision · Consequences · Date
+- **Code comments**: WHY not WHAT · Complex algorithms only · API contracts · Gotchas
+- **AI-friendly**: Structured H1-H3 · Self-contained sections · JSON examples · Mermaid diagrams
+
+---
+
+
 > Good documentation is the difference between a project that gets adopted and one that gets abandoned.
 
 ---

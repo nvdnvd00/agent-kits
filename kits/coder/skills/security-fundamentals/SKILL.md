@@ -6,7 +6,16 @@ allowed-tools: Read, Edit, Glob, Grep
 
 # Security Fundamentals - Thinking Like an Attacker
 
-> **Philosophy:** Security is a mindset, not a checklist. Every line of code should assume input is hostile.
+## ⚡ Quick Reference
+
+- **Zero Trust**: Validate all inputs · No trust by location · Fail secure (deny on error)
+- **OWASP Top 10**: Access Control · Security Misconfig · Supply Chain · Crypto Failures · Injection · Auth Failures
+- **Input**: Validate type+length+format · Parameterized queries (no string concat) · Sanitize HTML output
+- **Auth**: bcrypt/Argon2 for passwords · JWT 15min expiry · httpOnly cookies for refresh · Rate limit login
+- **Secrets**: Never in code/logs · `.env` for local · Vault/SecretsManager for prod · Rotate regularly
+- **HTTPS**: TLS 1.2+ only · HSTS header · CSP header · No mixed content
+
+---
 
 ---
 

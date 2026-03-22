@@ -6,6 +6,18 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 # Tailwind CSS Patterns
 
+## ⚡ Quick Reference
+
+- **Design tokens**: Use `@theme` variables not arbitrary values · consistent scale (spacing-4 = 1rem)
+- **Components**: `@apply` for repeated patterns · prefer component extraction over long class strings  
+- **Responsive**: Mobile-first · `sm:` `md:` `lg:` breakpoints · `container mx-auto px-4` base
+- **Dark mode**: `dark:` prefix · `class` strategy for user toggle · respect `prefers-color-scheme`
+- **Performance**: PurgeCSS included · JIT compiles only used classes · no custom CSS without reason
+- **Avoid**: Arbitrary values `[px]` in prod code · Inline styles alongside Tailwind · Premature abstraction
+
+---
+
+
 > Utility-first CSS that actually scales.
 
 ---

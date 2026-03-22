@@ -8,7 +8,15 @@ priority: CRITICAL
 
 # Clean Code - Pragmatic AI Coding Standards
 
-> **Philosophy:** Be **concise, direct, and solution-focused**. The user wants working code, not programming lessons.
+## ⚡ Quick Reference
+
+- **SRP + DRY + KISS**: 1 function = 1 thing · no duplication · simplest solution
+- **Naming**: `verb+noun` functions · `noun` variables · `is/has` booleans · no abbreviations
+- **Functions**: ≤20 lines · ≤3 params · return early · no side effects hidden
+- **No over-engineering**: No abstractions without 3+ uses · No premature optimization
+- **Error handling**: Never silent catch · always typed errors · fail fast
+
+---
 
 ---
 

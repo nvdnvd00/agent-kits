@@ -8,7 +8,17 @@ priority: MEDIUM
 
 # Accessibility Patterns - Inclusive Design Excellence
 
-> **Philosophy:** Accessibility is not a feature, it's a fundamental requirement. Design for everyone from the start.
+## ⚡ Quick Reference
+
+- **Semantic HTML**: `<button>` not `<div onClick>` · `<nav>` `<main>` `<aside>` · `<h1>` → `<h6>` hierarchy
+- **ARIA**: Use only when semantic HTML insufficient · `aria-label` for icon buttons · `aria-live` for dynamic content
+- **Keyboard**: All actions reachable via keyboard · Tab order logical · Focus visible always · `Escape` closes modals
+- **Color**: 4.5:1 contrast ratio (normal text) · 3:1 (large text) · Never color as only indicator
+- **Images**: `alt` always · Empty `alt=""` for decorative · Describe the function not appearance
+- **Forms**: Label every input (`for`/`htmlFor`) · Error messages linked with `aria-describedby` · Required marked
+
+---
+
 
 ---
 

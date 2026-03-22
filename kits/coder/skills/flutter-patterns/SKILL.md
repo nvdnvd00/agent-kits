@@ -8,7 +8,17 @@ priority: MEDIUM
 
 # Flutter Patterns - Cross-Platform Development Excellence
 
-> **Philosophy:** Build once, run anywhere with native performance. Widget composition over inheritance, const constructors everywhere.
+## ⚡ Quick Reference
+
+- **Widgets**: `const` constructors everywhere · `StatelessWidget` by default · `StatefulWidget` only for local state
+- **State**: Local → `setState` · Feature-wide → Riverpod · App-wide → Riverpod Provider
+- **Performance**: `const` widgets skip rebuilds · `RepaintBoundary` for heavy paths · ListView.builder for long lists
+- **Navigation**: GoRouter for complex routing · Named routes · Pass data via constructor not global
+- **Async**: `FutureBuilder`/`StreamBuilder` · Handle loading/error states always · `ref.watch()` for Riverpod
+- **Testing**: Widget tests for UI · Unit tests for logic · Integration tests for flows on real device
+
+---
+
 
 ---
 

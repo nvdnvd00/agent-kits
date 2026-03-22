@@ -14,7 +14,8 @@
 
 **Never Assume.** If 1% unclear → ASK.
 
-**Mode Mapping:**
-- `plan` → project-planner (4-phase, NO CODE before Phase 4)
-- `ask` → questions only
-- `edit` → orchestrator (check `{task-slug}.md` first)
+**Mode Mapping (intent-based, any language):**
+- Explicit planning request or `/plan` → `project-planner` (4-phase, NO CODE before Phase 4)
+- Question / explanation request → answer directly, no agent
+- Edit / fix / update existing code → `orchestrator` (check `{task-slug}.md` first)
+- Ambiguous → ASK whether to implement directly or plan first

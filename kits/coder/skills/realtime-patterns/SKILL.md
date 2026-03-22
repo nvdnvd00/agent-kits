@@ -6,7 +6,17 @@ allowed-tools: Read, Write, Edit, Bash
 
 # Realtime Patterns - Event-Driven Communication Architecture
 
-> **Philosophy:** Real-time isn't just fast—it's instantaneous perceived response. Design for resilience, not just speed.
+## ⚡ Quick Reference
+
+- **Protocol selection**: Chat/games → WebSocket · News/notifications → SSE · Simple push → Long-polling
+- **Reconnection**: Exponential backoff (1s → 2s → 4s max 30s) · Client-side always handles reconnect
+- **Rooms/channels**: `socket.join(roomId)` · `io.to(room).emit()` · Clean up on disconnect
+- **Auth**: JWT in handshake query/header (not cookie for WS) · Validate on every connection
+- **Scaling**: Redis adapter for Socket.IO multi-instance · Sticky sessions OR pub/sub architecture
+- **State sync**: Send missed events on reconnect · Event sequence numbers · Client-side reconciliation
+
+---
+
 
 ---
 

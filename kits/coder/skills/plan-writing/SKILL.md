@@ -6,7 +6,16 @@ allowed-tools: Read, Write, Edit
 
 # Plan Writing - Structured Task Decomposition
 
-> **Philosophy:** A good plan is a roadmap that prevents wrong turns. Break down before building up.
+## ⚡ Quick Reference
+
+- **4 phases**: Analysis (no code) → Planning (task file) → [User Approval] → Implementation
+- **Plan format**: task slug `.md` · Each task: Agent · Skills · Priority · Dependencies · INPUT/OUTPUT/VERIFY
+- **Never code during planning**: Plan = thinking only · Implement only after approval
+- **Task assignment**: 1 task = 1 agent · 1 owner · explicit dependency chain
+- **File naming**: `{kebab-case-feature}.md` · e.g., `dark-mode.md`, `auth-system.md`
+
+---
+
 
 ---
 

@@ -6,7 +6,16 @@ allowed-tools: Read, Write, Edit
 
 # Brainstorming - Socratic Discovery Protocol
 
-> **Philosophy:** Understanding precedes implementation. Ask first, build second.
+## ⚡ Quick Reference
+
+- **Ask before build**: New feature/vague request → Stop and ask 3+ clarifying questions first
+- **Socratic questions**: Goal · Users · Scope · Constraints · Priority (MVP vs nice-to-have)
+- **Never assume**: 1% unclear → ask · Assumptions cause rework
+- **Context gathering**: Purpose → Users → Scope → Constraints → then plan
+- **Output**: Clear requirements doc before any implementation begins
+
+---
+
 
 ---
 

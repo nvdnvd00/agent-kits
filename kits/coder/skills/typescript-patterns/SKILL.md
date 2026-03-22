@@ -6,7 +6,17 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 # TypeScript Patterns
 
-> **Philosophy:** Types are documentation that never lies. Strong types catch bugs at compile time, not runtime.
+## ⚡ Quick Reference
+
+- **Strict mode**: Always `"strict": true` · `noUncheckedIndexedAccess` · `exactOptionalPropertyTypes`
+- **No `any`**: Use `unknown` for unknowns · type narrowing with guards · `as` only as last resort
+- **Utilities**: `Partial<T>` · `Required<T>` · `Pick<T,K>` · `Omit<T,K>` · `Record<K,V>` · `ReturnType<F>`
+- **Type vs Interface**: `interface` for objects/classes (extendable) · `type` for unions/intersections
+- **Async**: Always type return `Promise<T>` · use `try/catch` with typed errors · avoid `void` for important returns
+- **Inference**: Let TS infer when obvious · explicit types for API boundaries and function params
+
+---
+
 
 ---
 

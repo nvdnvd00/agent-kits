@@ -8,7 +8,17 @@ priority: HIGH
 
 # GitHub Actions - CI/CD Automation
 
-> **Philosophy:** CI/CD should be **fast, reliable, and secure**. Every push should trigger automated validation. Every deploy should be reproducible.
+## ⚡ Quick Reference
+
+- **Triggers**: `on: push/pull_request/workflow_dispatch` · Use `branches: [main]` not `*`
+- **Order**: Lint → Test → Build → Security scan → Deploy (staging) → Deploy (prod)
+- **Jobs**: `needs: [test]` for dependencies · `if: github.ref == 'refs/heads/main'` for prod
+- **Secrets**: `${{ secrets.MY_SECRET }}` never hardcode · `environment:` for scoped secrets
+- **Caching**: `actions/cache` for node_modules · `pnpm/action-setup` + `--frozen-lockfile`
+- **Security**: `permissions: contents: read` minimal · Pin action versions with SHA
+
+---
+
 
 ---
 

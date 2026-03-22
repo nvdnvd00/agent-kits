@@ -8,7 +8,17 @@ priority: LOW
 
 # Mermaid Diagrams - Visual Documentation
 
-> **Philosophy:** A good diagram is worth a thousand words. Keep it simple, readable, and purposeful.
+## ⚡ Quick Reference
+
+- **Diagram types**: `flowchart` (process) · `sequenceDiagram` (HTTP/API) · `erDiagram` (DB) · `classDiagram` (OOP)
+- **Flowchart**: `TD` (top-down) or `LR` (left-right) · `[box]` `(oval)` `{diamond}` `[[subroutine]]`
+- **Mermaid v10+**: Quote labels with special chars `A["Label (note)"]` · Avoid HTML in labels
+- **Sequence**: `participant A` → `A->>B: message` · `activate/deactivate` for lifelines · `Note over A: text`
+- **Colors**: `style node fill:#4CAF50` · Better: use classDef for reuse
+- **Length**: Max 20 nodes for readability · Split complex diagrams · Comment with `%%`
+
+---
+
 
 ---
 

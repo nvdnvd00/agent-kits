@@ -7,7 +7,17 @@ version: 2.0
 
 # AI RAG Patterns - Retrieval-Augmented Generation
 
-> **Philosophy:** Retrieval quality determines generation quality. Garbage in, garbage out.
+## ⚡ Quick Reference
+
+- **Chunking**: 512-1024 tokens optimal · Overlap 20% · Respect document boundaries (headings)
+- **Embeddings**: `text-embedding-3-small` for cost · `text-embedding-3-large` for quality · Normalize vectors
+- **Vector DB**: Pinecone (managed) · Pgvector (Postgres) · Chroma (local) · Weaviate (hybrid)
+- **Retrieval**: Top-k=5-10 · Reranker improves precision · Hybrid (dense+sparse) for best recall
+- **Prompt**: System prompt + context + query · Cap context < model limit - response buffer
+- **Evaluation**: Faithfulness · Answer relevancy · Context recall · Use RAGAS for metrics
+
+---
+
 
 ---
 

@@ -7,7 +7,17 @@ tags: [architecture, queue, jobs, async, reliability]
 
 # Queue Patterns - Background Job Processing Skill
 
-> **Purpose:** Enable AI agents to design and implement reliable message queue systems with proper retry strategies, idempotency, and observability.
+## ⚡ Quick Reference
+
+- **System selection**: Node.js → BullMQ · Python → Celery · Serverless → SQS · Multi-lang → RabbitMQ · Streaming → Kafka
+- **Job design**: Small payload (IDs only) · Idempotency key · Include tenant_id/correlation_id · Set timeout
+- **Retry**: Exponential backoff · Max 3-5 attempts · Dead Letter Queue after max retries · DLQ monitored
+- **Idempotency**: Running same job 2x = same result · Check before write · Deduplication key
+- **Concurrency**: Bounded limits · Rate limit external API calls · Separate queues by priority (fast/normal/bulk)
+- **Monitoring**: Queue depth · Processing time · DLQ count · Stalled jobs alerts
+
+---
+
 
 ---
 

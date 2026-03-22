@@ -8,7 +8,17 @@ priority: HIGH
 
 # GitLab CI - CI/CD Automation
 
-> **Philosophy:** Pipelines should be **fast, reliable, and reproducible**. Every merge request should trigger automated validation. Every deployment should be traceable and reversible.
+## ⚡ Quick Reference
+
+- **Stages**: `stages: [lint, test, build, security, deploy]` · Jobs run in stage order
+- **Cache**: `key: $CI_COMMIT_REF_SLUG` · `pull-push` policy · Cache `node_modules/.cache`
+- **Rules**: `rules: - if: $CI_COMMIT_BRANCH == "main"` · avoid deprecated `only/except`
+- **Secrets**: GitLab CI/CD Variables (masked+protected) · Never in `.gitlab-ci.yml`
+- **Docker**: `services: - docker:dind` · `DOCKER_TLS_CERTDIR: "/certs"` · Login before push
+- **Artifacts**: `expire_in: 1 hour` for temp · `reports:` for test/coverage reports
+
+---
+
 
 ---
 

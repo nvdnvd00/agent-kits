@@ -8,6 +8,16 @@ priority: HIGH
 
 # Auth Patterns - Security-First Access Control
 
+## ⚡ Quick Reference
+
+- **Password**: bcrypt (cost 12) or Argon2id · Never MD5/SHA1 · No plaintext comparison
+- **JWT**: Access 15min · Refresh 7d in httpOnly SameSite=Strict cookie · RS256 for multi-service
+- **OAuth 2.0**: Authorization Code + PKCE for SPA/mobile · Client Credentials for M2M · Never Implicit flow
+- **Session**: Rotate ID after login · Invalidate on logout · SameSite=Strict cookie
+- **MFA**: TOTP (Authenticator) preferred · SMS as fallback only · Rate limit OTP attempts
+- **Rate limiting**: 5 failed logins → lockout 15min · Per-IP + per-account limits
+
+---
 > **Philosophy:** Authentication answers "Who are you?" Authorization answers "What can you do?" Both must be **server-validated**, never trust the client.
 
 ---

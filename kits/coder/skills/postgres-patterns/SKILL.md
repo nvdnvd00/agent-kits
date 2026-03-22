@@ -7,7 +7,17 @@ version: 2.0
 
 # PostgreSQL Patterns - Advanced Optimization
 
-> **Philosophy:** PostgreSQL is not just a database—it's a platform. Master its unique features to build performant, secure systems.
+## ⚡ Quick Reference
+
+- **EXPLAIN**: `EXPLAIN ANALYZE` for slow queries · Seq Scan on large tables = add index · `Index Scan` = optimal
+- **Indexes**: B-tree (default) · GIN (JSON/full-text) · BRIN (time-series) · Composite: leftmost column rule
+- **RLS**: `ALTER TABLE t ENABLE ROW LEVEL SECURITY` · Policy per tenant via `current_setting('app.tenant_id')`
+- **Transactions**: Use explicit `BEGIN/COMMIT` for multi-statement · `FOR UPDATE` for pessimistic locking
+- **JSON**: `jsonb` not `json` · Index with GIN · `->` for key · `->>` for text value
+- **Performance**: Connection pooling (PgBouncer) · `VACUUM ANALYZE` periodically · Partial indexes for filtered queries
+
+---
+
 
 ---
 

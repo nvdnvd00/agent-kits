@@ -6,6 +6,18 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 # Frontend Design Patterns
 
+## ⚡ Quick Reference
+
+- **Color**: WCAG 4.5:1 contrast · HSL for tints/shades · 60-30-10 rule (primary/secondary/accent)
+- **Typography**: 16px base · `rem` units · 1.5 line-height body · max 75 chars per line
+- **Spacing**: 4px base unit (4/8/16/24/32/48/64/96) · consistent scale · CSS custom properties
+- **Layout**: Mobile-first · Grid for 2D · Flexbox for 1D · `max-width: 1200px` containers
+- **Micro-interactions**: Hover 150ms ease · Focus rings visible · Loading skeleton not spinner
+- **Dark mode**: CSS custom properties swap · `prefers-color-scheme` media query as default
+
+---
+
+
 > Design is how it works.
 
 ---

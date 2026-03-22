@@ -6,7 +6,16 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 # AWS Patterns - Cloud Infrastructure Management
 
-> **Philosophy:** Security-first, automation-ready, and production-proven patterns for AWS services.
+## ⚡ Quick Reference
+
+- **IAM**: Least privilege · No root · MFA everywhere · Temporary credentials (STS) · No `"Action": "*"` or `"Resource": "*"`
+- **S3**: Always block public access · Enable versioning + encryption · Use lifecycle policies
+- **EC2**: No `0.0.0.0/0` for SSH (port 22) · IMDSv2 required · EBS encrypted
+- **Lambda**: Least privilege roles · KMS for env vars · VPC config for internal resources
+- **Security**: CloudTrail enabled (multi-region) · All secrets in Secrets Manager not env vars
+- **Deployments**: CloudFormation/Terraform only · Never manual → infra as code
+
+---
 
 ---
 

@@ -6,6 +6,18 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 # Mobile Design Patterns
 
+## ⚡ Quick Reference
+
+- **Touch targets**: 44×44pt iOS minimum · 48×48dp Android · Padding not just hit area
+- **Navigation**: Bottom tabs for primary (iOS) · Hamburger for secondary · Back gesture support
+- **Gestures**: Swipe-back iOS native · Pull-to-refresh for lists · Long press for contextual menus
+- **Performance**: 60fps animation · Cold start < 2s · Skeleton screens not spinners · Lazy load
+- **Keyboard**: `KeyboardAvoidingView` in RN · Scroll content up · Dismiss on background tap
+- **Safe areas**: Respect notch/Dynamic Island/home indicator · `SafeAreaView` / `useSafeAreaInsets`
+
+---
+
+
 > Design for thumbs, not mice. Every millisecond matters.
 
 ---

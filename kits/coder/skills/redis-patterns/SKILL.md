@@ -7,7 +7,17 @@ version: 2.0
 
 # Redis Patterns - Caching & Real-Time
 
-> **Philosophy:** Redis is not just a cache—it's a data structure server. Use the right structure for the right problem.
+## ⚡ Quick Reference
+
+- **Structures**: String (simple cache) · Hash (objects) · List (queues/history) · Set (unique items) · Sorted Set (leaderboards/priority)
+- **Expiry**: Always set TTL · `SET key val EX 3600` · no orphaned keys
+- **Key naming**: `tenant:{id}:user:{id}` prefix convention · colon separator · descriptive
+- **Caching**: Cache-aside pattern · Invalidate on write · Short TTL for volatile data
+- **Concurrency**: `INCR` for atomic counters · Lua scripts for multi-key atomicity · `SETNX` for locks
+- **Persistence**: AOF for production · RDB for dev only · `maxmemory-policy allkeys-lru` for cache use
+
+---
+
 
 ---
 

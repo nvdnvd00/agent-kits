@@ -8,7 +8,17 @@ priority: HIGH
 
 # Kubernetes Patterns - Cloud-Native Orchestration
 
-> **Philosophy:** Kubernetes is infrastructure as code. Declare what you want, let the system reconcile. **GitOps everything.**
+## ⚡ Quick Reference
+
+- **Core resources**: Deployment (stateless) · StatefulSet (stateful) · Service · ConfigMap · Secret · Ingress
+- **Health**: Always `livenessProbe` + `readinessProbe` · `/health` and `/ready` endpoints required
+- **Resources**: Always set `requests` (scheduling) and `limits` (capping) · No unbounded containers
+- **Security**: Non-root user · `readOnlyRootFilesystem` · No `privileged: true` · NetworkPolicy
+- **Config**: ConfigMap for non-sensitive config · Secret for credentials (base64 not encryption!) · Use external-secrets for prod
+- **GitOps**: All manifests in git · ArgoCD/FluxCD for sync · Never `kubectl apply` manually in prod
+
+---
+
 
 ---
 
