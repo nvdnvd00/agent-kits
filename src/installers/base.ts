@@ -5,9 +5,14 @@ import type { AITool, InstallScope } from "../config.js";
 import { KITS } from "../config.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-// After tsup bundles to dist/cli.js, paths need to be relative from dist/
-export const KITS_DIR = path.resolve(__dirname, "../kits");
-export const COMMON_DIR = path.resolve(__dirname, "../common");
+// Detection logic for dev vs prod (bundled) mode
+const isSourceFolder = __dirname.includes(path.join("src", "installers"));
+export const KITS_DIR = isSourceFolder
+  ? path.resolve(__dirname, "../../kits")
+  : path.resolve(__dirname, "../kits");
+export const COMMON_DIR = isSourceFolder
+  ? path.resolve(__dirname, "../../common")
+  : path.resolve(__dirname, "../common");
 
 export interface InstallOptions {
   aiTool: AITool;
@@ -99,6 +104,38 @@ export async function copyDirectory(
 }
 
 /**
+ * Assemble rules content by resolving [INCLUDE:filename] tags
+ */
+async function assembleRulesContent(
+  rulesDir: string,
+  content: string,
+): Promise<string> {
+  const includeRegex = /\[INCLUDE:([^\]]+)\]/g;
+  let result = content;
+  const matches = [...content.matchAll(includeRegex)];
+
+  for (const match of matches) {
+    const includeFile = match[1];
+    const sectionPath = path.join(rulesDir, "sections", includeFile);
+    try {
+      const sectionContent = await fs.readFile(sectionPath, "utf-8");
+      // Recursively assemble if the section itself has includes
+      const assembledSection = await assembleRulesContent(
+        rulesDir,
+        sectionContent,
+      );
+      result = result.replace(match[0], assembledSection);
+    } catch (e) {
+      result = result.replace(
+        match[0],
+        `<!-- Missing include: ${includeFile} -->`,
+      );
+    }
+  }
+  return result;
+}
+
+/**
  * Count items in a directory
  */
 export async function countItems(dirPath: string): Promise<number> {
@@ -132,6 +169,10 @@ export async function copyRulesFile(
 
   try {
     let rulesContent = await fs.readFile(rulesSource, "utf-8");
+    rulesContent = await assembleRulesContent(
+      path.dirname(rulesSource),
+      rulesContent,
+    );
     rulesContent = replaceToolPaths(rulesContent, aiTool.path);
 
     // Replace workflows/ with custom folder name if specified
@@ -148,6 +189,10 @@ export async function copyRulesFile(
     try {
       const fallbackSource = path.join(kitSourcePath, "rules", "GEMINI.md");
       let rulesContent = await fs.readFile(fallbackSource, "utf-8");
+      rulesContent = await assembleRulesContent(
+        path.dirname(fallbackSource),
+        rulesContent,
+      );
       rulesContent = replaceToolPaths(rulesContent, aiTool.path);
 
       if (workflowsReplacement) {
