@@ -21,16 +21,14 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 ## 📑 Content Map
 
-| Section                 | When to Read                            |
-| ----------------------- | --------------------------------------- |
-| AWS CLI Basics          | Setting up CLI, configuration, profiles |
-| IAM Security Patterns   | Users, roles, policies, access control  |
-| S3 Patterns             | Bucket management, object storage, sync |
-| EC2 Patterns            | Instance management, security groups    |
-| Lambda Patterns         | Serverless functions, deployment        |
-| CloudFormation Patterns | Infrastructure as Code                  |
-| Security Checklist      | Pre-deployment security validation      |
-| Troubleshooting         | Common issues and solutions             |
+- AWS CLI Basics: Setting up CLI, configuration, profiles
+- IAM Security Patterns: Users, roles, policies, access control
+- S3 Patterns: Bucket management, object storage, sync
+- EC2 Patterns: Instance management, security groups
+- Lambda Patterns: Serverless functions, deployment
+- CloudFormation Patterns: Infrastructure as Code
+- Security Checklist: Pre-deployment security validation
+- Troubleshooting: Common issues and solutions
 
 ---
 
@@ -62,12 +60,10 @@ aws sts get-caller-identity
 
 ### Profile Management
 
-| Pattern         | Command                                                                                            |
-| --------------- | -------------------------------------------------------------------------------------------------- |
-| Use profile     | `aws s3 ls --profile production`                                                                   |
-| Export profile  | `export AWS_PROFILE=production`                                                                    |
-| Override region | `aws ec2 describe-instances --region us-west-2`                                                    |
-| MFA session     | `aws sts get-session-token --serial-number arn:aws:iam::123456789012:mfa/user --token-code 123456` |
+- Use profile: `aws s3 ls --profile production`
+- Export profile: `export AWS_PROFILE=production`
+- Override region: `aws ec2 describe-instances --region us-west-2`
+- MFA session: `aws sts get-session-token --serial-number arn:aws:iam::123456789012:mfa/user --token-code 123456`
 
 ### Output Formats
 
@@ -91,13 +87,11 @@ aws ec2 describe-instances | jq '.Reservations[].Instances[].InstanceId'
 
 ### Core Principles (2024-2025)
 
-| Principle                 | Implementation                             |
-| ------------------------- | ------------------------------------------ |
-| **Least Privilege**       | Grant only minimum required permissions    |
-| **Temporary Credentials** | Use IAM roles, avoid long-term access keys |
-| **MFA Everywhere**        | Require MFA for console access + API calls |
-| **No Root User**          | Never use root for daily tasks             |
-| **Regular Audits**        | Review unused roles/users every 90 days    |
+- **Least Privilege**: Grant only minimum required permissions
+- **Temporary Credentials**: Use IAM roles, avoid long-term access keys
+- **MFA Everywhere**: Require MFA for console access + API calls
+- **No Root User**: Never use root for daily tasks
+- **Regular Audits**: Review unused roles/users every 90 days
 
 ### IAM User Management
 
@@ -164,13 +158,11 @@ aws sts assume-role \
 
 ### Policy Best Practices
 
-| ❌ Don't             | ✅ Do                  |
-| -------------------- | ---------------------- |
-| `"Resource": "*"`    | Specify exact ARNs     |
-| `"Action": "*"`      | List specific actions  |
-| Attach to users      | Attach to groups/roles |
-| Hardcode credentials | Use IAM roles + STS    |
-| Skip MFA for admins  | Require MFA always     |
+- `"Resource": "*"`: Specify exact ARNs
+- `"Action": "*"`: List specific actions
+- Attach to users: Attach to groups/roles
+- Hardcode credentials: Use IAM roles + STS
+- Skip MFA for admins: Require MFA always
 
 ---
 
@@ -533,14 +525,12 @@ aws logs put-retention-policy \
 
 ## 🔧 Troubleshooting
 
-| Issue                          | Solution                                                        |
-| ------------------------------ | --------------------------------------------------------------- |
-| `Unable to locate credentials` | Run `aws configure` or check `~/.aws/credentials`               |
-| `Access Denied`                | Check IAM policy, verify resource ARN, check STS assume-role    |
-| `Region not specified`         | Add `--region` flag or set `AWS_DEFAULT_REGION`                 |
-| `Invalid JSON`                 | Use `--cli-binary-format raw-in-base64-out` for Lambda payloads |
-| `ExpiredToken`                 | Get new STS session token if using MFA/assumed role             |
-| `NoSuchBucket`                 | Check bucket name and region, S3 is globally unique             |
+- `Unable to locate credentials`: Run `aws configure` or check `~/.aws/credentials`
+- `Access Denied`: Check IAM policy, verify resource ARN, check STS assume-role
+- `Region not specified`: Add `--region` flag or set `AWS_DEFAULT_REGION`
+- `Invalid JSON`: Use `--cli-binary-format raw-in-base64-out` for Lambda payloads
+- `ExpiredToken`: Get new STS session token if using MFA/assumed role
+- `NoSuchBucket`: Check bucket name and region, S3 is globally unique
 
 ### Debug Mode
 
@@ -556,29 +546,25 @@ aws s3 ls --debug 2>&1 | grep "Making request"
 
 ## Anti-Patterns
 
-| ❌ Don't                     | ✅ Do                                          |
-| ---------------------------- | ---------------------------------------------- |
-| Hardcode access keys in code | Use IAM roles for EC2/Lambda                   |
-| Use `0.0.0.0/0` for SSH      | Restrict to specific IP ranges                 |
-| Create access keys for root  | Never use root, use IAM users                  |
-| Skip MFA for admin accounts  | Require MFA for all privileged access          |
-| Use long-term credentials    | Prefer STS temporary credentials               |
-| Store secrets in env vars    | Use AWS Secrets Manager or SSM Parameter Store |
-| Manual deployments           | Use CloudFormation/Terraform/CDK               |
-| Single region deployment     | Multi-region for DR-critical apps              |
+- Hardcode access keys in code: Use IAM roles for EC2/Lambda
+- Use `0.0.0.0/0` for SSH: Restrict to specific IP ranges
+- Create access keys for root: Never use root, use IAM users
+- Skip MFA for admin accounts: Require MFA for all privileged access
+- Use long-term credentials: Prefer STS temporary credentials
+- Store secrets in env vars: Use AWS Secrets Manager or SSM Parameter Store
+- Manual deployments: Use CloudFormation/Terraform/CDK
+- Single region deployment: Multi-region for DR-critical apps
 
 ---
 
 ## Related Skills
 
-| Need                   | Skill                      |
-| ---------------------- | -------------------------- |
-| Infrastructure as Code | `terraform-patterns`       |
-| Kubernetes on AWS      | `kubernetes-patterns`      |
-| Docker/ECS             | `docker-patterns`          |
-| CI/CD with AWS         | `github-actions`           |
-| Security hardening     | `security-fundamentals`    |
-| Monitoring             | `monitoring-observability` |
+- Infrastructure as Code: `terraform-patterns`
+- Kubernetes on AWS: `kubernetes-patterns`
+- Docker/ECS: `docker-patterns`
+- CI/CD with AWS: `github-actions`
+- Security hardening: `security-fundamentals`
+- Monitoring: `monitoring-observability`
 
 ---
 

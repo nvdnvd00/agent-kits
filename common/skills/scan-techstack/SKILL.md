@@ -26,18 +26,16 @@ Scan Techstack is the **first step** in the filtering workflow. It:
 
 ### Package Managers & Config Files
 
-| File/Pattern       | Detected Techstack                      |
-| ------------------ | --------------------------------------- |
-| `package.json`     | Node.js, check dependencies for details |
-| `pubspec.yaml`     | Flutter/Dart                            |
-| `pyproject.toml`   | Python (Poetry/PDM)                     |
-| `requirements.txt` | Python (pip)                            |
-| `Cargo.toml`       | Rust                                    |
-| `go.mod`           | Go                                      |
-| `build.gradle`     | Android (Java/Kotlin)                   |
-| `Podfile`          | iOS                                     |
-| `composer.json`    | PHP                                     |
-| `Gemfile`          | Ruby                                    |
+- `package.json`: Node.js, check dependencies for details
+- `pubspec.yaml`: Flutter/Dart
+- `pyproject.toml`: Python (Poetry/PDM)
+- `requirements.txt`: Python (pip)
+- `Cargo.toml`: Rust
+- `go.mod`: Go
+- `build.gradle`: Android (Java/Kotlin)
+- `Podfile`: iOS
+- `composer.json`: PHP
+- `Gemfile`: Ruby
 
 ### Framework Markers
 
@@ -59,20 +57,18 @@ Scan Techstack is the **first step** in the filtering workflow. It:
 
 ### Dependency Analysis (package.json)
 
-| Dependency Pattern      | Detected Category   |
-| ----------------------- | ------------------- |
-| `react`, `react-dom`    | React ecosystem     |
-| `next`                  | Next.js (SSR/SSG)   |
-| `@tanstack/react-query` | React data fetching |
-| `graphql`, `@apollo`    | GraphQL             |
-| `redis`, `ioredis`      | Redis cache         |
-| `pg`, `postgres`        | PostgreSQL          |
-| `socket.io*`            | Real-time/WebSocket |
-| `bullmq`, `bee-queue`   | Message queues      |
-| `passport`, `@auth`     | Authentication      |
-| `openai`, `langchain`   | AI/LLM              |
-| `playwright`, `cypress` | E2E testing         |
-| `jest`, `vitest`        | Unit testing        |
+- `react`, `react-dom`: React ecosystem
+- `next`: Next.js (SSR/SSG)
+- `@tanstack/react-query`: React data fetching
+- `graphql`, `@apollo`: GraphQL
+- `redis`, `ioredis`: Redis cache
+- `pg`, `postgres`: PostgreSQL
+- `socket.io*`: Real-time/WebSocket
+- `bullmq`, `bee-queue`: Message queues
+- `passport`, `@auth`: Authentication
+- `openai`, `langchain`: AI/LLM
+- `playwright`, `cypress`: E2E testing
+- `jest`, `vitest`: Unit testing
 
 ---
 
@@ -135,16 +131,14 @@ python3 .agent/skills/scan-techstack/scripts/techstack_scanner.py .
 
 ## 📊 Category Detection Rules
 
-| Category   | Detected When                                          |
-| ---------- | ------------------------------------------------------ |
-| `frontend` | React, Vue, Angular, Next.js, Nuxt, Tailwind detected  |
-| `backend`  | Express, Fastify, NestJS, FastAPI, or API deps found   |
-| `mobile`   | Flutter, React Native, iOS (Podfile), Android (Gradle) |
-| `database` | Prisma, Drizzle, pg, mongodb, redis detected           |
-| `devops`   | Docker, Kubernetes, Terraform, CI/CD configs found     |
-| `ai`       | OpenAI, LangChain, or AI-related deps detected         |
-| `realtime` | Socket.IO, WebSocket dependencies found                |
-| `queue`    | BullMQ, RabbitMQ, or queue dependencies found          |
+- `frontend`: React, Vue, Angular, Next.js, Nuxt, Tailwind detected
+- `backend`: Express, Fastify, NestJS, FastAPI, or API deps found
+- `mobile`: Flutter, React Native, iOS (Podfile), Android (Gradle)
+- `database`: Prisma, Drizzle, pg, mongodb, redis detected
+- `devops`: Docker, Kubernetes, Terraform, CI/CD configs found
+- `ai`: OpenAI, LangChain, or AI-related deps detected
+- `realtime`: Socket.IO, WebSocket dependencies found
+- `queue`: BullMQ, RabbitMQ, or queue dependencies found
 
 ---
 

@@ -22,14 +22,12 @@ skills: clean-code, react-patterns, typescript-patterns, tailwind-patterns, fron
 
 ## 📖 Philosophy
 
-| Principle                                | Meaning                                  |
-| ---------------------------------------- | ---------------------------------------- |
-| **Performance is measured, not assumed** | Profile before optimizing                |
-| **State is expensive, props are cheap**  | Lift state only when necessary           |
-| **Simplicity over cleverness**           | Clear code beats smart code              |
-| **Accessibility is not optional**        | If it's not accessible, it's broken      |
-| **Type safety prevents bugs**            | TypeScript is your first line of defense |
-| **Mobile is the default**                | Design for smallest screen first         |
+- **Performance is measured, not assumed**: Profile before optimizing
+- **State is expensive, props are cheap**: Lift state only when necessary
+- **Simplicity over cleverness**: Clear code beats smart code
+- **Accessibility is not optional**: If it's not accessible, it's broken
+- **Type safety prevents bugs**: TypeScript is your first line of defense
+- **Mobile is the default**: Design for smallest screen first
 
 ---
 
@@ -37,13 +35,11 @@ skills: clean-code, react-patterns, typescript-patterns, tailwind-patterns, fron
 
 **When user request is vague, ASK FIRST.**
 
-| Aspect            | Ask                                                              |
-| ----------------- | ---------------------------------------------------------------- |
-| **Color palette** | "What color palette do you prefer?"                              |
-| **Style**         | "What style are you going for? (minimal/bold/retro/futuristic?)" |
-| **Layout**        | "Do you have a layout preference?"                               |
-| **UI Library**    | "Which UI approach? (custom CSS/Tailwind/shadcn/Radix?)"         |
-| **Framework**     | "React, Vue, or other?"                                          |
+- **Color palette**: "What color palette do you prefer?"
+- **Style**: "What style are you going for? (minimal/bold/retro/futuristic?)"
+- **Layout**: "Do you have a layout preference?"
+- **UI Library**: "Which UI approach? (custom CSS/Tailwind/shadcn/Radix?)"
+- **Framework**: "React, Vue, or other?"
 
 ### ⛔ NO DEFAULT UI LIBRARIES
 
@@ -150,19 +146,15 @@ Before creating a component, ask:
 
 ### 2. Does state belong here?
 
-| State Type         | Solution               |
-| ------------------ | ---------------------- |
-| Component-specific | Local state (useState) |
-| Shared across tree | Lift or use Context    |
-| Server data        | React Query / TanStack |
+- Component-specific: Local state (useState)
+- Shared across tree: Lift or use Context
+- Server data: React Query / TanStack
 
 ### 3. Will this cause re-renders?
 
-| Content Type         | Strategy              |
-| -------------------- | --------------------- |
-| Static content       | Server Component      |
-| Client interactivity | Client + React.memo   |
-| Expensive compute    | useMemo / useCallback |
+- Static content: Server Component
+- Client interactivity: Client + React.memo
+- Expensive compute: useMemo / useCallback
 
 ### 4. Is this accessible by default?
 
@@ -186,12 +178,10 @@ Before creating a component, ask:
 
 ### Rendering Strategy (Next.js)
 
-| Content Type      | Strategy                          |
-| ----------------- | --------------------------------- |
-| Static Content    | Server Component (default)        |
-| User Interaction  | Client Component                  |
-| Dynamic Data      | Server Component with async/await |
-| Real-time Updates | Client Component + Server Actions |
+- Static Content: Server Component (default)
+- User Interaction: Client Component
+- Dynamic Data: Server Component with async/await
+- Real-time Updates: Client Component + Server Actions
 
 ---
 
@@ -255,16 +245,14 @@ When reviewing frontend code, verify:
 
 ## ❌ ANTI-PATTERNS TO AVOID
 
-| Anti-Pattern                   | Correct Approach                     |
-| ------------------------------ | ------------------------------------ |
-| Prop Drilling                  | Use Context or component composition |
-| Giant Components               | Split by responsibility              |
-| Premature Abstraction          | Wait for reuse pattern               |
-| useMemo/useCallback Everywhere | Only after measuring                 |
-| Client Components by Default   | Server Components when possible      |
-| `any` Type                     | Proper typing or `unknown`           |
-| Inline Styles                  | Design tokens, CSS classes           |
-| Purple as default color        | Ask user or use sector-appropriate   |
+- Prop Drilling: Use Context or component composition
+- Giant Components: Split by responsibility
+- Premature Abstraction: Wait for reuse pattern
+- useMemo/useCallback Everywhere: Only after measuring
+- Client Components by Default: Server Components when possible
+- `any` Type: Proper typing or `unknown`
+- Inline Styles: Design tokens, CSS classes
+- Purple as default color: Ask user or use sector-appropriate
 
 ---
 

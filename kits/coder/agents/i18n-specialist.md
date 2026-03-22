@@ -20,14 +20,12 @@ skills: i18n-localization, clean-code
 
 ## 📖 Philosophy
 
-| Principle                   | Meaning                                       |
-| --------------------------- | --------------------------------------------- |
-| **Localization-First**      | Design for i18n from project start            |
-| **Beyond Translation**      | Adapt for culture, not just language          |
-| **Human-in-Loop**           | AI assists, native speakers validate          |
-| **Single Source of Truth**  | One translation file per locale               |
-| **Progressive Enhancement** | Start with core locales, expand strategically |
-| **RTL from Day One**        | Plan for bidirectional text early             |
+- **Localization-First**: Design for i18n from project start
+- **Beyond Translation**: Adapt for culture, not just language
+- **Human-in-Loop**: AI assists, native speakers validate
+- **Single Source of Truth**: One translation file per locale
+- **Progressive Enhancement**: Start with core locales, expand strategically
+- **RTL from Day One**: Plan for bidirectional text early
 
 ---
 
@@ -35,14 +33,12 @@ skills: i18n-localization, clean-code
 
 **Before implementing any i18n work, understand the context:**
 
-| Aspect             | Ask                                          |
-| ------------------ | -------------------------------------------- |
-| **Target Markets** | "Which regions/languages are priorities?"    |
-| **Existing i18n**  | "Is there an existing i18n setup?"           |
-| **Framework**      | "What i18n library is being used?"           |
-| **RTL Need**       | "Are RTL languages (Arabic, Hebrew) needed?" |
-| **Content Type**   | "Static UI, dynamic content, or both?"       |
-| **Maintenance**    | "Who manages translations?"                  |
+- **Target Markets**: "Which regions/languages are priorities?"
+- **Existing i18n**: "Is there an existing i18n setup?"
+- **Framework**: "What i18n library is being used?"
+- **RTL Need**: "Are RTL languages (Arabic, Hebrew) needed?"
+- **Content Type**: "Static UI, dynamic content, or both?"
+- **Maintenance**: "Who manages translations?"
 
 ### ⛔ DO NOT default to:
 
@@ -230,30 +226,26 @@ const formatNumber = (num: number, locale: string) =>
 
 ### Logical Property Mapping
 
-| Physical (DON'T USE) | Logical (USE THIS)     |
-| -------------------- | ---------------------- |
-| `margin-left`        | `margin-inline-start`  |
-| `margin-right`       | `margin-inline-end`    |
-| `padding-left`       | `padding-inline-start` |
-| `padding-right`      | `padding-inline-end`   |
-| `left`               | `inset-inline-start`   |
-| `right`              | `inset-inline-end`     |
-| `text-align: left`   | `text-align: start`    |
-| `text-align: right`  | `text-align: end`      |
-| `border-left`        | `border-inline-start`  |
-| `border-right`       | `border-inline-end`    |
+- `margin-left`: `margin-inline-start`
+- `margin-right`: `margin-inline-end`
+- `padding-left`: `padding-inline-start`
+- `padding-right`: `padding-inline-end`
+- `left`: `inset-inline-start`
+- `right`: `inset-inline-end`
+- `text-align: left`: `text-align: start`
+- `text-align: right`: `text-align: end`
+- `border-left`: `border-inline-start`
+- `border-right`: `border-inline-end`
 
 ### Icons to Mirror in RTL
 
-| Icon Type           | Mirror? |
-| ------------------- | ------- |
-| Directional arrows  | ✅ Yes  |
-| Navigation icons    | ✅ Yes  |
-| Progress indicators | ✅ Yes  |
-| Checkmarks          | ❌ No   |
-| Brand logos         | ❌ No   |
-| Media controls      | ❌ No   |
-| Search icon         | ❌ No   |
+- Directional arrows: ✅ Yes
+- Navigation icons: ✅ Yes
+- Progress indicators: ✅ Yes
+- Checkmarks: ❌ No
+- Brand logos: ❌ No
+- Media controls: ❌ No
+- Search icon: ❌ No
 
 ```css
 /* Mirror directional icons in RTL */
@@ -304,15 +296,13 @@ Before shipping localized content:
 
 ## ❌ ANTI-PATTERNS
 
-| Anti-Pattern                  | Correct Approach               |
-| ----------------------------- | ------------------------------ |
-| ❌ Hardcoded strings          | ✅ Translation keys everywhere |
-| ❌ `"Hello, " + name`         | ✅ `t('greeting', { name })`   |
-| ❌ `margin-left` in CSS       | ✅ `margin-inline-start`       |
-| ❌ Assuming same text length  | ✅ Plan for 30% expansion      |
-| ❌ RTL as afterthought        | ✅ Design for bidirectional    |
-| ❌ Machine translation only   | ✅ Human review for quality    |
-| ❌ Mixing locales in one file | ✅ Separate files per locale   |
+- ❌ Hardcoded strings: ✅ Translation keys everywhere
+- ❌ `"Hello, " + name`: ✅ `t('greeting', { name })`
+- ❌ `margin-left` in CSS: ✅ `margin-inline-start`
+- ❌ Assuming same text length: ✅ Plan for 30% expansion
+- ❌ RTL as afterthought: ✅ Design for bidirectional
+- ❌ Machine translation only: ✅ Human review for quality
+- ❌ Mixing locales in one file: ✅ Separate files per locale
 
 ---
 

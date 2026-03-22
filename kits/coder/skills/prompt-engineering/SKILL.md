@@ -24,13 +24,11 @@ priority: CRITICAL
 
 ## Core Principles
 
-| Principle      | Rule                                               |
-| -------------- | -------------------------------------------------- |
-| **Specific**   | Ambiguity causes inconsistent outputs              |
-| **Structured** | Clear sections: Context → Task → Format → Examples |
-| **Testable**   | Evaluate on diverse inputs, measure consistency    |
-| **Iterative**  | Start simple, add complexity only when needed      |
-| **Versioned**  | Treat prompts as code with proper version control  |
+- **Specific**: Ambiguity causes inconsistent outputs
+- **Structured**: Clear sections: Context → Task → Format → Examples
+- **Testable**: Evaluate on diverse inputs, measure consistency
+- **Iterative**: Start simple, add complexity only when needed
+- **Versioned**: Treat prompts as code with proper version control
 
 ---
 
@@ -75,12 +73,10 @@ You are a senior backend engineer specializing in API design.
 
 ### 1. Few-Shot Learning
 
-| When to Use                | Examples Needed    |
-| -------------------------- | ------------------ |
-| Consistent formatting      | 2-3 examples       |
-| Complex reasoning patterns | 3-5 examples       |
-| Edge case handling         | Include edge cases |
-| Simple tasks               | 0-1 examples       |
+- Consistent formatting: 2-3 examples
+- Complex reasoning patterns: 3-5 examples
+- Edge case handling: Include edge cases
+- Simple tasks: 0-1 examples
 
 ```markdown
 Extract key information:
@@ -192,11 +188,9 @@ If uncertain:
 
 ### Token Efficiency
 
-| Inefficient                        | Efficient                        |
-| ---------------------------------- | -------------------------------- |
-| Long verbose instructions          | Concise, direct commands         |
-| Repeating context in every message | System prompt for stable context |
-| 10 examples when 3 suffice         | Minimal effective examples       |
+- Long verbose instructions: Concise, direct commands
+- Repeating context in every message: System prompt for stable context
+- 10 examples when 3 suffice: Minimal effective examples
 
 ---
 
@@ -225,15 +219,13 @@ Task complexity?
 
 ## Anti-Patterns (DON'T)
 
-| ❌ Anti-Pattern                | ✅ Correct Approach               |
-| ------------------------------ | --------------------------------- |
-| Vague instructions             | Specific, measurable requirements |
-| Complex prompt from start      | Start simple, iterate             |
-| Examples that don't match task | Representative, diverse examples  |
-| No output format specified     | Clear format expectations         |
-| Ignoring edge cases            | Test on boundary inputs           |
-| Same prompt for all tasks      | Task-specific optimized prompts   |
-| No version control             | Git-track prompts like code       |
+- Vague instructions: Specific, measurable requirements
+- Complex prompt from start: Start simple, iterate
+- Examples that don't match task: Representative, diverse examples
+- No output format specified: Clear format expectations
+- Ignoring edge cases: Test on boundary inputs
+- Same prompt for all tasks: Task-specific optimized prompts
+- No version control: Git-track prompts like code
 
 ---
 
@@ -262,25 +254,21 @@ Task complexity?
 
 ## 🔴 Self-Check Before Completing
 
-| Check                  | Question                           |
-| ---------------------- | ---------------------------------- |
-| ✅ **Specific?**       | No ambiguous instructions?         |
-| ✅ **Structured?**     | Role → Task → Format → Examples?   |
-| ✅ **Tested?**         | Evaluated on diverse inputs?       |
-| ✅ **Versioned?**      | Prompt tracked in version control? |
-| ✅ **Optimized?**      | Minimal tokens, maximum clarity?   |
-| ✅ **Error handling?** | Handles uncertain/edge cases?      |
+- ✅ **Specific?**: No ambiguous instructions?
+- ✅ **Structured?**: Role → Task → Format → Examples?
+- ✅ **Tested?**: Evaluated on diverse inputs?
+- ✅ **Versioned?**: Prompt tracked in version control?
+- ✅ **Optimized?**: Minimal tokens, maximum clarity?
+- ✅ **Error handling?**: Handles uncertain/edge cases?
 
 ---
 
 ## Related Skills
 
-| Need                    | Skill                    |
-| ----------------------- | ------------------------ |
-| Agent design            | `agent-creator` (future) |
-| Skill creation          | `skill-creator` (future) |
-| AI application patterns | `ai-patterns` (future)   |
-| User communication      | `brainstorming`          |
+- Agent design: `agent-creator` (future)
+- Skill creation: `skill-creator` (future)
+- AI application patterns: `ai-patterns` (future)
+- User communication: `brainstorming`
 
 ---
 

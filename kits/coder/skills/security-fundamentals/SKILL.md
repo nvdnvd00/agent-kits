@@ -159,18 +159,16 @@ function createUser(input: unknown) {
 
 ### Common Validation Rules
 
-| Field Type | Validation Rules                           |
-| ---------- | ------------------------------------------ |
-| Username   | ^[a-zA-Z0-9_]{3,20}$                       |
-| Email      | RFC 5322 regex + domain check              |
-| Password   | Min 12 chars, complexity rules             |
-| Phone      | Digits only, length 10-15                  |
-| UUID       | ^[0-9a-f]{8}-... pattern                   |
-| URL        | Scheme allowlist (https), domain allowlist |
-| File       | Extension allowlist, magic bytes, max size |
-| Date       | ISO 8601, reasonable range                 |
-| Number     | Min/max bounds, integer vs float           |
-| Free text  | Max length, no control chars               |
+- Username: ^[a-zA-Z0-9_]{3,20}$
+- Email: RFC 5322 regex + domain check
+- Password: Min 12 chars, complexity rules
+- Phone: Digits only, length 10-15
+- UUID: ^[0-9a-f]{8}-... pattern
+- URL: Scheme allowlist (https), domain allowlist
+- File: Extension allowlist, magic bytes, max size
+- Date: ISO 8601, reasonable range
+- Number: Min/max bounds, integer vs float
+- Free text: Max length, no control chars
 
 ---
 
@@ -208,14 +206,12 @@ const cleanHTML = DOMPurify.sanitize(dirtyHTML, {
 
 ### Output Encoding
 
-| Context           | Encoding                          |
-| ----------------- | --------------------------------- |
-| HTML body         | HTML entity encode (`<` → `&lt;`) |
-| HTML attribute    | Attribute encode + quote          |
-| JavaScript string | JS escape + avoid eval            |
-| CSS value         | CSS escape, avoid `url()`         |
-| URL parameter     | URL encode (`%20`)                |
-| JSON              | JSON.stringify (auto-escapes)     |
+- HTML body: HTML entity encode (`<` → `&lt;`)
+- HTML attribute: Attribute encode + quote
+- JavaScript string: JS escape + avoid eval
+- CSS value: CSS escape, avoid `url()`
+- URL parameter: URL encode (`%20`)
+- JSON: JSON.stringify (auto-escapes)
 
 ---
 
@@ -232,13 +228,11 @@ Cost factor: ~100ms per hash (adjust for hardware)
 
 ### Session Security
 
-| Aspect       | Requirement                         |
-| ------------ | ----------------------------------- |
-| Session ID   | Cryptographically random, 128+ bits |
-| Storage      | HttpOnly cookie (not localStorage)  |
-| Transmission | Secure flag (HTTPS only)            |
-| Expiration   | Reasonable timeout, absolute + idle |
-| Rotation     | New ID after privilege change       |
+- Session ID: Cryptographically random, 128+ bits
+- Storage: HttpOnly cookie (not localStorage)
+- Transmission: Secure flag (HTTPS only)
+- Expiration: Reasonable timeout, absolute + idle
+- Rotation: New ID after privilege change
 
 ### JWT Security
 
@@ -301,18 +295,16 @@ const securityHeaders = {
 
 ## 🚨 Anti-Patterns
 
-| ❌ Don't                                | ✅ Do                              |
-| --------------------------------------- | ---------------------------------- |
-| Store passwords in plain text           | Use bcrypt/Argon2 with proper cost |
-| Concatenate SQL strings                 | Use parameterized queries          |
-| Disable SSL verification                | Fix certificate issues properly    |
-| Log sensitive data                      | Mask/redact before logging         |
-| Use `eval()` with user input            | Find alternative approach          |
-| Trust client-side validation            | Always validate server-side        |
-| Commit secrets to repo                  | Use environment variables          |
-| Use `*` for CORS origin                 | Explicit domain allowlist          |
-| Disable security features "temporarily" | Never—find proper solution         |
-| Roll your own crypto                    | Use established libraries          |
+- Store passwords in plain text: Use bcrypt/Argon2 with proper cost
+- Concatenate SQL strings: Use parameterized queries
+- Disable SSL verification: Fix certificate issues properly
+- Log sensitive data: Mask/redact before logging
+- Use `eval()` with user input: Find alternative approach
+- Trust client-side validation: Always validate server-side
+- Commit secrets to repo: Use environment variables
+- Use `*` for CORS origin: Explicit domain allowlist
+- Disable security features "temporarily": Never—find proper solution
+- Roll your own crypto: Use established libraries
 
 ---
 
@@ -352,12 +344,10 @@ const securityHeaders = {
 
 ## 🔗 Related Skills
 
-| Need                  | Skill              |
-| --------------------- | ------------------ |
-| API design patterns   | `api-patterns`     |
-| Database security     | `database-design`  |
-| Testing for security  | `testing-patterns` |
-| Clean code principles | `clean-code`       |
+- API design patterns: `api-patterns`
+- Database security: `database-design`
+- Testing for security: `testing-patterns`
+- Clean code principles: `clean-code`
 
 ---
 

@@ -75,12 +75,10 @@ locales/
 
 ### Namespace Strategy
 
-| Namespace   | Contents                    |
-| ----------- | --------------------------- |
-| `common`    | Shared: buttons, labels     |
-| `auth`      | Login, register, password   |
-| `errors`    | Error messages, validations |
-| `[feature]` | Feature-specific strings    |
+- `common`: Shared: buttons, labels
+- `auth`: Login, register, password
+- `errors`: Error messages, validations
+- `[feature]`: Feature-specific strings
 
 ---
 
@@ -107,12 +105,10 @@ locales/
 
 ### Naming Rules
 
-| Rule                  | Example                      |
-| --------------------- | ---------------------------- |
-| **camelCase keys**    | `forgotPassword`             |
-| **Nested by feature** | `auth.login.title`           |
-| **Semantic naming**   | `submitButton` not `button1` |
-| **No hardcoded text** | Even for "OK" or "Cancel"    |
+- **camelCase keys**: `forgotPassword`
+- **Nested by feature**: `auth.login.title`
+- **Semantic naming**: `submitButton` not `button1`
+- **No hardcoded text**: Even for "OK" or "Cancel"
 
 ---
 
@@ -229,15 +225,13 @@ const pseudoLocalize = (str: string) => {
 
 ### Logical Properties Mapping
 
-| Physical           | Logical               |
-| ------------------ | --------------------- |
-| `left`             | `inline-start`        |
-| `right`            | `inline-end`          |
-| `top`              | `block-start`         |
-| `bottom`           | `block-end`           |
-| `margin-left`      | `margin-inline-start` |
-| `padding-right`    | `padding-inline-end`  |
-| `text-align: left` | `text-align: start`   |
+- `left`: `inline-start`
+- `right`: `inline-end`
+- `top`: `block-start`
+- `bottom`: `block-end`
+- `margin-left`: `margin-inline-start`
+- `padding-right`: `padding-inline-end`
+- `text-align: left`: `text-align: start`
 
 ### HTML Direction
 
@@ -332,25 +326,21 @@ const formatRelative = (date: Date, locale: string) => {
 
 ## ❌ Anti-Patterns
 
-| ❌ Don't                          | ✅ Do                                      |
-| --------------------------------- | ------------------------------------------ |
-| Concatenate strings for sentences | Use ICU message format                     |
-| Hardcode "OK", "Cancel", etc.     | Externalize ALL strings                    |
-| Use physical CSS properties       | Use logical properties for RTL             |
-| Assume text length stays same     | Design for 30-50% expansion                |
-| Store locale in localStorage only | Support URL-based locale switching         |
-| Use images with embedded text     | Separate text layer or generate per-locale |
+- Concatenate strings for sentences: Use ICU message format
+- Hardcode "OK", "Cancel", etc.: Externalize ALL strings
+- Use physical CSS properties: Use logical properties for RTL
+- Assume text length stays same: Design for 30-50% expansion
+- Store locale in localStorage only: Support URL-based locale switching
+- Use images with embedded text: Separate text layer or generate per-locale
 
 ---
 
 ## 🔗 Related Skills
 
-| Need           | Skill                    |
-| -------------- | ------------------------ |
-| React patterns | `react-patterns`         |
-| API design     | `api-patterns`           |
-| Accessibility  | `accessibility-patterns` |
-| Testing        | `testing-patterns`       |
+- React patterns: `react-patterns`
+- API design: `api-patterns`
+- Accessibility: `accessibility-patterns`
+- Testing: `testing-patterns`
 
 ---
 

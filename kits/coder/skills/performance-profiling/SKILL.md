@@ -214,12 +214,10 @@ npx webpack-bundle-analyzer dist/stats.json
 ```
 
 **Solutions:**
-| Problem | Solution |
-| ------- | -------- |
-| Large library | Use lighter alternative (date-fns vs moment) |
-| Unused exports | Enable tree shaking |
-| One big bundle | Code split by route |
-| Duplicate dependencies | Dedupe in package manager |
+- Large library: Use lighter alternative (date-fns vs moment)
+- Unused exports: Enable tree shaking
+- One big bundle: Code split by route
+- Duplicate dependencies: Dedupe in package manager
 
 ### Memory Leaks
 
@@ -230,12 +228,10 @@ npx webpack-bundle-analyzer dist/stats.json
 - OutOfMemory errors in production
 
 **Common Causes:**
-| Cause | Solution |
-| ----- | -------- |
-| Event listeners not removed | Cleanup in useEffect/componentWillUnmount |
-| Growing global arrays/maps | Use WeakMap/WeakSet or bounded caches |
-| Closures holding references | Break reference chains |
-| Uncleared timers | clearTimeout/clearInterval |
+- Event listeners not removed: Cleanup in useEffect/componentWillUnmount
+- Growing global arrays/maps: Use WeakMap/WeakSet or bounded caches
+- Closures holding references: Break reference chains
+- Uncleared timers: clearTimeout/clearInterval
 
 ---
 
@@ -283,16 +279,14 @@ const throttledScroll = throttle(handleScroll, 100);
 
 ## 🚨 Anti-Patterns
 
-| ❌ Don't                          | ✅ Do                                      |
-| --------------------------------- | ------------------------------------------ |
-| Optimize without measuring        | Profile first, then optimize               |
-| Premature optimization            | Focus on correctness, then performance     |
-| Optimize cold paths               | Focus on hot paths (frequently executed)   |
-| Micro-optimize trivial code       | Target the biggest bottleneck              |
-| Cache everything                  | Cache strategically, consider invalidation |
-| Load everything upfront           | Lazy load non-critical resources           |
-| Block main thread with heavy work | Use web workers, async processing          |
-| Ignore p99 latency                | p99 affects real users, not just averages  |
+- Optimize without measuring: Profile first, then optimize
+- Premature optimization: Focus on correctness, then performance
+- Optimize cold paths: Focus on hot paths (frequently executed)
+- Micro-optimize trivial code: Target the biggest bottleneck
+- Cache everything: Cache strategically, consider invalidation
+- Load everything upfront: Lazy load non-critical resources
+- Block main thread with heavy work: Use web workers, async processing
+- Ignore p99 latency: p99 affects real users, not just averages
 
 ---
 
@@ -331,12 +325,10 @@ const throttledScroll = throttle(handleScroll, 100);
 
 ## 🔗 Related Skills
 
-| Need                  | Skill                  |
-| --------------------- | ---------------------- |
-| Frontend optimization | `react-best-practices` |
-| Database optimization | `database-design`      |
-| Testing performance   | `testing-patterns`     |
-| Clean efficient code  | `clean-code`           |
+- Frontend optimization: `react-best-practices`
+- Database optimization: `database-design`
+- Testing performance: `testing-patterns`
+- Clean efficient code: `clean-code`
 
 ---
 

@@ -21,14 +21,12 @@ skills: clean-code, nodejs-best-practices, api-patterns, database-design, auth-p
 
 ## 📖 Philosophy
 
-| Principle                       | Meaning                                |
-| ------------------------------- | -------------------------------------- |
-| **Security is non-negotiable**  | Validate everything, trust nothing     |
-| **Performance is measured**     | Profile before optimizing              |
-| **Async by default**            | I/O-bound = async, CPU-bound = offload |
-| **Type safety prevents errors** | TypeScript/Pydantic everywhere         |
-| **Edge-first thinking**         | Consider serverless/edge deployment    |
-| **Simplicity over cleverness**  | Clear code beats smart code            |
+- **Security is non-negotiable**: Validate everything, trust nothing
+- **Performance is measured**: Profile before optimizing
+- **Async by default**: I/O-bound = async, CPU-bound = offload
+- **Type safety prevents errors**: TypeScript/Pydantic everywhere
+- **Edge-first thinking**: Consider serverless/edge deployment
+- **Simplicity over cleverness**: Clear code beats smart code
 
 ---
 
@@ -36,14 +34,12 @@ skills: clean-code, nodejs-best-practices, api-patterns, database-design, auth-p
 
 **When user request is vague, ASK FIRST.**
 
-| Aspect         | Ask                                     |
-| -------------- | --------------------------------------- |
-| **Runtime**    | "Node.js or Python? Edge-ready?"        |
-| **Framework**  | "Hono/Fastify/Express? FastAPI/Django?" |
-| **Database**   | "PostgreSQL/SQLite? Serverless?"        |
-| **API Style**  | "REST/GraphQL/tRPC?"                    |
-| **Auth**       | "JWT/Session? OAuth needed?"            |
-| **Deployment** | "Edge/Serverless/Container/VPS?"        |
+- **Runtime**: "Node.js or Python? Edge-ready?"
+- **Framework**: "Hono/Fastify/Express? FastAPI/Django?"
+- **Database**: "PostgreSQL/SQLite? Serverless?"
+- **API Style**: "REST/GraphQL/tRPC?"
+- **Auth**: "JWT/Session? OAuth needed?"
+- **Deployment**: "Edge/Serverless/Container/VPS?"
 
 ### ⛔ DO NOT default to:
 
@@ -128,23 +124,19 @@ Before completing:
 
 ### Database Selection
 
-| Scenario                 | Recommendation        |
-| ------------------------ | --------------------- |
-| Full PostgreSQL features | Neon (serverless PG)  |
-| Edge deployment          | Turso (edge SQLite)   |
-| AI/Embeddings            | PostgreSQL + pgvector |
-| Simple/Local             | SQLite                |
-| Complex relationships    | PostgreSQL            |
-| Global distribution      | PlanetScale / Turso   |
+- Full PostgreSQL features: Neon (serverless PG)
+- Edge deployment: Turso (edge SQLite)
+- AI/Embeddings: PostgreSQL + pgvector
+- Simple/Local: SQLite
+- Complex relationships: PostgreSQL
+- Global distribution: PlanetScale / Turso
 
 ### API Style Selection
 
-| Scenario                          | Recommendation       |
-| --------------------------------- | -------------------- |
-| Public API, broad compatibility   | REST + OpenAPI       |
-| Complex queries, multiple clients | GraphQL              |
-| TypeScript monorepo, internal     | tRPC                 |
-| Real-time, event-driven           | WebSocket + AsyncAPI |
+- Public API, broad compatibility: REST + OpenAPI
+- Complex queries, multiple clients: GraphQL
+- TypeScript monorepo, internal: tRPC
+- Real-time, event-driven: WebSocket + AsyncAPI
 
 ---
 
@@ -224,16 +216,14 @@ When reviewing backend code, verify:
 
 ## ❌ ANTI-PATTERNS TO AVOID
 
-| Anti-Pattern              | Correct Approach                        |
-| ------------------------- | --------------------------------------- |
-| SQL Injection             | Use parameterized queries, ORM          |
-| N+1 Queries               | Use JOINs, DataLoader, or includes      |
-| Blocking Event Loop       | Use async for I/O operations            |
-| Express for Edge          | Use Hono/Fastify for modern deployments |
-| Same stack for everything | Choose per context and requirements     |
-| Skipping auth check       | Verify every protected route            |
-| Hardcoded secrets         | Use environment variables               |
-| Giant controllers         | Split into services                     |
+- SQL Injection: Use parameterized queries, ORM
+- N+1 Queries: Use JOINs, DataLoader, or includes
+- Blocking Event Loop: Use async for I/O operations
+- Express for Edge: Use Hono/Fastify for modern deployments
+- Same stack for everything: Choose per context and requirements
+- Skipping auth check: Verify every protected route
+- Hardcoded secrets: Use environment variables
+- Giant controllers: Split into services
 
 ---
 

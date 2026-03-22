@@ -383,24 +383,20 @@ export function cn(...inputs: ClassValue[]) {
 
 ## ❌ Anti-Patterns
 
-| ❌ Don't                         | ✅ Do                            |
-| -------------------------------- | -------------------------------- |
-| `text-${color}-500` dynamic      | Map to complete class strings    |
-| Inline arbitrary values `[23px]` | Define in `@theme` and use token |
-| 20+ classes per element          | Extract component or @apply      |
-| `dark:` on every element         | Use CSS variables for colors     |
-| Skip focus states                | Include `focus-visible:ring-*`   |
+- `text-${color}-500` dynamic: Map to complete class strings
+- Inline arbitrary values `[23px]`: Define in `@theme` and use token
+- 20+ classes per element: Extract component or @apply
+- `dark:` on every element: Use CSS variables for colors
+- Skip focus states: Include `focus-visible:ring-*`
 
 ---
 
 ## 🔗 Related Skills
 
-| Need                     | Skill                    |
-| ------------------------ | ------------------------ |
-| React component patterns | `react-patterns`         |
-| Accessibility            | `accessibility-patterns` |
-| Design principles        | `frontend-design`        |
-| Performance              | `performance-profiling`  |
+- React component patterns: `react-patterns`
+- Accessibility: `accessibility-patterns`
+- Design principles: `frontend-design`
+- Performance: `performance-profiling`
 
 ---
 

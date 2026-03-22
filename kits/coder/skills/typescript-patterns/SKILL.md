@@ -22,11 +22,9 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 ## 📑 Content Map
 
-| File                            | When to Read            |
-| ------------------------------- | ----------------------- |
-| `references/advanced-types.md`  | Complex type gymnastics |
-| `references/error-patterns.md`  | Debugging type errors   |
-| `references/migration-guide.md` | JS to TS migration      |
+- `references/advanced-types.md`: Complex type gymnastics
+- `references/error-patterns.md`: Debugging type errors
+- `references/migration-guide.md`: JS to TS migration
 
 ---
 
@@ -154,12 +152,10 @@ type GetUserParams = Parameters<typeof getUser>;
 }
 ```
 
-| Flag                         | What It Does                                 |
-| ---------------------------- | -------------------------------------------- |
-| `strict`                     | Enables all strict type checking             |
-| `noUncheckedIndexedAccess`   | Array/object access returns `T \| undefined` |
-| `noImplicitOverride`         | Require `override` keyword                   |
-| `exactOptionalPropertyTypes` | Distinguish `undefined` vs missing           |
+- `strict`: Enables all strict type checking
+- `noUncheckedIndexedAccess`: Array/object access returns `T \
+- `noImplicitOverride`: Require `override` keyword
+- `exactOptionalPropertyTypes`: Distinguish `undefined` vs missing
 
 ---
 
@@ -172,12 +168,10 @@ type GetUserParams = Parameters<typeof getUser>;
 npx tsc --extendedDiagnostics --incremental false | grep -E "Check time|Files:|Lines:|Nodes:"
 ```
 
-| Problem                       | Solution                    |
-| ----------------------------- | --------------------------- |
-| Slow type checking            | Enable `skipLibCheck: true` |
-| Rebuilding everything         | Enable `incremental: true`  |
-| Large codebase                | Use Project References      |
-| "Type instantiation too deep" | See fixes below             |
+- Slow type checking: Enable `skipLibCheck: true`
+- Rebuilding everything: Enable `incremental: true`
+- Large codebase: Use Project References
+- "Type instantiation too deep": See fixes below
 
 ### Fixing "Type instantiation is excessively deep"
 
@@ -204,20 +198,16 @@ type Prev = [never, 0, 1, 2, 3, 4];
 
 ### "The inferred type of X cannot be named"
 
-| Cause               | Fix                                  |
-| ------------------- | ------------------------------------ |
-| Missing type export | Export the required type explicitly  |
-| Circular dependency | Use type-only imports: `import type` |
-| Complex inference   | Use `ReturnType<typeof fn>`          |
+- Missing type export: Export the required type explicitly
+- Circular dependency: Use type-only imports: `import type`
+- Complex inference: Use `ReturnType<typeof fn>`
 
 ### "Cannot find module"
 
-| Cause                  | Fix                                       |
-| ---------------------- | ----------------------------------------- |
-| Wrong moduleResolution | Match your bundler (node, bundler)        |
-| Missing baseUrl        | Check tsconfig paths alignment            |
-| Monorepo setup         | Use workspace protocol (workspace:\*)     |
-| Cache issues           | `rm -rf node_modules/.cache .tsbuildinfo` |
+- Wrong moduleResolution: Match your bundler (node, bundler)
+- Missing baseUrl: Check tsconfig paths alignment
+- Monorepo setup: Use workspace protocol (workspace:\*)
+- Cache issues: `rm -rf node_modules/.cache .tsbuildinfo`
 
 ### Missing Type Declarations
 
@@ -241,11 +231,9 @@ declare module "cjs-package" {
 
 ### ESM-First Approach
 
-| Configuration       | Value                     |
-| ------------------- | ------------------------- |
-| package.json `type` | `"module"`                |
-| moduleResolution    | `"bundler"` or `"node16"` |
-| module              | `"esnext"` or `"node16"`  |
+- package.json `type`: `"module"`
+- moduleResolution: `"bundler"` or `"node16"`
+- module: `"esnext"` or `"node16"`
 
 ### CJS Interop
 
@@ -279,10 +267,8 @@ const defaultExport = pkg.default || pkg;
 
 ### Nx vs Turborepo Decision
 
-| Choose        | When                                  |
-| ------------- | ------------------------------------- |
-| **Turborepo** | Simple structure, speed, <20 packages |
-| **Nx**        | Complex deps, visualization, plugins  |
+- **Turborepo**: Simple structure, speed, <20 packages
+- **Nx**: Complex deps, visualization, plugins
 
 ---
 
@@ -290,10 +276,8 @@ const defaultExport = pkg.default || pkg;
 
 ### Biome vs ESLint
 
-| Choose     | When                                     |
-| ---------- | ---------------------------------------- |
-| **Biome**  | Speed critical, single tool, TS-first    |
-| **ESLint** | Need specific rules, Vue/Angular support |
+- **Biome**: Speed critical, single tool, TS-first
+- **ESLint**: Need specific rules, Vue/Angular support
 
 ### Type Testing
 
@@ -367,15 +351,13 @@ function handleStatus(status: Status) {
 
 ## 10. Anti-Patterns
 
-| ❌ Don't                          | ✅ Do                            |
-| --------------------------------- | -------------------------------- |
-| `any` everywhere                  | `unknown` with type guards       |
-| Excessive type assertions (`as`)  | Proper type inference            |
-| Ignoring strict mode              | Enable all strict flags          |
-| Complex mapped types in hot paths | Pre-compute, cache types         |
-| Index as object key without check | `noUncheckedIndexedAccess: true` |
-| Type in separate file from impl   | Co-locate types with code        |
-| Over-complicated generics         | Simpler solution first           |
+- `any` everywhere: `unknown` with type guards
+- Excessive type assertions (`as`): Proper type inference
+- Ignoring strict mode: Enable all strict flags
+- Complex mapped types in hot paths: Pre-compute, cache types
+- Index as object key without check: `noUncheckedIndexedAccess: true`
+- Type in separate file from impl: Co-locate types with code
+- Over-complicated generics: Simpler solution first
 
 ---
 
@@ -383,20 +365,16 @@ function handleStatus(status: Status) {
 
 ### JavaScript to TypeScript
 
-| Phase | Action                                  |
-| ----- | --------------------------------------- |
-| 1     | Enable `allowJs`, `checkJs` in tsconfig |
-| 2     | Rename files `.js` → `.ts` gradually    |
-| 3     | Add types file by file                  |
-| 4     | Enable strict mode progressively        |
+- 1: Enable `allowJs`, `checkJs` in tsconfig
+- 2: Rename files `.js` → `.ts` gradually
+- 3: Add types file by file
+- 4: Enable strict mode progressively
 
 ### Useful Tools
 
-| Tool         | Purpose                         |
-| ------------ | ------------------------------- |
-| `ts-migrate` | Automated migration from Airbnb |
-| `typesync`   | Install missing @types          |
-| `TypeStat`   | Auto-fix TypeScript types       |
+- `ts-migrate`: Automated migration from Airbnb
+- `typesync`: Install missing @types
+- `TypeStat`: Auto-fix TypeScript types
 
 ---
 
@@ -415,12 +393,10 @@ function handleStatus(status: Status) {
 
 ## Related Skills
 
-| Need               | Skill                   |
-| ------------------ | ----------------------- |
-| React + TypeScript | `react-patterns`        |
-| API design         | `api-patterns`          |
-| Testing            | `testing-patterns`      |
-| Performance        | `performance-profiling` |
+- React + TypeScript: `react-patterns`
+- API design: `api-patterns`
+- Testing: `testing-patterns`
+- Performance: `performance-profiling`
 
 ---
 

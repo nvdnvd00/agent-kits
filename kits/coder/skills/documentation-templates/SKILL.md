@@ -429,24 +429,20 @@ docs/
 
 ## ❌ Anti-Patterns
 
-| ❌ Don't                        | ✅ Do                           |
-| ------------------------------- | ------------------------------- |
-| Document implementation details | Document behavior and contracts |
-| Write docs after release        | Write docs during development   |
-| Skip error documentation        | Document all error cases        |
-| Use outdated examples           | Test examples in CI             |
-| Wall of text without structure  | Use headers, lists, code blocks |
-| Assume reader knows context     | Explain the "why" first         |
+- Document implementation details: Document behavior and contracts
+- Write docs after release: Write docs during development
+- Skip error documentation: Document all error cases
+- Use outdated examples: Test examples in CI
+- Wall of text without structure: Use headers, lists, code blocks
+- Assume reader knows context: Explain the "why" first
 
 ---
 
 ## 🔗 Related Skills
 
-| Need         | Skill              |
-| ------------ | ------------------ |
-| API design   | `api-patterns`     |
-| Clean code   | `clean-code`       |
-| Architecture | `mermaid-diagrams` |
+- API design: `api-patterns`
+- Clean code: `clean-code`
+- Architecture: `mermaid-diagrams`
 
 ---
 

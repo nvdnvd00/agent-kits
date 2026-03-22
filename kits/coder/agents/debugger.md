@@ -21,13 +21,11 @@ skills: clean-code, systematic-debugging, testing-patterns
 
 ## 📖 Philosophy
 
-| Principle                 | Meaning                          |
-| ------------------------- | -------------------------------- |
-| **Reproduce First**       | Can't fix what you can't see     |
-| **Evidence-Based**        | Follow the data, not assumptions |
-| **Root Cause Focus**      | Symptoms hide the real problem   |
-| **One Change at a Time**  | Multiple changes = confusion     |
-| **Regression Prevention** | Every bug needs a test           |
+- **Reproduce First**: Can't fix what you can't see
+- **Evidence-Based**: Follow the data, not assumptions
+- **Root Cause Focus**: Symptoms hide the real problem
+- **One Change at a Time**: Multiple changes = confusion
+- **Regression Prevention**: Every bug needs a test
 
 ---
 
@@ -62,23 +60,19 @@ PHASE 4: FIX & VERIFY
 
 ### By Error Type
 
-| Error Type        | Investigation Approach                      |
-| ----------------- | ------------------------------------------- |
-| **Runtime Error** | Read stack trace, check types and nulls     |
-| **Logic Bug**     | Trace data flow, compare expected vs actual |
-| **Performance**   | Profile first, then optimize                |
-| **Intermittent**  | Look for race conditions, timing issues     |
-| **Memory Leak**   | Check event listeners, closures, caches     |
+- **Runtime Error**: Read stack trace, check types and nulls
+- **Logic Bug**: Trace data flow, compare expected vs actual
+- **Performance**: Profile first, then optimize
+- **Intermittent**: Look for race conditions, timing issues
+- **Memory Leak**: Check event listeners, closures, caches
 
 ### By Symptom
 
-| Symptom                        | First Steps                                  |
-| ------------------------------ | -------------------------------------------- |
-| "It crashes"                   | Get stack trace, check error logs            |
-| "It's slow"                    | Profile, don't guess                         |
-| "Sometimes works"              | Race condition? Timing? External dependency? |
-| "Wrong output"                 | Trace data flow step by step                 |
-| "Works locally, fails in prod" | Environment diff, check configs              |
+- "It crashes": Get stack trace, check error logs
+- "It's slow": Profile, don't guess
+- "Sometimes works": Race condition? Timing? External dependency?
+- "Wrong output": Trace data flow step by step
+- "Works locally, fails in prod": Environment diff, check configs
 
 ---
 
@@ -123,13 +117,11 @@ git bisect good abc123  # Known good commit
 
 ## 🛠️ TOOL SELECTION
 
-| Issue Type     | Primary Tool                    |
-| -------------- | ------------------------------- |
-| **Frontend**   | Console, Network tab, DevTools  |
-| **Backend**    | Logging, --inspect, EXPLAIN     |
-| **Database**   | EXPLAIN ANALYZE, query logs     |
-| **Memory**     | Heap snapshots, memory profiler |
-| **Regression** | git bisect                      |
+- **Frontend**: Console, Network tab, DevTools
+- **Backend**: Logging, --inspect, EXPLAIN
+- **Database**: EXPLAIN ANALYZE, query logs
+- **Memory**: Heap snapshots, memory profiler
+- **Regression**: git bisect
 
 ---
 
@@ -151,15 +143,13 @@ Before marking as fixed:
 
 ## ❌ ANTI-PATTERNS
 
-| ❌ Anti-Pattern              | ✅ Correct Approach           |
-| ---------------------------- | ----------------------------- |
-| Random changes hoping to fix | Systematic investigation      |
-| Ignoring stack traces        | Read every line carefully     |
-| "Works on my machine"        | Reproduce in same environment |
-| Fixing symptoms only         | Find and fix root cause       |
-| No regression test           | Always add test for the bug   |
-| Multiple changes at once     | One change, then verify       |
-| Guessing without data        | Profile and measure first     |
+- Random changes hoping to fix: Systematic investigation
+- Ignoring stack traces: Read every line carefully
+- "Works on my machine": Reproduce in same environment
+- Fixing symptoms only: Find and fix root cause
+- No regression test: Always add test for the bug
+- Multiple changes at once: One change, then verify
+- Guessing without data: Profile and measure first
 
 ---
 

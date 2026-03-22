@@ -24,11 +24,9 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 ## 📑 Content Map
 
-| File                             | When to Read                 |
-| -------------------------------- | ---------------------------- |
-| `references/playwright-api.md`   | Playwright-specific patterns |
-| `references/cypress-patterns.md` | Cypress-specific patterns    |
-| `references/ci-integration.md`   | CI/CD setup and optimization |
+- `references/playwright-api.md`: Playwright-specific patterns
+- `references/cypress-patterns.md`: Cypress-specific patterns
+- `references/ci-integration.md`: CI/CD setup and optimization
 
 ---
 
@@ -36,23 +34,19 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 ### ✅ Use E2E When
 
-| Scenario                    | Why E2E                     |
-| --------------------------- | --------------------------- |
-| Critical user journeys      | Full flow validation        |
-| Authentication flows        | Security-critical paths     |
-| Payment/checkout            | Money-critical paths        |
-| Cross-browser compatibility | Real browser behavior       |
-| Accessibility validation    | Full page context needed    |
-| Visual regression           | Layout/styling verification |
+- Critical user journeys: Full flow validation
+- Authentication flows: Security-critical paths
+- Payment/checkout: Money-critical paths
+- Cross-browser compatibility: Real browser behavior
+- Accessibility validation: Full page context needed
+- Visual regression: Layout/styling verification
 
 ### ❌ Don't Use E2E When
 
-| Scenario                        | Better Alternative                  |
-| ------------------------------- | ----------------------------------- |
-| Unit logic testing              | Unit tests (Vitest, Jest)           |
-| Component behavior              | Integration tests (Testing Library) |
-| API contract validation         | API tests (Supertest, Hurl)         |
-| Unstable/frequently changing UI | Lower-level tests first             |
+- Unit logic testing: Unit tests (Vitest, Jest)
+- Component behavior: Integration tests (Testing Library)
+- API contract validation: API tests (Supertest, Hurl)
+- Unstable/frequently changing UI: Lower-level tests first
 
 ---
 
@@ -110,11 +104,9 @@ test("successful login redirects to dashboard", async ({ page }) => {
 
 ### Test Structure (AAA Pattern)
 
-| Phase       | Action                     |
-| ----------- | -------------------------- |
-| **Arrange** | Navigate, set up test data |
-| **Act**     | Perform user actions       |
-| **Assert**  | Verify expected outcomes   |
+- **Arrange**: Navigate, set up test data
+- **Act**: Perform user actions
+- **Assert**: Verify expected outcomes
 
 ---
 
@@ -132,12 +124,10 @@ test("successful login redirects to dashboard", async ({ page }) => {
 
 ### ❌ Avoid
 
-| Selector      | Why                         |
-| ------------- | --------------------------- |
-| CSS class     | Styling changes break tests |
-| Tag name only | Too generic, fragile        |
-| XPath         | Hard to read, fragile       |
-| nth-child     | Order-dependent, fragile    |
+- CSS class: Styling changes break tests
+- Tag name only: Too generic, fragile
+- XPath: Hard to read, fragile
+- nth-child: Order-dependent, fragile
 
 ---
 
@@ -156,12 +146,10 @@ await expect(page.getByTestId("data")).toContainText("Loaded");
 
 ### Handling Flaky Tests
 
-| Symptom                | Solution                                |
-| ---------------------- | --------------------------------------- |
-| Element not found      | Use auto-wait, increase timeout         |
-| Race conditions        | Wait for network idle, specific element |
-| Animation interference | Disable animations in CI                |
-| Timing issues          | Use explicit waits, not setTimeout      |
+- Element not found: Use auto-wait, increase timeout
+- Race conditions: Wait for network idle, specific element
+- Animation interference: Disable animations in CI
+- Timing issues: Use explicit waits, not setTimeout
 
 ```typescript
 // ✅ Wait for network idle
@@ -349,13 +337,11 @@ jobs:
 
 ### CI Optimization
 
-| Technique        | Impact                           |
-| ---------------- | -------------------------------- |
-| Parallel workers | 2-4x faster                      |
-| Sharding         | Distribute across machines       |
-| Caching browsers | Faster setup                     |
-| Headless mode    | Required in CI                   |
-| Fail fast        | Stop on first failure (optional) |
+- Parallel workers: 2-4x faster
+- Sharding: Distribute across machines
+- Caching browsers: Faster setup
+- Headless mode: Required in CI
+- Fail fast: Stop on first failure (optional)
 
 ```typescript
 // playwright.config.ts
@@ -414,15 +400,13 @@ test("debug example", async ({ page }) => {
 
 ## 11. Anti-Patterns
 
-| ❌ Don't                    | ✅ Do                             |
-| --------------------------- | --------------------------------- |
-| Test implementation details | Test user-visible behavior        |
-| Use fixed `setTimeout`      | Use explicit waits                |
-| Share state between tests   | Isolate each test                 |
-| Test everything in E2E      | Use testing pyramid               |
-| Skip flaky tests            | Fix root cause                    |
-| Hard-coded credentials      | Environment variables, test users |
-| Run against production      | Use staging/preview environments  |
+- Test implementation details: Test user-visible behavior
+- Use fixed `setTimeout`: Use explicit waits
+- Share state between tests: Isolate each test
+- Test everything in E2E: Use testing pyramid
+- Skip flaky tests: Fix root cause
+- Hard-coded credentials: Environment variables, test users
+- Run against production: Use staging/preview environments
 
 ---
 
@@ -457,12 +441,10 @@ test("user registration", async ({ page }) => {
 
 ## Related Skills
 
-| Need                     | Skill                   |
-| ------------------------ | ----------------------- |
-| Unit/integration testing | `testing-patterns`      |
-| CI/CD pipelines          | `github-actions`        |
-| Performance testing      | `performance-profiling` |
-| Accessibility            | `web-design-guidelines` |
+- Unit/integration testing: `testing-patterns`
+- CI/CD pipelines: `github-actions`
+- Performance testing: `performance-profiling`
+- Accessibility: `web-design-guidelines`
 
 ---
 

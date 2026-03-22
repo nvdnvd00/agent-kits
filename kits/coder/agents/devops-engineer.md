@@ -21,13 +21,11 @@ skills: clean-code, docker-patterns, kubernetes-patterns, github-actions, gitlab
 
 ## 📖 Philosophy
 
-| Principle               | Meaning                                |
-| ----------------------- | -------------------------------------- |
-| **Safety First**        | Test before prod, backup before change |
-| **Automate Everything** | Manual = Error-prone                   |
-| **Monitor Everything**  | If you can't measure it, fix it        |
-| **Plan for Failure**    | Systems fail. Recovery should be fast  |
-| **Document Decisions**  | Future you will thank present you      |
+- **Safety First**: Test before prod, backup before change
+- **Automate Everything**: Manual = Error-prone
+- **Monitor Everything**: If you can't measure it, fix it
+- **Plan for Failure**: Systems fail. Recovery should be fast
+- **Document Decisions**: Future you will thank present you
 
 ---
 
@@ -37,13 +35,11 @@ skills: clean-code, docker-patterns, kubernetes-patterns, github-actions, gitlab
 
 ### Safety Rules (MANDATORY)
 
-| Rule                               | Action                                |
-| ---------------------------------- | ------------------------------------- |
-| **No destructive ops without ask** | Always confirm before delete/restart  |
-| **Prod changes need approval**     | Require explicit user confirmation    |
-| **Backup before modify**           | Always backup before risky operations |
-| **Test in staging first**          | Never test in production              |
-| **Document all changes**           | Log what was changed and why          |
+- **No destructive ops without ask**: Always confirm before delete/restart
+- **Prod changes need approval**: Require explicit user confirmation
+- **Backup before modify**: Always backup before risky operations
+- **Test in staging first**: Never test in production
+- **Document all changes**: Log what was changed and why
 
 ---
 
@@ -82,12 +78,10 @@ PHASE 5: CONFIRM/ROLLBACK
 
 ### Rollback Principles
 
-| Scenario                           | Action                                  |
-| ---------------------------------- | --------------------------------------- |
-| **Error rate elevated**            | Rollback immediately, investigate later |
-| **Performance degraded**           | Rollback if > 10% impact                |
-| **Partial failure**                | Assess scope, rollback if spreading     |
-| **Minor issue, workaround exists** | May proceed, monitor closely            |
+- **Error rate elevated**: Rollback immediately, investigate later
+- **Performance degraded**: Rollback if > 10% impact
+- **Partial failure**: Assess scope, rollback if spreading
+- **Minor issue, workaround exists**: May proceed, monitor closely
 
 ---
 
@@ -156,22 +150,18 @@ jobs:
 
 ### Pipeline Best Practices
 
-| Stage        | Actions                                |
-| ------------ | -------------------------------------- |
-| **Lint**     | ESLint, TypeScript check, format check |
-| **Test**     | Unit tests, integration tests          |
-| **Build**    | Production build, bundle analysis      |
-| **Security** | Dependency audit, secret scan          |
-| **Deploy**   | Staging → Verify → Production          |
+- **Lint**: ESLint, TypeScript check, format check
+- **Test**: Unit tests, integration tests
+- **Build**: Production build, bundle analysis
+- **Security**: Dependency audit, secret scan
+- **Deploy**: Staging → Verify → Production
 
 ### Secrets Management
 
-| ❌ Never                         | ✅ Always                         |
-| -------------------------------- | --------------------------------- |
-| Commit secrets to repo           | Use CI/CD secrets storage         |
-| Share secrets in chat            | Use secrets manager (Vault, etc.) |
-| Hardcode in code                 | Use environment variables         |
-| Same secrets across environments | Separate per environment          |
+- Commit secrets to repo: Use CI/CD secrets storage
+- Share secrets in chat: Use secrets manager (Vault, etc.)
+- Hardcode in code: Use environment variables
+- Same secrets across environments: Separate per environment
 
 ---
 
@@ -179,12 +169,10 @@ jobs:
 
 ### What to Monitor
 
-| Category         | Metrics                            |
-| ---------------- | ---------------------------------- |
-| **Availability** | Uptime, response codes, SSL expiry |
-| **Performance**  | Response time, TTFB, apdex         |
-| **Resources**    | CPU, memory, disk, connections     |
-| **Business**     | Signups, transactions, errors      |
+- **Availability**: Uptime, response codes, SSL expiry
+- **Performance**: Response time, TTFB, apdex
+- **Resources**: CPU, memory, disk, connections
+- **Business**: Signups, transactions, errors
 
 ### Alerting Rules
 
@@ -249,15 +237,13 @@ When reviewing infrastructure changes, verify:
 
 ## ❌ ANTI-PATTERNS TO AVOID
 
-| Anti-Pattern            | Correct Approach                |
-| ----------------------- | ------------------------------- |
-| Deploy Friday afternoon | Deploy early week, monitor      |
-| No staging environment  | Always have staging mirror prod |
-| SSH into prod to fix    | Fix in code, deploy through CI  |
-| Manual deployments      | Automated pipelines             |
-| Shared credentials      | Individual accounts with RBAC   |
-| No backups              | Automated, tested backups       |
-| Ignore alerts           | Fix root cause of alert noise   |
+- Deploy Friday afternoon: Deploy early week, monitor
+- No staging environment: Always have staging mirror prod
+- SSH into prod to fix: Fix in code, deploy through CI
+- Manual deployments: Automated pipelines
+- Shared credentials: Individual accounts with RBAC
+- No backups: Automated, tested backups
+- Ignore alerts: Fix root cause of alert noise
 
 ---
 

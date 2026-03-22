@@ -21,14 +21,12 @@ skills: clean-code, api-patterns, realtime-patterns
 
 ## 📖 Philosophy
 
-| Principle                        | Meaning                                              |
-| -------------------------------- | ---------------------------------------------------- |
-| **Connection is sacred**         | Treat connections as precious resources              |
-| **Events over polling**          | Push > Pull. React to changes, don't poll for them   |
-| **Graceful degradation**         | Always handle disconnection and reconnection         |
-| **Room-based isolation**         | Use rooms/channels for logical grouping and security |
-| **Horizontal scaling awareness** | Design for multi-server from day one                 |
-| **Security at transport**        | Always use WSS, validate every message               |
+- **Connection is sacred**: Treat connections as precious resources
+- **Events over polling**: Push > Pull. React to changes, don't poll for them
+- **Graceful degradation**: Always handle disconnection and reconnection
+- **Room-based isolation**: Use rooms/channels for logical grouping and security
+- **Horizontal scaling awareness**: Design for multi-server from day one
+- **Security at transport**: Always use WSS, validate every message
 
 ---
 
@@ -36,14 +34,12 @@ skills: clean-code, api-patterns, realtime-patterns
 
 **When user request is vague, ASK FIRST.**
 
-| Aspect             | Ask                                                       |
-| ------------------ | --------------------------------------------------------- |
-| **Transport**      | "WebSocket, Socket.IO, or SSE? Need fallback?"            |
-| **Scale**          | "Expected concurrent connections? Multi-server needed?"   |
-| **Data Pattern**   | "Broadcast, targeted, or request-reply?"                  |
-| **Persistence**    | "Need message history/replay? At-least-once delivery?"    |
-| **Authentication** | "How to authenticate connections? JWT? Session?"          |
-| **Multi-tenancy**  | "Single tenant or multi-tenant? Room isolation strategy?" |
+- **Transport**: "WebSocket, Socket.IO, or SSE? Need fallback?"
+- **Scale**: "Expected concurrent connections? Multi-server needed?"
+- **Data Pattern**: "Broadcast, targeted, or request-reply?"
+- **Persistence**: "Need message history/replay? At-least-once delivery?"
+- **Authentication**: "How to authenticate connections? JWT? Session?"
+- **Multi-tenancy**: "Single tenant or multi-tenant? Room isolation strategy?"
 
 ### ⛔ DO NOT default to:
 
@@ -58,31 +54,25 @@ skills: clean-code, api-patterns, realtime-patterns
 
 ### Transport Decision
 
-| Scenario                   | Recommendation            |
-| -------------------------- | ------------------------- |
-| Browser + fallback needed  | Socket.IO                 |
-| Native apps, full control  | Native WebSocket          |
-| Server-to-client only      | Server-Sent Events (SSE)  |
-| High-frequency updates     | WebSocket with throttling |
-| Edge/Serverless compatible | SSE or WebSocket adapters |
+- Browser + fallback needed: Socket.IO
+- Native apps, full control: Native WebSocket
+- Server-to-client only: Server-Sent Events (SSE)
+- High-frequency updates: WebSocket with throttling
+- Edge/Serverless compatible: SSE or WebSocket adapters
 
 ### Scaling Strategy
 
-| Scale                 | Recommendation                        |
-| --------------------- | ------------------------------------- |
-| < 10K concurrent      | Single server + in-memory             |
-| 10K - 100K concurrent | Redis adapter + horizontal scaling    |
-| > 100K concurrent     | Dedicated message broker (Kafka, etc) |
-| Global distribution   | Regional clusters + message sync      |
+- < 10K concurrent: Single server + in-memory
+- 10K - 100K concurrent: Redis adapter + horizontal scaling
+- > 100K concurrent: Dedicated message broker (Kafka, etc)
+- Global distribution: Regional clusters + message sync
 
 ### Framework Selection (Node.js)
 
-| Framework       | Best For                    |
-| --------------- | --------------------------- |
-| **Socket.IO**   | Browser apps, auto-fallback |
-| **ws** (native) | Performance, microservices  |
-| **µWebSockets** | Maximum performance         |
-| **Hono + WS**   | Edge-compatible             |
+- **Socket.IO**: Browser apps, auto-fallback
+- **ws** (native): Performance, microservices
+- **µWebSockets**: Maximum performance
+- **Hono + WS**: Edge-compatible
 
 ---
 
@@ -130,13 +120,11 @@ skills: clean-code, api-patterns, realtime-patterns
 
 ### Event Patterns
 
-| Pattern             | Use Case                        |
-| ------------------- | ------------------------------- |
-| **Broadcast**       | Announcements to all users      |
-| **Room Emit**       | Chat messages, group updates    |
-| **Direct Emit**     | Private messages, notifications |
-| **Request-Reply**   | RPC-style calls over socket     |
-| **Acknowledgement** | Delivery confirmation           |
+- **Broadcast**: Announcements to all users
+- **Room Emit**: Chat messages, group updates
+- **Direct Emit**: Private messages, notifications
+- **Request-Reply**: RPC-style calls over socket
+- **Acknowledgement**: Delivery confirmation
 
 ### Security Essentials
 
@@ -181,13 +169,11 @@ skills: clean-code, api-patterns, realtime-patterns
 
 ### When to Use Each Pattern
 
-| Need                           | Pattern                          |
-| ------------------------------ | -------------------------------- |
-| All users see update           | Broadcast (`io.emit()`)          |
-| Group sees update              | Room emit (`io.to(room).emit()`) |
-| One user receives              | Direct (`socket.emit()`)         |
-| Need delivery confirmation     | With acknowledgement callback    |
-| Multiple events, one operation | Batch and emit once              |
+- All users see update: Broadcast (`io.emit()`)
+- Group sees update: Room emit (`io.to(room).emit()`)
+- One user receives: Direct (`socket.emit()`)
+- Need delivery confirmation: With acknowledgement callback
+- Multiple events, one operation: Batch and emit once
 
 ### Scaling Decision Tree
 
@@ -205,16 +191,14 @@ Is multi-server needed?
 
 ## ❌ ANTI-PATTERNS TO AVOID
 
-| Anti-Pattern                   | Correct Approach                         |
-| ------------------------------ | ---------------------------------------- |
-| Polling when push is available | Use events, not intervals                |
-| Storing user data on socket    | Store only socket ID, fetch from DB      |
-| No reconnection handling       | Implement with exponential backoff       |
-| Broadcasting everything        | Use rooms and targeted emit              |
-| Trusting client room joins     | Server-side room assignment only         |
-| Single-server mindset          | Design for horizontal scaling from start |
-| No rate limiting on events     | Limit events per second per connection   |
-| Skipping WSS in production     | Always use encrypted transport           |
+- Polling when push is available: Use events, not intervals
+- Storing user data on socket: Store only socket ID, fetch from DB
+- No reconnection handling: Implement with exponential backoff
+- Broadcasting everything: Use rooms and targeted emit
+- Trusting client room joins: Server-side room assignment only
+- Single-server mindset: Design for horizontal scaling from start
+- No rate limiting on events: Limit events per second per connection
+- Skipping WSS in production: Always use encrypted transport
 
 ---
 

@@ -35,14 +35,12 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 ### Palette Structure
 
-| Role      | Use Case                    |
-| --------- | --------------------------- |
-| Primary   | CTAs, links, brand elements |
-| Secondary | Supporting elements         |
-| Neutral   | Text, borders, backgrounds  |
-| Success   | Confirmations, completed    |
-| Warning   | Caution, pending            |
-| Error     | Errors, destructive actions |
+- Primary: CTAs, links, brand elements
+- Secondary: Supporting elements
+- Neutral: Text, borders, backgrounds
+- Success: Confirmations, completed
+- Warning: Caution, pending
+- Error: Errors, destructive actions
 
 ### Contrast (WCAG)
 
@@ -90,21 +88,17 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 ## 📊 Layout Patterns
 
-| Pattern    | Description                   |
-| ---------- | ----------------------------- |
-| Holy Grail | Header, footer, 3-col middle  |
-| Sidebar    | Fixed sidebar + fluid content |
-| Dashboard  | Sidebar nav + header + grid   |
-| Cards      | Auto-filling responsive grid  |
+- Holy Grail: Header, footer, 3-col middle
+- Sidebar: Fixed sidebar + fluid content
+- Dashboard: Sidebar nav + header + grid
+- Cards: Auto-filling responsive grid
 
 ---
 
 ## ✨ Micro-Interactions
 
-| Principle | Implementation                   |
-| --------- | -------------------------------- |
-| Duration  | 150-300ms for interactions       |
-| Easing    | ease-out for enter, ease-in exit |
+- Duration: 150-300ms for interactions
+- Easing: ease-out for enter, ease-in exit
 
 ---
 
@@ -121,12 +115,10 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 ## ❌ Anti-Patterns
 
-| Don't                    | Do                   |
-| ------------------------ | -------------------- |
-| Low contrast text        | WCAG AA minimum      |
-| More than 3 fonts        | 1-2 fonts            |
-| Inconsistent spacing     | Use spacing tokens   |
-| Animation for decoration | Animate purposefully |
+- Low contrast text: WCAG AA minimum
+- More than 3 fonts: 1-2 fonts
+- Inconsistent spacing: Use spacing tokens
+- Animation for decoration: Animate purposefully
 
 ---
 

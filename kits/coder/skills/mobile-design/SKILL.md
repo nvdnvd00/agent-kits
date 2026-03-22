@@ -81,14 +81,8 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 ```
 +-----------------------------------+
-|           Hard to reach           |  <- Top 1/4
-|-----------------------------------|
-|                                   |
-|        Okay - may stretch         |  <- Middle
-|                                   |
-|-----------------------------------|
-|      ✅ Natural thumb zone        |  <- Bottom 1/3
-|         Primary actions           |
+- Okay - may stretch: <- Middle
+- ✅ Natural thumb zone: <- Bottom 1/3
 +-----------------------------------+
 ```
 
@@ -124,10 +118,8 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 ### Adaptive vs Responsive
 
-| Approach       | When to Use                    |
-| -------------- | ------------------------------ |
-| **Adaptive**   | Different layouts per platform |
-| **Responsive** | Same layout, flexible sizing   |
+- **Adaptive**: Different layouts per platform
+- **Responsive**: Same layout, flexible sizing
 
 ---
 
@@ -178,21 +170,17 @@ const colors = {
 
 ### 60fps Animation Rules
 
-| ❌ Don't                 | ✅ Do                      |
-| ------------------------ | -------------------------- |
-| Animate width/height     | Use transform: scale()     |
-| Animate left/top         | Use transform: translate() |
-| Animate during scroll    | Use native driver          |
-| Complex animations in JS | Use Reanimated/Worklets    |
+- Animate width/height: Use transform: scale()
+- Animate left/top: Use transform: translate()
+- Animate during scroll: Use native driver
+- Complex animations in JS: Use Reanimated/Worklets
 
 ### List Performance
 
-| Technique            | When to Use              |
-| -------------------- | ------------------------ |
-| **FlashList**        | Large lists (100+ items) |
-| **Virtualization**   | Any scrollable list      |
-| **Item memoization** | Complex item components  |
-| **Skeleton loading** | Initial data fetch       |
+- **FlashList**: Large lists (100+ items)
+- **Virtualization**: Any scrollable list
+- **Item memoization**: Complex item components
+- **Skeleton loading**: Initial data fetch
 
 ### Image Optimization
 
@@ -214,14 +202,12 @@ const colors = {
 
 ### States to Handle
 
-| State       | UI Pattern                      |
-| ----------- | ------------------------------- |
-| **Loading** | Skeleton or spinner             |
-| **Success** | Content display                 |
-| **Empty**   | Empty state with action         |
-| **Error**   | Error message + retry           |
-| **Offline** | Cached data + offline indicator |
-| **Syncing** | Subtle sync indicator           |
+- **Loading**: Skeleton or spinner
+- **Success**: Content display
+- **Empty**: Empty state with action
+- **Error**: Error message + retry
+- **Offline**: Cached data + offline indicator
+- **Syncing**: Subtle sync indicator
 
 ### Optimistic UI
 
@@ -237,24 +223,20 @@ User Action → Immediate UI Update → Background Sync
 
 ### Haptic Feedback
 
-| Type        | Use Case                   |
-| ----------- | -------------------------- |
-| **Light**   | UI selection               |
-| **Medium**  | Toggle, switch             |
-| **Heavy**   | Significant action         |
-| **Success** | Task completed             |
-| **Warning** | Destructive action confirm |
-| **Error**   | Failed action              |
+- **Light**: UI selection
+- **Medium**: Toggle, switch
+- **Heavy**: Significant action
+- **Success**: Task completed
+- **Warning**: Destructive action confirm
+- **Error**: Failed action
 
 ### Loading States
 
-| Duration | Pattern                      |
-| -------- | ---------------------------- |
-| < 100ms  | No indicator                 |
-| 100ms-1s | Inline spinner               |
-| 1s-3s    | Progress indicator           |
-| > 3s     | Progress + estimated time    |
-| Unknown  | Skeleton + content streaming |
+- < 100ms: No indicator
+- 100ms-1s: Inline spinner
+- 1s-3s: Progress indicator
+- > 3s: Progress + estimated time
+- Unknown: Skeleton + content streaming
 
 ---
 
@@ -292,25 +274,21 @@ User Action → Immediate UI Update → Background Sync
 
 ## ❌ Anti-Patterns
 
-| ❌ Don't                           | ✅ Do                               |
-| ---------------------------------- | ----------------------------------- |
-| Small tap targets (< 44pt)         | Minimum 44x44pt                     |
-| Important actions at screen top    | Primary actions in thumb zone       |
-| Hamburger menu for main navigation | Bottom tab bar                      |
-| Custom back button behavior        | Respect platform conventions        |
-| Infinite scroll without pagination | Load more or paginate               |
-| Text that doesn't scale            | Support Dynamic Type / Font Scaling |
+- Small tap targets (< 44pt): Minimum 44x44pt
+- Important actions at screen top: Primary actions in thumb zone
+- Hamburger menu for main navigation: Bottom tab bar
+- Custom back button behavior: Respect platform conventions
+- Infinite scroll without pagination: Load more or paginate
+- Text that doesn't scale: Support Dynamic Type / Font Scaling
 
 ---
 
 ## 🔗 Related Skills
 
-| Need                  | Skill                    |
-| --------------------- | ------------------------ |
-| React Native patterns | `react-native-patterns`  |
-| Flutter patterns      | `flutter-patterns`       |
-| Accessibility         | `accessibility-patterns` |
-| Performance profiling | `performance-profiling`  |
+- React Native patterns: `react-native-patterns`
+- Flutter patterns: `flutter-patterns`
+- Accessibility: `accessibility-patterns`
+- Performance profiling: `performance-profiling`
 
 ---
 

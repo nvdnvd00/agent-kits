@@ -22,13 +22,11 @@ skills: clean-code, database-design, postgres-patterns, api-patterns
 
 ## 📖 Philosophy
 
-| Principle                    | Meaning                                |
-| ---------------------------- | -------------------------------------- |
-| **Normalization First**      | Denormalize only when proven necessary |
-| **Indexes are Trade-offs**   | Write performance vs read performance  |
-| **Constraints Prevent Bugs** | Database should enforce business rules |
-| **Migrations are Code**      | Treat them with same rigor as app code |
-| **Query Before Schema**      | Know your access patterns first        |
+- **Normalization First**: Denormalize only when proven necessary
+- **Indexes are Trade-offs**: Write performance vs read performance
+- **Constraints Prevent Bugs**: Database should enforce business rules
+- **Migrations are Code**: Treat them with same rigor as app code
+- **Query Before Schema**: Know your access patterns first
 
 ---
 
@@ -36,13 +34,11 @@ skills: clean-code, database-design, postgres-patterns, api-patterns
 
 **When requirements are vague, ASK FIRST.**
 
-| Aspect                 | Ask                                     |
-| ---------------------- | --------------------------------------- |
-| **Database type**      | "PostgreSQL/MySQL/SQLite? Cloud/local?" |
-| **ORM preference**     | "Prisma/Drizzle/TypeORM? Or raw SQL?"   |
-| **Scale requirements** | "Expected data volume? Growth rate?"    |
-| **Read/Write pattern** | "Read-heavy, write-heavy, or balanced?" |
-| **Consistency needs**  | "Strong consistency or eventual OK?"    |
+- **Database type**: "PostgreSQL/MySQL/SQLite? Cloud/local?"
+- **ORM preference**: "Prisma/Drizzle/TypeORM? Or raw SQL?"
+- **Scale requirements**: "Expected data volume? Growth rate?"
+- **Read/Write pattern**: "Read-heavy, write-heavy, or balanced?"
+- **Consistency needs**: "Strong consistency or eventual OK?"
 
 ### ⛔ DO NOT default to:
 
@@ -117,15 +113,13 @@ updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
 
 ### When to Add Indexes
 
-| Scenario                           | Index Type       |
-| ---------------------------------- | ---------------- |
-| **WHERE clause column**            | B-tree (default) |
-| **Foreign key**                    | B-tree           |
-| **Full-text search**               | GIN              |
-| **JSON queries**                   | GIN              |
-| **Point lookups**                  | Hash             |
-| **Range queries**                  | B-tree           |
-| **Multiple columns (fixed order)** | Composite        |
+- **WHERE clause column**: B-tree (default)
+- **Foreign key**: B-tree
+- **Full-text search**: GIN
+- **JSON queries**: GIN
+- **Point lookups**: Hash
+- **Range queries**: B-tree
+- **Multiple columns (fixed order)**: Composite
 
 ### Composite Index Rules
 
@@ -184,12 +178,10 @@ const result = await db
 
 ### Safe Migrations
 
-| ✅ Safe                 | ❌ Dangerous                  |
-| ----------------------- | ----------------------------- |
-| Add nullable column     | Add NOT NULL without default  |
-| Add index CONCURRENTLY  | Add index on production table |
-| Create new table        | Rename column in-place        |
-| Add column with default | Drop column without backup    |
+- Add nullable column: Add NOT NULL without default
+- Add index CONCURRENTLY: Add index on production table
+- Create new table: Rename column in-place
+- Add column with default: Drop column without backup
 
 ### Migration Workflow
 
@@ -218,16 +210,14 @@ When reviewing database code, verify:
 
 ## ❌ ANTI-PATTERNS TO AVOID
 
-| Anti-Pattern                 | Correct Approach            |
-| ---------------------------- | --------------------------- |
-| N+1 queries                  | Use joins/includes          |
-| SELECT \*                    | Select only needed columns  |
-| No indexes on FKs            | Always index foreign keys   |
-| String IDs without reason    | Use appropriate ID type     |
-| No constraints               | Enforce with DB constraints |
-| Storing JSON for everything  | Normalize structured data   |
-| No migration strategy        | Always use migration files  |
-| Hardcoded connection strings | Use environment variables   |
+- N+1 queries: Use joins/includes
+- SELECT \*: Select only needed columns
+- No indexes on FKs: Always index foreign keys
+- String IDs without reason: Use appropriate ID type
+- No constraints: Enforce with DB constraints
+- Storing JSON for everything: Normalize structured data
+- No migration strategy: Always use migration files
+- Hardcoded connection strings: Use environment variables
 
 ---
 

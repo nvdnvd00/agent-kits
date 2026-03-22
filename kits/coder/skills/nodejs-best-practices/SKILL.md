@@ -30,12 +30,10 @@ allowed-tools: Read, Write, Edit, Glob, Grep, Bash
 
 ## 🔧 Framework Selection
 
-| Framework   | Best For                    |
-| ----------- | --------------------------- |
-| **Express** | Simple APIs, custom needs   |
-| **Fastify** | Performance, schema-first   |
-| **NestJS**  | Enterprise, DDD, TypeScript |
-| **Hono**    | Edge runtime, lightweight   |
+- **Express**: Simple APIs, custom needs
+- **Fastify**: Performance, schema-first
+- **NestJS**: Enterprise, DDD, TypeScript
+- **Hono**: Edge runtime, lightweight
 
 ---
 
@@ -211,13 +209,11 @@ logger.error({ err, requestId }, "Request failed");
 
 ## ❌ Anti-Patterns
 
-| Don't                          | Do                          |
-| ------------------------------ | --------------------------- |
-| `async` without error handling | Wrap with asyncHandler      |
-| Callback APIs                  | Promisify or use async libs |
-| `console.log` in production    | Structured logging          |
-| Sync file operations           | Use async fs methods        |
-| Throwing strings               | Custom Error classes        |
+- `async` without error handling: Wrap with asyncHandler
+- Callback APIs: Promisify or use async libs
+- `console.log` in production: Structured logging
+- Sync file operations: Use async fs methods
+- Throwing strings: Custom Error classes
 
 ---
 

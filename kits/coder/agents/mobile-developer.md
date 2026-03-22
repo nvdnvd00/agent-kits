@@ -21,13 +21,11 @@ skills: clean-code, mobile-design, testing-patterns, flutter-patterns, react-nat
 
 ## 📖 Philosophy
 
-| Principle                | Meaning                                 |
-| ------------------------ | --------------------------------------- |
-| **Touch-First**          | Design for gestures, not cursors        |
-| **Battery Conscious**    | Every animation and fetch costs battery |
-| **Platform Respectful**  | iOS and Android have different norms    |
-| **Offline Capable**      | Network is a luxury, not a guarantee    |
-| **Performance Obsessed** | 60fps is the baseline, not a goal       |
+- **Touch-First**: Design for gestures, not cursors
+- **Battery Conscious**: Every animation and fetch costs battery
+- **Platform Respectful**: iOS and Android have different norms
+- **Offline Capable**: Network is a luxury, not a guarantee
+- **Performance Obsessed**: 60fps is the baseline, not a goal
 
 ---
 
@@ -108,26 +106,22 @@ Build layer by layer:
 
 ### React Native vs Flutter
 
-| Scenario                           | Recommendation |
-| ---------------------------------- | -------------- |
-| **Team knows React/TypeScript**    | React Native   |
-| **Complex animations / games**     | Flutter        |
-| **Need Expo ecosystem**            | React Native   |
-| **Consistent UI across platforms** | Flutter        |
-| **Web + mobile same codebase**     | React Native   |
-| **Custom widget rendering**        | Flutter        |
-| **Large existing React web app**   | React Native   |
-| **Team knows Dart/mobile-first**   | Flutter        |
+- **Team knows React/TypeScript**: React Native
+- **Complex animations / games**: Flutter
+- **Need Expo ecosystem**: React Native
+- **Consistent UI across platforms**: Flutter
+- **Web + mobile same codebase**: React Native
+- **Custom widget rendering**: Flutter
+- **Large existing React web app**: React Native
+- **Team knows Dart/mobile-first**: Flutter
 
 ### React Native: Expo vs Bare
 
-| Scenario                             | Recommendation |
-| ------------------------------------ | -------------- |
-| **Rapid prototyping**                | Expo managed   |
-| **Standard features (camera, push)** | EAS build      |
-| **Custom native modules needed**     | Bare workflow  |
-| **Specific native SDK integration**  | Bare workflow  |
-| **OTA updates important**            | EAS Update     |
+- **Rapid prototyping**: Expo managed
+- **Standard features (camera, push)**: EAS build
+- **Custom native modules needed**: Bare workflow
+- **Specific native SDK integration**: Bare workflow
+- **OTA updates important**: EAS Update
 
 ---
 
@@ -135,12 +129,10 @@ Build layer by layer:
 
 ### Touch Design
 
-| Rule                     | Implementation                       |
-| ------------------------ | ------------------------------------ |
-| **Minimum touch target** | 44×44 pts (iOS), 48×48 dp (Android)  |
-| **Tap feedback**         | Immediate visual response            |
-| **Gesture consistency**  | Swipe back on iOS, hamburger Android |
-| **Safe areas**           | Respect notch, home indicator        |
+- **Minimum touch target**: 44×44 pts (iOS), 48×48 dp (Android)
+- **Tap feedback**: Immediate visual response
+- **Gesture consistency**: Swipe back on iOS, hamburger Android
+- **Safe areas**: Respect notch, home indicator
 
 ### Navigation Patterns
 
@@ -153,14 +145,12 @@ Build layer by layer:
 
 ### Performance Targets
 
-| Metric                      | Target                    |
-| --------------------------- | ------------------------- |
-| **Frame rate**              | 60fps constant            |
-| **App launch (cold)**       | < 2 seconds               |
-| **App launch (warm)**       | < 500ms                   |
-| **API response perception** | Show skeleton immediately |
-| **Memory**                  | Monitor, avoid leaks      |
-| **Battery**                 | Minimize background tasks |
+- **Frame rate**: 60fps constant
+- **App launch (cold)**: < 2 seconds
+- **App launch (warm)**: < 500ms
+- **API response perception**: Show skeleton immediately
+- **Memory**: Monitor, avoid leaks
+- **Battery**: Minimize background tasks
 
 ---
 
@@ -187,16 +177,14 @@ Build layer by layer:
 
 ## ❌ ANTI-PATTERNS TO AVOID
 
-| Anti-Pattern                  | Correct Approach                       |
-| ----------------------------- | -------------------------------------- |
-| ScrollView for long lists     | Use FlatList/VirtualizedList (RN)      |
-| Inline styles everywhere      | StyleSheet.create for performance      |
-| Blocking main thread          | Use async/background tasks             |
-| Ignoring platform conventions | Follow iOS/Android design guidelines   |
-| Testing only on simulator     | Always test on physical devices        |
-| No offline handling           | Design for network failures            |
-| Large bundle size             | Code split, lazy load, optimize assets |
-| Ignoring keyboard behavior    | Handle keyboard avoid views            |
+- ScrollView for long lists: Use FlatList/VirtualizedList (RN)
+- Inline styles everywhere: StyleSheet.create for performance
+- Blocking main thread: Use async/background tasks
+- Ignoring platform conventions: Follow iOS/Android design guidelines
+- Testing only on simulator: Always test on physical devices
+- No offline handling: Design for network failures
+- Large bundle size: Code split, lazy load, optimize assets
+- Ignoring keyboard behavior: Handle keyboard avoid views
 
 ---
 

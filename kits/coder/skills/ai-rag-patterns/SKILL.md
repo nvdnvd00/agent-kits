@@ -23,13 +23,11 @@ version: 2.0
 
 ## When to Use This Skill
 
-| ✅ Use                           | ❌ Don't Use                  |
-| -------------------------------- | ----------------------------- |
-| Building Q&A over documents      | Pure generative tasks         |
-| Semantic search implementation   | Dataset too small (<100 docs) |
-| Reducing LLM hallucinations      | Data privacy restrictions     |
-| Domain-specific knowledge access | Simple keyword search         |
-| Document processing pipelines    | Real-time streaming data      |
+- Building Q&A over documents: Pure generative tasks
+- Semantic search implementation: Dataset too small (<100 docs)
+- Reducing LLM hallucinations: Data privacy restrictions
+- Domain-specific knowledge access: Simple keyword search
+- Document processing pipelines: Real-time streaming data
 
 ---
 
@@ -413,15 +411,13 @@ langchain.llm_cache = RedisSemanticCache(
 
 ## Anti-Patterns
 
-| ❌ Don't                       | ✅ Do                               |
-| ------------------------------ | ----------------------------------- |
-| Fixed-size chunking only       | Semantic chunking + structure-aware |
-| Pure vector search             | Hybrid search (dense + sparse)      |
-| Use first retrieval results    | Rerank before generation            |
-| Same embedding for all content | Evaluate per content type           |
-| Cram max context into prompt   | Use relevance thresholds            |
-| Measure only final answer      | Evaluate retrieval separately       |
-| Ignore metadata                | Add rich metadata for filtering     |
+- Fixed-size chunking only: Semantic chunking + structure-aware
+- Pure vector search: Hybrid search (dense + sparse)
+- Use first retrieval results: Rerank before generation
+- Same embedding for all content: Evaluate per content type
+- Cram max context into prompt: Use relevance thresholds
+- Measure only final answer: Evaluate retrieval separately
+- Ignore metadata: Add rich metadata for filtering
 
 ---
 
@@ -442,12 +438,10 @@ Before deployment:
 
 ## Related Skills
 
-| Need                 | Skill                |
-| -------------------- | -------------------- |
-| LLM prompt design    | `prompt-engineering` |
-| Vector DB (Postgres) | `postgres-patterns`  |
-| Redis caching        | `redis-patterns`     |
-| API design           | `api-patterns`       |
+- LLM prompt design: `prompt-engineering`
+- Vector DB (Postgres): `postgres-patterns`
+- Redis caching: `redis-patterns`
+- API design: `api-patterns`
 
 ---
 

@@ -20,13 +20,11 @@ skills: clean-code, plan-writing, brainstorming
 
 ## 📖 Philosophy
 
-| Principle                        | Meaning                         |
-| -------------------------------- | ------------------------------- |
-| **No code during planning**      | Planning phase = thinking only  |
-| **Clear dependencies**           | Know what blocks what           |
-| **One task, one agent**          | Avoid confusion of ownership    |
-| **Verifiable outputs**           | Every task has success criteria |
-| **Iterate on plan, not on code** | Fix issues before writing code  |
+- **No code during planning**: Planning phase = thinking only
+- **Clear dependencies**: Know what blocks what
+- **One task, one agent**: Avoid confusion of ownership
+- **Verifiable outputs**: Every task has success criteria
+- **Iterate on plan, not on code**: Fix issues before writing code
 
 ---
 
@@ -47,13 +45,11 @@ skills: clean-code, plan-writing, brainstorming
 
 **For complex planning requests, STOP and ask first.**
 
-| Question Type   | Example Questions                           |
-| --------------- | ------------------------------------------- |
-| **Goal**        | "What is the primary success metric?"       |
-| **Users**       | "Who will use this? Technical skill level?" |
-| **Constraints** | "Any existing code to integrate with?"      |
-| **Priority**    | "What's the MVP vs nice-to-have?"           |
-| **Timeline**    | "Any deadline or milestone?"                |
+- **Goal**: "What is the primary success metric?"
+- **Users**: "Who will use this? Technical skill level?"
+- **Constraints**: "Any existing code to integrate with?"
+- **Priority**: "What's the MVP vs nice-to-have?"
+- **Timeline**: "Any deadline or milestone?"
 
 ---
 
@@ -77,12 +73,10 @@ ANALYSIS → PLANNING → [USER APPROVAL] → SOLUTIONING → [DESIGN APPROVAL] 
 
 **During planning phase, agents MUST NOT write any code files!**
 
-| ❌ FORBIDDEN in Plan Mode    | ✅ ALLOWED in Plan Mode    |
-| ---------------------------- | -------------------------- |
-| Writing `.ts`, `.js`, `.vue` | Writing `{task-slug}.md`   |
-| Creating components          | Documenting file structure |
-| Implementing features        | Listing dependencies       |
-| Any code execution           | Task breakdown             |
+- Writing `.ts`, `.js`, `.vue`: Writing `{task-slug}.md`
+- Creating components: Documenting file structure
+- Implementing features: Listing dependencies
+- Any code execution: Task breakdown
 
 ---
 
@@ -90,12 +84,10 @@ ANALYSIS → PLANNING → [USER APPROVAL] → SOLUTIONING → [DESIGN APPROVAL] 
 
 **Dynamic naming based on request:**
 
-| User Request             | Plan File Name       |
-| ------------------------ | -------------------- |
-| "Add dark mode feature"  | `dark-mode.md`       |
-| "Create auth system"     | `auth-system.md`     |
-| "Fix performance issues" | `performance-fix.md` |
-| "Build dashboard page"   | `dashboard-page.md`  |
+- "Add dark mode feature": `dark-mode.md`
+- "Create auth system": `auth-system.md`
+- "Fix performance issues": `performance-fix.md`
+- "Build dashboard page": `dashboard-page.md`
 
 > Format: `{kebab-case-task-name}.md`
 
@@ -242,14 +234,12 @@ After implementation complete:
 
 ## ❌ ANTI-PATTERNS TO AVOID
 
-| Anti-Pattern                 | Correct Approach                   |
-| ---------------------------- | ---------------------------------- |
-| Writing code during planning | Plan first, code later             |
-| Vague task descriptions      | Specific INPUT/OUTPUT/VERIFY       |
-| Multiple agents per task     | One agent, one task                |
-| No dependencies mapped       | Explicit dependency chain          |
-| Plan without user approval   | Get approval before implementation |
-| Skipping verification        | Always verify against plan         |
+- Writing code during planning: Plan first, code later
+- Vague task descriptions: Specific INPUT/OUTPUT/VERIFY
+- Multiple agents per task: One agent, one task
+- No dependencies mapped: Explicit dependency chain
+- Plan without user approval: Get approval before implementation
+- Skipping verification: Always verify against plan
 
 ---
 

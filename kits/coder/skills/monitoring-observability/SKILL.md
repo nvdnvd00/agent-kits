@@ -23,13 +23,11 @@ version: 2.0
 
 ## When to Use This Skill
 
-| ✅ Use                           | ❌ Don't Use                    |
-| -------------------------------- | ------------------------------- |
-| Designing monitoring systems     | Single ad-hoc dashboard         |
-| Defining SLI/SLO/SLA             | Application feature development |
-| Configuring alerting strategy    | Local development debugging     |
-| Building observability pipelines | No access to telemetry data     |
-| Incident response workflow       | Static reporting only           |
+- Designing monitoring systems: Single ad-hoc dashboard
+- Defining SLI/SLO/SLA: Application feature development
+- Configuring alerting strategy: Local development debugging
+- Building observability pipelines: No access to telemetry data
+- Incident response workflow: Static reporting only
 
 ---
 
@@ -229,13 +227,11 @@ groups:
 
 ### Reducing Alert Noise
 
-| Problem          | Solution                             |
-| ---------------- | ------------------------------------ |
-| Flapping alerts  | Increase `for` duration              |
-| Too many alerts  | Alert on SLOs, not individual causes |
-| Duplicate alerts | Use `group_by` and aggregation       |
-| Weekend pages    | Time-based routing, error budgets    |
-| Alert storms     | Implement alerting hierarchy         |
+- Flapping alerts: Increase `for` duration
+- Too many alerts: Alert on SLOs, not individual causes
+- Duplicate alerts: Use `group_by` and aggregation
+- Weekend pages: Time-based routing, error budgets
+- Alert storms: Implement alerting hierarchy
 
 ---
 
@@ -427,15 +423,13 @@ async function processOrder(orderId: string) {
 
 ## Anti-Patterns
 
-| ❌ Don't                        | ✅ Do                               |
-| ------------------------------- | ----------------------------------- |
-| Alert on causes (CPU, memory)   | Alert on symptoms (latency, errors) |
-| Log everything at INFO          | Use appropriate log levels          |
-| Unstructured log messages       | JSON structured logging             |
-| Alert without runbook           | Every alert has a runbook           |
-| Collect metrics without purpose | Define SLIs first, then instrument  |
-| Secret values in logs           | Redact sensitive data               |
-| High-cardinality labels         | Bounded label values                |
+- Alert on causes (CPU, memory): Alert on symptoms (latency, errors)
+- Log everything at INFO: Use appropriate log levels
+- Unstructured log messages: JSON structured logging
+- Alert without runbook: Every alert has a runbook
+- Collect metrics without purpose: Define SLIs first, then instrument
+- Secret values in logs: Redact sensitive data
+- High-cardinality labels: Bounded label values
 
 ---
 
@@ -456,12 +450,10 @@ Before production:
 
 ## Related Skills
 
-| Need                | Skill                   |
-| ------------------- | ----------------------- |
-| Kubernetes ops      | `kubernetes-patterns`   |
-| CI/CD pipelines     | `github-actions`        |
-| Performance tuning  | `performance-profiling` |
-| Security monitoring | `security-fundamentals` |
+- Kubernetes ops: `kubernetes-patterns`
+- CI/CD pipelines: `github-actions`
+- Performance tuning: `performance-profiling`
+- Security monitoring: `security-fundamentals`
 
 ---
 

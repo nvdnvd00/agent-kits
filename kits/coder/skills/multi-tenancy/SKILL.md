@@ -36,13 +36,11 @@ tags: [architecture, saas, isolation, tenancy, compliance]
 
 > **"Multi-tenancy is trust architecture—design for distrust, verify always."**
 
-| Principle                  | Implementation                               |
-| -------------------------- | -------------------------------------------- |
-| **Defense in Depth**       | Multiple isolation layers (app + DB + infra) |
-| **Context Everywhere**     | Tenant ID flows through every layer          |
-| **Fail Closed**            | Missing tenant context = deny access         |
-| **Explicit Over Implicit** | Never infer tenant, always verify            |
-| **Audit Everything**       | Log all cross-boundary access                |
+- **Defense in Depth**: Multiple isolation layers (app + DB + infra)
+- **Context Everywhere**: Tenant ID flows through every layer
+- **Fail Closed**: Missing tenant context = deny access
+- **Explicit Over Implicit**: Never infer tenant, always verify
+- **Audit Everything**: Log all cross-boundary access
 
 ---
 

@@ -63,13 +63,11 @@ What are your requirements?
 
 ### When to Denormalize
 
-| Scenario                      | Consider Denormalization |
-| ----------------------------- | ------------------------ |
-| Frequent JOINs on same tables | ✅ Yes                   |
-| Read-heavy workload           | ✅ Yes                   |
-| Real-time analytics           | ✅ Yes                   |
-| Write-heavy workload          | ❌ No                    |
-| Data integrity critical       | ❌ No                    |
+- Frequent JOINs on same tables: ✅ Yes
+- Read-heavy workload: ✅ Yes
+- Real-time analytics: ✅ Yes
+- Write-heavy workload: ❌ No
+- Data integrity critical: ❌ No
 
 ---
 
@@ -103,13 +101,11 @@ What are your requirements?
 
 ### Indexing Rules
 
-| ✅ Index                 | ❌ Don't Index               |
-| ------------------------ | ---------------------------- |
-| WHERE clause columns     | Low cardinality (bool, enum) |
-| JOIN condition columns   | Frequently updated columns   |
-| ORDER BY columns         | Small tables (<1000 rows)    |
-| Foreign keys             | Columns rarely queried       |
-| High cardinality columns | Already indexed via PK       |
+- WHERE clause columns: Low cardinality (bool, enum)
+- JOIN condition columns: Frequently updated columns
+- ORDER BY columns: Small tables (<1000 rows)
+- Foreign keys: Columns rarely queried
+- High cardinality columns: Already indexed via PK
 
 ### Composite Index Order
 
@@ -222,16 +218,14 @@ EXPLAIN ANALYZE SELECT * FROM users WHERE email = 'test@example.com';
 
 ## Anti-Patterns
 
-| ❌ Don't                             | ✅ Do                    |
-| ------------------------------------ | ------------------------ |
-| Default to PostgreSQL for everything | Choose based on needs    |
-| Use `SELECT *` in production         | Select specific columns  |
-| Skip indexing                        | Index WHERE/JOIN columns |
-| Store structured data as JSON        | Use proper columns       |
-| Ignore N+1 queries                   | Use eager loading        |
-| Run migrations without testing       | Test on prod-like data   |
-| Store dates as strings               | Use proper DATE types    |
-| No foreign key constraints           | Define relationships     |
+- Default to PostgreSQL for everything: Choose based on needs
+- Use `SELECT *` in production: Select specific columns
+- Skip indexing: Index WHERE/JOIN columns
+- Store structured data as JSON: Use proper columns
+- Ignore N+1 queries: Use eager loading
+- Run migrations without testing: Test on prod-like data
+- Store dates as strings: Use proper DATE types
+- No foreign key constraints: Define relationships
 
 ---
 
@@ -252,12 +246,10 @@ Before implementation:
 
 ## Related Skills
 
-| Need              | Skill                   |
-| ----------------- | ----------------------- |
-| API design        | `api-patterns`          |
-| Backend patterns  | `nodejs-best-practices` |
-| Query performance | `performance-profiling` |
-| Security          | `security-fundamentals` |
+- API design: `api-patterns`
+- Backend patterns: `nodejs-best-practices`
+- Query performance: `performance-profiling`
+- Security: `security-fundamentals`
 
 ---
 

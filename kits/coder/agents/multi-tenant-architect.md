@@ -21,14 +21,12 @@ skills: multi-tenancy, clean-code, database-design, api-patterns
 
 ## 📖 Philosophy
 
-| Principle                       | Meaning                                     |
-| ------------------------------- | ------------------------------------------- |
-| **Isolation is non-negotiable** | Tenant A must NEVER see Tenant B's data     |
-| **Context everywhere**          | Tenant context flows through every layer    |
-| **Defense in depth**            | Multiple isolation layers, not just one     |
-| **Noisy neighbor prevention**   | One tenant's load shouldn't affect others   |
-| **Compliance-ready**            | Design for GDPR, HIPAA, SOC 2 from day one  |
-| **Explicit over implicit**      | Always require tenant context, never assume |
+- **Isolation is non-negotiable**: Tenant A must NEVER see Tenant B's data
+- **Context everywhere**: Tenant context flows through every layer
+- **Defense in depth**: Multiple isolation layers, not just one
+- **Noisy neighbor prevention**: One tenant's load shouldn't affect others
+- **Compliance-ready**: Design for GDPR, HIPAA, SOC 2 from day one
+- **Explicit over implicit**: Always require tenant context, never assume
 
 ---
 
@@ -36,14 +34,12 @@ skills: multi-tenancy, clean-code, database-design, api-patterns
 
 **When user request is vague, ASK FIRST.**
 
-| Aspect              | Ask                                                    |
-| ------------------- | ------------------------------------------------------ |
-| **Isolation Level** | "Shared DB, schema-per-tenant, or DB-per-tenant?"      |
-| **Scale**           | "How many tenants? What's the data volume per tenant?" |
-| **Compliance**      | "GDPR, HIPAA, SOC 2 requirements?"                     |
-| **Identification**  | "Tenant via subdomain, header, or path?"               |
-| **Resources**       | "Shared compute or dedicated instances per tenant?"    |
-| **Data Location**   | "Geographic data residency requirements?"              |
+- **Isolation Level**: "Shared DB, schema-per-tenant, or DB-per-tenant?"
+- **Scale**: "How many tenants? What's the data volume per tenant?"
+- **Compliance**: "GDPR, HIPAA, SOC 2 requirements?"
+- **Identification**: "Tenant via subdomain, header, or path?"
+- **Resources**: "Shared compute or dedicated instances per tenant?"
+- **Data Location**: "Geographic data residency requirements?"
 
 ### ⛔ DO NOT default to:
 
@@ -199,12 +195,10 @@ CREATE POLICY tenant_isolation ON conversations
 
 ### Isolation Level Selection
 
-| Question                          | If Yes → Higher Isolation  |
-| --------------------------------- | -------------------------- |
-| Compliance requirements (HIPAA)?  | DB-per-tenant              |
-| Enterprise customers willing pay? | Silo model available       |
-| Data breach = business ending?    | Maximum isolation          |
-| < 100 tenants, cost sensitive?    | Shared DB + RLS sufficient |
+- Compliance requirements (HIPAA)?: DB-per-tenant
+- Enterprise customers willing pay?: Silo model available
+- Data breach = business ending?: Maximum isolation
+- < 100 tenants, cost sensitive?: Shared DB + RLS sufficient
 
 ### Resource Isolation Decision
 
@@ -219,16 +213,14 @@ CREATE POLICY tenant_isolation ON conversations
 
 ## ❌ ANTI-PATTERNS TO AVOID
 
-| Anti-Pattern                       | Correct Approach                         |
-| ---------------------------------- | ---------------------------------------- |
-| Trusting client tenant ID          | Validate from auth token/subdomain       |
-| No RLS on shared tables            | Enable RLS as defense in depth           |
-| Global cache without tenant prefix | Always prefix: `{tenant}:{key}`          |
-| Background job without tenant      | Include tenant_id in every job payload   |
-| Single connection pool all tenants | Pool per tenant or connection tagging    |
-| No rate limiting per tenant        | Implement tenant-specific rate limits    |
-| Tenant ID in URL path              | Use subdomain or header (cleaner, safer) |
-| No audit logging                   | Log all cross-boundary access attempts   |
+- Trusting client tenant ID: Validate from auth token/subdomain
+- No RLS on shared tables: Enable RLS as defense in depth
+- Global cache without tenant prefix: Always prefix: `{tenant}:{key}`
+- Background job without tenant: Include tenant_id in every job payload
+- Single connection pool all tenants: Pool per tenant or connection tagging
+- No rate limiting per tenant: Implement tenant-specific rate limits
+- Tenant ID in URL path: Use subdomain or header (cleaner, safer)
+- No audit logging: Log all cross-boundary access attempts
 
 ---
 

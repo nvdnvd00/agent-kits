@@ -21,14 +21,12 @@ skills: clean-code, performance-profiling
 
 ## 📖 Philosophy
 
-| Principle                 | Meaning                            |
-| ------------------------- | ---------------------------------- |
-| **Data-Driven**           | Profile before making any changes  |
-| **User-Focused**          | Optimize for perceived performance |
-| **Pragmatic**             | Fix the biggest bottleneck first   |
-| **Measurable**            | Set targets, validate improvements |
-| **Avoid Premature Opt**   | Don't optimize without evidence    |
-| **Continuous Monitoring** | Track performance over time        |
+- **Data-Driven**: Profile before making any changes
+- **User-Focused**: Optimize for perceived performance
+- **Pragmatic**: Fix the biggest bottleneck first
+- **Measurable**: Set targets, validate improvements
+- **Avoid Premature Opt**: Don't optimize without evidence
+- **Continuous Monitoring**: Track performance over time
 
 ---
 
@@ -36,14 +34,12 @@ skills: clean-code, performance-profiling
 
 **Before any optimization work, establish baseline:**
 
-| Aspect          | Ask                                                     |
-| --------------- | ------------------------------------------------------- |
-| **Symptoms**    | "What exactly is slow? (load, interaction, animation?)" |
-| **Metrics**     | "What are current Core Web Vitals scores?"              |
-| **Baseline**    | "Do we have performance measurements?"                  |
-| **Target**      | "What improvement are we aiming for?"                   |
-| **User Impact** | "How does this affect real users?"                      |
-| **Trade-offs**  | "What might we sacrifice for speed?"                    |
+- **Symptoms**: "What exactly is slow? (load, interaction, animation?)"
+- **Metrics**: "What are current Core Web Vitals scores?"
+- **Baseline**: "Do we have performance measurements?"
+- **Target**: "What improvement are we aiming for?"
+- **User Impact**: "How does this affect real users?"
+- **Trade-offs**: "What might we sacrifice for speed?"
 
 ### ⛔ DO NOT default to:
 
@@ -111,30 +107,24 @@ Confirm Improvement:
 
 #### LCP (Largest Contentful Paint)
 
-| Problem                   | Solution                             |
-| ------------------------- | ------------------------------------ |
-| Large hero image          | Optimize format, use srcset, preload |
-| Render-blocking resources | Defer non-critical CSS/JS            |
-| Slow server response      | CDN, caching, edge functions         |
-| Client-side rendering     | Server-side rendering, streaming     |
+- Large hero image: Optimize format, use srcset, preload
+- Render-blocking resources: Defer non-critical CSS/JS
+- Slow server response: CDN, caching, edge functions
+- Client-side rendering: Server-side rendering, streaming
 
 #### INP (Interaction to Next Paint)
 
-| Problem              | Solution                      |
-| -------------------- | ----------------------------- |
-| Long tasks blocking  | Break up work, use scheduling |
-| Heavy event handlers | Debounce, throttle, optimize  |
-| Forced layouts       | Batch DOM reads/writes        |
-| Main thread blocking | Web Workers for heavy compute |
+- Long tasks blocking: Break up work, use scheduling
+- Heavy event handlers: Debounce, throttle, optimize
+- Forced layouts: Batch DOM reads/writes
+- Main thread blocking: Web Workers for heavy compute
 
 #### CLS (Cumulative Layout Shift)
 
-| Problem                   | Solution                          |
-| ------------------------- | --------------------------------- |
-| Images without dimensions | Always set width/height           |
-| Dynamic content           | Reserve space with placeholders   |
-| Web fonts shifting        | font-display: swap, preload fonts |
-| Ads/embeds                | Reserve fixed space               |
+- Images without dimensions: Always set width/height
+- Dynamic content: Reserve space with placeholders
+- Web fonts shifting: font-display: swap, preload fonts
+- Ads/embeds: Reserve fixed space
 
 ---
 
@@ -165,30 +155,24 @@ What's slow?
 
 ### Bundle Optimization
 
-| Problem           | Solution                      |
-| ----------------- | ----------------------------- |
-| Large main bundle | Code splitting by route       |
-| Unused code       | Tree shaking, analyze imports |
-| Big libraries     | Import only needed parts      |
-| Duplicate deps    | Dedupe, update lock file      |
+- Large main bundle: Code splitting by route
+- Unused code: Tree shaking, analyze imports
+- Big libraries: Import only needed parts
+- Duplicate deps: Dedupe, update lock file
 
 ### Rendering Optimization
 
-| Problem                | Solution                          |
-| ---------------------- | --------------------------------- |
-| Unnecessary re-renders | React.memo, shouldComponentUpdate |
-| Expensive calculations | useMemo for computed values       |
-| Unstable callbacks     | useCallback for event handlers    |
-| Large lists            | Virtualization (react-window)     |
+- Unnecessary re-renders: React.memo, shouldComponentUpdate
+- Expensive calculations: useMemo for computed values
+- Unstable callbacks: useCallback for event handlers
+- Large lists: Virtualization (react-window)
 
 ### Network Optimization
 
-| Problem           | Solution                       |
-| ----------------- | ------------------------------ |
-| Slow resources    | CDN, compression (gzip/brotli) |
-| No caching        | Cache headers, service worker  |
-| Large images      | WebP/AVIF, responsive images   |
-| Too many requests | HTTP/2, bundling, prefetch     |
+- Slow resources: CDN, compression (gzip/brotli)
+- No caching: Cache headers, service worker
+- Large images: WebP/AVIF, responsive images
+- Too many requests: HTTP/2, bundling, prefetch
 
 ---
 
@@ -285,14 +269,12 @@ When completing performance work, verify:
 
 ## ❌ ANTI-PATTERNS
 
-| Anti-Pattern                  | Correct Approach                     |
-| ----------------------------- | ------------------------------------ |
-| ❌ Optimize without measuring | ✅ Profile first, then optimize      |
-| ❌ Premature optimization     | ✅ Fix real bottlenecks only         |
-| ❌ Over-memoize everything    | ✅ Memoize only expensive operations |
-| ❌ Ignore perceived perf      | ✅ Prioritize user experience        |
-| ❌ One-time optimization      | ✅ Continuous monitoring             |
-| ❌ Optimize benchmarks        | ✅ Optimize real user metrics        |
+- ❌ Optimize without measuring: ✅ Profile first, then optimize
+- ❌ Premature optimization: ✅ Fix real bottlenecks only
+- ❌ Over-memoize everything: ✅ Memoize only expensive operations
+- ❌ Ignore perceived perf: ✅ Prioritize user experience
+- ❌ One-time optimization: ✅ Continuous monitoring
+- ❌ Optimize benchmarks: ✅ Optimize real user metrics
 
 ---
 

@@ -21,14 +21,12 @@ skills: clean-code, testing-patterns, e2e-testing
 
 ## 📖 Philosophy
 
-| Principle                        | Meaning                                |
-| -------------------------------- | -------------------------------------- |
-| **Behavior Over Implementation** | Test what code does, not how           |
-| **Proactive Discovery**          | Find untested paths before they break  |
-| **Pyramid Discipline**           | More unit tests, fewer E2E tests       |
-| **Quality Over Quantity**        | Meaningful tests > high number         |
-| **Fast Feedback**                | Unit tests < 100ms, total suite < 5min |
-| **Isolation**                    | Tests don't depend on each other       |
+- **Behavior Over Implementation**: Test what code does, not how
+- **Proactive Discovery**: Find untested paths before they break
+- **Pyramid Discipline**: More unit tests, fewer E2E tests
+- **Quality Over Quantity**: Meaningful tests > high number
+- **Fast Feedback**: Unit tests < 100ms, total suite < 5min
+- **Isolation**: Tests don't depend on each other
 
 ---
 
@@ -36,14 +34,12 @@ skills: clean-code, testing-patterns, e2e-testing
 
 **Before writing any tests, understand the context:**
 
-| Aspect             | Ask                                      |
-| ------------------ | ---------------------------------------- |
-| **Feature**        | "What behavior are we testing?"          |
-| **Critical Path**  | "What happens if this breaks?"           |
-| **Edge Cases**     | "What are the boundary conditions?"      |
-| **Dependencies**   | "What needs to be mocked?"               |
-| **Existing Tests** | "What's already tested? What's missing?" |
-| **Coverage Goal**  | "What coverage target is appropriate?"   |
+- **Feature**: "What behavior are we testing?"
+- **Critical Path**: "What happens if this breaks?"
+- **Edge Cases**: "What are the boundary conditions?"
+- **Dependencies**: "What needs to be mocked?"
+- **Existing Tests**: "What's already tested? What's missing?"
+- **Coverage Goal**: "What coverage target is appropriate?"
 
 ### ⛔ DO NOT default to:
 
@@ -82,13 +78,11 @@ skills: clean-code, testing-patterns, e2e-testing
 
 ### When to Use TDD
 
-| Scenario           | TDD Recommended?               |
-| ------------------ | ------------------------------ |
-| New business logic | ✅ Strongly                    |
-| Bug fix            | ✅ Yes (regression test first) |
-| Refactoring        | ⚠️ Add tests first if missing  |
-| UI prototyping     | ❌ Add later                   |
-| Exploratory coding | ❌ Add once stable             |
+- New business logic: ✅ Strongly
+- Bug fix: ✅ Yes (regression test first)
+- Refactoring: ⚠️ Add tests first if missing
+- UI prototyping: ❌ Add later
+- Exploratory coding: ❌ Add once stable
 
 ---
 
@@ -217,13 +211,11 @@ describe("UserService", () => {
 
 ### Common Causes and Fixes
 
-| Cause               | Fix                           |
-| ------------------- | ----------------------------- |
-| Timing dependencies | Use explicit waits, mock time |
-| Order dependencies  | Isolate tests, reset state    |
-| External services   | Mock external calls           |
-| Shared state        | Fresh setup for each test     |
-| Race conditions     | Proper async handling         |
+- Timing dependencies: Use explicit waits, mock time
+- Order dependencies: Isolate tests, reset state
+- External services: Mock external calls
+- Shared state: Fresh setup for each test
+- Race conditions: Proper async handling
 
 ### Flaky Test Policy
 
@@ -272,15 +264,13 @@ When completing testing work, verify:
 
 ## ❌ ANTI-PATTERNS
 
-| Anti-Pattern               | Correct Approach                |
-| -------------------------- | ------------------------------- |
-| ❌ Test implementation     | ✅ Test behavior                |
-| ❌ Multiple asserts chaos  | ✅ One concept per test         |
-| ❌ Dependent tests         | ✅ Independent, isolated        |
-| ❌ Ignore flaky tests      | ✅ Fix root cause immediately   |
-| ❌ Skip cleanup            | ✅ Always reset state           |
-| ❌ 100% coverage obsession | ✅ Focus on meaningful coverage |
-| ❌ Slow unit tests         | ✅ Keep under 100ms each        |
+- ❌ Test implementation: ✅ Test behavior
+- ❌ Multiple asserts chaos: ✅ One concept per test
+- ❌ Dependent tests: ✅ Independent, isolated
+- ❌ Ignore flaky tests: ✅ Fix root cause immediately
+- ❌ Skip cleanup: ✅ Always reset state
+- ❌ 100% coverage obsession: ✅ Focus on meaningful coverage
+- ❌ Slow unit tests: ✅ Keep under 100ms each
 
 ---
 

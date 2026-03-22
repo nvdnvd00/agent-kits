@@ -41,84 +41,66 @@ This skill requires **scan-techstack** to run first:
 
 These skills are ALWAYS enabled regardless of techstack:
 
-| Skill                   | Reason                        |
-| ----------------------- | ----------------------------- |
-| `clean-code`            | Universal coding standards    |
-| `brainstorming`         | Socratic questioning protocol |
-| `plan-writing`          | Task breakdown and WBS        |
-| `systematic-debugging`  | 4-phase debugging methodology |
-| `testing-patterns`      | Testing pyramid, AAA pattern  |
-| `security-fundamentals` | OWASP 2025 security basics    |
+- `clean-code`: Universal coding standards
+- `brainstorming`: Socratic questioning protocol
+- `plan-writing`: Task breakdown and WBS
+- `systematic-debugging`: 4-phase debugging methodology
+- `testing-patterns`: Testing pyramid, AAA pattern
+- `security-fundamentals`: OWASP 2025 security basics
 
 ### Frontend Skills
 
-| Skill                    | Enable When                     |
-| ------------------------ | ------------------------------- |
-| `react-patterns`         | React/Next.js detected          |
-| `typescript-patterns`    | TypeScript detected             |
-| `tailwind-patterns`      | Tailwind CSS detected           |
-| `frontend-design`        | Any frontend framework          |
-| `seo-patterns`           | Next.js, Nuxt.js (SSR) detected |
-| `accessibility-patterns` | Frontend detected               |
+- `react-patterns`: React/Next.js detected
+- `typescript-patterns`: TypeScript detected
+- `tailwind-patterns`: Tailwind CSS detected
+- `frontend-design`: Any frontend framework
+- `seo-patterns`: Next.js, Nuxt.js (SSR) detected
+- `accessibility-patterns`: Frontend detected
 
 ### Backend Skills
 
-| Skill                   | Enable When                |
-| ----------------------- | -------------------------- |
-| `api-patterns`          | Backend framework detected |
-| `auth-patterns`         | Auth dependencies detected |
-| `graphql-patterns`      | GraphQL detected           |
-| `nodejs-best-practices` | Node.js detected           |
+- `api-patterns`: Backend framework detected
+- `auth-patterns`: Auth dependencies detected
+- `graphql-patterns`: GraphQL detected
+- `nodejs-best-practices`: Node.js detected
 
 ### Database Skills
 
-| Skill               | Enable When           |
-| ------------------- | --------------------- |
-| `database-design`   | Any database detected |
-| `postgres-patterns` | PostgreSQL detected   |
-| `redis-patterns`    | Redis detected        |
+- `database-design`: Any database detected
+- `postgres-patterns`: PostgreSQL detected
+- `redis-patterns`: Redis detected
 
 ### Mobile Skills
 
-| Skill                   | Enable When           |
-| ----------------------- | --------------------- |
-| `flutter-patterns`      | Flutter/Dart detected |
-| `react-native-patterns` | React Native detected |
-| `mobile-design`         | Any mobile platform   |
+- `flutter-patterns`: Flutter/Dart detected
+- `react-native-patterns`: React Native detected
+- `mobile-design`: Any mobile platform
 
 ### DevOps Skills
 
-| Skill                      | Enable When                |
-| -------------------------- | -------------------------- |
-| `docker-patterns`          | Docker detected            |
-| `kubernetes-patterns`      | Kubernetes detected        |
-| `terraform-patterns`       | Terraform detected         |
-| `github-actions`           | GitHub Actions detected    |
-| `gitlab-ci-patterns`       | GitLab CI detected         |
-| `monitoring-observability` | DevOps/Production detected |
+- `docker-patterns`: Docker detected
+- `kubernetes-patterns`: Kubernetes detected
+- `terraform-patterns`: Terraform detected
+- `github-actions`: GitHub Actions detected
+- `gitlab-ci-patterns`: GitLab CI detected
+- `monitoring-observability`: DevOps/Production detected
 
 ### AI Skills
 
-| Skill                | Enable When                  |
-| -------------------- | ---------------------------- |
-| `ai-rag-patterns`    | AI/LLM dependencies detected |
-| `prompt-engineering` | AI/LLM dependencies detected |
+- `ai-rag-patterns`: AI/LLM dependencies detected
+- `prompt-engineering`: AI/LLM dependencies detected
 
 ### Realtime & Queue Skills
 
-| Skill               | Enable When                    |
-| ------------------- | ------------------------------ |
-| `realtime-patterns` | Socket.IO/WebSocket detected   |
-| `queue-patterns`    | BullMQ/RabbitMQ detected       |
-| `multi-tenancy`     | Multi-tenant patterns detected |
+- `realtime-patterns`: Socket.IO/WebSocket detected
+- `queue-patterns`: BullMQ/RabbitMQ detected
+- `multi-tenancy`: Multi-tenant patterns detected
 
 ### Support Skills
 
-| Skill                     | Enable When                |
-| ------------------------- | -------------------------- |
-| `i18n-localization`       | i18n dependencies detected |
-| `documentation-templates` | Always available           |
-| `mermaid-diagrams`        | Always available           |
+- `i18n-localization`: i18n dependencies detected
+- `documentation-templates`: Always available
+- `mermaid-diagrams`: Always available
 
 ---
 
@@ -168,28 +150,24 @@ These skills are ALWAYS enabled regardless of techstack:
 
 ### Category → Skill Mapping
 
-| Detected Category | Skills to ENABLE                                                                                              |
-| ----------------- | ------------------------------------------------------------------------------------------------------------- |
-| `frontend`        | react-patterns, typescript-patterns, frontend-design, tailwind-patterns, seo-patterns, accessibility-patterns |
-| `backend`         | api-patterns, nodejs-best-practices, auth-patterns                                                            |
-| `mobile`          | flutter-patterns OR react-native-patterns, mobile-design                                                      |
-| `database`        | database-design, postgres-patterns OR redis-patterns                                                          |
-| `devops`          | docker-patterns, kubernetes-patterns, github-actions, monitoring-observability                                |
-| `ai`              | ai-rag-patterns, prompt-engineering                                                                           |
-| `realtime`        | realtime-patterns                                                                                             |
-| `queue`           | queue-patterns                                                                                                |
-| `graphql`         | graphql-patterns                                                                                              |
+- `frontend`: react-patterns, typescript-patterns, frontend-design, tailwind-patterns, seo-patterns, accessibility-patterns
+- `backend`: api-patterns, nodejs-best-practices, auth-patterns
+- `mobile`: flutter-patterns OR react-native-patterns, mobile-design
+- `database`: database-design, postgres-patterns OR redis-patterns
+- `devops`: docker-patterns, kubernetes-patterns, github-actions, monitoring-observability
+- `ai`: ai-rag-patterns, prompt-engineering
+- `realtime`: realtime-patterns
+- `queue`: queue-patterns
+- `graphql`: graphql-patterns
 
 ### Framework → Additional Skills
 
-| Framework     | Additional Skills                  |
-| ------------- | ---------------------------------- |
-| `nextjs`      | seo-patterns, react-patterns       |
-| `tailwindcss` | tailwind-patterns                  |
-| `prisma`      | database-design, postgres-patterns |
-| `socketio`    | realtime-patterns                  |
-| `gitlab-ci`   | gitlab-ci-patterns                 |
-| `terraform`   | terraform-patterns                 |
+- `nextjs`: seo-patterns, react-patterns
+- `tailwindcss`: tailwind-patterns
+- `prisma`: database-design, postgres-patterns
+- `socketio`: realtime-patterns
+- `gitlab-ci`: gitlab-ci-patterns
+- `terraform`: terraform-patterns
 
 ---
 

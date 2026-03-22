@@ -24,13 +24,11 @@ priority: HIGH
 
 ## 🎯 Core Principles
 
-| Principle        | Rule                                                  |
-| ---------------- | ----------------------------------------------------- |
-| **Declarative**  | Describe desired state, not steps to achieve it       |
-| **Idempotent**   | Same code + same state = same result, every time      |
-| **Version-Able** | All infrastructure changes tracked in version control |
-| **Testable**     | Validate before apply, test after                     |
-| **Modular**      | Reusable components, single responsibility per module |
+- **Declarative**: Describe desired state, not steps to achieve it
+- **Idempotent**: Same code + same state = same result, every time
+- **Version-Able**: All infrastructure changes tracked in version control
+- **Testable**: Validate before apply, test after
+- **Modular**: Reusable components, single responsibility per module
 
 ```
 ❌ WRONG: Manual console changes → Export to code
@@ -69,15 +67,13 @@ infrastructure/
 
 ### File Organization
 
-| File               | Purpose                                 |
-| ------------------ | --------------------------------------- |
-| `main.tf`          | Primary resources                       |
-| `variables.tf`     | Input variables with descriptions       |
-| `outputs.tf`       | Output values                           |
-| `versions.tf`      | Provider/Terraform version constraints  |
-| `data.tf`          | Data sources (optional)                 |
-| `locals.tf`        | Local values (optional)                 |
-| `terraform.tfvars` | Environment-specific values (gitignore) |
+- `main.tf`: Primary resources
+- `variables.tf`: Input variables with descriptions
+- `outputs.tf`: Output values
+- `versions.tf`: Provider/Terraform version constraints
+- `data.tf`: Data sources (optional)
+- `locals.tf`: Local values (optional)
+- `terraform.tfvars`: Environment-specific values (gitignore)
 
 ---
 
@@ -242,13 +238,11 @@ terraform {
 
 ### State Security Checklist
 
-| Check                     | Implementation                     |
-| ------------------------- | ---------------------------------- |
-| **Encryption at rest**    | `encrypt = true` in backend        |
-| **Encryption in transit** | HTTPS/TLS always                   |
-| **Access control**        | IAM policies limiting state access |
-| **Versioning**            | S3 bucket versioning enabled       |
-| **Backup**                | Cross-region replication           |
+- **Encryption at rest**: `encrypt = true` in backend
+- **Encryption in transit**: HTTPS/TLS always
+- **Access control**: IAM policies limiting state access
+- **Versioning**: S3 bucket versioning enabled
+- **Backup**: Cross-region replication
 
 ---
 
@@ -317,13 +311,11 @@ tfsec .
 
 ### Security Rules
 
-| Rule                      | Implementation                         |
-| ------------------------- | -------------------------------------- |
-| **No secrets in code**    | Use secrets manager, not variables     |
-| **Pin provider versions** | `version = "~> 5.0"` not `>= 5.0`      |
-| **Enable encryption**     | Encryption at rest for all data stores |
-| **Least privilege IAM**   | Minimal permissions, no wildcards      |
-| **Private by default**    | No public IPs unless explicitly needed |
+- **No secrets in code**: Use secrets manager, not variables
+- **Pin provider versions**: `version = "~> 5.0"` not `>= 5.0`
+- **Enable encryption**: Encryption at rest for all data stores
+- **Least privilege IAM**: Minimal permissions, no wildcards
+- **Private by default**: No public IPs unless explicitly needed
 
 ### Sensitive Variables
 
@@ -425,16 +417,14 @@ version = ">= 5.0"     # Minimum (risky - breaking changes)
 
 ## 🚨 Anti-Patterns
 
-| ❌ Don't                         | ✅ Do                              |
-| -------------------------------- | ---------------------------------- |
-| Manual console changes           | All changes through code           |
-| Secrets in terraform.tfvars      | External secrets manager           |
-| Single state file for everything | Per-environment, per-stack states  |
-| `terraform apply` without plan   | Always review plan before apply    |
-| Hardcoded values                 | Variables with validation          |
-| `latest` provider versions       | Pinned versions with lock file     |
-| Massive monolithic modules       | Small, focused, composable modules |
-| Skip state locking               | Always enable locking              |
+- Manual console changes: All changes through code
+- Secrets in terraform.tfvars: External secrets manager
+- Single state file for everything: Per-environment, per-stack states
+- `terraform apply` without plan: Always review plan before apply
+- Hardcoded values: Variables with validation
+- `latest` provider versions: Pinned versions with lock file
+- Massive monolithic modules: Small, focused, composable modules
+- Skip state locking: Always enable locking
 
 ---
 
@@ -453,27 +443,23 @@ version = ">= 5.0"     # Minimum (risky - breaking changes)
 
 ## ✅ Self-Check Before Completing
 
-| Check                       | Question                                       |
-| --------------------------- | ---------------------------------------------- |
-| ✅ **Modules?**             | Is reusable logic extracted to modules?        |
-| ✅ **State remote?**        | State stored remotely with locking?            |
-| ✅ **Versions pinned?**     | Terraform and provider versions constrained?   |
-| ✅ **Variables validated?** | Input variables have description + validation? |
-| ✅ **Secrets safe?**        | No secrets in code or state?                   |
-| ✅ **Tested?**              | Plan reviewed, security scanned?               |
-| ✅ **Documented?**          | README for modules, examples provided?         |
+- ✅ **Modules?**: Is reusable logic extracted to modules?
+- ✅ **State remote?**: State stored remotely with locking?
+- ✅ **Versions pinned?**: Terraform and provider versions constrained?
+- ✅ **Variables validated?**: Input variables have description + validation?
+- ✅ **Secrets safe?**: No secrets in code or state?
+- ✅ **Tested?**: Plan reviewed, security scanned?
+- ✅ **Documented?**: README for modules, examples provided?
 
 ---
 
 ## 🔗 Related Skills
 
-| Need                    | Skill                 |
-| ----------------------- | --------------------- |
-| Container orchestration | `kubernetes-patterns` |
-| Docker builds           | `docker-patterns`     |
-| CI/CD workflows         | `github-actions`      |
-| Database design         | `database-design`     |
-| Cloud architecture      | Cloud provider docs   |
+- Container orchestration: `kubernetes-patterns`
+- Docker builds: `docker-patterns`
+- CI/CD workflows: `github-actions`
+- Database design: `database-design`
+- Cloud architecture: Cloud provider docs
 
 ---
 

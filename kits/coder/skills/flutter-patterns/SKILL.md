@@ -24,13 +24,11 @@ priority: MEDIUM
 
 ## 🎯 Core Principles
 
-| Principle          | Rule                                             |
-| ------------------ | ------------------------------------------------ |
-| **Composition**    | Compose widgets, don't inherit                   |
-| **Immutability**   | Use `const` constructors for optimal performance |
-| **Null Safety**    | Dart 3 null safety is mandatory                  |
-| **Platform Aware** | One codebase, platform-specific polish           |
-| **Test First**     | Widget tests, integration tests, golden tests    |
+- **Composition**: Compose widgets, don't inherit
+- **Immutability**: Use `const` constructors for optimal performance
+- **Null Safety**: Dart 3 null safety is mandatory
+- **Platform Aware**: One codebase, platform-specific polish
+- **Test First**: Widget tests, integration tests, golden tests
 
 ```
 ❌ WRONG: Create God widgets with everything
@@ -162,12 +160,10 @@ class ActionButton extends StatelessWidget {
 
 ### Widget Keys
 
-| Scenario                   | Key Type          |
-| -------------------------- | ----------------- |
-| List items with unique IDs | `ValueKey(id)`    |
-| Animated list items        | `ObjectKey(item)` |
-| Form fields                | `GlobalKey`       |
-| Never needs identity       | No key            |
+- List items with unique IDs: `ValueKey(id)`
+- Animated list items: `ObjectKey(item)`
+- Form fields: `GlobalKey`
+- Never needs identity: No key
 
 ```dart
 ListView.builder(
@@ -187,13 +183,11 @@ ListView.builder(
 
 ### Widget Rebuild Prevention
 
-| Technique            | When to Use                        |
-| -------------------- | ---------------------------------- |
-| `const` constructors | Always when possible               |
-| `Consumer` widgets   | Scope Riverpod rebuilds            |
-| `select` in Riverpod | Watch only needed parts            |
-| `RepaintBoundary`    | Isolate expensive paint operations |
-| `ListView.builder`   | Large lists (virtualized)          |
+- `const` constructors: Always when possible
+- `Consumer` widgets: Scope Riverpod rebuilds
+- `select` in Riverpod: Watch only needed parts
+- `RepaintBoundary`: Isolate expensive paint operations
+- `ListView.builder`: Large lists (virtualized)
 
 ### Image Optimization
 
@@ -299,41 +293,35 @@ if (kIsWeb) {
 
 ## 🚨 Anti-Patterns
 
-| ❌ Don't                         | ✅ Do                                 |
-| -------------------------------- | ------------------------------------- |
-| Inherit from StatelessWidget/ful | Compose widgets                       |
-| Skip `const` constructors        | Add `const` everywhere possible       |
-| setState in large widgets        | Use state management solution         |
-| Fetch data in build()            | Use FutureBuilder or state management |
-| Large build() methods            | Extract smaller widget functions      |
-| Hardcode colors/sizes            | Use Theme and design tokens           |
-| Skip null safety                 | Embrace Dart 3 null safety            |
-| Test only happy paths            | Test edge cases and errors            |
+- Inherit from StatelessWidget/ful: Compose widgets
+- Skip `const` constructors: Add `const` everywhere possible
+- setState in large widgets: Use state management solution
+- Fetch data in build(): Use FutureBuilder or state management
+- Large build() methods: Extract smaller widget functions
+- Hardcode colors/sizes: Use Theme and design tokens
+- Skip null safety: Embrace Dart 3 null safety
+- Test only happy paths: Test edge cases and errors
 
 ---
 
 ## ✅ Self-Check Before Completing
 
-| Check               | Question                                |
-| ------------------- | --------------------------------------- |
-| ✅ **Const?**       | Are const constructors used everywhere? |
-| ✅ **Keys?**        | Do list items have stable keys?         |
-| ✅ **State?**       | Is state management properly scoped?    |
-| ✅ **Null safe?**   | Is null safety properly handled?        |
-| ✅ **Tested?**      | Are widgets and logic tested?           |
-| ✅ **Platform?**    | Tested on both iOS and Android?         |
-| ✅ **Performance?** | No jank, smooth scrolling?              |
+- ✅ **Const?**: Are const constructors used everywhere?
+- ✅ **Keys?**: Do list items have stable keys?
+- ✅ **State?**: Is state management properly scoped?
+- ✅ **Null safe?**: Is null safety properly handled?
+- ✅ **Tested?**: Are widgets and logic tested?
+- ✅ **Platform?**: Tested on both iOS and Android?
+- ✅ **Performance?**: No jank, smooth scrolling?
 
 ---
 
 ## 🔗 Related Skills
 
-| Need                    | Skill                   |
-| ----------------------- | ----------------------- |
-| React Native comparison | `react-native-patterns` |
-| Mobile design           | `mobile-design`         |
-| Testing patterns        | `testing-patterns`      |
-| Performance profiling   | `performance-profiling` |
+- React Native comparison: `react-native-patterns`
+- Mobile design: `mobile-design`
+- Testing patterns: `testing-patterns`
+- Performance profiling: `performance-profiling`
 
 ---
 

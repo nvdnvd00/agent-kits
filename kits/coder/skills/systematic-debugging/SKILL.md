@@ -95,13 +95,11 @@ PHASE 4: VERIFY        → Confirm fix, prevent regression
 
 ### Handling Intermittent Bugs
 
-| Pattern              | Investigation Approach                  |
-| -------------------- | --------------------------------------- |
-| Race condition       | Add timing logs, check for async issues |
-| Memory-related       | Check for uninitialized variables       |
-| State-dependent      | Log state at failure points             |
-| Environment-specific | Compare configurations                  |
-| Load-dependent       | Test under high load/concurrency        |
+- Race condition: Add timing logs, check for async issues
+- Memory-related: Check for uninitialized variables
+- State-dependent: Log state at failure points
+- Environment-specific: Compare configurations
+- Load-dependent: Test under high load/concurrency
 
 ### If Bug Won't Reproduce
 
@@ -238,13 +236,11 @@ PHASE 4: VERIFY        → Confirm fix, prevent regression
 
 ### Fix Quality Criteria
 
-| Criterion      | Description                             |
-| -------------- | --------------------------------------- |
-| **Targeted**   | Changes only what's necessary           |
-| **Root-Cause** | Fixes the cause, not the symptom        |
-| **Safe**       | Doesn't introduce new bugs              |
-| **Readable**   | Future developers can understand why    |
-| **Testable**   | Can verify it works with automated test |
+- **Targeted**: Changes only what's necessary
+- **Root-Cause**: Fixes the cause, not the symptom
+- **Safe**: Doesn't introduce new bugs
+- **Readable**: Future developers can understand why
+- **Testable**: Can verify it works with automated test
 
 ### Fix Documentation
 
@@ -274,14 +270,12 @@ PHASE 4: VERIFY        → Confirm fix, prevent regression
 
 ### Common Fix Patterns
 
-| Bug Type         | Fix Pattern                             |
-| ---------------- | --------------------------------------- |
-| Null reference   | Add null check + handle gracefully      |
-| Race condition   | Add synchronization/locking             |
-| Off-by-one       | Adjust boundary condition               |
-| State corruption | Reset or validate state at entry points |
-| Memory leak      | Ensure resources are cleaned up         |
-| Timeout          | Adjust timeout + add retry logic        |
+- Null reference: Add null check + handle gracefully
+- Race condition: Add synchronization/locking
+- Off-by-one: Adjust boundary condition
+- State corruption: Reset or validate state at entry points
+- Memory leak: Ensure resources are cleaned up
+- Timeout: Adjust timeout + add retry logic
 
 ---
 
@@ -399,16 +393,14 @@ Step 4: Repeat until bug location is isolated
 
 ## 🚨 Anti-Patterns
 
-| ❌ Don't                   | ✅ Do                                       |
-| -------------------------- | ------------------------------------------- |
-| Change random things       | Test one hypothesis at a time               |
-| Fix the symptom            | Find and fix root cause                     |
-| Skip reproduction          | Establish reliable repro first              |
-| Hope it's fixed            | Verify with tests                           |
-| Fix and forget             | Document and add regression test            |
-| Debug in production        | Reproduce in safe environment when possible |
-| Remove code until it works | Understand why code was there               |
-| Assume the obvious cause   | Test each hypothesis with evidence          |
+- Change random things: Test one hypothesis at a time
+- Fix the symptom: Find and fix root cause
+- Skip reproduction: Establish reliable repro first
+- Hope it's fixed: Verify with tests
+- Fix and forget: Document and add regression test
+- Debug in production: Reproduce in safe environment when possible
+- Remove code until it works: Understand why code was there
+- Assume the obvious cause: Test each hypothesis with evidence
 
 ---
 
@@ -475,12 +467,10 @@ Step 4: Repeat until bug location is isolated
 
 ## 🔗 Related Skills
 
-| Need                     | Skill              |
-| ------------------------ | ------------------ |
-| Understanding before fix | `brainstorming`    |
-| Planning complex fixes   | `plan-writing`     |
-| Writing regression tests | `testing-patterns` |
-| Clean fix code           | `clean-code`       |
+- Understanding before fix: `brainstorming`
+- Planning complex fixes: `plan-writing`
+- Writing regression tests: `testing-patterns`
+- Clean fix code: `clean-code`
 
 ---
 

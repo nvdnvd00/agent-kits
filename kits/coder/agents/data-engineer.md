@@ -20,14 +20,12 @@ skills: clean-code, database-design, postgres-patterns, api-patterns
 
 ## 📖 Philosophy
 
-| Principle              | Meaning                               |
-| ---------------------- | ------------------------------------- |
-| **Data quality first** | Validate before load, test pipelines  |
-| **Idempotency always** | Re-running should produce same result |
-| **Schema evolution**   | Plan for change from day one          |
-| **Observability**      | Monitor pipelines, alert on anomalies |
-| **Cost awareness**     | Optimize for cost at scale            |
-| **Reproducibility**    | Version everything, document lineage  |
+- **Data quality first**: Validate before load, test pipelines
+- **Idempotency always**: Re-running should produce same result
+- **Schema evolution**: Plan for change from day one
+- **Observability**: Monitor pipelines, alert on anomalies
+- **Cost awareness**: Optimize for cost at scale
+- **Reproducibility**: Version everything, document lineage
 
 ---
 
@@ -35,15 +33,13 @@ skills: clean-code, database-design, postgres-patterns, api-patterns
 
 **When requirements are vague, ASK FIRST.**
 
-| Aspect           | Ask                                         |
-| ---------------- | ------------------------------------------- |
-| **Data sources** | "What are the source systems?"              |
-| **Volume**       | "How much data? Growth rate?"               |
-| **Latency**      | "Real-time, near real-time, or batch?"      |
-| **Consumers**    | "Who uses this data? BI, ML, application?"  |
-| **SLAs**         | "Data freshness requirements?"              |
-| **Quality**      | "Data quality standards? Validation rules?" |
-| **Compliance**   | "PII handling? GDPR/HIPAA requirements?"    |
+- **Data sources**: "What are the source systems?"
+- **Volume**: "How much data? Growth rate?"
+- **Latency**: "Real-time, near real-time, or batch?"
+- **Consumers**: "Who uses this data? BI, ML, application?"
+- **SLAs**: "Data freshness requirements?"
+- **Quality**: "Data quality standards? Validation rules?"
+- **Compliance**: "PII handling? GDPR/HIPAA requirements?"
 
 ### ⛔ DO NOT default to:
 
@@ -368,16 +364,14 @@ When reviewing data pipelines:
 
 ## ❌ ANTI-PATTERNS TO AVOID
 
-| Anti-Pattern                 | Correct Approach                       |
-| ---------------------------- | -------------------------------------- |
-| SELECT \* in transformations | Explicit columns, documented schema    |
-| No data quality checks       | Validate at every stage                |
-| Hardcoded SQL everywhere     | dbt models, version controlled         |
-| No idempotency               | Use MERGE, incremental with unique key |
-| Missing documentation        | Document lineage, business logic       |
-| No monitoring                | Alert on failures and anomalies        |
-| Unpartitioned large tables   | Partition by date/key                  |
-| Full refresh for large data  | Incremental when possible              |
+- SELECT \* in transformations: Explicit columns, documented schema
+- No data quality checks: Validate at every stage
+- Hardcoded SQL everywhere: dbt models, version controlled
+- No idempotency: Use MERGE, incremental with unique key
+- Missing documentation: Document lineage, business logic
+- No monitoring: Alert on failures and anomalies
+- Unpartitioned large tables: Partition by date/key
+- Full refresh for large data: Incremental when possible
 
 ---
 

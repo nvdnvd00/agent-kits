@@ -20,14 +20,12 @@ skills: documentation-templates, clean-code, mermaid-diagrams
 
 ## 📖 Philosophy
 
-| Principle               | Meaning                                        |
-| ----------------------- | ---------------------------------------------- |
-| **Docs-as-Code**        | Version control, review, automate              |
-| **User-First**          | Write for the reader, not the writer           |
-| **Minimum Viable Docs** | Just enough, always current                    |
-| **Progressive Detail**  | Simple → Complex, overview → deep dive         |
-| **AI-Friendly**         | Structured for both humans and LLM consumption |
-| **Single Source**       | One truth, many outputs                        |
+- **Docs-as-Code**: Version control, review, automate
+- **User-First**: Write for the reader, not the writer
+- **Minimum Viable Docs**: Just enough, always current
+- **Progressive Detail**: Simple → Complex, overview → deep dive
+- **AI-Friendly**: Structured for both humans and LLM consumption
+- **Single Source**: One truth, many outputs
 
 ---
 
@@ -35,14 +33,12 @@ skills: documentation-templates, clean-code, mermaid-diagrams
 
 **Before writing any documentation, understand the context:**
 
-| Aspect          | Ask                                          |
-| --------------- | -------------------------------------------- |
-| **Audience**    | "Who is the primary reader?"                 |
-| **Purpose**     | "What should the reader accomplish?"         |
-| **Scope**       | "What needs to be documented?"               |
-| **Existing**    | "Is there existing documentation to update?" |
-| **Format**      | "What output format is needed?"              |
-| **Maintenance** | "Who will maintain this documentation?"      |
+- **Audience**: "Who is the primary reader?"
+- **Purpose**: "What should the reader accomplish?"
+- **Scope**: "What needs to be documented?"
+- **Existing**: "Is there existing documentation to update?"
+- **Format**: "What output format is needed?"
+- **Maintenance**: "Who will maintain this documentation?"
 
 ### ⛔ DO NOT default to:
 
@@ -124,16 +120,14 @@ Quality Assurance:
 
 **Purpose:** Complete reference for integration
 
-| Component    | Content                              |
-| ------------ | ------------------------------------ |
-| Endpoint     | Method, path, description            |
-| Parameters   | Name, type, required, description    |
-| Request Body | Schema, examples                     |
-| Response     | Status codes, body schema            |
-| Errors       | Error codes, meanings, solutions     |
-| Examples     | Request/response pairs, curl samples |
-| Rate Limits  | Limits, headers, handling            |
-| Auth         | Required auth, scopes                |
+- Endpoint: Method, path, description
+- Parameters: Name, type, required, description
+- Request Body: Schema, examples
+- Response: Status codes, body schema
+- Errors: Error codes, meanings, solutions
+- Examples: Request/response pairs, curl samples
+- Rate Limits: Limits, headers, handling
+- Auth: Required auth, scopes
 
 ### 3. Architecture Decision Records (ADR)
 
@@ -169,13 +163,11 @@ What becomes easier? What becomes harder? What trade-offs are we accepting?
 
 **Purpose:** Enable AI agents and RAG systems
 
-| Format                  | Purpose                      |
-| ----------------------- | ---------------------------- |
-| llms.txt                | AI crawler index             |
-| Structured H1-H3        | Clear hierarchy for chunking |
-| JSON/YAML examples      | Machine-parseable data       |
-| Mermaid diagrams        | Visual representations       |
-| Self-contained sections | Standalone context           |
+- llms.txt: AI crawler index
+- Structured H1-H3: Clear hierarchy for chunking
+- JSON/YAML examples: Machine-parseable data
+- Mermaid diagrams: Visual representations
+- Self-contained sections: Standalone context
 
 ---
 
@@ -183,33 +175,27 @@ What becomes easier? What becomes harder? What trade-offs are we accepting?
 
 ### Clarity Over Cleverness
 
-| Do                           | Don't                          |
-| ---------------------------- | ------------------------------ |
-| Use simple, direct language  | Use jargon without explanation |
-| One idea per sentence        | Compound complex sentences     |
-| Active voice                 | Passive voice                  |
-| Concrete examples            | Abstract explanations only     |
-| Define acronyms on first use | Assume reader knows all terms  |
+- Use simple, direct language: Use jargon without explanation
+- One idea per sentence: Compound complex sentences
+- Active voice: Passive voice
+- Concrete examples: Abstract explanations only
+- Define acronyms on first use: Assume reader knows all terms
 
 ### Scannable Structure
 
-| Element     | Purpose                   |
-| ----------- | ------------------------- |
-| Headers     | Navigation and hierarchy  |
-| Lists       | Sequential/parallel items |
-| Tables      | Structured comparisons    |
-| Code blocks | Commands and examples     |
-| Callouts    | Warnings, tips, notes     |
+- Headers: Navigation and hierarchy
+- Lists: Sequential/parallel items
+- Tables: Structured comparisons
+- Code blocks: Commands and examples
+- Callouts: Warnings, tips, notes
 
 ### Code Comment Guidelines
 
-| ✅ Comment             | ❌ Don't Comment          |
-| ---------------------- | ------------------------- |
-| Why (business logic)   | What (obvious operations) |
-| Complex algorithms     | Every line                |
-| Non-obvious behavior   | Self-explanatory code     |
-| API contracts          | Implementation details    |
-| Gotchas and edge cases | Repeated information      |
+- Why (business logic): What (obvious operations)
+- Complex algorithms: Every line
+- Non-obvious behavior: Self-explanatory code
+- API contracts: Implementation details
+- Gotchas and edge cases: Repeated information
 
 ---
 
@@ -252,15 +238,13 @@ Before completing documentation:
 
 ## ❌ ANTI-PATTERNS
 
-| Anti-Pattern                     | Correct Approach                 |
-| -------------------------------- | -------------------------------- |
-| ❌ Documentation as afterthought | ✅ Docs-as-Code from start       |
-| ❌ Duplicating information       | ✅ Single source, link to it     |
-| ❌ Outdated examples             | ✅ Test examples in CI           |
-| ❌ Wall of text                  | ✅ Scannable structure           |
-| ❌ Assuming too much knowledge   | ✅ Define terms, provide context |
-| ❌ Ignoring maintenance          | ✅ Plan for updates              |
-| ❌ Writing for yourself          | ✅ Write for the reader          |
+- ❌ Documentation as afterthought: ✅ Docs-as-Code from start
+- ❌ Duplicating information: ✅ Single source, link to it
+- ❌ Outdated examples: ✅ Test examples in CI
+- ❌ Wall of text: ✅ Scannable structure
+- ❌ Assuming too much knowledge: ✅ Define terms, provide context
+- ❌ Ignoring maintenance: ✅ Plan for updates
+- ❌ Writing for yourself: ✅ Write for the reader
 
 ---
 

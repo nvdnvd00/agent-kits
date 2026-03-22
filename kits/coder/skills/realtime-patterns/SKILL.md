@@ -94,12 +94,10 @@ interface ConnectionState {
 
 ### Keep-Alive (Heartbeat)
 
-| Aspect           | Recommendation                            |
-| ---------------- | ----------------------------------------- |
-| **Interval**     | 25-30 seconds (under typical 60s timeout) |
-| **Pong Timeout** | 5-10 seconds after ping sent              |
-| **On Timeout**   | Trigger reconnection                      |
-| **Payload**      | Minimal (empty or timestamp only)         |
+- **Interval**: 25-30 seconds (under typical 60s timeout)
+- **Pong Timeout**: 5-10 seconds after ping sent
+- **On Timeout**: Trigger reconnection
+- **Payload**: Minimal (empty or timestamp only)
 
 ```typescript
 // Heartbeat pattern
@@ -323,13 +321,11 @@ io.adapter(createAdapter(pubClient, subClient));
 
 ### Scaling Considerations
 
-| Challenge             | Solution                                  |
-| --------------------- | ----------------------------------------- |
-| **Sticky Sessions**   | Use consistent hashing or client IP-based |
-| **Cross-Server Emit** | Redis Pub/Sub adapter                     |
-| **Connection State**  | Store in Redis, not in-memory             |
-| **N-Squared Problem** | Sharded Redis adapter (Redis 7.0+)        |
-| **Message Order**     | Use sequence numbers or timestamps        |
+- **Sticky Sessions**: Use consistent hashing or client IP-based
+- **Cross-Server Emit**: Redis Pub/Sub adapter
+- **Connection State**: Store in Redis, not in-memory
+- **N-Squared Problem**: Sharded Redis adapter (Redis 7.0+)
+- **Message Order**: Use sequence numbers or timestamps
 
 ---
 
@@ -360,14 +356,12 @@ io.use(async (socket, next) => {
 
 ### Security Checklist
 
-| Concern                | Mitigation                              |
-| ---------------------- | --------------------------------------- |
-| **Authentication**     | Validate token before accepting socket  |
-| **Authorization**      | Check permissions before joining rooms  |
-| **Rate Limiting**      | Limit events per second per client      |
-| **Payload Validation** | Validate and sanitize all incoming data |
-| **Message Size**       | Limit max payload size                  |
-| **Origin Check**       | Configure CORS properly                 |
+- **Authentication**: Validate token before accepting socket
+- **Authorization**: Check permissions before joining rooms
+- **Rate Limiting**: Limit events per second per client
+- **Payload Validation**: Validate and sanitize all incoming data
+- **Message Size**: Limit max payload size
+- **Origin Check**: Configure CORS properly
 
 ---
 
@@ -409,14 +403,12 @@ socket.on("error", (error) => {
 
 ### Key Metrics
 
-| Metric                 | What It Tells You             |
-| ---------------------- | ----------------------------- |
-| **Active Connections** | Current load, scaling needs   |
-| **Connection Rate**    | Traffic patterns, spikes      |
-| **Reconnection Rate**  | Connection stability issues   |
-| **Message Latency**    | System responsiveness         |
-| **Messages/Second**    | Throughput, capacity planning |
-| **Error Rate**         | System health                 |
+- **Active Connections**: Current load, scaling needs
+- **Connection Rate**: Traffic patterns, spikes
+- **Reconnection Rate**: Connection stability issues
+- **Message Latency**: System responsiveness
+- **Messages/Second**: Throughput, capacity planning
+- **Error Rate**: System health
 
 ### Debugging Tips
 
@@ -443,16 +435,14 @@ socket.io.on("reconnect_error", (error) => {
 
 ## 🚨 Anti-Patterns
 
-| ❌ Don't                            | ✅ Do                               |
-| ----------------------------------- | ----------------------------------- |
-| Send large objects over socket      | Send IDs, fetch data via HTTP       |
-| Block in event handlers             | Process async, return quickly       |
-| Trust client-sent room names        | Validate and authorize room access  |
-| Reconnect immediately on failure    | Use exponential backoff with jitter |
-| Store state in single server memory | Use Redis for cross-server state    |
-| Ignore connection state             | Track and display to user           |
-| Send sensitive data in events       | Encrypt or use HTTPS/WSS only       |
-| Process without validation          | Validate all incoming payloads      |
+- Send large objects over socket: Send IDs, fetch data via HTTP
+- Block in event handlers: Process async, return quickly
+- Trust client-sent room names: Validate and authorize room access
+- Reconnect immediately on failure: Use exponential backoff with jitter
+- Store state in single server memory: Use Redis for cross-server state
+- Ignore connection state: Track and display to user
+- Send sensitive data in events: Encrypt or use HTTPS/WSS only
+- Process without validation: Validate all incoming payloads
 
 ---
 
@@ -504,12 +494,10 @@ socket.io.on("reconnect_error", (error) => {
 
 ## 🔗 Related Skills
 
-| Need                      | Skill                   |
-| ------------------------- | ----------------------- |
-| API design for HTTP calls | `api-patterns`          |
-| Performance optimization  | `performance-profiling` |
-| Queue/worker patterns     | `queue-patterns`        |
-| Database for state        | `database-design`       |
+- API design for HTTP calls: `api-patterns`
+- Performance optimization: `performance-profiling`
+- Queue/worker patterns: `queue-patterns`
+- Database for state: `database-design`
 
 ---
 

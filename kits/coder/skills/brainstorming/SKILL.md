@@ -299,16 +299,14 @@ Surface hidden assumptions before implementation
 
 ## 🚨 Anti-Patterns
 
-| ❌ Don't                        | ✅ Do                                                |
-| ------------------------------- | ---------------------------------------------------- |
-| Ask 10+ questions at once       | Group into 3-5 most important                        |
-| Ask obvious questions           | Ask where there's genuine ambiguity                  |
-| Re-ask answered questions       | Read conversation context                            |
-| Block on every detail           | Make reasonable default assumptions for minor things |
-| Question simple requests        | Apply judgment on when questions add value           |
-| Ask then ignore answers         | Incorporate answers into your approach               |
-| Pretend to understand           | Admit confusion and ask for clarity                  |
-| Assume user knows best approach | Offer expert guidance with questions                 |
+- Ask 10+ questions at once: Group into 3-5 most important
+- Ask obvious questions: Ask where there's genuine ambiguity
+- Re-ask answered questions: Read conversation context
+- Block on every detail: Make reasonable default assumptions for minor things
+- Question simple requests: Apply judgment on when questions add value
+- Ask then ignore answers: Incorporate answers into your approach
+- Pretend to understand: Admit confusion and ask for clarity
+- Assume user knows best approach: Offer expert guidance with questions
 
 ---
 
@@ -356,23 +354,19 @@ Before major implementation:
 
 **Question effectiveness:**
 
-| Question Type | When Valuable                       |
-| ------------- | ----------------------------------- |
-| Clarifying    | When terms are ambiguous            |
-| Probing       | When surface answer is insufficient |
-| Hypothetical  | When exploring edge cases           |
-| Comparative   | When choosing between options       |
-| Reflective    | When validating understanding       |
+- Clarifying: When terms are ambiguous
+- Probing: When surface answer is insufficient
+- Hypothetical: When exploring edge cases
+- Comparative: When choosing between options
+- Reflective: When validating understanding
 
 ---
 
 ## 🔗 Related Skills
 
-| Need                         | Skill                  |
-| ---------------------------- | ---------------------- |
-| Writing implementation plans | `plan-writing`         |
-| Debugging with questions     | `systematic-debugging` |
-| Clean code standards         | `clean-code`           |
+- Writing implementation plans: `plan-writing`
+- Debugging with questions: `systematic-debugging`
+- Clean code standards: `clean-code`
 
 ---
 

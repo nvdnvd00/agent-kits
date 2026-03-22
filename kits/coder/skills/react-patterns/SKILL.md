@@ -22,11 +22,9 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 ## 📑 Content Map
 
-| File                            | When to Read                  |
-| ------------------------------- | ----------------------------- |
-| `references/hook-patterns.md`   | Advanced custom hooks         |
-| `references/performance.md`     | Deep performance optimization |
-| `references/nextjs-patterns.md` | Next.js App Router specific   |
+- `references/hook-patterns.md`: Advanced custom hooks
+- `references/performance.md`: Deep performance optimization
+- `references/nextjs-patterns.md`: Next.js App Router specific
 
 ---
 
@@ -43,12 +41,10 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 ### Design Rules
 
-| Rule                         | Rationale                        |
-| ---------------------------- | -------------------------------- |
-| One responsibility           | Easier testing, reuse            |
-| Props down, events up        | Predictable data flow            |
-| Composition over inheritance | Flexibility, avoid prop drilling |
-| Small, focused components    | Better tree shaking, readability |
+- One responsibility: Easier testing, reuse
+- Props down, events up: Predictable data flow
+- Composition over inheritance: Flexibility, avoid prop drilling
+- Small, focused components: Better tree shaking, readability
 
 ---
 
@@ -56,23 +52,19 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 ### When to Extract Custom Hooks
 
-| Pattern           | Extract When                           |
-| ----------------- | -------------------------------------- |
-| `useLocalStorage` | Same storage logic needed              |
-| `useDebounce`     | Multiple debounced values              |
-| `useFetch`        | Repeated fetch patterns                |
-| `useForm`         | Complex form state                     |
-| `useClickOutside` | Multiple modal/dropdown components     |
-| `usePrevious`     | Need previous value in multiple places |
+- `useLocalStorage`: Same storage logic needed
+- `useDebounce`: Multiple debounced values
+- `useFetch`: Repeated fetch patterns
+- `useForm`: Complex form state
+- `useClickOutside`: Multiple modal/dropdown components
+- `usePrevious`: Need previous value in multiple places
 
 ### Hook Rules (CRITICAL)
 
-| Rule                    | Violation Consequence            |
-| ----------------------- | -------------------------------- |
-| Top level only          | Inconsistent state               |
-| Same order every render | React loses track of state       |
-| Prefix with "use"       | Lint error, convention violation |
-| Clean up effects        | Memory leaks, stale closures     |
+- Top level only: Inconsistent state
+- Same order every render: React loses track of state
+- Prefix with "use": Lint error, convention violation
+- Clean up effects: Memory leaks, stale closures
 
 ### React 19 New Hooks
 
@@ -192,12 +184,10 @@ State scope?
 
 ### Recovery Pattern
 
-| Step | Action                         |
-| ---- | ------------------------------ |
-| 1    | Show fallback UI               |
-| 2    | Log error (Sentry, DataDog)    |
-| 3    | Offer retry option             |
-| 4    | Preserve user data if possible |
+- 1: Show fallback UI
+- 2: Log error (Sentry, DataDog)
+- 3: Offer retry option
+- 4: Preserve user data if possible
 
 ---
 
@@ -213,12 +203,10 @@ State scope?
 
 ### Essential Types
 
-| Need          | Type                     |
-| ------------- | ------------------------ |
-| Children      | `ReactNode`              |
-| Event handler | `MouseEventHandler<T>`   |
-| Ref           | `RefObject<Element>`     |
-| Component ref | `ComponentRef<typeof X>` |
+- Children: `ReactNode`
+- Event handler: `MouseEventHandler<T>`
+- Ref: `RefObject<Element>`
+- Component ref: `ComponentRef<typeof X>`
 
 ---
 
@@ -271,13 +259,11 @@ Does component need...?
 
 ### File Conventions
 
-| File            | Purpose          |
-| --------------- | ---------------- |
-| `page.tsx`      | Route UI         |
-| `layout.tsx`    | Shared layout    |
-| `loading.tsx`   | Loading skeleton |
-| `error.tsx`     | Error boundary   |
-| `not-found.tsx` | 404 page         |
+- `page.tsx`: Route UI
+- `layout.tsx`: Shared layout
+- `loading.tsx`: Loading skeleton
+- `error.tsx`: Error boundary
+- `not-found.tsx`: 404 page
 
 ### Caching Strategy
 
@@ -316,13 +302,11 @@ Simple local? → useState
 
 ## Related Skills
 
-| Need                  | Skill                   |
-| --------------------- | ----------------------- |
-| Styling               | `tailwind-patterns`     |
-| Testing               | `testing-patterns`      |
-| API integration       | `api-patterns`          |
-| TypeScript advanced   | `typescript-patterns`   |
-| Performance deep-dive | `performance-profiling` |
+- Styling: `tailwind-patterns`
+- Testing: `testing-patterns`
+- API integration: `api-patterns`
+- TypeScript advanced: `typescript-patterns`
+- Performance deep-dive: `performance-profiling`
 
 ---
 

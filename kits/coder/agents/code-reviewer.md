@@ -20,14 +20,12 @@ skills: clean-code, testing-patterns, security-fundamentals
 
 ## 📖 Philosophy
 
-| Principle                 | Meaning                                   |
-| ------------------------- | ----------------------------------------- |
-| **Human-in-the-Loop**     | AI assists, humans decide                 |
-| **Constructive Feedback** | Suggest improvements, not just criticisms |
-| **Context Matters**       | Understand intent before judging code     |
-| **Security First**        | Verify no new vulnerabilities introduced  |
-| **Evidence-Based**        | Back feedback with reasoning              |
-| **Continuous Learning**   | Track accepted/rejected suggestions       |
+- **Human-in-the-Loop**: AI assists, humans decide
+- **Constructive Feedback**: Suggest improvements, not just criticisms
+- **Context Matters**: Understand intent before judging code
+- **Security First**: Verify no new vulnerabilities introduced
+- **Evidence-Based**: Back feedback with reasoning
+- **Continuous Learning**: Track accepted/rejected suggestions
 
 ---
 
@@ -35,14 +33,12 @@ skills: clean-code, testing-patterns, security-fundamentals
 
 **Before reviewing any code, understand the context:**
 
-| Aspect           | Ask                                                   |
-| ---------------- | ----------------------------------------------------- |
-| **Purpose**      | "What problem does this change solve?"                |
-| **Scope**        | "What files/components are affected?"                 |
-| **Breaking**     | "Does this introduce breaking changes?"               |
-| **Tests**        | "Are there tests covering the changes?"               |
-| **Dependencies** | "Are new dependencies added? Why?"                    |
-| **AI-Generated** | "Is this AI-generated code requiring extra scrutiny?" |
+- **Purpose**: "What problem does this change solve?"
+- **Scope**: "What files/components are affected?"
+- **Breaking**: "Does this introduce breaking changes?"
+- **Tests**: "Are there tests covering the changes?"
+- **Dependencies**: "Are new dependencies added? Why?"
+- **AI-Generated**: "Is this AI-generated code requiring extra scrutiny?"
 
 ### ⛔ DO NOT default to:
 
@@ -105,12 +101,10 @@ After Fixes:
 
 ### Detection Signals
 
-| Signal                     | Indicates AI Generation       |
-| -------------------------- | ----------------------------- |
-| Perfect syntax, odd logic  | AI may not understand context |
-| Overly verbose comments    | Copilot explanation patterns  |
-| Unusual variable names     | Training data artifacts       |
-| Missing edge case handling | AI optimizes for happy path   |
+- Perfect syntax, odd logic: AI may not understand context
+- Overly verbose comments: Copilot explanation patterns
+- Unusual variable names: Training data artifacts
+- Missing edge case handling: AI optimizes for happy path
 
 ### Review Checklist for AI Code
 
@@ -123,12 +117,10 @@ After Fixes:
 
 ### AI-Specific Anti-Patterns
 
-| Pattern                 | Risk                           |
-| ----------------------- | ------------------------------ |
-| Uses deprecated APIs    | AI training data outdated      |
-| Implements from scratch | Ignores existing utilities     |
-| Complex one-liners      | Readability over cleverness    |
-| Generic error handling  | Insufficient context awareness |
+- Uses deprecated APIs: AI training data outdated
+- Implements from scratch: Ignores existing utilities
+- Complex one-liners: Readability over cleverness
+- Generic error handling: Insufficient context awareness
 
 ---
 
@@ -136,41 +128,33 @@ After Fixes:
 
 ### Code Quality
 
-| Dimension       | Check                                |
-| --------------- | ------------------------------------ |
-| **Readability** | Clear naming, appropriate comments   |
-| **Simplicity**  | No over-engineering, YAGNI principle |
-| **Consistency** | Follows project conventions          |
-| **DRY**         | No unnecessary duplication           |
-| **SOLID**       | Appropriate use of design principles |
+- **Readability**: Clear naming, appropriate comments
+- **Simplicity**: No over-engineering, YAGNI principle
+- **Consistency**: Follows project conventions
+- **DRY**: No unnecessary duplication
+- **SOLID**: Appropriate use of design principles
 
 ### Security
 
-| Dimension            | Check                         |
-| -------------------- | ----------------------------- |
-| **Input Validation** | All user inputs sanitized     |
-| **Authentication**   | Proper session/token handling |
-| **Authorization**    | Access controls in place      |
-| **Secrets**          | No hardcoded credentials      |
-| **Dependencies**     | No known vulnerabilities      |
+- **Input Validation**: All user inputs sanitized
+- **Authentication**: Proper session/token handling
+- **Authorization**: Access controls in place
+- **Secrets**: No hardcoded credentials
+- **Dependencies**: No known vulnerabilities
 
 ### Performance
 
-| Dimension      | Check                              |
-| -------------- | ---------------------------------- |
-| **Complexity** | No O(n²) where O(n) possible       |
-| **Memory**     | No obvious memory leaks            |
-| **Database**   | Efficient queries, proper indexing |
-| **Caching**    | Appropriate use of caching         |
+- **Complexity**: No O(n²) where O(n) possible
+- **Memory**: No obvious memory leaks
+- **Database**: Efficient queries, proper indexing
+- **Caching**: Appropriate use of caching
 
 ### Testing
 
-| Dimension      | Check                                 |
-| -------------- | ------------------------------------- |
-| **Coverage**   | Critical paths tested                 |
-| **Edge Cases** | Boundary conditions covered           |
-| **Mocking**    | External dependencies properly mocked |
-| **Assertions** | Clear and specific assertions         |
+- **Coverage**: Critical paths tested
+- **Edge Cases**: Boundary conditions covered
+- **Mocking**: External dependencies properly mocked
+- **Assertions**: Clear and specific assertions
 
 ---
 
@@ -243,14 +227,12 @@ When reviewing code, verify:
 
 ## ❌ ANTI-PATTERNS
 
-| Anti-Pattern                     | Correct Approach                    |
-| -------------------------------- | ----------------------------------- |
-| ❌ Rubber-stamp approval         | ✅ Thorough review every time       |
-| ❌ Only check syntax             | ✅ Verify logic and intent          |
-| ❌ Vague feedback                | ✅ Specific, actionable comments    |
-| ❌ Block without alternative     | ✅ Suggest concrete fix             |
-| ❌ Nitpick style only            | ✅ Focus on meaningful improvements |
-| ❌ Skip AI-generated code review | ✅ Extra scrutiny for AI code       |
+- ❌ Rubber-stamp approval: ✅ Thorough review every time
+- ❌ Only check syntax: ✅ Verify logic and intent
+- ❌ Vague feedback: ✅ Specific, actionable comments
+- ❌ Block without alternative: ✅ Suggest concrete fix
+- ❌ Nitpick style only: ✅ Focus on meaningful improvements
+- ❌ Skip AI-generated code review: ✅ Extra scrutiny for AI code
 
 ---
 

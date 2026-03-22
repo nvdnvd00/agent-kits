@@ -23,15 +23,13 @@ version: 2.0
 
 ## When to Use This Skill
 
-| ✅ Use                 | ❌ Don't Use                 |
-| ---------------------- | ---------------------------- |
-| Caching strategies     | Primary database design      |
-| Session management     | Complex querying             |
-| Rate limiting          | Relational data              |
-| Pub/Sub messaging      | Durable storage requirements |
-| Distributed locking    | ACID transactions            |
-| Real-time leaderboards | Large document storage       |
-| Queue/Job patterns     | Complex aggregations         |
+- Caching strategies: Primary database design
+- Session management: Complex querying
+- Rate limiting: Relational data
+- Pub/Sub messaging: Durable storage requirements
+- Distributed locking: ACID transactions
+- Real-time leaderboards: Large document storage
+- Queue/Job patterns: Complex aggregations
 
 ---
 
@@ -401,13 +399,11 @@ await redis.expire("leaderboard:weekly", 604800); // 7 days
 
 ### Eviction Policies
 
-| Policy           | Use Case                      |
-| ---------------- | ----------------------------- |
-| `noeviction`     | Fail writes when memory full  |
-| `allkeys-lru`    | General caching (recommended) |
-| `volatile-lru`   | Only evict keys with TTL      |
-| `allkeys-lfu`    | Frequency-based eviction      |
-| `allkeys-random` | Random eviction               |
+- `noeviction`: Fail writes when memory full
+- `allkeys-lru`: General caching (recommended)
+- `volatile-lru`: Only evict keys with TTL
+- `allkeys-lfu`: Frequency-based eviction
+- `allkeys-random`: Random eviction
 
 ### Memory Optimization
 
@@ -452,16 +448,14 @@ Examples:
 
 ## Anti-Patterns
 
-| ❌ Don't                        | ✅ Do                                 |
-| ------------------------------- | ------------------------------------- |
-| Store without TTL               | Always set expiration                 |
-| Use KEYS in production          | Use SCAN for iteration                |
-| Large values (>1MB)             | Split or use different storage        |
-| Create connection per request   | Use connection pooling                |
-| Use as primary database         | Use as cache/session/queue layer      |
-| Block with BLPOP in main thread | Dedicated subscriber connections      |
-| Store complex relational data   | Use proper database for relations     |
-| Ignore memory limits            | Configure maxmemory + eviction policy |
+- Store without TTL: Always set expiration
+- Use KEYS in production: Use SCAN for iteration
+- Large values (>1MB): Split or use different storage
+- Create connection per request: Use connection pooling
+- Use as primary database: Use as cache/session/queue layer
+- Block with BLPOP in main thread: Dedicated subscriber connections
+- Store complex relational data: Use proper database for relations
+- Ignore memory limits: Configure maxmemory + eviction policy
 
 ---
 
@@ -482,12 +476,10 @@ Before deployment:
 
 ## Related Skills
 
-| Need                  | Skill                   |
-| --------------------- | ----------------------- |
-| Message queues        | `queue-patterns`        |
-| Database caching      | `database-design`       |
-| Real-time patterns    | `realtime-patterns`     |
-| Performance profiling | `performance-profiling` |
+- Message queues: `queue-patterns`
+- Database caching: `database-design`
+- Real-time patterns: `realtime-patterns`
+- Performance profiling: `performance-profiling`
 
 ---
 

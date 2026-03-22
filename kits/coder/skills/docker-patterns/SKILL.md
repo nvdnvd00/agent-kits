@@ -23,13 +23,11 @@ priority: HIGH
 
 ## Core Principles
 
-| Principle        | Rule                                                  |
-| ---------------- | ----------------------------------------------------- |
-| **Immutable**    | Build once, run anywhere - no runtime modifications   |
-| **Minimal**      | Only include what's needed - smaller = faster + safer |
-| **Secure**       | Non-root by default, no secrets in layers             |
-| **Reproducible** | Pin versions, multi-stage for consistent builds       |
-| **Observable**   | Health checks, structured logs, metrics endpoints     |
+- **Immutable**: Build once, run anywhere - no runtime modifications
+- **Minimal**: Only include what's needed - smaller = faster + safer
+- **Secure**: Non-root by default, no secrets in layers
+- **Reproducible**: Pin versions, multi-stage for consistent builds
+- **Observable**: Health checks, structured logs, metrics endpoints
 
 ---
 
@@ -81,26 +79,22 @@ CMD ["node", "dist/index.js"]
 
 ## Layer Optimization Rules
 
-| Rule                          | Why                                      |
-| ----------------------------- | ---------------------------------------- |
-| **COPY package.json first**   | Deps layer cached until deps change      |
-| **Combine RUN commands**      | Fewer layers = smaller image             |
-| **Clean in same RUN**         | `npm ci && npm cache clean` not separate |
-| **Order by change frequency** | Least changing → Most changing           |
-| **.dockerignore complete**    | Exclude node_modules, .git, logs         |
+- **COPY package.json first**: Deps layer cached until deps change
+- **Combine RUN commands**: Fewer layers = smaller image
+- **Clean in same RUN**: `npm ci && npm cache clean` not separate
+- **Order by change frequency**: Least changing → Most changing
+- **.dockerignore complete**: Exclude node_modules, .git, logs
 
 ---
 
 ## Security Hardening Checklist
 
-| Security Rule                | Implementation                      |
-| ---------------------------- | ----------------------------------- |
-| **Non-root user**            | `adduser` + `USER 1001`             |
-| **Pin base image versions**  | `node:20.10.0-alpine`, not `latest` |
-| **No secrets in Dockerfile** | Use build secrets or runtime env    |
-| **Minimal packages**         | No vim, curl unless needed          |
-| **Read-only filesystem**     | `--read-only` runtime flag          |
-| **Scan for vulnerabilities** | `docker scout`, `trivy`             |
+- **Non-root user**: `adduser` + `USER 1001`
+- **Pin base image versions**: `node:20.10.0-alpine`, not `latest`
+- **No secrets in Dockerfile**: Use build secrets or runtime env
+- **Minimal packages**: No vim, curl unless needed
+- **Read-only filesystem**: `--read-only` runtime flag
+- **Scan for vulnerabilities**: `docker scout`, `trivy`
 
 ### Build Secrets Pattern (BuildKit)
 
@@ -194,17 +188,15 @@ Need shell for debugging?
 
 ## Anti-Patterns (DON'T)
 
-| ❌ Anti-Pattern                | ✅ Correct Approach                       |
-| ------------------------------ | ----------------------------------------- |
-| `FROM node:latest`             | `FROM node:20.10.0-alpine`                |
-| `RUN npm install` (not ci)     | `RUN npm ci --only=production`            |
-| Running as root                | Create user, `USER 1001`                  |
-| Secrets in ENV                 | Build secrets or external secrets manager |
-| `COPY . .` before package.json | Copy package.json first for caching       |
-| Separate RUN for cleanup       | Clean in same RUN command                 |
-| No .dockerignore               | Comprehensive .dockerignore               |
-| No health checks               | HEALTHCHECK instruction                   |
-| 1GB+ images                    | Multi-stage + alpine base                 |
+- `FROM node:latest`: `FROM node:20.10.0-alpine`
+- `RUN npm install` (not ci): `RUN npm ci --only=production`
+- Running as root: Create user, `USER 1001`
+- Secrets in ENV: Build secrets or external secrets manager
+- `COPY . .` before package.json: Copy package.json first for caching
+- Separate RUN for cleanup: Clean in same RUN command
+- No .dockerignore: Comprehensive .dockerignore
+- No health checks: HEALTHCHECK instruction
+- 1GB+ images: Multi-stage + alpine base
 
 ---
 
@@ -223,26 +215,22 @@ Need shell for debugging?
 
 ## 🔴 Self-Check Before Completing
 
-| Check                   | Question                                   |
-| ----------------------- | ------------------------------------------ |
-| ✅ **Multi-stage?**     | Is build separated from runtime?           |
-| ✅ **Non-root?**        | Container runs as non-root user?           |
-| ✅ **Pinned versions?** | Base image and deps have explicit version? |
-| ✅ **Health check?**    | HEALTHCHECK or compose healthcheck?        |
-| ✅ **Secrets safe?**    | No secrets in layers or ENV?               |
-| ✅ **Image size?**      | Under 500MB for typical apps?              |
-| ✅ **.dockerignore?**   | Excludes node_modules, .git, logs?         |
+- ✅ **Multi-stage?**: Is build separated from runtime?
+- ✅ **Non-root?**: Container runs as non-root user?
+- ✅ **Pinned versions?**: Base image and deps have explicit version?
+- ✅ **Health check?**: HEALTHCHECK or compose healthcheck?
+- ✅ **Secrets safe?**: No secrets in layers or ENV?
+- ✅ **Image size?**: Under 500MB for typical apps?
+- ✅ **.dockerignore?**: Excludes node_modules, .git, logs?
 
 ---
 
 ## Related Skills
 
-| Need                  | Skill                     |
-| --------------------- | ------------------------- |
-| CI/CD pipelines       | `github-actions` (future) |
-| Kubernetes deployment | `kubernetes-patterns`     |
-| Server management     | `server-management`       |
-| Deployment workflows  | `deployment-procedures`   |
+- CI/CD pipelines: `github-actions` (future)
+- Kubernetes deployment: `kubernetes-patterns`
+- Server management: `server-management`
+- Deployment workflows: `deployment-procedures`
 
 ---
 

@@ -24,13 +24,11 @@ priority: HIGH
 
 ## Core Principles
 
-| Principle         | Rule                                                 |
-| ----------------- | ---------------------------------------------------- |
-| **DRY**           | Use templates, includes, and extends to avoid repeat |
-| **Fast Feedback** | Tests should run in minutes, not hours               |
-| **Stage Order**   | Build → Test → Security → Deploy                     |
-| **Fail Fast**     | Stop pipeline on first failure, save resources       |
-| **Cache Smart**   | Cache dependencies, not build outputs                |
+- **DRY**: Use templates, includes, and extends to avoid repeat
+- **Fast Feedback**: Tests should run in minutes, not hours
+- **Stage Order**: Build → Test → Security → Deploy
+- **Fail Fast**: Stop pipeline on first failure, save resources
+- **Cache Smart**: Cache dependencies, not build outputs
 
 ---
 
@@ -408,16 +406,14 @@ Are jobs independent within a stage?
 
 ## Anti-Patterns (DON'T)
 
-| ❌ Anti-Pattern                    | ✅ Correct Approach                 |
-| ---------------------------------- | ----------------------------------- |
-| `image: node:latest`               | Pin version: `node:20-alpine`       |
-| No caching                         | Cache `node_modules`, `.cache` dirs |
-| Secrets in `.gitlab-ci.yml`        | Use CI/CD variables (masked)        |
-| Single job does everything         | Split into stages                   |
-| No `expire_in` for artifacts       | Set expiration to save storage      |
-| `allow_failure: true` everywhere   | Only for non-critical jobs          |
-| Hardcoded URLs/versions            | Use variables                       |
-| `only` without `except` or `rules` | Prefer `rules:` for clarity         |
+- `image: node:latest`: Pin version: `node:20-alpine`
+- No caching: Cache `node_modules`, `.cache` dirs
+- Secrets in `.gitlab-ci.yml`: Use CI/CD variables (masked)
+- Single job does everything: Split into stages
+- No `expire_in` for artifacts: Set expiration to save storage
+- `allow_failure: true` everywhere: Only for non-critical jobs
+- Hardcoded URLs/versions: Use variables
+- `only` without `except` or `rules`: Prefer `rules:` for clarity
 
 ---
 
@@ -435,26 +431,22 @@ Are jobs independent within a stage?
 
 ## 🔴 Self-Check Before Completing
 
-| Check                    | Question                                 |
-| ------------------------ | ---------------------------------------- |
-| ✅ **Images pinned?**    | Using specific versions, not `:latest`?  |
-| ✅ **Cache configured?** | Dependencies cached with correct policy? |
-| ✅ **Secrets secure?**   | Using CI/CD variables, not hardcoded?    |
-| ✅ **Artifacts expire?** | `expire_in` set to reasonable duration?  |
-| ✅ **Security scans?**   | SAST/Dependency scanning enabled?        |
-| ✅ **Rules clear?**      | Using `rules:` instead of `only/except`? |
+- ✅ **Images pinned?**: Using specific versions, not `:latest`?
+- ✅ **Cache configured?**: Dependencies cached with correct policy?
+- ✅ **Secrets secure?**: Using CI/CD variables, not hardcoded?
+- ✅ **Artifacts expire?**: `expire_in` set to reasonable duration?
+- ✅ **Security scans?**: SAST/Dependency scanning enabled?
+- ✅ **Rules clear?**: Using `rules:` instead of `only/except`?
 
 ---
 
 ## Related Skills
 
-| Need              | Skill                   |
-| ----------------- | ----------------------- |
-| GitHub Actions    | `github-actions`        |
-| Docker builds     | `docker-patterns`       |
-| Kubernetes deploy | `kubernetes-patterns`   |
-| Security scanning | `security-fundamentals` |
-| Terraform in CI   | `terraform-patterns`    |
+- GitHub Actions: `github-actions`
+- Docker builds: `docker-patterns`
+- Kubernetes deploy: `kubernetes-patterns`
+- Security scanning: `security-fundamentals`
+- Terraform in CI: `terraform-patterns`
 
 ---
 

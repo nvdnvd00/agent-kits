@@ -82,13 +82,11 @@ Level 4: Subtasks (If task is still too large)
 
 ### Good Task Characteristics
 
-| Characteristic      | Description                                       |
-| ------------------- | ------------------------------------------------- |
-| **Observable**      | Has visible output when complete                  |
-| **Verifiable**      | Clear criteria to confirm done                    |
-| **Independent**     | Minimal dependencies blocking start               |
-| **Sized correctly** | 15 min to 4 hours                                 |
-| **Named clearly**   | Action verb + object (e.g., "Create user schema") |
+- **Observable**: Has visible output when complete
+- **Verifiable**: Clear criteria to confirm done
+- **Independent**: Minimal dependencies blocking start
+- **Sized correctly**: 15 min to 4 hours
+- **Named clearly**: Action verb + object (e.g., "Create user schema")
 
 ---
 
@@ -201,12 +199,10 @@ Before estimating, consider:
 
 ### Common Estimation Mistakes
 
-| ❌ Underestimates           | ✅ Include In Estimate         |
-| --------------------------- | ------------------------------ |
-| "Just wire things together" | Integration complexity         |
-| "Tests are quick"           | Edge cases and debugging tests |
-| "I know this codebase"      | Context switching overhead     |
-| "Simple fix"                | Regression testing             |
+- "Just wire things together": Integration complexity
+- "Tests are quick": Edge cases and debugging tests
+- "I know this codebase": Context switching overhead
+- "Simple fix": Regression testing
 
 ---
 
@@ -258,12 +254,10 @@ A task is DONE when:
 
 ### Writing Good Verification Criteria
 
-| ❌ Vague          | ✅ Specific                                    |
-| ----------------- | ---------------------------------------------- |
-| "Works correctly" | "Returns 200 for valid input, 400 for invalid" |
-| "Tested"          | "Unit tests cover happy path + 3 error cases"  |
-| "Integrated"      | "API called successfully from frontend"        |
-| "Complete"        | "All checklist items verified"                 |
+- "Works correctly": "Returns 200 for valid input, 400 for invalid"
+- "Tested": "Unit tests cover happy path + 3 error cases"
+- "Integrated": "API called successfully from frontend"
+- "Complete": "All checklist items verified"
 
 ---
 
@@ -271,36 +265,30 @@ A task is DONE when:
 
 ### When to Update Plan
 
-| Event               | Update Required                    |
-| ------------------- | ---------------------------------- |
-| Task completed      | Check off, add to progress log     |
-| Blocker discovered  | Add to dependencies, update status |
-| Scope change        | Revise tasks, re-estimate          |
-| New information     | Update risks/decisions log         |
-| End of work session | Mark current progress              |
+- Task completed: Check off, add to progress log
+- Blocker discovered: Add to dependencies, update status
+- Scope change: Revise tasks, re-estimate
+- New information: Update risks/decisions log
+- End of work session: Mark current progress
 
 ### Plan Review Frequency
 
-| Project Duration | Review Frequency           |
-| ---------------- | -------------------------- |
-| < 1 day          | Start and end              |
-| 1-3 days         | Daily                      |
-| > 3 days         | Daily + weekly deep review |
+- < 1 day: Start and end
+- 1-3 days: Daily
+- > 3 days: Daily + weekly deep review
 
 ---
 
 ## 🚨 Anti-Patterns
 
-| ❌ Don't                    | ✅ Do                                |
-| --------------------------- | ------------------------------------ |
-| Giant monolithic tasks      | Break into 15min-4hr chunks          |
-| "It depends on everything"  | Map only true blocking dependencies  |
-| Estimate without buffers    | Apply confidence multiplier          |
-| Skip verification criteria  | Define "done" for every task         |
-| Never update the plan       | Update as you learn                  |
-| Plan at wrong granularity   | Match plan detail to project size    |
-| Plan replaces communication | Plan supplements communication       |
-| Over-plan simple work       | Use judgment on when plans add value |
+- Giant monolithic tasks: Break into 15min-4hr chunks
+- "It depends on everything": Map only true blocking dependencies
+- Estimate without buffers: Apply confidence multiplier
+- Skip verification criteria: Define "done" for every task
+- Never update the plan: Update as you learn
+- Plan at wrong granularity: Match plan detail to project size
+- Plan replaces communication: Plan supplements communication
+- Over-plan simple work: Use judgment on when plans add value
 
 ---
 
@@ -308,17 +296,15 @@ A task is DONE when:
 
 ### Good Task Names
 
-| Format                | Examples                           |
-| --------------------- | ---------------------------------- |
-| `Create [thing]`      | Create user authentication schema  |
-| `Implement [feature]` | Implement password reset flow      |
-| `Update [existing]`   | Update API error handling          |
-| `Add [capability]`    | Add email validation to signup     |
-| `Remove [deprecated]` | Remove legacy auth endpoints       |
-| `Fix [issue]`         | Fix timezone conversion bug        |
-| `Migrate [from → to]` | Migrate users table to new schema  |
-| `Test [component]`    | Test payment processing edge cases |
-| `Document [topic]`    | Document API authentication flow   |
+- `Create [thing]`: Create user authentication schema
+- `Implement [feature]`: Implement password reset flow
+- `Update [existing]`: Update API error handling
+- `Add [capability]`: Add email validation to signup
+- `Remove [deprecated]`: Remove legacy auth endpoints
+- `Fix [issue]`: Fix timezone conversion bug
+- `Migrate [from → to]`: Migrate users table to new schema
+- `Test [component]`: Test payment processing edge cases
+- `Document [topic]`: Document API authentication flow
 
 ---
 
@@ -357,12 +343,10 @@ Before starting implementation:
 
 ## 🔗 Related Skills
 
-| Need                      | Skill                  |
-| ------------------------- | ---------------------- |
-| Discovery before planning | `brainstorming`        |
-| Debugging with structure  | `systematic-debugging` |
-| Clean implementation      | `clean-code`           |
-| API task breakdown        | `api-patterns`         |
+- Discovery before planning: `brainstorming`
+- Debugging with structure: `systematic-debugging`
+- Clean implementation: `clean-code`
+- API task breakdown: `api-patterns`
 
 ---
 

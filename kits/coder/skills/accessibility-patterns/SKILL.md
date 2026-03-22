@@ -24,13 +24,11 @@ priority: MEDIUM
 
 ## 🎯 Core Principles
 
-| Principle           | Rule                                          |
-| ------------------- | --------------------------------------------- |
-| **Perceivable**     | Information must be presentable to all senses |
-| **Operable**        | UI must be operable by all users              |
-| **Understandable**  | Information and UI must be understandable     |
-| **Robust**          | Content must work with assistive technologies |
-| **Inclusive First** | Build accessibility in, don't bolt it on      |
+- **Perceivable**: Information must be presentable to all senses
+- **Operable**: UI must be operable by all users
+- **Understandable**: Information and UI must be understandable
+- **Robust**: Content must work with assistive technologies
+- **Inclusive First**: Build accessibility in, don't bolt it on
 
 ```
 ❌ WRONG: Build first, add accessibility later
@@ -94,13 +92,11 @@ priority: MEDIUM
 
 ### Focus Management
 
-| Rule                        | Implementation                    |
-| --------------------------- | --------------------------------- |
-| All interactive elements    | Must be focusable via Tab         |
-| Logical focus order         | Match visual reading order        |
-| Visible focus indicators    | Never `outline: none` without alt |
-| Focus trapping in modals    | Tab loops within modal            |
-| Return focus on modal close | Focus returns to trigger element  |
+- All interactive elements: Must be focusable via Tab
+- Logical focus order: Match visual reading order
+- Visible focus indicators: Never `outline: none` without alt
+- Focus trapping in modals: Tab loops within modal
+- Return focus on modal close: Focus returns to trigger element
 
 ### Focus Indicator Pattern
 
@@ -147,14 +143,12 @@ button:focus:not(:focus-visible) {
 
 ### Semantic HTML
 
-| Use                 | Not                     |
-| ------------------- | ----------------------- |
-| `<button>`          | `<div onclick>`         |
-| `<a href>`          | `<span onclick>`        |
-| `<nav>`             | `<div class="nav">`     |
-| `<main>`            | `<div class="main">`    |
-| `<header>/<footer>` | `<div class="header">`  |
-| `<article>`         | `<div class="article">` |
+- `<button>`: `<div onclick>`
+- `<a href>`: `<span onclick>`
+- `<nav>`: `<div class="nav">`
+- `<main>`: `<div class="main">`
+- `<header>/<footer>`: `<div class="header">`
+- `<article>`: `<div class="article">`
 
 ### ARIA Usage Guidelines
 
@@ -182,11 +176,9 @@ button:focus:not(:focus-visible) {
 <div role="alert" aria-live="assertive">Error: Unable to save changes</div>
 ```
 
-| aria-live Value | Use Case                            |
-| --------------- | ----------------------------------- |
-| `polite`        | Non-urgent updates (search results) |
-| `assertive`     | Urgent (errors, alerts)             |
-| `off`           | Don't announce                      |
+- `polite`: Non-urgent updates (search results)
+- `assertive`: Urgent (errors, alerts)
+- `off`: Don't announce
 
 ---
 
@@ -226,11 +218,9 @@ button:focus:not(:focus-visible) {
 
 ### Form Validation Pattern
 
-| When      | What                                    |
-| --------- | --------------------------------------- |
-| On submit | Announce error count, focus first error |
-| On blur   | Validate individual field               |
-| On fix    | Clear error, don't re-announce success  |
+- On submit: Announce error count, focus first error
+- On blur: Validate individual field
+- On fix: Clear error, don't re-announce success
 
 ---
 
@@ -238,12 +228,10 @@ button:focus:not(:focus-visible) {
 
 ### Alt Text Guidelines
 
-| Image Type        | Alt Text                       |
-| ----------------- | ------------------------------ |
-| Informative       | Describe content and purpose   |
-| Decorative        | `alt=""` (empty)               |
-| Functional (link) | Describe destination/action    |
-| Complex (chart)   | Brief alt + longer description |
+- Informative: Describe content and purpose
+- Decorative: `alt=""` (empty)
+- Functional (link): Describe destination/action
+- Complex (chart): Brief alt + longer description
 
 ```html
 <!-- Informative -->
@@ -261,12 +249,10 @@ button:focus:not(:focus-visible) {
 
 ### Video Accessibility
 
-| Requirement     | Solution                     |
-| --------------- | ---------------------------- |
-| Deaf users      | Captions (synchronized text) |
-| Blind users     | Audio descriptions           |
-| Deafblind users | Transcript                   |
-| Seizure safety  | No flashing >3 times/second  |
+- Deaf users: Captions (synchronized text)
+- Blind users: Audio descriptions
+- Deafblind users: Transcript
+- Seizure safety: No flashing >3 times/second
 
 ---
 
@@ -274,12 +260,10 @@ button:focus:not(:focus-visible) {
 
 ### Touch Target Size
 
-| Standard        | Minimum Size |
-| --------------- | ------------ |
-| WCAG 2.2 AA     | 24x24px      |
-| WCAG 2.2 AAA    | 44x44px      |
-| Apple HIG       | 44x44pt      |
-| Material Design | 48x48dp      |
+- WCAG 2.2 AA: 24x24px
+- WCAG 2.2 AAA: 44x44px
+- Apple HIG: 44x44pt
+- Material Design: 48x48dp
 
 ### Spacing Between Targets
 
@@ -297,38 +281,32 @@ button:focus:not(:focus-visible) {
 
 ### Automated Testing
 
-| Tool             | Use Case                            |
-| ---------------- | ----------------------------------- |
-| **axe DevTools** | Browser extension, CI integration   |
-| **Lighthouse**   | Chrome DevTools, performance + a11y |
-| **WAVE**         | Browser extension, visual feedback  |
-| **pa11y**        | CLI tool for CI/CD                  |
-| **jest-axe**     | Unit test accessibility assertions  |
+- **axe DevTools**: Browser extension, CI integration
+- **Lighthouse**: Chrome DevTools, performance + a11y
+- **WAVE**: Browser extension, visual feedback
+- **pa11y**: CLI tool for CI/CD
+- **jest-axe**: Unit test accessibility assertions
 
 ### Manual Testing
 
-| Test           | How                                  |
-| -------------- | ------------------------------------ |
-| Keyboard only  | Unplug mouse, navigate with Tab      |
-| Screen reader  | VoiceOver (Mac), NVDA/JAWS (Windows) |
-| Zoom 200%      | Browser zoom, check layout           |
-| Color contrast | Use contrast checker tools           |
-| Motion reduced | Test `prefers-reduced-motion`        |
+- Keyboard only: Unplug mouse, navigate with Tab
+- Screen reader: VoiceOver (Mac), NVDA/JAWS (Windows)
+- Zoom 200%: Browser zoom, check layout
+- Color contrast: Use contrast checker tools
+- Motion reduced: Test `prefers-reduced-motion`
 
 ---
 
 ## 🚨 Anti-Patterns
 
-| ❌ Don't                         | ✅ Do                               |
-| -------------------------------- | ----------------------------------- |
-| `outline: none` without alt      | Custom focus with adequate contrast |
-| Color-only indicators            | Multiple visual cues                |
-| Generic link text ("click here") | Descriptive link text               |
-| Auto-playing media               | User-controlled playback            |
-| Time limits without extension    | Allow time extension or removal     |
-| Mouse-only interactions          | Keyboard equivalent for all actions |
-| Missing form labels              | Associated labels or aria-label     |
-| Small touch targets              | Minimum 44x44 touch targets         |
+- `outline: none` without alt: Custom focus with adequate contrast
+- Color-only indicators: Multiple visual cues
+- Generic link text ("click here"): Descriptive link text
+- Auto-playing media: User-controlled playback
+- Time limits without extension: Allow time extension or removal
+- Mouse-only interactions: Keyboard equivalent for all actions
+- Missing form labels: Associated labels or aria-label
+- Small touch targets: Minimum 44x44 touch targets
 
 ---
 
@@ -370,12 +348,10 @@ button:focus:not(:focus-visible) {
 
 ## 🔗 Related Skills
 
-| Need               | Skill                   |
-| ------------------ | ----------------------- |
-| SEO implementation | `seo-patterns`          |
-| Frontend design    | `frontend-design`       |
-| UX research        | UX researcher agent     |
-| Performance        | `performance-profiling` |
+- SEO implementation: `seo-patterns`
+- Frontend design: `frontend-design`
+- UX research: UX researcher agent
+- Performance: `performance-profiling`
 
 ---
 

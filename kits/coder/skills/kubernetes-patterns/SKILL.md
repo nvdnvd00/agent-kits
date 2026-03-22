@@ -24,13 +24,11 @@ priority: HIGH
 
 ## Core Principles
 
-| Principle           | Rule                                                 |
-| ------------------- | ---------------------------------------------------- |
-| **Declarative**     | Define desired state, not imperative steps           |
-| **Immutable**       | Never modify running resources - redeploy instead    |
-| **GitOps**          | Git is the source of truth for all manifests         |
-| **Least Privilege** | RBAC with minimal permissions, pod security policies |
-| **Observable**      | Probes, metrics, logs for every workload             |
+- **Declarative**: Define desired state, not imperative steps
+- **Immutable**: Never modify running resources - redeploy instead
+- **GitOps**: Git is the source of truth for all manifests
+- **Least Privilege**: RBAC with minimal permissions, pod security policies
+- **Observable**: Probes, metrics, logs for every workload
 
 ---
 
@@ -326,41 +324,35 @@ spec:
 
 ## Anti-Patterns (DON'T)
 
-| ❌ Anti-Pattern              | ✅ Correct Approach                     |
-| ---------------------------- | --------------------------------------- |
-| `kubectl apply` from laptop  | GitOps - apply from Git repo            |
-| `latest` image tag           | Specific versioned tags                 |
-| No resource requests/limits  | Always set requests, usually set limits |
-| Running as root              | `runAsNonRoot: true`                    |
-| Secrets in ConfigMap         | Use Secrets or External Secrets         |
-| No health probes             | livenessProbe + readinessProbe          |
-| Single replica in prod       | Minimum 2-3 replicas with PDB           |
-| `kubectl edit` in production | Edit in Git, apply via GitOps           |
+- `kubectl apply` from laptop: GitOps - apply from Git repo
+- `latest` image tag: Specific versioned tags
+- No resource requests/limits: Always set requests, usually set limits
+- Running as root: `runAsNonRoot: true`
+- Secrets in ConfigMap: Use Secrets or External Secrets
+- No health probes: livenessProbe + readinessProbe
+- Single replica in prod: Minimum 2-3 replicas with PDB
+- `kubectl edit` in production: Edit in Git, apply via GitOps
 
 ---
 
 ## 🔴 Self-Check Before Deploying
 
-| Check                     | Question                              |
-| ------------------------- | ------------------------------------- |
-| ✅ **Resources set?**     | requests and limits configured?       |
-| ✅ **Probes configured?** | liveness + readiness probes?          |
-| ✅ **Non-root?**          | Pod runs as non-root user?            |
-| ✅ **Image pinned?**      | Specific tag, not `latest`?           |
-| ✅ **Secrets external?**  | No hardcoded secrets in manifests?    |
-| ✅ **Replicas > 1?**      | At least 2 replicas for HA?           |
-| ✅ **PDB defined?**       | PodDisruptionBudget for availability? |
+- ✅ **Resources set?**: requests and limits configured?
+- ✅ **Probes configured?**: liveness + readiness probes?
+- ✅ **Non-root?**: Pod runs as non-root user?
+- ✅ **Image pinned?**: Specific tag, not `latest`?
+- ✅ **Secrets external?**: No hardcoded secrets in manifests?
+- ✅ **Replicas > 1?**: At least 2 replicas for HA?
+- ✅ **PDB defined?**: PodDisruptionBudget for availability?
 
 ---
 
 ## Related Skills
 
-| Need                 | Skill                     |
-| -------------------- | ------------------------- |
-| Container images     | `docker-patterns`         |
-| CI/CD pipelines      | `github-actions` (future) |
-| Server management    | `server-management`       |
-| Deployment workflows | `deployment-procedures`   |
+- Container images: `docker-patterns`
+- CI/CD pipelines: `github-actions` (future)
+- Server management: `server-management`
+- Deployment workflows: `deployment-procedures`
 
 ---
 

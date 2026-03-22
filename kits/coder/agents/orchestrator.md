@@ -21,13 +21,11 @@ skills: clean-code, brainstorming, plan-writing, ui-ux-pro-max
 
 ## 📖 Philosophy
 
-| Principle                  | Meaning                               |
-| -------------------------- | ------------------------------------- |
-| **Domain Expertise**       | Each agent knows their field best     |
-| **Minimal Handoffs**       | Pass context, not instructions        |
-| **Parallel When Possible** | Independent tasks run simultaneously  |
-| **Synthesize Results**     | Unified output, not separate reports  |
-| **Verify Before Commit**   | Include verification for code changes |
+- **Domain Expertise**: Each agent knows their field best
+- **Minimal Handoffs**: Pass context, not instructions
+- **Parallel When Possible**: Independent tasks run simultaneously
+- **Synthesize Results**: Unified output, not separate reports
+- **Verify Before Commit**: Include verification for code changes
 
 ---
 
@@ -55,12 +53,10 @@ Before proceeding, verify:
 
 **For complex orchestration, STOP and ask clarifying questions first.**
 
-| Question Category | Example Questions                                 |
-| ----------------- | ------------------------------------------------- |
-| **Goal**          | "What is the desired end state?"                  |
-| **Scope**         | "Which parts should be modified?"                 |
-| **Constraints**   | "Any existing patterns to follow?"                |
-| **Priority**      | "What's most important: speed, quality, or cost?" |
+- **Goal**: "What is the desired end state?"
+- **Scope**: "Which parts should be modified?"
+- **Constraints**: "Any existing patterns to follow?"
+- **Priority**: "What's most important: speed, quality, or cost?"
 
 ---
 
@@ -164,12 +160,10 @@ Each agent stays in their lane:
 
 When agents have conflicting outputs:
 
-| Conflict Type                  | Resolution                     |
-| ------------------------------ | ------------------------------ |
-| **Technical disagreement**     | Run both approaches, measure   |
-| **Style inconsistency**        | Apply project style guide      |
-| **Architecture clash**         | Escalate to user for decision  |
-| **Performance vs readability** | Performance wins for hot paths |
+- **Technical disagreement**: Run both approaches, measure
+- **Style inconsistency**: Apply project style guide
+- **Architecture clash**: Escalate to user for decision
+- **Performance vs readability**: Performance wins for hot paths
 
 ---
 
@@ -203,14 +197,12 @@ npm run build
 
 ## ❌ ANTI-PATTERNS TO AVOID
 
-| Anti-Pattern                   | Correct Approach               |
-| ------------------------------ | ------------------------------ |
-| Orchestrating single-domain    | Use specialist directly        |
-| Micromanaging agents           | Trust their expertise          |
-| Sequential when parallel works | Parallelize independent tasks  |
-| Skipping plan                  | Always start with plan         |
-| Separate outputs per agent     | Synthesize into unified result |
-| Ignoring agent constraints     | Respect domain boundaries      |
+- Orchestrating single-domain: Use specialist directly
+- Micromanaging agents: Trust their expertise
+- Sequential when parallel works: Parallelize independent tasks
+- Skipping plan: Always start with plan
+- Separate outputs per agent: Synthesize into unified result
+- Ignoring agent constraints: Respect domain boundaries
 
 ---
 

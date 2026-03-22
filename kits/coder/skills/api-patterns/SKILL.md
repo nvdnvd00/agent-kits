@@ -47,13 +47,11 @@ What are your requirements?
 
 ### Resource Naming
 
-| ✅ Do               | ❌ Don't           |
-| ------------------- | ------------------ |
-| `GET /users`        | `GET /getUsers`    |
-| `GET /users/:id`    | `GET /user?id=123` |
-| `POST /users`       | `POST /createUser` |
-| `DELETE /users/:id` | `POST /deleteUser` |
-| `/users/:id/orders` | `/getUserOrders`   |
+- `GET /users`: `GET /getUsers`
+- `GET /users/:id`: `GET /user?id=123`
+- `POST /users`: `POST /createUser`
+- `DELETE /users/:id`: `POST /deleteUser`
+- `/users/:id/orders`: `/getUserOrders`
 
 ### HTTP Methods
 
@@ -117,13 +115,11 @@ What are your requirements?
 
 ### Error Code Naming
 
-| Pattern                   | Example                             |
-| ------------------------- | ----------------------------------- |
-| `RESOURCE_NOT_FOUND`      | `USER_NOT_FOUND`, `ORDER_NOT_FOUND` |
-| `RESOURCE_ALREADY_EXISTS` | `EMAIL_ALREADY_EXISTS`              |
-| `INVALID_FIELD`           | `INVALID_EMAIL`, `INVALID_PHONE`    |
-| `PERMISSION_DENIED`       | `PERMISSION_DENIED`                 |
-| `RATE_LIMITED`            | `RATE_LIMITED`                      |
+- `RESOURCE_NOT_FOUND`: `USER_NOT_FOUND`, `ORDER_NOT_FOUND`
+- `RESOURCE_ALREADY_EXISTS`: `EMAIL_ALREADY_EXISTS`
+- `INVALID_FIELD`: `INVALID_EMAIL`, `INVALID_PHONE`
+- `PERMISSION_DENIED`: `PERMISSION_DENIED`
+- `RATE_LIMITED`: `RATE_LIMITED`
 
 ---
 
@@ -170,14 +166,12 @@ Response:
 
 ### Decision Matrix
 
-| Use Case                  | Strategy |
-| ------------------------- | -------- |
-| Small dataset (<1000)     | Offset   |
-| Large dataset (>10000)    | Cursor   |
-| Frequently changing data  | Cursor   |
-| Random page access needed | Offset   |
-| Infinite scroll UI        | Cursor   |
-| Table with page numbers   | Offset   |
+- Small dataset (<1000): Offset
+- Large dataset (>10000): Cursor
+- Frequently changing data: Cursor
+- Random page access needed: Offset
+- Infinite scroll UI: Cursor
+- Table with page numbers: Offset
 
 ---
 
@@ -227,11 +221,9 @@ v1 (retired)    → Returns 410 Gone
 
 ### Strategies
 
-| Strategy           | Description                           |
-| ------------------ | ------------------------------------- |
-| **Token Bucket**   | Allows bursts, refills over time      |
-| **Sliding Window** | Smooth rate control                   |
-| **Fixed Window**   | Simple but allows burst at boundaries |
+- **Token Bucket**: Allows bursts, refills over time
+- **Sliding Window**: Smooth rate control
+- **Fixed Window**: Simple but allows burst at boundaries
 
 ### Response Headers
 
@@ -283,15 +275,13 @@ When using tRPC (TypeScript-first):
 
 ## Anti-Patterns
 
-| ❌ Don't                     | ✅ Do                         |
-| ---------------------------- | ----------------------------- |
-| Use verbs in REST endpoints  | Use nouns + HTTP methods      |
-| Return 200 for errors        | Use appropriate status codes  |
-| Expose stack traces          | Return structured error codes |
-| Skip rate limiting           | Implement from day 1          |
-| Inconsistent response format | Define envelope pattern       |
-| Version in request body      | Version in URL path           |
-| Return all fields always     | Support field selection       |
+- Use verbs in REST endpoints: Use nouns + HTTP methods
+- Return 200 for errors: Use appropriate status codes
+- Expose stack traces: Return structured error codes
+- Skip rate limiting: Implement from day 1
+- Inconsistent response format: Define envelope pattern
+- Version in request body: Version in URL path
+- Return all fields always: Support field selection
 
 ---
 
@@ -313,12 +303,10 @@ Before implementing:
 
 ## Related Skills
 
-| Need                   | Skill                   |
-| ---------------------- | ----------------------- |
-| Backend implementation | `nodejs-best-practices` |
-| Database design        | `database-design`       |
-| Security hardening     | `security-fundamentals` |
-| Testing APIs           | `testing-patterns`      |
+- Backend implementation: `nodejs-best-practices`
+- Database design: `database-design`
+- Security hardening: `security-fundamentals`
+- Testing APIs: `testing-patterns`
 
 ---
 

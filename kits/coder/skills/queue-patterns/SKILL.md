@@ -37,13 +37,11 @@ tags: [architecture, queue, jobs, async, reliability]
 
 > **"A queue is a promise: jobs go in, results come out, nothing is lost."**
 
-| Principle                   | Implementation                                           |
-| --------------------------- | -------------------------------------------------------- |
-| **Jobs Are Sacred**         | Every job must complete, fail explicitly, or move to DLQ |
-| **Idempotency by Design**   | Same job running twice = same outcome                    |
-| **Reliability Over Speed**  | Slow and correct beats fast and lossy                    |
-| **Observability Mandatory** | Every job traceable from start to end                    |
-| **Fail Closed**             | Unknown errors → retry, not ignore                       |
+- **Jobs Are Sacred**: Every job must complete, fail explicitly, or move to DLQ
+- **Idempotency by Design**: Same job running twice = same outcome
+- **Reliability Over Speed**: Slow and correct beats fast and lossy
+- **Observability Mandatory**: Every job traceable from start to end
+- **Fail Closed**: Unknown errors → retry, not ignore
 
 ---
 
@@ -179,14 +177,12 @@ WAITING → ACTIVE → COMPLETED
 
 ### Queue Architecture Decisions
 
-| Need                       | Solution                          |
-| -------------------------- | --------------------------------- |
-| Fast priority jobs         | Separate priority queue           |
-| Delayed execution          | Scheduled jobs with `delay`       |
-| Rate limiting external API | Limiter group in BullMQ           |
-| Strict ordering            | FIFO with job grouping            |
-| Large batch processing     | Parent-child jobs (chunking)      |
-| Multi-tenant isolation     | Queue per tenant OR tenant prefix |
+- Fast priority jobs: Separate priority queue
+- Delayed execution: Scheduled jobs with `delay`
+- Rate limiting external API: Limiter group in BullMQ
+- Strict ordering: FIFO with job grouping
+- Large batch processing: Parent-child jobs (chunking)
+- Multi-tenant isolation: Queue per tenant OR tenant prefix
 
 ### Concurrency Patterns
 

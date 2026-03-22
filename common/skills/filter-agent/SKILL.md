@@ -25,50 +25,40 @@ Filter Agent analyzes the **techstack profile** (from scan-techstack) and recomm
 
 ### Tier 1: Master Agents (NEVER DISABLE)
 
-| Agent             | Always Required For              |
-| ----------------- | -------------------------------- |
-| `orchestrator`    | Multi-agent coordination         |
-| `project-planner` | Project planning, task breakdown |
-| `debugger`        | Systematic problem solving       |
+- `orchestrator`: Multi-agent coordination
+- `project-planner`: Project planning, task breakdown
+- `debugger`: Systematic problem solving
 
 ### Tier 2: Development Specialists
 
-| Agent                 | Enable When                                |
-| --------------------- | ------------------------------------------ |
-| `frontend-specialist` | Frontend detected (React, Vue, Angular)    |
-| `backend-specialist`  | Backend detected (Express, NestJS, API)    |
-| `mobile-developer`    | Mobile detected (Flutter, RN, iOS/Android) |
-| `database-specialist` | Database detected (Prisma, PostgreSQL)     |
-| `devops-engineer`     | DevOps detected (Docker, K8s, CI/CD)       |
+- `frontend-specialist`: Frontend detected (React, Vue, Angular)
+- `backend-specialist`: Backend detected (Express, NestJS, API)
+- `mobile-developer`: Mobile detected (Flutter, RN, iOS/Android)
+- `database-specialist`: Database detected (Prisma, PostgreSQL)
+- `devops-engineer`: DevOps detected (Docker, K8s, CI/CD)
 
 ### Tier 3: Quality & Security
 
-| Agent                 | Enable When                                 |
-| --------------------- | ------------------------------------------- |
-| `security-auditor`    | Always enabled for security reviews         |
-| `code-reviewer`       | Always enabled for PR reviews               |
-| `test-engineer`       | Testing detected (Jest, Vitest, Playwright) |
-| `performance-analyst` | Always enabled for optimization             |
+- `security-auditor`: Always enabled for security reviews
+- `code-reviewer`: Always enabled for PR reviews
+- `test-engineer`: Testing detected (Jest, Vitest, Playwright)
+- `performance-analyst`: Always enabled for optimization
 
 ### Tier 4: Domain Specialists
 
-| Agent                    | Enable When                                |
-| ------------------------ | ------------------------------------------ |
-| `realtime-specialist`    | Realtime detected (Socket.IO, WS)          |
-| `multi-tenant-architect` | Multi-tenancy patterns detected            |
-| `queue-specialist`       | Queue detected (BullMQ, RabbitMQ)          |
-| `integration-specialist` | External API integrations detected         |
-| `ai-engineer`            | AI detected (OpenAI, LangChain)            |
-| `cloud-architect`        | Cloud infra detected (AWS, GCP, Terraform) |
-| `data-engineer`          | Data pipeline patterns detected            |
+- `realtime-specialist`: Realtime detected (Socket.IO, WS)
+- `multi-tenant-architect`: Multi-tenancy patterns detected
+- `queue-specialist`: Queue detected (BullMQ, RabbitMQ)
+- `integration-specialist`: External API integrations detected
+- `ai-engineer`: AI detected (OpenAI, LangChain)
+- `cloud-architect`: Cloud infra detected (AWS, GCP, Terraform)
+- `data-engineer`: Data pipeline patterns detected
 
 ### Tier 5: Support Agents
 
-| Agent                  | Enable When                |
-| ---------------------- | -------------------------- |
-| `documentation-writer` | Always enabled for docs    |
-| `i18n-specialist`      | i18n dependencies detected |
-| `ux-researcher`        | Frontend/Mobile detected   |
+- `documentation-writer`: Always enabled for docs
+- `i18n-specialist`: i18n dependencies detected
+- `ux-researcher`: Frontend/Mobile detected
 
 ---
 
@@ -76,19 +66,17 @@ Filter Agent analyzes the **techstack profile** (from scan-techstack) and recomm
 
 ### Category → Agent Mapping
 
-| Detected Category | Agents to ENABLE                                 |
-| ----------------- | ------------------------------------------------ |
-| `frontend`        | frontend-specialist, ux-researcher               |
-| `backend`         | backend-specialist                               |
-| `mobile`          | mobile-developer, ux-researcher                  |
-| `database`        | database-specialist                              |
-| `devops`          | devops-engineer, cloud-architect                 |
-| `ai`              | ai-engineer                                      |
-| `realtime`        | realtime-specialist                              |
-| `queue`           | queue-specialist                                 |
-| `graphql`         | backend-specialist (GraphQL expertise)           |
-| `auth`            | security-auditor (always on), backend-specialist |
-| `testing`         | test-engineer                                    |
+- `frontend`: frontend-specialist, ux-researcher
+- `backend`: backend-specialist
+- `mobile`: mobile-developer, ux-researcher
+- `database`: database-specialist
+- `devops`: devops-engineer, cloud-architect
+- `ai`: ai-engineer
+- `realtime`: realtime-specialist
+- `queue`: queue-specialist
+- `graphql`: backend-specialist (GraphQL expertise)
+- `auth`: security-auditor (always on), backend-specialist
+- `testing`: test-engineer
 
 ### Never Disable (Core Agents)
 

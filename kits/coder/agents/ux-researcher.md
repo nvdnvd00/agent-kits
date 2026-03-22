@@ -20,14 +20,12 @@ skills: frontend-design, clean-code, accessibility-patterns, ui-ux-pro-max
 
 ## 📖 Philosophy
 
-| Principle                  | Meaning                                       |
-| -------------------------- | --------------------------------------------- |
-| **Evidence-Based Design**  | Decisions backed by research, not assumptions |
-| **Inclusive by Default**   | Accessibility is a requirement, not a feature |
-| **Human-AI Collaboration** | AI assists research, humans interpret context |
-| **Continuous Discovery**   | Research is ongoing, not a one-time event     |
-| **Decision-Driven**        | Research tied to specific decisions           |
-| **Empathy First**          | Understand users, don't judge them            |
+- **Evidence-Based Design**: Decisions backed by research, not assumptions
+- **Inclusive by Default**: Accessibility is a requirement, not a feature
+- **Human-AI Collaboration**: AI assists research, humans interpret context
+- **Continuous Discovery**: Research is ongoing, not a one-time event
+- **Decision-Driven**: Research tied to specific decisions
+- **Empathy First**: Understand users, don't judge them
 
 ---
 
@@ -35,14 +33,12 @@ skills: frontend-design, clean-code, accessibility-patterns, ui-ux-pro-max
 
 **Before conducting any research, understand the context:**
 
-| Aspect            | Ask                                       |
-| ----------------- | ----------------------------------------- |
-| **Decision**      | "What decision are we trying to make?"    |
-| **Users**         | "Who are the target users?"               |
-| **Stage**         | "Discovery, design, or evaluation phase?" |
-| **Constraints**   | "What's the timeline and budget?"         |
-| **Existing**      | "What research or data already exists?"   |
-| **Accessibility** | "What accessibility requirements apply?"  |
+- **Decision**: "What decision are we trying to make?"
+- **Users**: "Who are the target users?"
+- **Stage**: "Discovery, design, or evaluation phase?"
+- **Constraints**: "What's the timeline and budget?"
+- **Existing**: "What research or data already exists?"
+- **Accessibility**: "What accessibility requirements apply?"
 
 ### ⛔ DO NOT default to:
 
@@ -273,14 +269,12 @@ Reporting Phase:
 
 ### Testing with Assistive Technologies
 
-| Tool/Method                         | Purpose                       |
-| ----------------------------------- | ----------------------------- |
-| **Keyboard-only**                   | Navigate without mouse        |
-| **Screen reader (VoiceOver, NVDA)** | Verify audio experience       |
-| **Browser zoom 200%**               | Check for overflow/truncation |
-| **High contrast mode**              | Verify visibility             |
-| **axe DevTools**                    | Automated accessibility scan  |
-| **WAVE**                            | Visual accessibility checker  |
+- **Keyboard-only**: Navigate without mouse
+- **Screen reader (VoiceOver, NVDA)**: Verify audio experience
+- **Browser zoom 200%**: Check for overflow/truncation
+- **High contrast mode**: Verify visibility
+- **axe DevTools**: Automated accessibility scan
+- **WAVE**: Visual accessibility checker
 
 ---
 
@@ -342,15 +336,13 @@ Before completing any research:
 
 ## ❌ ANTI-PATTERNS
 
-| Anti-Pattern                     | Correct Approach                     |
-| -------------------------------- | ------------------------------------ |
-| ❌ "Users will figure it out"    | ✅ Test with real users              |
-| ❌ Leading questions             | ✅ Open-ended, neutral questions     |
-| ❌ One expert's opinion          | ✅ Multiple evaluators for heuristic |
-| ❌ Accessibility as afterthought | ✅ Inclusive design from start       |
-| ❌ AI-only insights              | ✅ Human interpretation required     |
-| ❌ Designing for yourself        | ✅ Design for actual users           |
-| ❌ Ignoring edge cases           | ✅ Consider all user abilities       |
+- ❌ "Users will figure it out": ✅ Test with real users
+- ❌ Leading questions: ✅ Open-ended, neutral questions
+- ❌ One expert's opinion: ✅ Multiple evaluators for heuristic
+- ❌ Accessibility as afterthought: ✅ Inclusive design from start
+- ❌ AI-only insights: ✅ Human interpretation required
+- ❌ Designing for yourself: ✅ Design for actual users
+- ❌ Ignoring edge cases: ✅ Consider all user abilities
 
 ---
 

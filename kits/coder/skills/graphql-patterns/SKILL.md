@@ -23,14 +23,12 @@ version: 2.0
 
 ## When to Use This Skill
 
-| ✅ Use                      | ❌ Don't Use                     |
-| --------------------------- | -------------------------------- |
-| Schema design               | REST API design                  |
-| Resolver implementation     | Database queries (use ORM)       |
-| N+1 prevention (DataLoader) | Client-side caching (use Apollo) |
-| Federation architecture     | Simple CRUD APIs                 |
-| Real-time subscriptions     | File uploads as primary use      |
-| Query optimization          | Rate limiting (use middleware)   |
+- Schema design: REST API design
+- Resolver implementation: Database queries (use ORM)
+- N+1 prevention (DataLoader): Client-side caching (use Apollo)
+- Federation architecture: Simple CRUD APIs
+- Real-time subscriptions: File uploads as primary use
+- Query optimization: Rate limiting (use middleware)
 
 ➡️ For REST patterns, see `api-patterns` skill.
 
@@ -77,14 +75,12 @@ input UpdateUserInput {
 
 ### Nullability Strategy
 
-| Pattern      | Meaning                             |
-| ------------ | ----------------------------------- |
-| `String`     | May be null (optional field)        |
-| `String!`    | Never null (required)               |
-| `[String]`   | List may be null, items may be null |
-| `[String]!`  | List never null, items may be null  |
-| `[String!]`  | List may be null, items never null  |
-| `[String!]!` | List never null, items never null   |
+- `String`: May be null (optional field)
+- `String!`: Never null (required)
+- `[String]`: List may be null, items may be null
+- `[String]!`: List never null, items may be null
+- `[String!]`: List may be null, items never null
+- `[String!]!`: List never null, items never null
 
 **Recommendation:** Use `[Type!]!` for lists (empty list over null).
 
@@ -526,16 +522,14 @@ const server = new ApolloServer({
 
 ## Anti-Patterns
 
-| ❌ Don't                              | ✅ Do                                       |
-| ------------------------------------- | ------------------------------------------- |
-| Resolver makes DB call without loader | Use DataLoader for all DB access            |
-| All fields nullable                   | Design nullability intentionally            |
-| Auth only in directives               | Auth in resolvers, directives as supplement |
-| Introspection in production           | Disable introspection                       |
-| Deep unlimited queries                | Depth limiting + complexity analysis        |
-| Return all errors as same type        | Use union types for error variants          |
-| Create DataLoader once globally       | Create per-request                          |
-| Subscription without auth check       | Check auth in subscribe function            |
+- Resolver makes DB call without loader: Use DataLoader for all DB access
+- All fields nullable: Design nullability intentionally
+- Auth only in directives: Auth in resolvers, directives as supplement
+- Introspection in production: Disable introspection
+- Deep unlimited queries: Depth limiting + complexity analysis
+- Return all errors as same type: Use union types for error variants
+- Create DataLoader once globally: Create per-request
+- Subscription without auth check: Check auth in subscribe function
 
 ---
 
@@ -556,12 +550,10 @@ Before production:
 
 ## Related Skills
 
-| Need                   | Skill                 |
-| ---------------------- | --------------------- |
-| REST API design        | `api-patterns`        |
-| Database queries       | `database-design`     |
-| Real-time patterns     | `realtime-patterns`   |
-| TypeScript integration | `typescript-patterns` |
+- REST API design: `api-patterns`
+- Database queries: `database-design`
+- Real-time patterns: `realtime-patterns`
+- TypeScript integration: `typescript-patterns`
 
 ---
 

@@ -21,14 +21,12 @@ skills: queue-patterns, clean-code, api-patterns
 
 ## 📖 Philosophy
 
-| Principle                      | Meaning                                          |
-| ------------------------------ | ------------------------------------------------ |
-| **Reliability over speed**     | Better slow and correct than fast and lossy      |
-| **Jobs are sacred**            | Every job must complete, fail explicitly, or DLQ |
-| **Idempotency by design**      | Same job running twice = same outcome            |
-| **Observability is mandatory** | Every job must be traceable from start to end    |
-| **Graceful degradation**       | Queue failure shouldn't crash the application    |
-| **Backpressure awareness**     | Know when to slow down, not just speed up        |
+- **Reliability over speed**: Better slow and correct than fast and lossy
+- **Jobs are sacred**: Every job must complete, fail explicitly, or DLQ
+- **Idempotency by design**: Same job running twice = same outcome
+- **Observability is mandatory**: Every job must be traceable from start to end
+- **Graceful degradation**: Queue failure shouldn't crash the application
+- **Backpressure awareness**: Know when to slow down, not just speed up
 
 ---
 
@@ -36,14 +34,12 @@ skills: queue-patterns, clean-code, api-patterns
 
 **When user request is vague, ASK FIRST.**
 
-| Aspect           | Ask                                                       |
-| ---------------- | --------------------------------------------------------- |
-| **Queue System** | "BullMQ, RabbitMQ, SQS, or Kafka? What's existing infra?" |
-| **Reliability**  | "At-least-once or exactly-once semantics needed?"         |
-| **Ordering**     | "Strict FIFO required? Priority queues?"                  |
-| **Delay**        | "Need delayed/scheduled jobs?"                            |
-| **Scale**        | "Expected job volume? Peak throughput?"                   |
-| **Multi-tenant** | "Tenant-aware queues? Separate queues per tenant?"        |
+- **Queue System**: "BullMQ, RabbitMQ, SQS, or Kafka? What's existing infra?"
+- **Reliability**: "At-least-once or exactly-once semantics needed?"
+- **Ordering**: "Strict FIFO required? Priority queues?"
+- **Delay**: "Need delayed/scheduled jobs?"
+- **Scale**: "Expected job volume? Peak throughput?"
+- **Multi-tenant**: "Tenant-aware queues? Separate queues per tenant?"
 
 ### ⛔ DO NOT default to:
 
@@ -199,13 +195,11 @@ WAITING → ACTIVE → COMPLETED
 
 ### Queue Design Decisions
 
-| Need                       | Solution                        |
-| -------------------------- | ------------------------------- |
-| Fast priority jobs         | Separate priority queue         |
-| Delayed execution          | Scheduled jobs with delay       |
-| Rate limiting external API | Rate limiter in BullMQ worker   |
-| Strict ordering            | FIFO with job grouping          |
-| Large batch processing     | Chunking with parent-child jobs |
+- Fast priority jobs: Separate priority queue
+- Delayed execution: Scheduled jobs with delay
+- Rate limiting external API: Rate limiter in BullMQ worker
+- Strict ordering: FIFO with job grouping
+- Large batch processing: Chunking with parent-child jobs
 
 ### Failure Handling Matrix
 
@@ -220,16 +214,14 @@ WAITING → ACTIVE → COMPLETED
 
 ## ❌ ANTI-PATTERNS TO AVOID
 
-| Anti-Pattern                | Correct Approach                        |
-| --------------------------- | --------------------------------------- |
-| Large payloads in jobs      | Store IDs, fetch fresh data in worker   |
-| No retry configuration      | Always configure retries with backoff   |
-| Ignoring dead letter queue  | Monitor and alert on DLQ items          |
-| No idempotency              | Design all handlers to be idempotent    |
-| Unbounded concurrency       | Set appropriate concurrency limits      |
-| Fire and forget             | Track job completion, handle failures   |
-| No monitoring               | Track queue depth, processing time, DLQ |
-| Single queue for everything | Separate queues by priority/type        |
+- Large payloads in jobs: Store IDs, fetch fresh data in worker
+- No retry configuration: Always configure retries with backoff
+- Ignoring dead letter queue: Monitor and alert on DLQ items
+- No idempotency: Design all handlers to be idempotent
+- Unbounded concurrency: Set appropriate concurrency limits
+- Fire and forget: Track job completion, handle failures
+- No monitoring: Track queue depth, processing time, DLQ
+- Single queue for everything: Separate queues by priority/type
 
 ---
 

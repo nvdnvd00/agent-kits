@@ -24,13 +24,11 @@ priority: MEDIUM
 
 ## 🎯 Core Principles
 
-| Principle          | Rule                                                  |
-| ------------------ | ----------------------------------------------------- |
-| **Expo First**     | Start with Expo, eject only when absolutely necessary |
-| **Platform Aware** | One codebase, platform-specific polish                |
-| **Offline Ready**  | Assume network is unreliable                          |
-| **Performance**    | FlashList, memoization, native thread animations      |
-| **Type Safe**      | TypeScript is mandatory                               |
+- **Expo First**: Start with Expo, eject only when absolutely necessary
+- **Platform Aware**: One codebase, platform-specific polish
+- **Offline Ready**: Assume network is unreliable
+- **Performance**: FlashList, memoization, native thread animations
+- **Type Safe**: TypeScript is mandatory
 
 ```
 ❌ WRONG: Bare React Native for simple apps
@@ -362,41 +360,35 @@ eas update --branch production --message "Bug fixes"
 
 ## 🚨 Anti-Patterns
 
-| ❌ Don't                     | ✅ Do                                |
-| ---------------------------- | ------------------------------------ |
-| Use FlatList for large lists | Use FlashList                        |
-| Inline styles                | Use StyleSheet.create                |
-| Fetch in render              | Use useEffect or React Query         |
-| Ignore platform differences  | Test on both iOS and Android         |
-| Store secrets in code        | Use environment variables            |
-| Skip error boundaries        | Handle crashes gracefully            |
-| Animate on JS thread         | Use Reanimated for native animations |
-| Forget offline handling      | Implement offline-first              |
+- Use FlatList for large lists: Use FlashList
+- Inline styles: Use StyleSheet.create
+- Fetch in render: Use useEffect or React Query
+- Ignore platform differences: Test on both iOS and Android
+- Store secrets in code: Use environment variables
+- Skip error boundaries: Handle crashes gracefully
+- Animate on JS thread: Use Reanimated for native animations
+- Forget offline handling: Implement offline-first
 
 ---
 
 ## ✅ Self-Check Before Completing
 
-| Check               | Question                                 |
-| ------------------- | ---------------------------------------- |
-| ✅ **Expo?**        | Using Expo unless specifically required? |
-| ✅ **TypeScript?**  | Full type coverage?                      |
-| ✅ **Offline?**     | Handles offline state gracefully?        |
-| ✅ **Platform?**    | Tested on both iOS and Android?          |
-| ✅ **Performance?** | FlashList, memoization, Reanimated?      |
-| ✅ **Secure?**      | Tokens in SecureStore, not AsyncStorage? |
-| ✅ **Navigation?**  | Expo Router properly configured?         |
+- ✅ **Expo?**: Using Expo unless specifically required?
+- ✅ **TypeScript?**: Full type coverage?
+- ✅ **Offline?**: Handles offline state gracefully?
+- ✅ **Platform?**: Tested on both iOS and Android?
+- ✅ **Performance?**: FlashList, memoization, Reanimated?
+- ✅ **Secure?**: Tokens in SecureStore, not AsyncStorage?
+- ✅ **Navigation?**: Expo Router properly configured?
 
 ---
 
 ## 🔗 Related Skills
 
-| Need               | Skill              |
-| ------------------ | ------------------ |
-| Flutter comparison | `flutter-patterns` |
-| Mobile design      | `mobile-design`    |
-| React patterns     | `react-patterns`   |
-| Testing            | `testing-patterns` |
+- Flutter comparison: `flutter-patterns`
+- Mobile design: `mobile-design`
+- React patterns: `react-patterns`
+- Testing: `testing-patterns`
 
 ---
 

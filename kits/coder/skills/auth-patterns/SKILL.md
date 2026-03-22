@@ -24,13 +24,11 @@ priority: HIGH
 
 ## Core Principles
 
-| Principle            | Rule                                                      |
-| -------------------- | --------------------------------------------------------- |
-| **Server-side**      | All auth checks happen on server, never just client       |
-| **Defense in depth** | Multiple layers: HTTPS + tokens + validation + rate limit |
-| **Least privilege**  | Grant minimum permissions needed                          |
-| **Secure defaults**  | Default deny, explicitly grant access                     |
-| **Audit everything** | Log auth events for security monitoring                   |
+- **Server-side**: All auth checks happen on server, never just client
+- **Defense in depth**: Multiple layers: HTTPS + tokens + validation + rate limit
+- **Least privilege**: Grant minimum permissions needed
+- **Secure defaults**: Default deny, explicitly grant access
+- **Audit everything**: Log auth events for security monitoring
 
 ---
 
@@ -134,13 +132,11 @@ async function requireOwnership(req, res, next) {
 
 ## Password Security
 
-| Rule                    | Implementation                             |
-| ----------------------- | ------------------------------------------ |
-| **Hash with bcrypt**    | Salt rounds: 12+                           |
-| **Min 12 characters**   | + uppercase + lowercase + number + special |
-| **Rate limit attempts** | 5 attempts per 15 min                      |
-| **Never log passwords** | Not even errors                            |
-| **Secure reset flow**   | Time-limited token via email               |
+- **Hash with bcrypt**: Salt rounds: 12+
+- **Min 12 characters**: + uppercase + lowercase + number + special
+- **Rate limit attempts**: 5 attempts per 15 min
+- **Never log passwords**: Not even errors
+- **Secure reset flow**: Time-limited token via email
 
 ### Password Flow
 
@@ -176,11 +172,9 @@ res.cookie("token", accessToken, {
 
 ## OAuth2 Simplified
 
-| Flow                   | Use Case                           |
-| ---------------------- | ---------------------------------- |
-| **Authorization Code** | Web apps with backend              |
-| **PKCE**               | SPAs, mobile apps (public clients) |
-| **Client Credentials** | Service-to-service                 |
+- **Authorization Code**: Web apps with backend
+- **PKCE**: SPAs, mobile apps (public clients)
+- **Client Credentials**: Service-to-service
 
 ### Basic OAuth2 Flow
 
@@ -224,53 +218,45 @@ Need access from JavaScript?
 
 ## Anti-Patterns (DON'T)
 
-| ❌ Anti-Pattern                  | ✅ Correct Approach            |
-| -------------------------------- | ------------------------------ |
-| Store JWT in localStorage        | httpOnly cookie or memory      |
-| Plain text passwords in DB       | bcrypt hash with salt          |
-| Long-lived access tokens (24h+)  | 15 min access + 7d refresh     |
-| Client-only auth checks          | Server validates every request |
-| Same secret for access & refresh | Separate secrets               |
-| No rate limiting on login        | 5 attempts / 15 min            |
-| JWT without expiration           | Always set `exp` claim         |
-| Hardcoded secrets in code        | Environment variables          |
+- Store JWT in localStorage: httpOnly cookie or memory
+- Plain text passwords in DB: bcrypt hash with salt
+- Long-lived access tokens (24h+): 15 min access + 7d refresh
+- Client-only auth checks: Server validates every request
+- Same secret for access & refresh: Separate secrets
+- No rate limiting on login: 5 attempts / 15 min
+- JWT without expiration: Always set `exp` claim
+- Hardcoded secrets in code: Environment variables
 
 ---
 
 ## Security Checklist
 
-| Category       | Check                                 |
-| -------------- | ------------------------------------- |
-| **Transport**  | HTTPS everywhere, HSTS enabled        |
-| **Passwords**  | bcrypt 12+, strong policy enforced    |
-| **Tokens**     | Short-lived, httpOnly, secure cookies |
-| **Rate Limit** | Login, registration, password reset   |
-| **Headers**    | CSP, X-Frame-Options, X-Content-Type  |
-| **Logging**    | Auth events logged, no sensitive data |
-| **CORS**       | Strict origin whitelist               |
+- **Transport**: HTTPS everywhere, HSTS enabled
+- **Passwords**: bcrypt 12+, strong policy enforced
+- **Tokens**: Short-lived, httpOnly, secure cookies
+- **Rate Limit**: Login, registration, password reset
+- **Headers**: CSP, X-Frame-Options, X-Content-Type
+- **Logging**: Auth events logged, no sensitive data
+- **CORS**: Strict origin whitelist
 
 ---
 
 ## 🔴 Self-Check Before Completing
 
-| Check                      | Question                       |
-| -------------------------- | ------------------------------ |
-| ✅ **Server validated?**   | All auth happens server-side?  |
-| ✅ **Tokens secure?**      | httpOnly, secure, short-lived? |
-| ✅ **Passwords hashed?**   | bcrypt with 12+ rounds?        |
-| ✅ **Rate limited?**       | Login endpoint protected?      |
-| ✅ **HTTPS?**              | All traffic encrypted?         |
-| ✅ **No secrets in code?** | Environment variables only?    |
+- ✅ **Server validated?**: All auth happens server-side?
+- ✅ **Tokens secure?**: httpOnly, secure, short-lived?
+- ✅ **Passwords hashed?**: bcrypt with 12+ rounds?
+- ✅ **Rate limited?**: Login endpoint protected?
+- ✅ **HTTPS?**: All traffic encrypted?
+- ✅ **No secrets in code?**: Environment variables only?
 
 ---
 
 ## Related Skills
 
-| Need              | Skill                   |
-| ----------------- | ----------------------- |
-| API design        | `api-patterns`          |
-| Security auditing | `security-fundamentals` |
-| Database design   | `database-design`       |
+- API design: `api-patterns`
+- Security auditing: `security-fundamentals`
+- Database design: `database-design`
 
 ---
 

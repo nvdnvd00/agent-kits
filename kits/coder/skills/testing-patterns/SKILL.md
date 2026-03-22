@@ -94,13 +94,11 @@ describe("UserService", () => {
 
 ### What to Unit Test
 
-| ✅ Test        | ❌ Don't Test            |
-| -------------- | ------------------------ |
-| Business logic | Framework code           |
-| Edge cases     | Third-party libraries    |
-| Error handling | Simple getters/setters   |
-| Calculations   | Constructor-only classes |
-| Validations    | Private methods directly |
+- Business logic: Framework code
+- Edge cases: Third-party libraries
+- Error handling: Simple getters/setters
+- Calculations: Constructor-only classes
+- Validations: Private methods directly
 
 ---
 
@@ -148,13 +146,11 @@ describe("UserAPI", () => {
 
 ### When to Mock
 
-| ✅ Mock                  | ❌ Don't Mock       |
-| ------------------------ | ------------------- |
-| External APIs            | Code under test     |
-| Database (in unit tests) | Simple dependencies |
-| Time/Date                | Pure functions      |
-| Network calls            | In-memory stores    |
-| Third-party services     | Internal modules    |
+- External APIs: Code under test
+- Database (in unit tests): Simple dependencies
+- Time/Date: Pure functions
+- Network calls: In-memory stores
+- Third-party services: Internal modules
 
 ### Mock Types
 
@@ -222,12 +218,10 @@ const user = createUser({ role: "admin" });
 
 ## Test Naming Conventions
 
-| Pattern                           | Example                                  |
-| --------------------------------- | ---------------------------------------- |
-| **should_behavior**               | `should returnErrorWhenUserNotFound`     |
-| **when_condition**                | `whenUserIsNull_throwsError`             |
-| **given_when_then**               | `givenValidInput_whenSubmit_thenSuccess` |
-| **methodName_condition_expected** | `getUser_withInvalidId_returnsNull`      |
+- **should_behavior**: `should returnErrorWhenUserNotFound`
+- **when_condition**: `whenUserIsNull_throwsError`
+- **given_when_then**: `givenValidInput_whenSubmit_thenSuccess`
+- **methodName_condition_expected**: `getUser_withInvalidId_returnsNull`
 
 **Rule:** Test names should describe behavior, not implementation.
 
@@ -235,34 +229,28 @@ const user = createUser({ role: "admin" });
 
 ## Coverage Guidelines
 
-| Level    | Meaning                             |
-| -------- | ----------------------------------- |
-| **80%+** | Good coverage for most projects     |
-| **90%+** | High coverage, critical systems     |
-| **100%** | Often impractical, may waste effort |
+- **80%+**: Good coverage for most projects
+- **90%+**: High coverage, critical systems
+- **100%**: Often impractical, may waste effort
 
 ### What to Cover
 
-| Priority   | Area                         |
-| ---------- | ---------------------------- |
-| **High**   | Business logic, calculations |
-| **Medium** | Error paths, edge cases      |
-| **Low**    | Simple getters, boilerplate  |
+- **High**: Business logic, calculations
+- **Medium**: Error paths, edge cases
+- **Low**: Simple getters, boilerplate
 
 ---
 
 ## Anti-Patterns
 
-| ❌ Don't                    | ✅ Do                      |
-| --------------------------- | -------------------------- |
-| Test implementation details | Test behavior/outcomes     |
-| Duplicate test code         | Use factories/helpers      |
-| Complex test setup          | Simplify or split tests    |
-| Ignore flaky tests          | Fix root cause immediately |
-| Skip cleanup                | Reset state every test     |
-| Test multiple things        | One assertion per test     |
-| Hard-code test data         | Use factories              |
-| Rely on test order          | Make tests independent     |
+- Test implementation details: Test behavior/outcomes
+- Duplicate test code: Use factories/helpers
+- Complex test setup: Simplify or split tests
+- Ignore flaky tests: Fix root cause immediately
+- Skip cleanup: Reset state every test
+- Test multiple things: One assertion per test
+- Hard-code test data: Use factories
+- Rely on test order: Make tests independent
 
 ---
 
@@ -282,12 +270,10 @@ Before pushing code:
 
 ## Related Skills
 
-| Need                | Skill                   |
-| ------------------- | ----------------------- |
-| Clean code          | `clean-code`            |
-| API testing         | `api-patterns`          |
-| E2E testing         | `webapp-testing`        |
-| Performance testing | `performance-profiling` |
+- Clean code: `clean-code`
+- API testing: `api-patterns`
+- E2E testing: `webapp-testing`
+- Performance testing: `performance-profiling`
 
 ---
 

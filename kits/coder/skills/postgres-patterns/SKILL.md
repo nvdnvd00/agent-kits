@@ -23,14 +23,12 @@ version: 2.0
 
 ## When to Use This Skill
 
-| ✅ Use                          | ❌ Don't Use                 |
-| ------------------------------- | ---------------------------- |
-| PostgreSQL schema design        | Database-agnostic design     |
-| Query optimization with EXPLAIN | Choosing between databases   |
-| Row-Level Security (RLS)        | ORM selection                |
-| Partitioning strategies         | Non-PostgreSQL databases     |
-| PostgreSQL-specific data types  | Basic normalization concepts |
-| JSONB, arrays, range types      | N+1 query patterns (use ORM) |
+- PostgreSQL schema design: Database-agnostic design
+- Query optimization with EXPLAIN: Choosing between databases
+- Row-Level Security (RLS): ORM selection
+- Partitioning strategies: Non-PostgreSQL databases
+- PostgreSQL-specific data types: Basic normalization concepts
+- JSONB, arrays, range types: N+1 query patterns (use ORM)
 
 ➡️ For general database concepts, see `database-design` skill.
 
@@ -167,14 +165,12 @@ SELECT * FROM orders WHERE user_id = 123;
 
 ### Common Optimizations
 
-| Problem                  | Solution                             |
-| ------------------------ | ------------------------------------ |
-| Seq Scan on filtered col | Add index on WHERE columns           |
-| Slow ORDER BY            | Index matches ORDER BY columns       |
-| Low selectivity          | Partial index on common filter       |
-| JSONB field queries      | Extract to generated column + B-tree |
-| LIKE '%pattern%'         | pg_trgm extension + GIN index        |
-| Cross-table queries      | Covering index with INCLUDE          |
+- Seq Scan on filtered col: Add index on WHERE columns
+- Slow ORDER BY: Index matches ORDER BY columns
+- Low selectivity: Partial index on common filter
+- JSONB field queries: Extract to generated column + B-tree
+- LIKE '%pattern%': pg_trgm extension + GIN index
+- Cross-table queries: Covering index with INCLUDE
 
 ### Join Optimization
 
@@ -216,12 +212,10 @@ ALTER TABLE documents FORCE ROW LEVEL SECURITY;
 
 ### When to Partition
 
-| Criteria       | Threshold        |
-| -------------- | ---------------- |
-| Table size     | > 100M rows      |
-| Query filter   | Always on date   |
-| Data lifecycle | Retention policy |
-| Maintenance    | Bulk deletes     |
+- Table size: > 100M rows
+- Query filter: Always on date
+- Data lifecycle: Retention policy
+- Maintenance: Bulk deletes
 
 ### Partition Types
 
@@ -344,27 +338,23 @@ Before production:
 
 ## Anti-Patterns
 
-| ❌ Don't                     | ✅ Do                               |
-| ---------------------------- | ----------------------------------- |
-| Use TIMESTAMP without TZ     | Use TIMESTAMPTZ                     |
-| VARCHAR(n) for variable text | TEXT with CHECK constraints         |
-| SERIAL for IDs               | BIGINT GENERATED ALWAYS AS IDENTITY |
-| JSON type                    | JSONB (indexable, smaller)          |
-| Index every column           | Index query patterns                |
-| Ignore EXPLAIN output        | Analyze before optimizing           |
-| Store arrays for relations   | Use junction tables                 |
-| Mixed-case identifiers       | snake_case (unquoted)               |
+- Use TIMESTAMP without TZ: Use TIMESTAMPTZ
+- VARCHAR(n) for variable text: TEXT with CHECK constraints
+- SERIAL for IDs: BIGINT GENERATED ALWAYS AS IDENTITY
+- JSON type: JSONB (indexable, smaller)
+- Index every column: Index query patterns
+- Ignore EXPLAIN output: Analyze before optimizing
+- Store arrays for relations: Use junction tables
+- Mixed-case identifiers: snake_case (unquoted)
 
 ---
 
 ## Related Skills
 
-| Need              | Skill                   |
-| ----------------- | ----------------------- |
-| General DB design | `database-design`       |
-| API integration   | `api-patterns`          |
-| Query performance | `performance-profiling` |
-| Security patterns | `security-fundamentals` |
+- General DB design: `database-design`
+- API integration: `api-patterns`
+- Query performance: `performance-profiling`
+- Security patterns: `security-fundamentals`
 
 ---
 

@@ -24,30 +24,26 @@ priority: LOW
 
 ## 🎯 Core Principles
 
-| Principle       | Rule                                         |
-| --------------- | -------------------------------------------- |
-| **Clarity**     | One diagram, one concept                     |
-| **Simplicity**  | Avoid overcrowding - less is more            |
-| **Consistency** | Same styling and conventions across diagrams |
-| **Purpose**     | Every element should serve understanding     |
-| **Maintenance** | Easy to update as system evolves             |
+- **Clarity**: One diagram, one concept
+- **Simplicity**: Avoid overcrowding - less is more
+- **Consistency**: Same styling and conventions across diagrams
+- **Purpose**: Every element should serve understanding
+- **Maintenance**: Easy to update as system evolves
 
 ---
 
 ## 📊 Diagram Types
 
-| Type              | Best For                                |
-| ----------------- | --------------------------------------- |
-| `flowchart`       | Processes, decision trees, workflows    |
-| `sequenceDiagram` | API calls, interactions, timing         |
-| `classDiagram`    | Object relationships, inheritance       |
-| `erDiagram`       | Database schemas, entity relationships  |
-| `stateDiagram-v2` | State machines, lifecycle               |
-| `gantt`           | Project timelines, milestones           |
-| `pie`             | Proportions, distributions              |
-| `gitGraph`        | Branch strategies, merges               |
-| `journey`         | User experience flows                   |
-| `C4Context`       | System architecture (with C4 extension) |
+- `flowchart`: Processes, decision trees, workflows
+- `sequenceDiagram`: API calls, interactions, timing
+- `classDiagram`: Object relationships, inheritance
+- `erDiagram`: Database schemas, entity relationships
+- `stateDiagram-v2`: State machines, lifecycle
+- `gantt`: Project timelines, milestones
+- `pie`: Proportions, distributions
+- `gitGraph`: Branch strategies, merges
+- `journey`: User experience flows
+- `C4Context`: System architecture (with C4 extension)
 
 ---
 
@@ -112,14 +108,12 @@ sequenceDiagram
 
 ### Arrow Types
 
-| Arrow   | Meaning                |
-| ------- | ---------------------- |
-| `->>`   | Solid with arrowhead   |
-| `-->`   | Dotted with arrowhead  |
-| `->>+`  | Activate lifeline      |
-| `-->>-` | Deactivate lifeline    |
-| `-x`    | Solid with X (failure) |
-| `--x`   | Dotted with X          |
+- `->>`: Solid with arrowhead
+- `-->`: Dotted with arrowhead
+- `->>+`: Activate lifeline
+- `-->>-`: Deactivate lifeline
+- `-x`: Solid with X (failure)
+- `--x`: Dotted with X
 
 ### Notes and Loops
 
@@ -187,12 +181,10 @@ erDiagram
 
 ### Relationship Symbols
 
-| Symbol | Meaning      |
-| ------ | ------------ | ----------- | ----------- |
-| `      |              | `           | Exactly one |
-| `o{`   | Zero or more |
-| `      | {`           | One or more |
-| `o     | `            | Zero or one |
+- `
+- `o{`: Zero or more
+- `: {`
+- `o: `
 
 ---
 
@@ -231,12 +223,10 @@ flowchart LR
     A --> B
 ```
 
-| Theme     | Best For                |
-| --------- | ----------------------- |
-| `default` | Light backgrounds       |
-| `dark`    | Dark mode documentation |
-| `forest`  | Calm, professional      |
-| `neutral` | Minimal, clean          |
+- `default`: Light backgrounds
+- `dark`: Dark mode documentation
+- `forest`: Calm, professional
+- `neutral`: Minimal, clean
 
 ### Custom Styling
 
@@ -255,23 +245,19 @@ flowchart TD
 
 ### Do's
 
-| Practice                | Why                              |
-| ----------------------- | -------------------------------- |
-| One concept per diagram | Clarity and focus                |
-| Use descriptive labels  | Self-documenting                 |
-| Consistent direction    | TD/LR - pick one and stick to it |
-| Group with subgraphs    | Visual organization              |
-| Use proper shapes       | Semantic meaning                 |
+- One concept per diagram: Clarity and focus
+- Use descriptive labels: Self-documenting
+- Consistent direction: TD/LR - pick one and stick to it
+- Group with subgraphs: Visual organization
+- Use proper shapes: Semantic meaning
 
 ### Don'ts
 
-| Anti-Pattern          | Problem                          |
-| --------------------- | -------------------------------- |
-| Too many nodes        | Overwhelming, hard to read       |
-| Long text in nodes    | Cluttered diagram                |
-| Crossing lines        | Confusing flow                   |
-| Inconsistent styling  | Unprofessional look              |
-| No legend when needed | Readers can't understand symbols |
+- Too many nodes: Overwhelming, hard to read
+- Long text in nodes: Cluttered diagram
+- Crossing lines: Confusing flow
+- Inconsistent styling: Unprofessional look
+- No legend when needed: Readers can't understand symbols
 
 ---
 
@@ -349,12 +335,10 @@ Before sharing a diagram:
 
 ## 🔗 Related Skills
 
-| Need                   | Skill                     |
-| ---------------------- | ------------------------- |
-| Architecture decisions | `architecture`            |
-| Database design        | `database-design`         |
-| API documentation      | `documentation-templates` |
-| Project planning       | `plan-writing`            |
+- Architecture decisions: `architecture`
+- Database design: `database-design`
+- API documentation: `documentation-templates`
+- Project planning: `plan-writing`
 
 ---
 

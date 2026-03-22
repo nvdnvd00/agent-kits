@@ -24,13 +24,11 @@ priority: MEDIUM
 
 ## 🎯 Core Principles
 
-| Principle             | Rule                                              |
-| --------------------- | ------------------------------------------------- |
-| **Content First**     | Quality content is the foundation of all SEO      |
-| **Technical Clarity** | Search engines must access, understand, and index |
-| **User Focus**        | Optimize for users, not search engines            |
-| **E-E-A-T**           | Experience, Expertise, Authoritativeness, Trust   |
-| **Patience**          | SEO is a long-term investment, not quick wins     |
+- **Content First**: Quality content is the foundation of all SEO
+- **Technical Clarity**: Search engines must access, understand, and index
+- **User Focus**: Optimize for users, not search engines
+- **E-E-A-T**: Experience, Expertise, Authoritativeness, Trust
+- **Patience**: SEO is a long-term investment, not quick wins
 
 ```
 ❌ WRONG: Keyword stuffing, link farms, AI spam
@@ -71,11 +69,9 @@ High E-E-A-T requirements for content affecting:
 
 ### Improvement Strategies
 
-| Metric | Quick Wins                                    |
-| ------ | --------------------------------------------- |
-| LCP    | Optimize images, preload critical resources   |
-| INP    | Reduce JavaScript, defer non-critical scripts |
-| CLS    | Set explicit dimensions on images/embeds      |
+- LCP: Optimize images, preload critical resources
+- INP: Reduce JavaScript, defer non-critical scripts
+- CLS: Set explicit dimensions on images/embeds
 
 ---
 
@@ -119,25 +115,21 @@ Sitemap: https://example.com/sitemap.xml
 
 ### On-Page Elements
 
-| Element              | Principle                       |
-| -------------------- | ------------------------------- |
-| **Title Tag**        | Clear topic + intent            |
-| **Meta Description** | Click relevance, not ranking    |
-| **H1**               | Page's primary subject          |
-| **Headings (H2-H6)** | Logical structure               |
-| **Alt Text**         | Accessibility and context       |
-| **Internal Links**   | Topic clusters, related content |
+- **Title Tag**: Clear topic + intent
+- **Meta Description**: Click relevance, not ranking
+- **H1**: Page's primary subject
+- **Headings (H2-H6)**: Logical structure
+- **Alt Text**: Accessibility and context
+- **Internal Links**: Topic clusters, related content
 
 ### Content Quality Signals
 
-| Dimension       | What Search Engines Look For |
-| --------------- | ---------------------------- |
-| **Depth**       | Fully answers the query      |
-| **Originality** | Adds unique value            |
-| **Accuracy**    | Factually correct            |
-| **Clarity**     | Easy to understand           |
-| **Usefulness**  | Satisfies user intent        |
-| **Freshness**   | Updated when relevant        |
+- **Depth**: Fully answers the query
+- **Originality**: Adds unique value
+- **Accuracy**: Factually correct
+- **Clarity**: Easy to understand
+- **Usefulness**: Satisfies user intent
+- **Freshness**: Updated when relevant
 
 ---
 
@@ -165,15 +157,13 @@ Sitemap: https://example.com/sitemap.xml
 
 ### Common Schema Types
 
-| Type               | Use Case                        |
-| ------------------ | ------------------------------- |
-| **Article**        | Blog posts, news articles       |
-| **Product**        | E-commerce product pages        |
-| **FAQPage**        | FAQ sections                    |
-| **BreadcrumbList** | Site navigation structure       |
-| **Organization**   | Company/brand identity          |
-| **LocalBusiness**  | Local businesses with locations |
-| **HowTo**          | Step-by-step guides             |
+- **Article**: Blog posts, news articles
+- **Product**: E-commerce product pages
+- **FAQPage**: FAQ sections
+- **BreadcrumbList**: Site navigation structure
+- **Organization**: Company/brand identity
+- **LocalBusiness**: Local businesses with locations
+- **HowTo**: Step-by-step guides
 
 ---
 
@@ -199,14 +189,12 @@ Search engines evaluate **output quality**, not authorship method.
 
 ## 📈 SEO Measurement
 
-| Area            | Key Metrics                     |
-| --------------- | ------------------------------- |
-| **Visibility**  | Indexed pages, impressions      |
-| **Rankings**    | Position changes, serp features |
-| **Traffic**     | Organic sessions, new pages     |
-| **Engagement**  | CTR, dwell time, bounce rate    |
-| **Conversions** | Organic-attributed conversions  |
-| **Technical**   | Core Web Vitals, crawl errors   |
+- **Visibility**: Indexed pages, impressions
+- **Rankings**: Position changes, serp features
+- **Traffic**: Organic sessions, new pages
+- **Engagement**: CTR, dwell time, bounce rate
+- **Conversions**: Organic-attributed conversions
+- **Technical**: Core Web Vitals, crawl errors
 
 ### Essential Tools
 
@@ -219,16 +207,14 @@ Search engines evaluate **output quality**, not authorship method.
 
 ## 🚨 SEO Anti-Patterns
 
-| ❌ Don't                   | ✅ Do                              |
-| -------------------------- | ---------------------------------- |
-| Keyword stuffing           | Natural language, topic coverage   |
-| Duplicate content          | Canonical tags, unique pages       |
-| Hidden text/links          | Visible, accessible content        |
-| Low-quality link building  | Earn links through quality content |
-| Ignore mobile              | Mobile-first design                |
-| Block CSS/JS from crawlers | Allow full page rendering          |
-| Slow page load             | Optimize Core Web Vitals           |
-| Missing alt text           | Descriptive alt for all images     |
+- Keyword stuffing: Natural language, topic coverage
+- Duplicate content: Canonical tags, unique pages
+- Hidden text/links: Visible, accessible content
+- Low-quality link building: Earn links through quality content
+- Ignore mobile: Mobile-first design
+- Block CSS/JS from crawlers: Allow full page rendering
+- Slow page load: Optimize Core Web Vitals
+- Missing alt text: Descriptive alt for all images
 
 ---
 
@@ -260,12 +246,10 @@ Search engines evaluate **output quality**, not authorship method.
 
 ## 🔗 Related Skills
 
-| Need                     | Skill                     |
-| ------------------------ | ------------------------- |
-| Performance optimization | `performance-profiling`   |
-| Accessibility            | `accessibility-patterns`  |
-| React/Next.js SSR        | `react-patterns`          |
-| Content structure        | `documentation-templates` |
+- Performance optimization: `performance-profiling`
+- Accessibility: `accessibility-patterns`
+- React/Next.js SSR: `react-patterns`
+- Content structure: `documentation-templates`
 
 ---
 

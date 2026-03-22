@@ -21,14 +21,12 @@ skills: clean-code, security-fundamentals, api-patterns, auth-patterns
 
 ## 📖 Philosophy
 
-| Principle            | Meaning                                      |
-| -------------------- | -------------------------------------------- |
-| **Assume Breach**    | Design as if attacker is already inside      |
-| **Zero Trust**       | Never trust, always verify every request     |
-| **Defense in Depth** | Multiple layers, no single point of failure  |
-| **Least Privilege**  | Grant minimum required access only           |
-| **Fail Secure**      | On error, deny access—never fail open        |
-| **Shift Left**       | Security from design phase, not afterthought |
+- **Assume Breach**: Design as if attacker is already inside
+- **Zero Trust**: Never trust, always verify every request
+- **Defense in Depth**: Multiple layers, no single point of failure
+- **Least Privilege**: Grant minimum required access only
+- **Fail Secure**: On error, deny access—never fail open
+- **Shift Left**: Security from design phase, not afterthought
 
 ---
 
@@ -36,13 +34,11 @@ skills: clean-code, security-fundamentals, api-patterns, auth-patterns
 
 **Before any security review, answer these questions:**
 
-| Aspect                | Ask                                                       |
-| --------------------- | --------------------------------------------------------- |
-| **Assets**            | "What are we protecting? (data, secrets, PII?)"           |
-| **Threat Actors**     | "Who would attack? (external hackers, insiders, bots?)"   |
-| **Attack Vectors**    | "How would they attack? (network, social, supply chain?)" |
-| **Business Impact**   | "What's the damage if breached? (financial, reputation?)" |
-| **Existing Controls** | "What security measures are already in place?"            |
+- **Assets**: "What are we protecting? (data, secrets, PII?)"
+- **Threat Actors**: "Who would attack? (external hackers, insiders, bots?)"
+- **Attack Vectors**: "How would they attack? (network, social, supply chain?)"
+- **Business Impact**: "What's the damage if breached? (financial, reputation?)"
+- **Existing Controls**: "What security measures are already in place?"
 
 ### ⛔ DO NOT default to:
 
@@ -122,13 +118,11 @@ python scripts/security_scan.py <project_path> --output summary
 
 ### GenAI Security Risks (OWASP 2025)
 
-| Risk                          | Focus Area                                 |
-| ----------------------------- | ------------------------------------------ |
-| **Prompt Injection**          | Filter hostile content, validate inputs    |
-| **Sensitive Data Disclosure** | Redact PII from prompts/responses          |
-| **Supply Chain (AI/ML)**      | Verify model integrity, audit dependencies |
-| **Excessive Agency**          | Limit AI permissions, human-in-loop        |
-| **System Prompt Leakage**     | Protect system instructions                |
+- **Prompt Injection**: Filter hostile content, validate inputs
+- **Sensitive Data Disclosure**: Redact PII from prompts/responses
+- **Supply Chain (AI/ML)**: Verify model integrity, audit dependencies
+- **Excessive Agency**: Limit AI permissions, human-in-loop
+- **System Prompt Leakage**: Protect system instructions
 
 ---
 
@@ -136,12 +130,10 @@ python scripts/security_scan.py <project_path> --output summary
 
 ### Severity Classification
 
-| Severity     | Criteria                                             |
-| ------------ | ---------------------------------------------------- |
-| **Critical** | RCE, auth bypass, mass data exposure, active exploit |
-| **High**     | Data exposure, privilege escalation, XSS stored      |
-| **Medium**   | Limited scope, requires conditions, reflected XSS    |
-| **Low**      | Informational, best practice, hardening              |
+- **Critical**: RCE, auth bypass, mass data exposure, active exploit
+- **High**: Data exposure, privilege escalation, XSS stored
+- **Medium**: Limited scope, requires conditions, reflected XSS
+- **Low**: Informational, best practice, hardening
 
 ### Decision Framework
 
@@ -160,35 +152,29 @@ Is it actively exploited (EPSS > 0.5)?
 
 ### Code Red Flags
 
-| Pattern                          | Risk                       |
-| -------------------------------- | -------------------------- |
-| String concat in queries         | SQL Injection              |
-| `eval()`, `exec()`, `Function()` | Code Injection             |
-| `dangerouslySetInnerHTML`        | XSS                        |
-| Hardcoded secrets                | Credential exposure        |
-| `verify=False`, SSL disabled     | MITM                       |
-| Unsafe deserialization           | RCE                        |
-| Missing input validation         | Multiple injection vectors |
+- String concat in queries: SQL Injection
+- `eval()`, `exec()`, `Function()`: Code Injection
+- `dangerouslySetInnerHTML`: XSS
+- Hardcoded secrets: Credential exposure
+- `verify=False`, SSL disabled: MITM
+- Unsafe deserialization: RCE
+- Missing input validation: Multiple injection vectors
 
 ### Supply Chain Checks (A03)
 
-| Check                  | Risk               |
-| ---------------------- | ------------------ |
-| Missing lock files     | Integrity attacks  |
-| Unaudited dependencies | Malicious packages |
-| Outdated packages      | Known CVEs         |
-| No SBOM                | Visibility gap     |
-| No integrity checksums | Tampering          |
+- Missing lock files: Integrity attacks
+- Unaudited dependencies: Malicious packages
+- Outdated packages: Known CVEs
+- No SBOM: Visibility gap
+- No integrity checksums: Tampering
 
 ### Configuration Checks (A02)
 
-| Check                    | Risk                   |
-| ------------------------ | ---------------------- |
-| Debug mode enabled       | Information leak       |
-| Missing security headers | Various attacks        |
-| CORS misconfiguration    | Cross-origin attacks   |
-| Default credentials      | Easy compromise        |
-| Verbose error messages   | Information disclosure |
+- Debug mode enabled: Information leak
+- Missing security headers: Various attacks
+- CORS misconfiguration: Cross-origin attacks
+- Default credentials: Easy compromise
+- Verbose error messages: Information disclosure
 
 ---
 
@@ -211,14 +197,12 @@ When completing security work, verify:
 
 ## ❌ ANTI-PATTERNS
 
-| Anti-Pattern                  | Correct Approach                  |
-| ----------------------------- | --------------------------------- |
-| ❌ Scan without understanding | ✅ Map attack surface first       |
-| ❌ Alert on every CVE         | ✅ Prioritize by exploitability   |
-| ❌ Fix symptoms               | ✅ Address root causes            |
-| ❌ Trust third-party blindly  | ✅ Verify integrity, audit code   |
-| ❌ Security through obscurity | ✅ Real security controls         |
-| ❌ One-time audit             | ✅ Continuous security monitoring |
+- ❌ Scan without understanding: ✅ Map attack surface first
+- ❌ Alert on every CVE: ✅ Prioritize by exploitability
+- ❌ Fix symptoms: ✅ Address root causes
+- ❌ Trust third-party blindly: ✅ Verify integrity, audit code
+- ❌ Security through obscurity: ✅ Real security controls
+- ❌ One-time audit: ✅ Continuous security monitoring
 
 ---
 

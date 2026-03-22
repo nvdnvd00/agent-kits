@@ -24,13 +24,11 @@ priority: HIGH
 
 ## Core Principles
 
-| Principle         | Rule                                                  |
-| ----------------- | ----------------------------------------------------- |
-| **Automate**      | If it can be automated, automate it                   |
-| **Fast feedback** | Tests should run in minutes, not hours                |
-| **Reproducible**  | Same commit = same result, always                     |
-| **Secure**        | Secrets in vault, least privilege, scan dependencies  |
-| **Fail fast**     | Stop pipeline on first failure, don't waste resources |
+- **Automate**: If it can be automated, automate it
+- **Fast feedback**: Tests should run in minutes, not hours
+- **Reproducible**: Same commit = same result, always
+- **Secure**: Secrets in vault, least privilege, scan dependencies
+- **Fail fast**: Stop pipeline on first failure, don't waste resources
 
 ---
 
@@ -165,12 +163,10 @@ jobs:
 
 ## Caching Strategies
 
-| Package Manager | Cache Action                   |
-| --------------- | ------------------------------ |
-| **pnpm**        | `cache: 'pnpm'` in setup-node  |
-| **npm**         | `cache: 'npm'` in setup-node   |
-| **pip**         | `cache: 'pip'` in setup-python |
-| **Docker**      | `cache-from/to: type=gha`      |
+- **pnpm**: `cache: 'pnpm'` in setup-node
+- **npm**: `cache: 'npm'` in setup-node
+- **pip**: `cache: 'pip'` in setup-python
+- **Docker**: `cache-from/to: type=gha`
 
 ### Custom Cache
 
@@ -254,13 +250,11 @@ jobs:
 
 ## Security Best Practices
 
-| Practice                        | Implementation                 |
-| ------------------------------- | ------------------------------ |
-| **Pin action versions**         | `@v4` not `@latest` or `@main` |
-| **Least privilege permissions** | Set `permissions:` explicitly  |
-| **Use secrets**                 | `${{ secrets.MY_SECRET }}`     |
-| **Scan dependencies**           | Trivy, Snyk, Dependabot        |
-| **Review third-party actions**  | Check source before using      |
+- **Pin action versions**: `@v4` not `@latest` or `@main`
+- **Least privilege permissions**: Set `permissions:` explicitly
+- **Use secrets**: `${{ secrets.MY_SECRET }}`
+- **Scan dependencies**: Trivy, Snyk, Dependabot
+- **Review third-party actions**: Check source before using
 
 ### Security Scanning Job
 
@@ -307,16 +301,14 @@ Need to test multiple versions/platforms?
 
 ## Anti-Patterns (DON'T)
 
-| ❌ Anti-Pattern                      | ✅ Correct Approach                  |
-| ------------------------------------ | ------------------------------------ |
-| `@latest` or `@main` for actions     | Pin specific version `@v4`           |
-| No caching                           | Cache dependencies and builds        |
-| Secrets in workflow files            | Use repository/environment secrets   |
-| Single job does everything           | Split into focused jobs              |
-| No `permissions:` block              | Explicit least-privilege permissions |
-| Hardcoded versions                   | Use matrix or variables              |
-| Skip tests on main branch            | Always test, especially on main      |
-| `continue-on-error: true` everywhere | Only where truly necessary           |
+- `@latest` or `@main` for actions: Pin specific version `@v4`
+- No caching: Cache dependencies and builds
+- Secrets in workflow files: Use repository/environment secrets
+- Single job does everything: Split into focused jobs
+- No `permissions:` block: Explicit least-privilege permissions
+- Hardcoded versions: Use matrix or variables
+- Skip tests on main branch: Always test, especially on main
+- `continue-on-error: true` everywhere: Only where truly necessary
 
 ---
 
@@ -334,25 +326,21 @@ Need to test multiple versions/platforms?
 
 ## 🔴 Self-Check Before Completing
 
-| Check                   | Question                              |
-| ----------------------- | ------------------------------------- |
-| ✅ **Actions pinned?**  | Using `@v4` not `@latest`?            |
-| ✅ **Caching enabled?** | Dependencies and builds cached?       |
-| ✅ **Secrets secure?**  | Using `secrets.X`, not hardcoded?     |
-| ✅ **Permissions set?** | Explicit `permissions:` block?        |
-| ✅ **Tests run?**       | Critical paths tested in CI?          |
-| ✅ **Paths filtered?**  | Skipping runs for irrelevant changes? |
+- ✅ **Actions pinned?**: Using `@v4` not `@latest`?
+- ✅ **Caching enabled?**: Dependencies and builds cached?
+- ✅ **Secrets secure?**: Using `secrets.X`, not hardcoded?
+- ✅ **Permissions set?**: Explicit `permissions:` block?
+- ✅ **Tests run?**: Critical paths tested in CI?
+- ✅ **Paths filtered?**: Skipping runs for irrelevant changes?
 
 ---
 
 ## Related Skills
 
-| Need                 | Skill                   |
-| -------------------- | ----------------------- |
-| Docker builds        | `docker-patterns`       |
-| Kubernetes deploy    | `kubernetes-patterns`   |
-| Security scanning    | `security-fundamentals` |
-| Deployment workflows | `deployment-procedures` |
+- Docker builds: `docker-patterns`
+- Kubernetes deploy: `kubernetes-patterns`
+- Security scanning: `security-fundamentals`
+- Deployment workflows: `deployment-procedures`
 
 ---
 

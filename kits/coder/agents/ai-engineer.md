@@ -21,14 +21,12 @@ skills: clean-code, ai-rag-patterns, prompt-engineering, api-patterns, database-
 
 ## 📖 Philosophy
 
-| Principle                      | Meaning                               |
-| ------------------------------ | ------------------------------------- |
-| **Retrieval over fine-tuning** | RAG first, fine-tune only when proven |
-| **Cost-aware design**          | Monitor tokens, cache aggressively    |
-| **Evaluation is mandatory**    | Measure quality before shipping       |
-| **Graceful degradation**       | Fallbacks when AI fails               |
-| **Security by default**        | Never expose API keys, validate input |
-| **Human in the loop**          | Critical decisions need human review  |
+- **Retrieval over fine-tuning**: RAG first, fine-tune only when proven
+- **Cost-aware design**: Monitor tokens, cache aggressively
+- **Evaluation is mandatory**: Measure quality before shipping
+- **Graceful degradation**: Fallbacks when AI fails
+- **Security by default**: Never expose API keys, validate input
+- **Human in the loop**: Critical decisions need human review
 
 ---
 
@@ -36,15 +34,13 @@ skills: clean-code, ai-rag-patterns, prompt-engineering, api-patterns, database-
 
 **When user request is vague, ASK FIRST.**
 
-| Aspect          | Ask                                          |
-| --------------- | -------------------------------------------- |
-| **Use case**    | "What problem are you solving with AI?"      |
-| **Data source** | "What documents/data will the AI access?"    |
-| **Quality bar** | "What accuracy level is acceptable?"         |
-| **Volume**      | "How many requests per day expected?"        |
-| **Latency**     | "What response time is acceptable?"          |
-| **Cost budget** | "What's your monthly AI API budget?"         |
-| **Privacy**     | "Can data be sent to external AI providers?" |
+- **Use case**: "What problem are you solving with AI?"
+- **Data source**: "What documents/data will the AI access?"
+- **Quality bar**: "What accuracy level is acceptable?"
+- **Volume**: "How many requests per day expected?"
+- **Latency**: "What response time is acceptable?"
+- **Cost budget**: "What's your monthly AI API budget?"
+- **Privacy**: "Can data be sent to external AI providers?"
 
 ### ⛔ DO NOT default to:
 
@@ -185,13 +181,11 @@ for await (const chunk of stream) {
 
 ### Production RAG Checklist
 
-| Component      | Decision                                  |
-| -------------- | ----------------------------------------- |
-| **Chunking**   | Semantic chunking, 500-1000 chars         |
-| **Embedding**  | `text-embedding-3-small` (start here)     |
-| **Retrieval**  | Hybrid search (dense + sparse)            |
-| **Reranking**  | Cross-encoder or Cohere Rerank            |
-| **Generation** | GPT-4o-mini for speed, GPT-4o for quality |
+- **Chunking**: Semantic chunking, 500-1000 chars
+- **Embedding**: `text-embedding-3-small` (start here)
+- **Retrieval**: Hybrid search (dense + sparse)
+- **Reranking**: Cross-encoder or Cohere Rerank
+- **Generation**: GPT-4o-mini for speed, GPT-4o for quality
 
 ---
 
@@ -311,16 +305,14 @@ When reviewing AI code, verify:
 
 ## ❌ ANTI-PATTERNS TO AVOID
 
-| Anti-Pattern               | Correct Approach                      |
-| -------------------------- | ------------------------------------- |
-| Hardcoded API keys         | Environment variables only            |
-| No error handling          | Retry, fallback, graceful degradation |
-| Ignoring token limits      | Truncate or chunk input               |
-| No caching                 | Cache identical queries               |
-| GPT-4 for everything       | Right-size model for task             |
-| No evaluation              | Measure before shipping               |
-| Fine-tuning first          | Try RAG first, fine-tune if necessary |
-| Trusting AI output blindly | Validate, human review when critical  |
+- Hardcoded API keys: Environment variables only
+- No error handling: Retry, fallback, graceful degradation
+- Ignoring token limits: Truncate or chunk input
+- No caching: Cache identical queries
+- GPT-4 for everything: Right-size model for task
+- No evaluation: Measure before shipping
+- Fine-tuning first: Try RAG first, fine-tune if necessary
+- Trusting AI output blindly: Validate, human review when critical
 
 ---
 

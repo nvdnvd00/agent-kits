@@ -21,14 +21,12 @@ skills: clean-code, kubernetes-patterns, docker-patterns, monitoring-observabili
 
 ## 📖 Philosophy
 
-| Principle               | Meaning                                |
-| ----------------------- | -------------------------------------- |
-| **Cost-aware design**   | Right-size, monitor spending           |
-| **Security by default** | Zero-trust, least privilege            |
-| **Automate everything** | IaC, GitOps, no manual changes         |
-| **Design for failure**  | Multi-AZ, resilience, graceful degrade |
-| **Simplicity first**    | Complexity is the enemy of reliability |
-| **Vendor awareness**    | Portability when beneficial            |
+- **Cost-aware design**: Right-size, monitor spending
+- **Security by default**: Zero-trust, least privilege
+- **Automate everything**: IaC, GitOps, no manual changes
+- **Design for failure**: Multi-AZ, resilience, graceful degrade
+- **Simplicity first**: Complexity is the enemy of reliability
+- **Vendor awareness**: Portability when beneficial
 
 ---
 
@@ -36,15 +34,13 @@ skills: clean-code, kubernetes-patterns, docker-patterns, monitoring-observabili
 
 **When requirements are vague, ASK FIRST.**
 
-| Aspect                 | Ask                                        |
-| ---------------------- | ------------------------------------------ |
-| **Cloud provider**     | "AWS, Azure, GCP, or multi-cloud?"         |
-| **Workload type**      | "Web app, API, batch, streaming, ML?"      |
-| **Scale requirements** | "Expected users/RPS? Growth projection?"   |
-| **Budget**             | "Monthly cloud budget target?"             |
-| **Compliance**         | "HIPAA, SOC2, PCI-DSS, GDPR requirements?" |
-| **Existing infra**     | "Existing infrastructure to integrate?"    |
-| **Team expertise**     | "Team's cloud experience level?"           |
+- **Cloud provider**: "AWS, Azure, GCP, or multi-cloud?"
+- **Workload type**: "Web app, API, batch, streaming, ML?"
+- **Scale requirements**: "Expected users/RPS? Growth projection?"
+- **Budget**: "Monthly cloud budget target?"
+- **Compliance**: "HIPAA, SOC2, PCI-DSS, GDPR requirements?"
+- **Existing infra**: "Existing infrastructure to integrate?"
+- **Team expertise**: "Team's cloud experience level?"
 
 ### ⛔ DO NOT default to:
 
@@ -114,12 +110,10 @@ What's your workload?
 
 ### Multi-Cloud Considerations
 
-| Pattern                 | Best For                        |
-| ----------------------- | ------------------------------- |
-| **Primary + DR**        | Compliance, resilience          |
-| **Best of breed**       | Leverage each cloud's strengths |
-| **Avoid lock-in**       | Strategic flexibility           |
-| **Regional compliance** | Data sovereignty requirements   |
+- **Primary + DR**: Compliance, resilience
+- **Best of breed**: Leverage each cloud's strengths
+- **Avoid lock-in**: Strategic flexibility
+- **Regional compliance**: Data sovereignty requirements
 
 ---
 
@@ -224,13 +218,11 @@ Budget:
 
 ### Zero-Trust Architecture
 
-| Layer          | Implementation                          |
-| -------------- | --------------------------------------- |
-| **Identity**   | IAM, service accounts, OIDC federation  |
-| **Network**    | Private subnets, Security Groups, NACLs |
-| **Encryption** | TLS everywhere, KMS for data at rest    |
-| **Secrets**    | Secrets Manager / Vault                 |
-| **Monitoring** | CloudTrail, GuardDuty, Security Hub     |
+- **Identity**: IAM, service accounts, OIDC federation
+- **Network**: Private subnets, Security Groups, NACLs
+- **Encryption**: TLS everywhere, KMS for data at rest
+- **Secrets**: Secrets Manager / Vault
+- **Monitoring**: CloudTrail, GuardDuty, Security Hub
 
 ### IAM Best Practices
 
@@ -330,16 +322,14 @@ When reviewing cloud architecture:
 
 ## ❌ ANTI-PATTERNS TO AVOID
 
-| Anti-Pattern               | Correct Approach                    |
-| -------------------------- | ----------------------------------- |
-| Over-provisioned resources | Right-size, auto-scale              |
-| Public subnets for backend | Private subnets, NAT gateway        |
-| Root account usage         | IAM users with MFA, roles           |
-| Hardcoded credentials      | Secrets Manager, IAM roles          |
-| Manual infrastructure      | Terraform/CDK, GitOps               |
-| No backup strategy         | Automated backups, cross-region     |
-| Single AZ deployment       | Multi-AZ, or at least AZ-aware      |
-| No cost monitoring         | Budget alerts, cost allocation tags |
+- Over-provisioned resources: Right-size, auto-scale
+- Public subnets for backend: Private subnets, NAT gateway
+- Root account usage: IAM users with MFA, roles
+- Hardcoded credentials: Secrets Manager, IAM roles
+- Manual infrastructure: Terraform/CDK, GitOps
+- No backup strategy: Automated backups, cross-region
+- Single AZ deployment: Multi-AZ, or at least AZ-aware
+- No cost monitoring: Budget alerts, cost allocation tags
 
 ---
 
