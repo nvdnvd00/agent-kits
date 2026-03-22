@@ -8,6 +8,8 @@ import gradient from "gradient-string";
 import os from "os";
 import path from "path";
 import pc from "picocolors";
+import { exec } from "child_process";
+import { promisify } from "util";
 import {
   AI_TOOLS,
   KITS,
@@ -17,6 +19,75 @@ import {
   type InstallScope,
 } from "./config.js";
 import { installKit } from "./installers/index.js";
+
+const execAsync = promisify(exec);
+const PACKAGE_NAME = "@neyugn/agent-kits";
+
+function getPkgVersion(): string {
+  try {
+    const basePath = path.dirname(new URL(import.meta.url).pathname);
+    const parentPath = path.join(basePath, "..");
+    const grandParentPath = path.join(basePath, "..", "..");
+    const pkgFromParent = path.join(parentPath, "package.json");
+    const pkgFromGrandParent = path.join(grandParentPath, "package.json");
+    if (fs.existsSync(pkgFromParent)) {
+      return JSON.parse(fs.readFileSync(pkgFromParent, "utf-8")).version as string;
+    }
+    if (fs.existsSync(pkgFromGrandParent)) {
+      return JSON.parse(fs.readFileSync(pkgFromGrandParent, "utf-8")).version as string;
+    }
+    return "unknown";
+  } catch {
+    return "unknown";
+  }
+}
+const pkgVersion = getPkgVersion();
+
+/**
+ * Fetch the latest version from npm registry
+ */
+async function getLatestVersion(): Promise<string | null> {
+  try {
+    const { stdout } = await execAsync(
+      `npm view ${PACKAGE_NAME} version --registry https://registry.npmjs.org`,
+    );
+    return stdout.trim();
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Check for updates and display notification
+ */
+async function checkForUpdates(): Promise<void> {
+  const current = pkgVersion;
+  const latest = await getLatestVersion();
+
+  console.log(
+    boxen(
+      [
+        `${pc.bold("agent-kits")} ${pc.dim(`v${current}`)}`,
+        "",
+        `${pc.dim("Latest:")}   ${latest ? pc.cyan(`v${latest}`) : pc.dim("unknown")}`,
+      ].join("\n"),
+      { padding: 1, borderStyle: "round", borderColor: "cyan" },
+    ),
+  );
+
+  if (latest && latest !== current) {
+    console.log("");
+    console.log(
+      pc.yellow(`  ${pc.bold("⚠ Update available!")} Run below to update:`),
+    );
+    console.log(`  ${pc.magenta(`npx ${PACKAGE_NAME}@latest`)}`);
+    console.log("");
+  } else if (latest === current) {
+    console.log("");
+    console.log(pc.green(`  ✓ You're on the latest version!`));
+    console.log("");
+  }
+}
 
 /**
  * Expand ~ to home directory (cross-platform)
@@ -102,6 +173,36 @@ function displayBanner() {
 }
 
 async function main() {
+  const args = process.argv.slice(2);
+
+  if (args.includes("--check-updates") || args.includes("-u")) {
+    await checkForUpdates();
+    return;
+  }
+
+  if (args.includes("--version") || args.includes("-v")) {
+    console.log(`v${pkgVersion}`);
+    return;
+  }
+
+  if (args.includes("--help") || args.includes("-h")) {
+    console.log(
+      boxen(
+        [
+          `${pc.bold("agent-kits")} ${pc.dim(`v${pkgVersion}`)}`,
+          "",
+          `${pc.cyan("--check-updates, -u")}  ${pc.dim("Check for available updates")}`,
+          `${pc.cyan("--version, -v")}        ${pc.dim("Show current version")}`,
+          `${pc.cyan("--help, -h")}            ${pc.dim("Show this help message")}`,
+          "",
+          `${pc.dim("Run without args to start the interactive setup wizard.")}`,
+        ].join("\n"),
+        { padding: 1, borderStyle: "round", borderColor: "cyan" },
+      ),
+    );
+    return;
+  }
+
   displayBanner();
 
   p.intro(pc.bgCyan(pc.black(" SETUP WIZARD ")));

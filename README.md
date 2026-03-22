@@ -17,6 +17,7 @@
 
 <p align="center">
   <a href="#-quick-start">Quick Start</a> •
+  <a href="#-cli-commands">CLI Commands</a> •
   <a href="#-important-notes">Important Notes</a> •
   <a href="#-features">Features</a> •
   <a href="#-kits">Kits</a> •
@@ -60,6 +61,29 @@ That's it! The interactive installer will guide you through:
 
 <br/>
 
+## 🖥️ CLI Commands
+
+```bash
+npx @neyugn/agent-kits              # Start interactive setup wizard
+npx @neyugn/agent-kits --check-updates  # Check for new version
+npx @neyugn/agent-kits --version        # Show current version
+npx @neyugn/agent-kits --help            # Show help
+```
+
+**Example output when update is available:**
+
+```
+╭─────────────────────────╮
+│  agent-kits v0.5.0     │
+│  Latest:   v0.6.0      │
+╰─────────────────────────╯
+
+  ⚠ Update available! Run below to update:
+  npx @neyugn/agent-kits@latest
+```
+
+<br/>
+
 ## 📌 Important Notes
 
 ### Slash commands not appearing in IDE dropdown
@@ -80,36 +104,6 @@ If `.agent/` (or `.cursor/`, `.opencode/`, etc.) is listed in `.gitignore`, some
 > **Recommended:** Remove the kit folder from `.gitignore` entirely and commit it. This is the preferred approach for workspace installations.
 
 <br/>
-
-### 🎯 One Command, Any Tool
-
-```bash
-npx @neyugn/agent-kits@latest
-```
-
-```
-  ╭──────────────────────────────────────────────────────────────────────────────╮
-  │                                                                          │
-  │        _     ____  _____  _   _  _____   _  __ ___  _____  ____          │
-  │       / \   / ___|| ____|| \ | ||_   _| | |/ /|_ _||_   _|/ ___|         │
-  │      / _ \ | |  _ |  _|  |  \| |  | |   | ' /  | |   | |  \___ \         │
-  │     / ___ \| |_| || |___ | |\  |  | |   | . \  | |   | |   ___) |        │
-  │    /_/   \_\\____||_____||_| \_|  |_|   |_|\_\|___|  |_|  |____/         │
-  │                                                                          │
-  │           ⚡  The Universal AI Agent Toolkit  ⚡                           │
-  │                                                                          │
-  ╰──────────────────────────────────────────────────────────────────────────────╯
-
-  SETUP WIZARD
-
-◆  🤖 Which AI assistant are you using?
-│  ● Antigravity (.agent/)
-│  ○ Cursor (.cursor/)
-
-◆  📂 Where should we install?
-│  ● Workspace (Project)
-│  ○ Global (System)
-```
 
 ### 🌍 Global vs Workspace Installation
 
@@ -166,78 +160,69 @@ Works on **Windows**, **macOS**, and **Linux** with automatic path adaptation:
 
 <br/>
 
-## 🔍 Filter Skill
+## 🔍 Smart Filter (Workspace Analysis)
 
-The **Filter Skill** solves the "skill overload" problem by automatically detecting your project's techstack and enabling only relevant skills.
+The **Filter** feature is the "brain" of Agent Kits, ensuring your AI assistant stays sharp and focused. Instead of overwhelming the AI with dozens of irrelevant instructions (skills), the system automatically analyzes your workspace to enable only what’s necessary.
 
-### Usage
+### Why use Filtering?
 
-```bash
-/filter
-```
+As projects grow complex, providing too many instructions (System Prompts) to an AI can lead to:
+- **Context Bloat**: Makes AI prone to confusion and slower responses.
+- **Lost Focus**: AI might suggest patterns from one framework for another (e.g., suggesting Tailwind v4 patterns in a project using CSS Modules).
+- **Token Waste**: Sending redundant instructions increases API costs.
 
-### How It Works
+### How `/filter` Works
 
-| Phase                 | Description                                                                 |
-| --------------------- | --------------------------------------------------------------------------- |
-| **1. Detection**      | Scans for config files (`package.json`, `pubspec.yaml`, `Dockerfile`, etc.) |
-| **2. Recommendation** | Maps detected techstack to required skills                                  |
-| **3. Confirmation**   | Presents changes and asks about future techstack plans                      |
-| **4. Persistence**    | Saves profile to `.agent/profile.json`                                      |
+The system uses a multi-layered scanning mechanism to provide the best recommendations:
 
-### Example
+1.  **Techstack Detection**: Scans project identifiers (`package.json`, `go.mod`, `requirements.txt`, `composer.json`, `Cargo.toml`, etc.).
+2.  **Structural Analysis**: Checks for characteristic directories (`src/app` for Next.js App Router, `android/` for Mobile, etc.).
+3.  **Agent & Skill Mapping**: Matches the detected techstack against the Agent Kits library to select the most relevant Specialists (Agents) and capabilities (Skills).
+4.  **Profile Tuning**: Creates or updates a `.agent/profile.json` file to precisely configure what the AI can access.
+
+### Example Analysis Report
 
 ```markdown
-## 🔍 Workspace Analysis Complete
+## 🔍 Workspace Analysis: E-commerce Project (Next.js + NestJS)
 
 **Detected Techstack:**
-| Category | Technology |
-| --------- | ----------------------- |
-| Language | TypeScript |
-| Framework | Next.js 14 (App Router) |
-| Styling | Tailwind CSS v4 |
-| Database | PostgreSQL (Prisma) |
+- Frontend: `Next.js 14`, `Tailwind CSS`, `Zustand`
+- Backend: `NestJS`, `PostgreSQL`, `Prisma`
+- DevOps: `Docker`, `GitHub Actions`
 
-**Skills to ENABLE:**
-| Skill | Reason |
-| ----------------- | ------------------------ |
-| react-patterns | Next.js detected |
-| tailwind-patterns | tailwind.config.js found |
-| postgres-patterns | Prisma + PostgreSQL |
+**✅ Activated Agents (Specialists):**
+- `frontend-specialist`: Optimized for Next.js and Tailwind.
+- `backend-specialist`: Expert in NestJS architecture.
+- `database-specialist`: Advanced Prisma query optimization.
+- `devops-engineer`: Manages Docker and CI/CD pipelines.
 
-**Skills to DISABLE:**
-| Skill | Reason |
-| ---------------- | ------------------------ |
-| flutter-patterns | No pubspec.yaml found |
-| mobile-design | No mobile setup detected |
+**🧩 Loaded Skills:**
+- `react-patterns`, `tailwind-patterns`, `nodejs-best-practices`, `postgres-patterns`, `docker-patterns`.
 
-**Questions:**
-
-1. Do you agree with the changes? (yes/no/customize)
-2. Are there any techstacks you plan to add in the future?
+**🚫 Hidden Skills (To reduce noise):**
+- `flutter-patterns`, `mobile-design`, `aws-patterns` (Not used in this project).
 ```
 
-### Commands
+### Control Commands
 
 ```bash
-/filter                           # Analyze and filter skills
-/filter --force-enable ai-rag     # Force enable specific skill
-/filter --force-disable mobile    # Force disable specific skill
-/filter --reset                   # Reset to default (enable all)
+/filter                           # Re-scan workspace and auto-update
+/filter --force-enable ai-rag     # Always enable RAG skill regardless of techstack
+/filter --force-disable mobile    # Always disable mobile-related skills
+/filter --reset                   # Reset to default state (enable all)
 ```
 
-### Core Skills (Never Disabled)
+### Core Skills (Always Ready)
 
-These skills are always enabled regardless of techstack:
+Certain fundamental skills and core Agents are never disabled to maintain system-level reasoning:
 
-| Skill                   | Description                   |
-| ----------------------- | ----------------------------- |
-| `clean-code`            | Pragmatic coding standards    |
-| `brainstorming`         | Socratic questioning protocol |
-| `plan-writing`          | Task breakdown and WBS        |
-| `systematic-debugging`  | 4-phase debugging             |
-| `testing-patterns`      | Testing pyramid patterns      |
-| `security-fundamentals` | OWASP 2025 security           |
+| Skill | Value Proposition |
+| :--- | :--- |
+| `clean-code` | Ensures code is clean and maintainable. |
+| `brainstorming` | Activates Socratic reasoning for complex problem solving. |
+| `plan-writing` | Detailed planning before any code implementation. |
+| `systematic-debugging` | 4-step evidence-based debugging process. |
+| `security-fundamentals` | OWASP 2025 compliant security checks. |
 
 <br/>
 

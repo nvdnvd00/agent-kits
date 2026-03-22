@@ -51,6 +51,29 @@ npx @neyugn/agent-kits@latest
 
 <br/>
 
+## 🖥️ CLI 命令
+
+```bash
+npx @neyugn/agent-kits              # 启动交互式安装向导
+npx @neyugn/agent-kits --check-updates  # 检查新版本
+npx @neyugn/agent-kits --version        # 显示当前版本
+npx @neyugn/agent-kits --help           # 显示帮助
+```
+
+**有新版本时的输出示例：**
+
+```
+╭─────────────────────────╮
+│  agent-kits v0.5.0     │
+│  Latest:   v0.6.0      │
+╰─────────────────────────╯
+
+  ⚠ Update available! Run below to update:
+  npx @neyugn/agent-kits@latest
+```
+
+<br/>
+
 ## 📌 重要说明
 
 ### IDE 下拉菜单中不显示斜杠命令
@@ -68,41 +91,11 @@ npx @neyugn/agent-kits@latest
 !.agent/workflows/**
 ```
 
-> **推荐：** 将 kit 文件夹从 `.gitignore` 中完全移除并提交它。这是工作区安装的推荐做法。
+> **推荐：** 将 kit 文件夹从 `.gitignore` 中完全移除并提交它。
 
 <br/>
 
 ## ✨ 功能特性
-
-### 🎯 一条命令，任何工具
-
-```bash
-npx @neyugn/agent-kits@latest
-```
-
-```
-  ╭──────────────────────────────────────────────────────────────────────────────╮
-  │                                                                          │
-  │        _     ____  _____  _   _  _____   _  __ ___  _____  ____          │
-  │       / \   / ___|| ____|| \ | ||_   _| | |/ /|_ _||_   _|/ ___|         │
-  │      / _ \ | |  _ |  _|  |  \| |  | |   | ' /  | |   | |  \___ \         │
-  │     / ___ \| |_| || |___ | |\  |  | |   | . \  | |   | |   ___) |        │
-  │    /_/   \_\\____||_____||_| \_|  |_|   |_|\_\|___|  |_|  |____/         │
-  │                                                                          │
-  │           ⚡  The Universal AI Agent Toolkit  ⚡                           │
-  │                                                                          │
-  ╯──────────────────────────────────────────────────────────────────────────────╯
-
-  SETUP WIZARD
-
-◆  🤖 您正在使用哪个 AI 工具？
-│  ● Antigravity (.agent/)
-│  ○ Cursor (.cursor/)
-
-◆  📂 您想安装在哪里？
-│  ● Workspace（当前项目）
-│  ○ Global（所有项目）
-```
 
 ### 🌍 Global vs Workspace 安装
 
@@ -141,7 +134,6 @@ npx @neyugn/agent-kits@latest
 | Claude Code | `.claude/skills/` | `~/.claude/` | 🔜 即将推出 |
 | Gemini CLI  | `.gemini/skills/` | `~/.gemini/` | 🔜 即将推出 |
 | Codex CLI   | `.codex/skills/`  | `~/.codex/`  | 🔜 即将推出 |
-| 自定义      | 可配置            | `~/.ai/`     | 🔜 即将推出 |
 
 > **注意：** 标记为 🔜 即将推出的工具已纳入未来版本计划。基础架构已就绪，但这些工具需要额外的测试和配置。
 
@@ -157,78 +149,69 @@ npx @neyugn/agent-kits@latest
 
 <br/>
 
-## 🔍 Filter Skill（技能过滤功能）
+## 🔍 智能过滤功能 (工作区分析)
 
-**Filter Skill** 通过自动检测项目的技术栈并只启用相关技能来解决"技能过载"问题。
+**Filter** 功能是 Agent Kits 的 "大脑"，旨在确保您的 AI 助手始终保持敏锐和专注。系统会自动分析您的工作区，仅启用必要的技能，而不是让 AI 处理数十个无关的指令（技能）。
 
-### 使用方法
+### 为什么需要过滤？
 
-```bash
-/filter
-```
+随着项目的复杂化，向 AI 提供过多的指令（系统提示词）会导致：
+- **上下文膨胀 (Context Bloat)**：导致 AI 容易混淆且响应变慢。
+- **注意力分散**：AI 可能会推荐一种框架的模式到另一种框架中（例如在正在使用 CSS Modules 的项目中推荐 Tailwind v4 模式）。
+- **Token 浪费**：发送冗余指令会增加 API 使用成本。
 
-### 工作原理
+### `/filter` 的工作机制
 
-| 阶段          | 描述                                                            |
-| ------------- | --------------------------------------------------------------- |
-| **1. 检测**   | 扫描配置文件（`package.json`、`pubspec.yaml`、`Dockerfile` 等） |
-| **2. 推荐**   | 将检测到的技术栈映射到所需技能                                  |
-| **3. 确认**   | 显示更改并询问未来的技术栈计划                                  |
-| **4. 持久化** | 将配置保存到 `.agent/profile.json`                              |
+系统采用多层扫描机制来提供最佳建议：
 
-### 示例
+1.  **技术栈检测**：扫描项目标识文件（`package.json`、`go.mod`、`requirements.txt`、`composer.json`、`Cargo.toml` 等）。
+2.  **结构分析**：检查特征目录（如 Next.js App Router 的 `src/app`、移动端的 `android/` 等）。
+3.  **代理与技能映射**：将检测到的技术栈与 Agent Kits 库进行对比，选出最相关的专家级代理 (Agents) 和核心能力 (Skills)。
+4.  **配置文件优化**：创建或更新 `.agent/profile.json` 文件，精准配置 AI 可以访问的内容。
+
+### 分析报告示例
 
 ```markdown
-## 🔍 工作区分析完成
+## 🔍 工作区分析：电商项目 (Next.js + NestJS)
 
 **检测到的技术栈：**
-| 类别 | 技术 |
-| --------- | ----------------------- |
-| 语言 | TypeScript |
-| 框架 | Next.js 14 (App Router) |
-| 样式 | Tailwind CSS v4 |
-| 数据库 | PostgreSQL (Prisma) |
+- 前端：`Next.js 14`, `Tailwind CSS`, `Zustand`
+- Backend: `NestJS`, `PostgreSQL`, `Prisma`
+- 运维：`Docker`, `GitHub Actions`
 
-**建议启用的技能：**
-| 技能 | 原因 |
-| ----------------- | ------------------------ |
-| react-patterns | 检测到 Next.js |
-| tailwind-patterns | 发现 tailwind.config |
-| postgres-patterns | Prisma + PostgreSQL |
+**✅ 已启用的代理 (Specialists)：**
+- `frontend-specialist`：针对 Next.js 和 Tailwind 进行了优化。
+- `backend-specialist`：精通 NestJS 架构。
+- `database-specialist`：支持 Prisma 查询优化。
+- `devops-engineer`：管理 Docker 和 CI/CD 流程。
 
-**建议禁用的技能：**
-| 技能 | 原因 |
-| ---------------- | ------------------------ |
-| flutter-patterns | 未找到 pubspec.yaml |
-| mobile-design | 未检测到移动端配置 |
+**🧩 已加载的技能：**
+- `react-patterns`, `tailwind-patterns`, `nodejs-best-practices`, `postgres-patterns`, `docker-patterns`
 
-**问题：**
-
-1. 您是否同意上述更改？（是/否/自定义）
-2. 您是否计划在未来添加其他技术栈？
+**🚫 已隐藏的技能 (减少噪音)：**
+- `flutter-patterns`, `mobile-design`, `aws-patterns` (本项目未使用)
 ```
 
-### 命令
+### 控制命令
 
 ```bash
-/filter                           # 分析并过滤技能
-/filter --force-enable ai-rag     # 强制启用特定技能
-/filter --force-disable mobile    # 强制禁用特定技能
-/filter --reset                   # 重置为默认（启用全部）
+/filter                           # 重新扫描工作区并自动更新
+/filter --force-enable ai-rag     # 强制启用 RAG 技能（无论技术栈如何）
+/filter --force-disable mobile    # 强制禁用移动端相关技能
+/filter --reset                   # 重置为初始状态（启用全部）
 ```
 
-### 核心技能（永不禁用）
+### 核心技能 (始终就绪)
 
-无论技术栈如何，这些技能始终启用：
+某些基础技能和核心代理将永远不会被禁用，以确保系统级的逻辑思考能力：
 
-| 技能                    | 描述               |
-| ----------------------- | ------------------ |
-| `clean-code`            | 实用编码标准       |
-| `brainstorming`         | 苏格拉底式提问协议 |
-| `plan-writing`          | 任务分解和 WBS     |
-| `systematic-debugging`  | 4阶段调试          |
-| `testing-patterns`      | 测试金字塔模式     |
-| `security-fundamentals` | OWASP 2025 安全    |
+| 技能 | 核心价值 |
+| :--- | :--- |
+| `clean-code` | 确保代码整洁且易于维护。 |
+| `brainstorming` | 激活苏格拉底式思维以解决复杂问题。 |
+| `plan-writing` | 在执行任何代码之前进行详细规划。 |
+| `systematic-debugging` | 基于证据的 4 步骤系统化调试流程。 |
+| `security-fundamentals` | 符合 OWASP 2025 标准的安全检查。 |
 
 <br/>
 
@@ -326,8 +309,6 @@ npx @neyugn/agent-kits@latest
 | `/deploy`        | 生产部署               |
 | `/orchestrate`   | 多代理协调             |
 | `/ui-ux-pro-max` | UI/UX 设计智能         |
-
-> **注意：** `/filter` 命令属于 **Common Skills Layer**（见下文），在所有工具包中可用。
 
 </details>
 

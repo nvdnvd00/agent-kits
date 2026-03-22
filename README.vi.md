@@ -51,6 +51,29 @@ npx @neyugn/agent-kits@latest
 
 <br/>
 
+## 🖥️ Các lệnh CLI
+
+```bash
+npx @neyugn/agent-kits                  # Khởi động installer tương tác
+npx @neyugn/agent-kits --check-updates  # Kiểm tra phiên bản mới
+npx @neyugn/agent-kits --version        # Hiện phiên bản hiện tại
+npx @neyugn/agent-kits --help           # Hiện trợ giúp
+```
+
+**Ví dụ output khi có phiên bản mới:**
+
+```
+╭─────────────────────────╮
+│  agent-kits v0.5.0     │
+│  Latest:   v0.6.0      │
+╰─────────────────────────╯
+
+  ⚠ Update available! Run below to update:
+  npx @neyugn/agent-kits@latest
+```
+
+<br/>
+
 ## 📌 Lưu ý quan trọng
 
 ### Slash commands không hiện trong dropdown của IDE
@@ -68,47 +91,17 @@ Nếu `.agent/` (hoặc `.cursor/`, `.opencode/`, v.v.) bị thêm vào `.gitign
 !.agent/workflows/**
 ```
 
-> **Khuyến nghị:** Xóa thư mục kit khỏi `.gitignore` và commit nó vào repo. Đây là cách tiếp cận được khuyến nghị cho cài đặt workspace.
+> **Khuyến nghị:** Xóa thư mục kit khỏi `.gitignore` và commit nó cùng với code của bạn.
 
 <br/>
 
 ## ✨ Tính năng
 
-### 🎯 Một lệnh, mọi công cụ
-
-```bash
-npx @neyugn/agent-kits@latest
-```
-
-```
-  ╭──────────────────────────────────────────────────────────────────────────────╮
-  │                                                                          │
-  │        _     ____  _____  _   _  _____   _  __ ___  _____  ____          │
-  │       / \   / ___|| ____|| \ | ||_   _| | |/ /|_ _||_   _|/ ___|         │
-  │      / _ \ | |  _ |  _|  |  \| |  | |   | ' /  | |   | |  \___ \         │
-  │     / ___ \| |_| || |___ | |\  |  | |   | . \  | |   | |   ___) |        │
-  │    /_/   \_\\____||_____||_| \_|  |_|   |_|\_\|___|  |_|  |____/         │
-  │                                                                          │
-  │           ⚡  The Universal AI Agent Toolkit  ⚡                           │
-  │                                                                          │
-  ╯──────────────────────────────────────────────────────────────────────────────╯
-
-  SETUP WIZARD
-
-◆  🤖 Bạn đang sử dụng công cụ AI nào?
-│  ● Antigravity (.agent/)
-│  ○ Cursor (.cursor/)
-
-◆  📂 Bạn muốn cài đặt ở đâu?
-│  ● Workspace (Dự án hiện tại)
-│  ○ Global (Tất cả dự án)
-```
-
 ### 🌍 Global vs Workspace
 
 | Chế độ      | Vị trí        | Use Case                      |
 | ----------- | ------------- | ----------------------------- |
-| � Workspace | `./{{tool}}/` | Cấu hình riêng cho từng dự án |
+| 📁 Workspace | `./{{tool}}/` | Cấu hình riêng cho từng dự án |
 | 🌍 Global   | `~/{{tool}}/` | Dùng chung cho tất cả dự án   |
 
 **Đường dẫn Global theo công cụ:**
@@ -157,35 +150,69 @@ Hoạt động trên **Windows**, **macOS**, và **Linux** với đường dẫn
 
 <br/>
 
-## 🔍 Filter Skill (Tính năng lọc Skills)
+## 🔍 Tính năng Filter thông minh (Phân tích Workspace)
 
-**Filter Skill** giải quyết vấn đề "quá tải skills" bằng cách tự động phát hiện techstack của dự án và chỉ bật các skills liên quan.
+Tính năng **Filter** là "trái tim" giúp Agent Kits trở nên mạnh mẽ và thông minh. Thay vì bắt AI phải đọc hàng chục file hướng dẫn (skills) không liên quan, hệ thống sẽ tự động phân tích workspace của bạn để bật đúng những gì cần thiết.
 
-### Cách sử dụng
+### Tại sao cần Filter?
 
-```bash
-/filter
-```
+Khi một dự án trở nên phức tạp, việc cung cấp quá nhiều chỉ dẫn (System Prompt) cho AI sẽ dẫn đến:
+- **Quá tải ngữ cảnh (Context Bloat)**: Khiến AI dễ bị nhầm lẫn và phản hồi chậm.
+- **Mất tập trung**: AI có thể gợi ý các pattern của framework này cho framework khác (ví dụ gợi ý Tailwind trong dự án đang dùng CSS Modules).
+- **Tốn token**: Gửi các instruction dư thừa làm tăng chi phí sử dụng API.
 
-### Quy trình hoạt động
+### Cơ chế hoạt động của `/filter`
 
-| Phase            | Mô tả                                                                     |
-| ---------------- | ------------------------------------------------------------------------- |
-| **1. Phát hiện** | Quét các file config (`package.json`, `pubspec.yaml`, `Dockerfile`, etc.) |
-| **2. Đề xuất**   | Map techstack đã phát hiện với các skills cần thiết                       |
-| **3. Xác nhận**  | Hiển thị thay đổi và hỏi về kế hoạch techstack tương lai                  |
-| **4. Lưu trữ**   | Lưu profile vào `.agent/profile.json`                                     |
+Hệ thống sử dụng cơ chế quét đa tầng để đưa ra đề xuất tối ưu nhất:
 
-### Ví dụ
+1.  **Phát hiện Techstack**: Quét các file định danh dự án (`package.json`, `go.mod`, `requirements.txt`, `composer.json`, `Cargo.toml`, v.v.).
+2.  **Phân tích Cấu trúc**: Kiểm tra sự hiện diện của các thư mục đặc trưng (`src/app` cho Next.js App Router, `android/` cho Mobile, v.v.).
+3.  **Lập bản đồ Agent & Skill**: Đối chiếu techstack với kho dữ liệu Agent Kits để chọn ra các chuyên gia (Agents) và kỹ năng (Skills) phù hợp nhất.
+4.  **Tinh chỉnh Profile**: Tạo hoặc cập nhật file `.agent/profile.json` để cấu hình chính xác những gì AI được phép truy cập.
+
+### Ví dụ về báo cáo phân tích
 
 ```markdown
-## 🔍 Phân tích Workspace hoàn tất
+## 🔍 Phân tích Workspace: Dự án E-commerce (Next.js + NestJS)
 
-**Techstack đã phát hiện:**
-| Danh mục | Công nghệ |
-| --------- | ----------------------- |
-| Ngôn ngữ | TypeScript |
-| Framework | Next.js 14 (App Router) |
+**Techstack được phát hiện:**
+- Frontend: `Next.js 14`, `Tailwind CSS`, `Zustand`
+- Backend: `NestJS`, `PostgreSQL`, `Prisma`
+- DevOps: `Docker`, `GitHub Actions`
+
+**✅ Các Agent được kích hoạt (Specialists):**
+- `frontend-specialist`: Tối ưu cho Next.js và Tailwind.
+- `backend-specialist`: Am hiểu cấu trúc NestJS.
+- `database-specialist`: Hỗ trợ tối ưu Prisma queries.
+- `devops-engineer`: Quản lý Docker và CI/CD.
+
+**🧩 Các Skill được load:**
+- `react-patterns`, `tailwind-patterns`, `nodejs-best-practices`, `postgres-patterns`, `docker-patterns`.
+
+**🚫 Các Skill bị ẩn (Để giảm nhiễu):**
+- `flutter-patterns`, `mobile-design`, `aws-patterns` (Dự án không sử dụng).
+```
+
+### Các lệnh điều khiển
+
+```bash
+/filter                           # Quét lại workspace và tự động cập nhật
+/filter --force-enable ai-rag     # Luôn bật skill RAG bất kể techstack
+/filter --force-disable mobile    # Luôn tắt các skill liên quan đến mobile
+/filter --reset                   # Quay lại trạng thái mặc định (bật tất cả)
+```
+
+### Core Skills (Luôn luôn sẵn sàng)
+
+Một số kỹ năng nền tảng và Agent cốt lõi sẽ không bao giờ bị tắt để đảm bảo khả năng tư duy hệ thống:
+
+| Skill | Giá trị mang lại |
+| :--- | :--- |
+| `clean-code` | Đảm bảo code sạch, dễ bảo trì. |
+| `brainstorming` | Kích hoạt tư duy Socratic để giải quyết vấn đề phức tạp. |
+| `plan-writing` | Lập kế hoạch chi tiết trước khi bắt đầu viết code. |
+| `systematic-debugging` | Quy trình gỡ lỗi 4 bước có bằng chứng rõ ràng. |
+| `security-fundamentals` | Kiểm tra bảo mật theo tiêu chuẩn OWASP 2025. |
 | Styling | Tailwind CSS v4 |
 | Database | PostgreSQL (Prisma) |
 
