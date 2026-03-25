@@ -17,7 +17,9 @@ trigger: always_on
 
 > **MANDATORY:** Read agent file + skills BEFORE any implementation.
 
-Agent activated → You MUST call `view_file` on the chosen agent's `.agent/agents/NAME.md` EVERY TIME to adopt its traits and instructions.
+Agent activated → Check frontmatter `skills:` → Read SKILL.md → Apply.
+
+**Protocol:** Analyze Request → Select Specialist → Load Agent File IF context switch or first activation → Announce → Execute.
 
 **Priority:** P0 (GEMINI.md) > P1 (Agent.md) > P2 (SKILL.md). All binding.
 

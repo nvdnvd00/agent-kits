@@ -1,0 +1,34 @@
+{
+  "_comment": "Compact routing index — ~500 bytes vs 17KB ARCHITECTURE.md. Used for fast agent selection.",
+  "version": "1.0",
+  "intents": {
+    "question":     { "agent": "orchestrator",       "readFile": false },
+    "plan":         { "agent": "project-planner",    "readFile": true },
+    "create":       { "agent": "orchestrator",       "readFile": true },
+    "debug":        { "agent": "debugger",           "readFile": true },
+    "test":         { "agent": "test-engineer",      "readFile": true },
+    "deploy":       { "agent": "devops-engineer",    "readFile": true },
+    "complex":      { "agent": "orchestrator",       "readFile": true }
+  },
+  "domains": {
+    "frontend":     { "agent": "frontend-specialist",    "skills": ["react-patterns", "typescript-patterns", "frontend-design"] },
+    "backend":      { "agent": "backend-specialist",     "skills": ["api-patterns", "nodejs-best-practices"] },
+    "mobile":       { "agent": "mobile-developer",       "skills": ["mobile-design", "react-native-patterns"] },
+    "database":     { "agent": "database-specialist",    "skills": ["database-design", "postgres-patterns"] },
+    "devops":       { "agent": "devops-engineer",        "skills": ["docker-patterns", "github-actions"] },
+    "security":     { "agent": "security-auditor",       "skills": ["security-fundamentals", "auth-patterns"] },
+    "realtime":     { "agent": "realtime-specialist",    "skills": ["realtime-patterns"] },
+    "queue":        { "agent": "queue-specialist",       "skills": ["queue-patterns"] },
+    "ai":           { "agent": "ai-engineer",            "skills": ["ai-rag-patterns", "prompt-engineering"] },
+    "cloud":        { "agent": "cloud-architect",        "skills": ["aws-patterns", "kubernetes-patterns"] },
+    "data":         { "agent": "data-engineer",          "skills": ["database-design", "postgres-patterns"] },
+    "i18n":         { "agent": "i18n-specialist",        "skills": ["i18n-localization"] },
+    "ux":           { "agent": "ux-researcher",          "skills": ["frontend-design", "accessibility-patterns"] },
+    "docs":         { "agent": "documentation-writer",   "skills": ["documentation-templates", "mermaid-diagrams"] },
+    "review":       { "agent": "code-reviewer",          "skills": ["clean-code", "testing-patterns"] },
+    "performance":  { "agent": "performance-analyst",    "skills": ["performance-profiling"] },
+    "multitenant":  { "agent": "multi-tenant-architect", "skills": ["multi-tenancy"] },
+    "integration":  { "agent": "integration-specialist", "skills": ["api-patterns"] }
+  },
+  "coreSkills": ["clean-code", "testing-patterns", "security-fundamentals", "brainstorming", "plan-writing", "systematic-debugging"]
+}

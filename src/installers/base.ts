@@ -236,9 +236,48 @@ export async function copyCommonAssets(
     aiTool.path,
   );
 
+  // Copy architecture directory if it exists
+  const commonArchitecturePath = path.join(COMMON_DIR, "architecture");
+  if (await isDirectory(commonArchitecturePath)) {
+    const targetArchitecturePath = path.join(kitTargetPath, "architecture");
+    await fs.mkdir(targetArchitecturePath, { recursive: true });
+    await copyDirectory(commonArchitecturePath, targetArchitecturePath, [], aiTool.path);
+  }
+
+  // Copy routing.json if it exists
+  const commonRoutingPath = path.join(COMMON_DIR, "routing.json");
+  if (await fileExists(commonRoutingPath)) {
+    const targetRoutingPath = path.join(kitTargetPath, "routing.json");
+    await fs.copyFile(commonRoutingPath, targetRoutingPath);
+  }
+
   // Copy COMMON.md
   const targetCommonDoc = path.join(kitTargetPath, "COMMON.md");
   const commonContent = await fs.readFile(commonDocPath, "utf-8");
   const updatedCommonContent = replaceToolPaths(commonContent, aiTool.path);
   await fs.writeFile(targetCommonDoc, updatedCommonContent);
+}
+
+/**
+ * Helper to check if file exists
+ */
+async function fileExists(filePath: string): Promise<boolean> {
+  try {
+    await fs.access(filePath);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Helper to check if a path is a directory
+ */
+async function isDirectory(dirPath: string): Promise<boolean> {
+  try {
+    const stats = await fs.stat(dirPath);
+    return stats.isDirectory();
+  } catch {
+    return false;
+  }
 }

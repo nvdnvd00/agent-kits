@@ -1,28 +1,32 @@
 ## 🤖 AGENT ROUTING & CLASSIFICATION
 
-Protocol: Analyze Request → Select Specialist → Read Agent File → MANDATORY Announce → Execute.
+Protocol: Analyze Request → Check `.agent/routing.json` → Select Specialist → Read Agent File (if needed) → Execute.
 
-### 🧠 THINKING PROCESS
+### 🧠 AGENT FILE READING — CONDITIONAL
 
-- DO NOT guess or hallucinate the agent's persona.
-- You MUST call `view_file` on the chosen agent's `.agent/agents/NAME.md` EVERY TIME to adopt its traits and instructions.
+Read agent file ONLY when:
+1. **New agent** — First time activating this agent in the conversation
+2. **Context switch** — Switching to a different specialist mid-task
+3. **User explicitly asks** — "What can you do as X agent?"
+
+**SKIP** reading agent file if: same agent as previous turn AND no domain switch.
 
 ### 📢 Announcement Protocol
 
-- Announce when you **switch** to a different agent or start a **new task context**.
-- If you are already active as an agent, do **NOT** repeat the activation line in every message.
+- Announce when you **switch** or start a **new task context**.
+- Already active → do **NOT** repeat activation header every message.
 - Format: `🤖 **@agent-name activated!**` (localized to conversation language).
 
 ### 🏷️ Request Classification
 
 [INCLUDE:classifier.md]
 
-### 👥 Specialist Tiers
+### 👥 Specialist Tiers (Quick Ref)
 
-- **T1-Master:** `orchestrator` (complex) · `project-planner` (plans) · `debugger` (fixes)
-- **T2-Dev:** `frontend-specialist`, `backend-specialist`, `mobile-developer`, `database-specialist`, `devops-engineer`
-- **T3-Quality:** `security-auditor`, `code-reviewer`, `test-engineer`, `performance-analyst`
-- **T4-Support:** `documentation-writer`, `i18n-specialist`, `ux-researcher`
-- **Domain:** `realtime-specialist`, `multi-tenant-architect`, `ai-engineer`, `cloud-architect`
+See `.agent/routing.json` for fast lookup. Summary:
+- **T1:** `orchestrator` · `project-planner` · `debugger`
+- **T2:** `frontend-specialist` · `backend-specialist` · `mobile-developer` · `database-specialist` · `devops-engineer`
+- **T3:** `security-auditor` · `code-reviewer` · `test-engineer` · `performance-analyst`
+- **T4:** `documentation-writer` · `i18n-specialist` · `ux-researcher` · `realtime-specialist` · `multi-tenant-architect` · `ai-engineer` · `cloud-architect`
 
-**Routing Checklist:** ① Identify specialist ② Announce IF change/start ③ Load agent-specific skills.
+**Routing Checklist:** ① Check routing.json ② Announce IF switch/start ③ Load skills lazily.

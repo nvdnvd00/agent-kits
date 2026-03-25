@@ -19,6 +19,11 @@ The Common Skills Layer contains special skills that are shared across **all kit
 ```plaintext
 common/
 ├── COMMON.md                    # This file - documentation
+├── routing.json                 # PRE-COMPUTED: Agent + Skill Index
+├── architecture/                # Modular ARCHITECTURE
+│   ├── agents.md                # Full Agents Table
+│   ├── scripts.md               # Full Scripts Table
+│   └── profile-optimization.md   # [Phase 3.1] Profile system
 ├── skills/                      # Common skills
 │   ├── scan-techstack/          # Techstack detection skill
 │   │   ├── SKILL.md
@@ -141,6 +146,17 @@ The `/filter` workflow saves results to `.agent/profile.json`:
   "futureTechstack": ["react-native", "kubernetes"]
 }
 ```
+
+---
+
+## ⚡ Token Efficiency Layer (2026 Standard)
+
+This toolkit implements **Token Efficiency** protocols to reduce LLM overhead:
+
+1. **Routing Index (`routing.json`)**: A pre-computed index for O(1) agent/skill lookup, replacing broad table scans.
+2. **Modular Architecture**: Detailed references (`agents.md`, `scripts.md`) are lazy-loaded only when requested.
+3. **Skill Summarization**: Skills utilize `SKILL.summary.md` for planning and full `SKILL.md` only for implementation.
+4. **Context Memory Protocol**: Tracks `@active_agent` and `@loaded_skills` in the session to prevent redundant file reads.
 
 ---
 
