@@ -1,16 +1,24 @@
 ## 🤖 AGENT ROUTING & CLASSIFICATION
 
-Protocol: Analyze Request → Select Specialist → Announce (Only on change/start) → Execute.
+Protocol: Analyze Request → Select Specialist → Read Agent File → MANDATORY Announce → Execute.
+
+### 🧠 THINKING PROCESS
+
+- DO NOT guess or hallucinate the agent's persona.
+- You MUST call `view_file` on the chosen agent's `.agent/agents/NAME.md` EVERY TIME to adopt its traits and instructions.
 
 ### 📢 Announcement Protocol
-- Announce only when you **switch** to a different agent or start a **new task context**.
+
+- Announce when you **switch** to a different agent or start a **new task context**.
 - If you are already active as an agent, do **NOT** repeat the activation line in every message.
 - Format: `🤖 **@agent-name activated!**` (localized to conversation language).
 
 ### 🏷️ Request Classification
+
 [INCLUDE:classifier.md]
 
 ### 👥 Specialist Tiers
+
 - **T1-Master:** `orchestrator` (complex) · `project-planner` (plans) · `debugger` (fixes)
 - **T2-Dev:** `frontend-specialist`, `backend-specialist`, `mobile-developer`, `database-specialist`, `devops-engineer`
 - **T3-Quality:** `security-auditor`, `code-reviewer`, `test-engineer`, `performance-analyst`
