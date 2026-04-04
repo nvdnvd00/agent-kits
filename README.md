@@ -59,6 +59,20 @@ That's it! The interactive installer will guide you through:
 3. Selecting which kits to install
 4. Confirming the installation path
 
+### 🤖 Agent Activation Protocol
+
+When you invoke an agent, the system follows a 5-step protocol:
+
+```
+1. Classify intent → select agent
+2. Announce: 🤖 **@{agent} activated!**
+3. Read: .claude/agents/{agent}.md
+4. Load skills from frontmatter → read .claude/skills/{skill}/SKILL.md
+5. Execute
+```
+
+**Priority:** DEBUG > CREATE > PLAN > QUESTION
+
 <br/>
 
 ## 🖥️ CLI Commands
@@ -141,7 +155,7 @@ If the installer detects an existing installation, you'll be prompted:
 | Antigravity | `.agent/skills/`  | `~/.agent/`           | ✅ Fully Supported |
 | OpenCode    | `.opencode/`      | `~/.config/opencode/` | ✅ Fully Supported |
 | Cursor      | `.cursor/skills/` | `~/.cursor/`          | ✅ Fully Supported |
-| Claude Code | `.claude/skills/` | `~/.claude/`          | 🔜 Coming Soon     |
+| Claude Code | `.claude/skills/` | `~/.claude/`          | ✅ Fully Supported |
 | Gemini CLI  | `.gemini/skills/` | `~/.gemini/`          | 🔜 Coming Soon     |
 | Codex CLI   | `.codex/skills/`  | `~/.codex/`           | 🔜 Coming Soon     |
 | Custom      | Configurable      | `~/.ai/`              | 🔜 Coming Soon     |

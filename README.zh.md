@@ -49,6 +49,20 @@ npx @neyugn/agent-kits@latest
 3. 选择要安装的工具包
 4. 确认安装路径
 
+### 🤖 代理激活协议
+
+当您激活一个代理时，系统遵循 5 步协议：
+
+```
+1. 分类 intent → 选择代理
+2. 宣布: 🤖 **@{agent} activated!**
+3. 读取: .claude/agents/{agent}.md
+4. 从 frontmatter 加载技能 → 读取 .claude/skills/{skill}/SKILL.md
+5. 执行
+```
+
+**优先级:** DEBUG > CREATE > PLAN > QUESTION
+
 <br/>
 
 ## 🖥️ CLI 命令
@@ -131,7 +145,7 @@ npx @neyugn/agent-kits --help           # 显示帮助
 | ----------- | ----------------- | ------------ | ----------- |
 | Antigravity | `.agent/skills/`  | `~/.agent/`  | ✅ 完全支持 |
 | Cursor      | `.cursor/skills/` | `~/.cursor/` | ✅ 完全支持 |
-| Claude Code | `.claude/skills/` | `~/.claude/` | 🔜 即将推出 |
+| Claude Code | `.claude/skills/` | `~/.claude/` | ✅ 完全支持 |
 | Gemini CLI  | `.gemini/skills/` | `~/.gemini/` | 🔜 即将推出 |
 | Codex CLI   | `.codex/skills/`  | `~/.codex/`  | 🔜 即将推出 |
 

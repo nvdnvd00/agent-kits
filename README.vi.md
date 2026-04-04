@@ -49,6 +49,20 @@ npx @neyugn/agent-kits@latest
 3. Chọn kits cần cài đặt
 4. Xác nhận đường dẫn cài đặt
 
+### 🤖 Agent Activation Protocol
+
+Khi bạn kích hoạt một agent, hệ thống tuân theo protocol 5 bước:
+
+```
+1. Phân loại intent → chọn agent
+2. Thông báo: 🤖 **@{agent} activated!**
+3. Đọc: .claude/agents/{agent}.md
+4. Load skills từ frontmatter → đọc .claude/skills/{skill}/SKILL.md
+5. Thực thi
+```
+
+**Ưu tiên:** DEBUG > CREATE > PLAN > QUESTION
+
 <br/>
 
 ## 🖥️ Các lệnh CLI
@@ -131,7 +145,7 @@ Nếu installer phát hiện cài đặt đã tồn tại, bạn sẽ được h
 | ----------- | ------------------- | ---------------- | ---------------- |
 | Antigravity | `.agent/skills/`    | `~/.agent/`      | ✅ Hỗ trợ đầy đủ |
 | Cursor      | `.cursor/skills/`   | `~/.cursor/`     | ✅ Hỗ trợ đầy đủ |
-| Claude Code | `.claude/skills/`   | `~/.claude/`     | 🔜 Sắp ra mắt    |
+| Claude Code | `.claude/skills/`   | `~/.claude/`     | ✅ Hỗ trợ đầy đủ |
 | Gemini CLI  | `.gemini/skills/`   | `~/.gemini/`     | 🔜 Sắp ra mắt    |
 | Codex CLI   | `.codex/skills/`    | `~/.codex/`      | 🔜 Sắp ra mắt    |
 | Tùy chỉnh   | Có thể cấu hình     | `~/.ai/`         | 🔜 Sắp ra mắt    |

@@ -64,7 +64,7 @@ export const AI_TOOLS: AITool[] = [
     rulesFile: "CLAUDE.md",
     kitRulesFile: "CLAUDE.md",
     rulesInsideKit: true, // Claude reads from .claude/CLAUDE.md (2025 standard)
-    available: false, // Coming soon
+    available: true,
   },
   {
     id: "gemini",
